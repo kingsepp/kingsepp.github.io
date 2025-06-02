@@ -2,20 +2,38 @@
 <html lang="de">
 <head>
     <meta charset="UTF-8">
-    <title>{{ page.title }}</title>
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}"> </head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ page.title | default: site.title }}</title>
+    <meta name="description" content="Kingsepp - Ihr Partner für Cloud Consulting, IT-Expertise und moderne Softwareentwicklung. AWS-zertifiziert mit 5+ Jahren Erfahrung.">
+    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+    <link rel="canonical" href="{{ page.url | absolute_url }}">
+</head>
 <body>
-    <header>
-        {% include header.html %}
-    </header>
+    <!-- Navigation -->
+    <nav>
+        <div class="nav-container">
+            <a href="/" class="logo">Kingsepp</a>
+            <ul class="nav-links">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#about">Über mich</a></li>
+                <li><a href="#services">Services</a></li>
+                <li><a href="#contact">Kontakt</a></li>
+            </ul>
+        </div>
+    </nav>
 
+    <!-- Main Content -->
     <main>
         {{ content }}
     </main>
 
+    <!-- Footer -->
     <footer>
-        {% include footer.html %}
+        <div class="container">
+            <p>© 2025 Kingsepp – Cloud Consulting & IT-Expertise</p>
+        </div>
     </footer>
-    <script src="/assets/js/main.js" defer></script>
+
+    <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </body>
 </html>
