@@ -96,6 +96,7 @@ robots: noindex, nofollow
                 </p>
             </div>
 
+<<<<<<< HEAD
             <div class="feature-card">
                 <h3 class="feature-title">⚡ Asynchrone Verarbeitung</h3>
                 <p class="feature-description">
@@ -525,3 +526,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 </script>
+
+## Demo
+
+<p><strong>Hinweis:</strong> Das Demo-Video ist temporär nicht verfügbar. Es wird in Kürze über Git LFS wieder bereitgestellt.</p>

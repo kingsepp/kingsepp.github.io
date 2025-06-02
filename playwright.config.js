@@ -21,11 +21,11 @@ export default defineConfig({
   workers: process.env.CI ? 1 : undefined,
 
   /* Global test timeout */
-  timeout: 60 * 1000,
+  timeout: 30 * 1000,
 
   /* Global expect timeout */
   expect: {
-    timeout: 10 * 1000,
+    timeout: 5 * 1000,
   },
 
   /* Test output directory */

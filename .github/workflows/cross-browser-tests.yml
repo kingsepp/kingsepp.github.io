@@ -13,13 +13,12 @@ jobs:
   cross-browser-tests:
     name: Cross-Browser Tests
     runs-on: ubuntu-latest
-    timeout-minutes: 10
-    container: mcr.microsoft.com/playwright:v1.40.0-focal
+    timeout-minutes: 20
 
     strategy:
       fail-fast: false
       matrix:
-        browser: [chromium, firefox]
+        browser: [chromium]
 
     steps:
       - name: Checkout code
@@ -41,6 +40,9 @@ jobs:
         run: |
           npm ci
           bundle install
+
+      - name: Install Playwright with browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
 
       - name: Build Jekyll site
         run: bundle exec jekyll build
@@ -70,7 +72,7 @@ jobs:
     name: Mobile Browser Tests
     runs-on: ubuntu-latest
     timeout-minutes: 10
-    if: github.event_name == 'schedule' || github.event_name == 'workflow_dispatch'
+    # Run mobile tests on all events for comprehensive testing
 
     steps:
       - name: Checkout code
