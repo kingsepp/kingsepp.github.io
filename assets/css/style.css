@@ -518,16 +518,75 @@ footer p {
     }
 }
 
-@media (max-width: 480px) {
-    .hero-main h1 {
-        font-size: 2.5rem;
+/* ===========================
+   MOBILE NAVIGATION
+   =========================== */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 20px;
+    cursor: pointer;
+    z-index: 1100;
+}
+
+.hamburger span {
+    display: block;
+    height: 3px;
+    background: #cbd5e1;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+}
+
+.nav-links-mobile {
+    display: none;
+    flex-direction: column;
+    position: fixed;
+    top: 60px;
+    right: 0;
+    background: rgba(15, 23, 42, 0.95);
+    width: 200px;
+    padding: 1rem;
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+}
+
+.nav-links-mobile a {
+    color: #cbd5e1;
+    text-decoration: none;
+    padding: 0.8rem 0;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+
+.nav-links-mobile a:hover {
+    color: #60a5fa;
+}
+
+.hamburger.active span:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.hamburger.active span:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active span:nth-child(3) {
+    transform: rotate(-45deg) translate(5px, -5px);
+}
+
+.nav-links-mobile.active {
+    display: flex;
+}
+
+/* Show hamburger menu on mobile */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
     }
-    
-    .about-stats {
-        grid-template-columns: 1fr;
-    }
-    
-    .stat-card {
-        padding: 1.5rem 1rem;
+
+    .nav-links {
+        display: none;
     }
 }

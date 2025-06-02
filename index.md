@@ -3,6 +3,29 @@ layout: default
 title: Kingsepp - Cloud Consulting & IT-Expertise
 ---
 
+<nav class="nav">
+  <div class="nav-container">
+    <a href="/" class="logo">Kingsepp</a>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <ul class="nav-links">
+      <li><a href="#home">Home</a></li>
+      <li><a href="#about">Über mich</a></li>
+      <li><a href="#services">Kernkompetenzen</a></li>
+      <li><a href="#contact">Kontakt</a></li>
+    </ul>
+    <div class="nav-links-mobile">
+      <a href="#home">Home</a>
+      <a href="#about">Über mich</a>
+      <a href="#services">Kernkompetenzen</a>
+      <a href="#contact">Kontakt</a>
+    </div>
+  </div>
+</nav>
+
 <section id="home" class="hero">
   <div class="hero-background"></div>
   <div class="hero-content">
@@ -85,25 +108,23 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
       <p style="text-align: center; margin-bottom: 2rem; color: #cbd5e1;">
         Bereit für Ihr nächstes Cloud-Projekt? Lassen Sie uns sprechen!
       </p>
-      <form action="https://formspree.io/f/DEINE_FORM_ID" method="POST">
-        <div class="form-group">
-          <label for="name">Name</label>
-          <input type="text" id="name" name="name" placeholder="Ihr Name" required>
-        </div>
-        <div class="form-group">
-          <label for="email">E-Mail</label>
-          <input type="email" id="email" name="_replyto" placeholder="Ihre E-Mail-Adresse" required>
-        </div>
-        <div class="form-group">
-          <label for="company">Unternehmen (optional)</label>
-          <input type="text" id="company" name="company" placeholder="Firmenname">
-        </div>
-        <div class="form-group">
-          <label for="message">Projektbeschreibung</label>
-          <textarea id="message" name="message" rows="5" placeholder="Erzählen Sie mir von Ihrem Projekt..." required></textarea>
-        </div>
-        <button type="submit" class="submit-button">Nachricht senden</button>
-      </form>
+      <div class="form-group">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" placeholder="Ihr Name" required>
+      </div>
+      <div class="form-group">
+        <label for="email">E-Mail</label>
+        <input type="email" id="email" name="email" placeholder="Ihre E-Mail-Adresse" required>
+      </div>
+      <div class="form-group">
+        <label for="company">Unternehmen (optional)</label>
+        <input type="text" id="company" name="company" placeholder="Firmenname">
+      </div>
+      <div class="form-group">
+        <label for="message">Projektbeschreibung</label>
+        <textarea id="message" name="message" rows="5" placeholder="Erzählen Sie mir von Ihrem Projekt..." required></textarea>
+      </div>
+      <button type="submit" class="submit-button">Nachricht senden</button>
     </div>
   </div>
 </section>

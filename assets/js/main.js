@@ -135,6 +135,17 @@ document.addEventListener('DOMContentLoaded', () => {
         const hue = 220 + (scrollPercentage * 40); // Shift from blue to purple
         document.body.style.background = `linear-gradient(135deg, hsl(${hue}, 70%, 8%) 0%, hsl(${hue + 20}, 60%, 12%) 25%, hsl(${hue + 10}, 50%, 18%) 50%, hsl(${hue}, 60%, 10%) 100%)`;
     });
+
+    // Mobile navigation toggle
+    const hamburger = document.querySelector('.hamburger');
+    const mobileNav = document.querySelector('.nav-links-mobile');
+
+    if (hamburger && mobileNav) {
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileNav.classList.toggle('active');
+        });
+    }
 });
 
 // Add performance optimization
@@ -142,3 +153,28 @@ if ('requestIdleCallback' in window) {
     requestIdleCallback(() => {
         // Preload critical resources
         const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = '/assets/css/style.css';
+        link.as = 'style';
+        document.head.appendChild(link);
+
+        const script = document.createElement('script');
+        script.src = '/assets/js/analytics.js'; // Example: analytics script
+        script.defer = true;
+        document.body.appendChild(script);
+    });
+} else {
+    // Fallback for browsers without requestIdleCallback
+    setTimeout(() => {
+        const link = document.createElement('link');
+        link.rel = 'preload';
+        link.href = '/assets/css/style.css';
+        link.as = 'style';
+        document.head.appendChild(link);
+
+        const script = document.createElement('script');
+        script.src = '/assets/js/analytics.js'; // Example: analytics script
+        script.defer = true;
+        document.body.appendChild(script);
+    }, 2000);
+}
