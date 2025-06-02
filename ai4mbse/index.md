@@ -4,7 +4,7 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
 ---
 
 <!-- =========================== NAVIGATION =========================== -->
-<nav>
+<nav class="nav">
   <div class="nav-container">
     <a href="/" class="logo">Kingsepp</a>
     <ul class="nav-links">
@@ -126,15 +126,5 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
 
 <!-- =========================== OPTIONAL: ANIMIERTE PARTIKEL =========================== -->
 <div class="particle-container">
-  <!-- Du kannst hier z. B. 10–20 Partikel einsetzen: -->
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
-  <div class="particle"></div>
   <div class="particle"></div>
 </div>
