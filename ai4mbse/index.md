@@ -25,3 +25,9 @@ Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen 
 2. **ZIP entpacken**  
    Entpacken Sie das ZIP-Paket direkt in folgendes Verzeichnis `C:\Users\YOUR_USERNAME\AppData\Local\.magic.systems.of.systems.architect\2024x\plugins`. Im Plugin Ordner sollte dann ein AI4MBSE Ordner mit allen relevanten Files enthalten sein.
 
+## Demo
+
+<video width="640" height="360" controls>
+  <source src="demo.mp4" type="video/mp4">
+  Ihr Browser unterstützt das Video-Tag nicht.
+</video>
