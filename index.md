@@ -57,7 +57,7 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
           <div class="stat-label">Jahre Erfahrung</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">50+</div>
+          <div class="stat-number">Cloud</div>
           <div class="stat-label">Projekte</div>
         </div>
         <div class="stat-card">
@@ -65,8 +65,8 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
           <div class="stat-label">Zertifiziert</div>
         </div>
         <div class="stat-card">
-          <div class="stat-number">24/7</div>
-          <div class="stat-label">Support</div>
+          <div class="stat-number">CI/CD</div>
+          <div class="stat-label">Devops</div>
         </div>
       </div>
     </div>
