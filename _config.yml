@@ -1,0 +1,11 @@
+﻿title: Kingsepp
+theme: jekyll-theme-slate
+repository: "Kingsepp/kingsepp.github.io"
+
+plugins:
+  - jekyll-paginate
+  - jekyll-sitemap
+
+permalink: /:year/:month/:day/:title/
+paginate_path: /posts/:num/
+paginate: 5
