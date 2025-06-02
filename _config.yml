@@ -1,11 +1,38 @@
 ﻿title: Kingsepp
-# theme: jekyll-theme-slate # <-- Change this line
+description: Cloud Consulting & IT-Expertise für moderne Unternehmen
+url: "https://kingsepp.dev"
+baseurl: ""
+
+# Theme (wenn verwendet)
+# theme: jekyll-theme-slate
+
+# Repository Info
 repository: "Kingsepp/kingsepp.github.io"
 
+# Plugins
 plugins:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-seo-tag
 
+# Pagination
 permalink: /:year/:month/:day/:title/
 paginate_path: /posts/:num/
 paginate: 5
+
+# SEO & Social
+author: Kingsepp
+twitter:
+  username: # Ihr Twitter Handle
+social:
+  name: Kingsepp
+  links:
+    - https://github.com/Kingsepp
+
+# Markdown
+markdown: kramdown
+highlighter: rouge
+
+# Sass
+sass:
+  style: compressed
