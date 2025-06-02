@@ -1,5 +1,5 @@
 ﻿title: Kingsepp
-theme: jekyll-theme-slate
+# theme: jekyll-theme-slate # <-- Change this line
 repository: "Kingsepp/kingsepp.github.io"
 
 plugins:
