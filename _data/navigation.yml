@@ -1,11 +1,13 @@
-main:
-  - title: "Startseite"
-    url: "/"
-  - title: "Über mich"
-    url: "/about/"
-  - title: "Leistungen"
-    url: "/services/"
-  - title: "AI4MBSE"
-    url: "/ai4mbse/"
-  - title: "Kontakt"
-    url: "/contact/"
+<header class="site-header">
+  <nav class="navbar">
+    <div class="container">
+      <a href="/" class="logo">Kingsepp</a>
+      <ul class="nav-menu">
+        <li><a href="#home" class="hero-btn">Home</a></li>
+        <li><a href="#about">Über mich</a></li>
+        <li><a href="#services">Leistungen</a></li>
+        <li><a href="#contact">Kontakt</a></li>
+      </ul>
+    </div>
+  </nav>
+</header>
