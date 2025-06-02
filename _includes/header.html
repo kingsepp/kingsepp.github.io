@@ -1,7 +1,10 @@
 <nav>
   <ul>
-    {% for item in site.data.navigation.main %}
-      <li><a href="{{ item.url | relative_url }}">{{ item.title }}</a></li>
-    {% endfor %}
+    <li><a href="/">Startseite</a></li>
+    <li><a href="/#ueber-mich">Über mich</a></li>
+    <li><a href="/#leistungen">Leistungen</a></li>
+    <!-- Den Punkt AI4MBSE lassen wir raus, weil er eine eigene Seite bleiben soll -->
+    <li><a href="/AI4MBSE/">AI4MBSE</a></li>
+    <li><a href="/#kontakt">Kontakt</a></li>
   </ul>
 </nav>
