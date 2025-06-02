@@ -5,5 +5,7 @@ main:
     url: "/about/"
   - title: "Leistungen"
     url: "/services/"
+  - title: "AI4MBSE"
+    url: "/ai4mbse/"
   - title: "Kontakt"
     url: "/contact/"
