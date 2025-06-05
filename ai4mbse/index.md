@@ -1,20 +1,20 @@
 ---
 layout: default
 title: AI4MBSE Plugin – Download & Installation
-description: Advanced AI plugin for Cameo Systems Modeler enhancing MBSE workflows
+description: Advanced AI plugin for Magic Systems of Systems Architect
 keywords: AI, MBSE, Cameo Systems Modeler, Plugin, Systems Engineering
+robots: noindex, nofollow
 ---
-
 
 <main role="main">
   <article class="plugin-documentation">
     <!-- Hero Section -->
-    <header class="hero glass-morphism" role="banner">
+    <header class="hero glass-morphism ai4mbse-banner-hero" role="banner">
       <div class="hero-content animate-fade-in">
-        <h1>AI4MBSE Plugin</h1>
-        <p>
-          Next-Gen KI-Integration für <strong>Cameo Systems Modeler</strong>.<br>
-          <span class="text-gradient">Automatisierung. Intelligenz. Effizienz.</span>
+        <h1 class="ai4mbse-banner-title">AI4MBSE Plugin</h1>
+        <p class="ai4mbse-banner-subtitle">
+          KI-Integration für Magic Systems of Systems Architect<br>
+          <span class="ai4mbse-banner-claim text-gradient">Automatisierung. Intelligenz. Effizienz.</span>
         </p>
       </div>
     </header>
@@ -73,48 +73,69 @@ keywords: AI, MBSE, Cameo Systems Modeler, Plugin, Systems Engineering
     </section>
 
     <!-- API Configuration Section -->
-    <section class="section api-section glass-morphism" aria-labelledby="api-title">
-      <div class="container">
-        <h2 id="api-title" class="section-title">
-          <ai4mbse-icon name="key"></ai4mbse-icon> API Konfiguration
-        </h2>
-        
-        <div class="content-wrapper">
-          <div class="setup-guide">
-            <div class="guide-step">
-              <h3 class="guide-title">1. Google Gemini API Key beantragen</h3>
-              <ol class="setup-steps">
-                <li>
-                  Gehe auf die Google AI Developer Platform:<br>
-                  <a href="https://aistudio.google.com/app/apikey" class="link-primary" target="_blank">aistudio.google.com/app/apikey</a>
-                </li>
-                <li>Melde dich mit deinem Google-Konto an</li>
-                <li>Klicke auf <strong>„Create API Key“</strong></li>
-                <li>Gib optional einen Namen für den Key ein</li>
-                <li>Kopiere den API Key und speichere ihn sicher</li>
-              </ol>
-            </div>
+<section class="section api-section glass-morphism" aria-labelledby="api-title">
+  <div class="container">
+    <h2 id="api-title" class="section-title">
+      <span style="font-size:1.3em;vertical-align:-0.12em;">🔑</span> API Konfiguration
+    </h2>
 
-            <div class="guide-step">
-              <h3 class="guide-title">2. API Key als Umgebungsvariable setzen</h3>
-              <ol class="setup-steps">
-                <li>Öffne die <strong>Windows-Systemsteuerung</strong></li>
-                <li>Suche nach <strong>„Umgebungsvariablen“</strong></li>
-                <li>Klicke auf <strong>„Umgebungsvariablen...“</strong></li>
-                <li>
-                  Unter <strong>„Benutzervariablen“</strong>:
-                  <ul class="setup-substeps">
-                    <li>Klicke <strong>„Neu...“</strong></li>
-                    <li>Name: <code>GEMINI_API_KEY</code></li>
-                    <li>Wert: <em>Dein API Key</em></li>
-                  </ul>
-                </li>
-              </ol>
-            </div>
-          </div>
+    <div class="content-wrapper">
+      <div class="setup-guide">
+
+        <!-- Step 1 -->
+        <div class="guide-step">
+          <h3 class="step-title">
+            <span style="font-size:1.1em;">1.</span> Google Gemini API Key beantragen
+          </h3>
+          <ul class="setup-steps ai4mbse-bullet-numbers">
+            <li>
+              <strong>Öffne:</strong> 
+              <a href="https://aistudio.google.com/app/apikey" class="link-primary" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a>
+            </li>
+            <li>Melde dich mit deinem Google-Konto an</li>
+            <li>Klicke auf <strong>„Create API Key“</strong></li>
+            <li>(Optional) Vergib einen Namen für den Key</li>
+            <li><strong>Kopiere</strong> den angezeigten API Key und speichere ihn sicher ab</li>
+          </ul>
         </div>
+
+        <!-- Step 2 -->
+        <div class="guide-step">
+          <h3 class="step-title">
+            <span style="font-size:1.1em;">2.</span> API Key als Umgebungsvariable setzen
+          </h3>
+          <ul class="setup-steps ai4mbse-bullet-numbers">
+            <li>Öffne die <strong>Windows-Systemsteuerung</strong></li>
+            <li>Suche nach <strong>„Umgebungsvariablen“</strong> und klicke auf <strong>„Umgebungsvariablen...“</strong></li>
+            <li>
+              Im Abschnitt <strong>„Benutzervariablen“</strong>:
+              <ul class="setup-substeps">
+                <li>Klicke <strong>„Neu...“</strong></li>
+                <li><strong>Name:</strong> <code>GEMINI_API_KEY</code></li>
+                <li><strong>Wert:</strong> <em>Dein API Key</em></li>
+                <li>Speichern mit „OK“</li>
+              </ul>
+            </li>
+            <li>Schließe alle Fenster mit OK</li>
+            <li>Starte ein neues CMD/PowerShell Fenster, damit die Variable erkannt wird</li>
+            <li>
+              <code>echo %GEMINI_API_KEY%</code>
+              <p class="about-text" style="margin-bottom: 0;">
+                Damit kannst du testen, ob der Key korrekt gesetzt wurde.
+              </p>
+            </li>
+          </ul>
+        </div>
+
+        <div class="callout callout-warning" style="margin-top:2rem;">
+          <strong>Sicherheitshinweis:</strong> Teile deinen API Key niemals öffentlich!
+        </div>
+
       </div>
-    </section>
+    </div>
+  </div>
+</section>
+
 
     <!-- Demo Section -->
     <section class="section demo-section glass-morphism" aria-labelledby="demo-title">
@@ -141,20 +162,125 @@ keywords: AI, MBSE, Cameo Systems Modeler, Plugin, Systems Engineering
 </main>
 
 <style>
-/* ...existing code... */
+/* Farbpalette */
+:root {
+  --ai4mbse-blue: #38bdf8;
+  --ai4mbse-purple: #8b5cf6;
+  --ai4mbse-dark: #0f1629;
+  --ai4mbse-gold: #e6c97a;
+  --ai4mbse-gold-hover: #f3e7b0;
+  --ai4mbse-link: #e6c97a;
+  --ai4mbse-link-hover: #f3e7b0;
+}
 
-/* Improve link contrast for dark backgrounds */
+/* Animierter Hintergrund für die gesamte Seite */
+body {
+  background: linear-gradient(120deg, var(--ai4mbse-dark) 60%, #1e3a8a 100%);
+  animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+}
+@keyframes ai4mbse-bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Banner: jetzt transparent, damit animierter Body-Hintergrund sichtbar ist */
+.ai4mbse-banner-hero {
+  min-height: 38vh !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  border-radius: 0 0 32px 32px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai4mbse-banner-title {
+  font-size: 4.2rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, var(--ai4mbse-blue) 20%, var(--ai4mbse-purple) 60%, var(--ai4mbse-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-align: center;
+  line-height: 1.08;
+}
+
+.ai4mbse-banner-subtitle {
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--ai4mbse-blue);
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 1.25;
+}
+
+.ai4mbse-banner-claim {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: var(--ai4mbse-purple);
+  letter-spacing: 0.01em;
+}
+@media (max-width: 900px) {
+  .ai4mbse-banner-title {
+    font-size: 2.7rem;
+  }
+  .ai4mbse-banner-subtitle {
+    font-size: 1.2rem;
+  }
+  .ai4mbse-banner-claim {
+    font-size: 0.95rem;
+  }
+  .ai4mbse-banner-hero {
+    min-height: 22vh !important;
+    border-radius: 0 0 18px 18px;
+  }
+}
+
+/* Dezente Linkfarben */
 a,
 a:visited,
 .link-primary {
-  color: #ffd700 !important; /* Gold/yellow for high contrast */
+  color: var(--ai4mbse-link) !important;
   text-decoration: underline;
   transition: color 0.2s;
 }
 a:hover,
 .link-primary:hover {
-  color: #fff200 !important;
+  color: var(--ai4mbse-link-hover) !important;
   text-decoration: underline;
+}
+
+/* Buttons (z.B. .cta-button) */
+.cta-button {
+  background: linear-gradient(135deg, var(--ai4mbse-blue), var(--ai4mbse-purple));
+  color: #fff;
+  /* ...existing button styles... */
+}
+.cta-button:hover {
+  background: linear-gradient(135deg, var(--ai4mbse-purple), var(--ai4mbse-blue));
+  color: #fff;
+}
+
+/* Passwort-Overlay (falls verwendet) */
+#ai4mbse_pw_input,
+.ai4mbse-password-overlay label {
+  color: var(--ai4mbse-link);
+}
+.ai4mbse-password-overlay button {
+  background: linear-gradient(90deg, var(--ai4mbse-gold), var(--ai4mbse-gold-hover));
+  color: #222c3a;
 }
 
 /* Hide navigation menu for this page */
@@ -166,7 +292,22 @@ nav,
   display: none !important;
 }
 
-/* ...existing code... */
+.ai4mbse-bullet-numbers {
+  list-style-type: decimal-leading-zero;
+  padding-left: 1.5em;
+}
+.ai4mbse-bullet-numbers > li {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.07em;
+  margin-bottom: 0.5em;
+}
+.ai4mbse-bullet-numbers ul {
+  list-style-type: disc;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.5em;
+  font-size: 0.98em;
+}
 </style>
 
 <!-- Scripts for fancy hero animation -->
