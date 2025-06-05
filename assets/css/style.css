@@ -108,7 +108,7 @@ nav {
    HERO SECTION
    =========================== */
 .hero {
-    min-height: 100vh;
+    min-height: 50vh;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -194,7 +194,45 @@ nav {
 .container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 0 2rem;
+    padding: 0 1.5rem;
+}
+
+.content-wrapper {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Guide Components */
+.setup-guide,
+.demo-guide {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+  text-align: left;
+}
+
+.guide-step {
+  margin-bottom: 2.5rem;
+}
+
+.step-title {
+  color: var(--color-primary);
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+.code-block {
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+  padding: 1rem;
+  margin: 1rem 0;
+  font-family: monospace;
+  overflow-x: auto;
+  white-space: pre-wrap;
 }
 
 .section h2 {
@@ -589,4 +627,20 @@ footer p {
     .nav-links {
         display: none;
     }
+}
+
+/* ===========================
+   VIDEO STYLES
+   =========================== */
+.video-container {
+  max-width: 640px;
+  margin: 2rem auto;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.15);
+}
+
+.video-container video {
+  width: 100%;
+  display: block;
 }
