@@ -5,7 +5,7 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
 
 <nav class="nav">
   <div class="nav-container">
-    <a href="/" class="logo">Kingsepp</a>
+    <a href="/" class="logo">Kingsepp Consulting</a>
     <div class="hamburger">
       <span></span>
       <span></span>
