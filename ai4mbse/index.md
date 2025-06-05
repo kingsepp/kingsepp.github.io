@@ -76,7 +76,7 @@ robots: noindex, nofollow
 <section class="section api-section glass-morphism" aria-labelledby="api-title">
   <div class="container">
     <h2 id="api-title" class="section-title">
-      <span style="font-size:1.3em;vertical-align:-0.12em;">🔑</span> API Konfiguration
+    API Konfiguration
     </h2>
 
     <div class="content-wrapper">

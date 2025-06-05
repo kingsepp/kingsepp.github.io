@@ -159,7 +159,6 @@ if ('requestIdleCallback' in window) {
         document.head.appendChild(link);
 
         const script = document.createElement('script');
-        script.src = '/assets/js/analytics.js'; // Example: analytics script
         script.defer = true;
         document.body.appendChild(script);
     });
@@ -173,7 +172,6 @@ if ('requestIdleCallback' in window) {
         document.head.appendChild(link);
 
         const script = document.createElement('script');
-        script.src = '/assets/js/analytics.js'; // Example: analytics script
         script.defer = true;
         document.body.appendChild(script);
     }, 2000);
