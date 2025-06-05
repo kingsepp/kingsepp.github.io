@@ -21,23 +21,29 @@ keywords: AI, MBSE, Cameo Systems Modeler, Plugin, Systems Engineering
 
     <!-- Download Section -->
     <section class="section download-section glass-morphism" aria-labelledby="download-title">
-      <h2 id="download-title" class="section-title">
-        <ai4mbse-icon name="download"></ai4mbse-icon> Download
-      </h2>
-      <p class="about-text" style="text-align: center;">
-        Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML, API-Key-Anleitung etc.):
-      </p>
-      <div style="text-align: center;">
-        <a href="AI4MBSE_Plugin.zip" class="cta-button">
-          <span style="font-size: 1.2em;">📦</span>
-          AI4MBSE_Plugin.zip herunterladen
-        </a>
-      </div>
-      <div style="text-align: center; margin-top: 1rem;">
-        <a href="APIKEY.pdf" class="cta-button" style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);">
-          <span style="font-size: 1.2em;">📄</span>
-          API-Key Anleitung (PDF mit Bildern)
-        </a>
+      <div class="container">
+        <h2 id="download-title" class="section-title">
+          <ai4mbse-icon name="download"></ai4mbse-icon> Download
+        </h2>
+        <div class="content-wrapper">
+          <div class="setup-guide">
+            <p class="about-text" style="text-align: center;">
+              Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML, API-Key-Anleitung etc.):
+            </p>
+            <div style="text-align: center;">
+              <a href="AI4MBSE_Plugin.zip" class="cta-button">
+                <span style="font-size: 1.2em;">📦</span>
+                AI4MBSE_Plugin.zip herunterladen
+              </a>
+            </div>
+            <div style="text-align: center; margin-top: 1rem;">
+              <a href="APIKEY.pdf" class="cta-button" style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);">
+                <span style="font-size: 1.2em;">📄</span>
+                API-Key Anleitung (PDF mit Bildern)
+              </a>
+            </div>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -162,3 +168,6 @@ nav,
 
 /* ...existing code... */
 </style>
+
+<!-- Scripts for fancy hero animation -->
+<script src="/assets/js/ai4mbse-hero-animate.js"></script>
