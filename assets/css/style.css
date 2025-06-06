@@ -869,3 +869,16 @@ nav,
 .ai4mbse-download .secondary-button {
   background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
 }
+
+a,
+a:visited,
+.link-primary {
+  color: #fff !important;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover,
+.link-primary:hover {
+  color: #e6c97a !important;
+  text-decoration: underline;
+}

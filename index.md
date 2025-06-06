@@ -3,21 +3,22 @@ layout: default
 title: Kingsepp - Cloud Consulting & IT-Expertise
 ---
 
-<nav class="nav">
-  <div class="nav-container">
+
+<nav class="nav" style="display:block !important;">
+  <div class="nav-container" style="display:flex !important;">
     <a href="/" class="logo">Kingsepp Consulting</a>
     <div class="hamburger">
       <span></span>
       <span></span>
       <span></span>
     </div>
-    <ul class="nav-links">
+    <ul class="nav-links" style="display:flex !important;">
       <li><a href="#home">Home</a></li>
       <li><a href="#about">Über mich</a></li>
       <li><a href="#services">Kernkompetenzen</a></li>
       <li><a href="#contact">Kontakt</a></li>
     </ul>
-    <div class="nav-links-mobile">
+    <div class="nav-links-mobile" style="display:none;">
       <a href="#home">Home</a>
       <a href="#about">Über mich</a>
       <a href="#services">Kernkompetenzen</a>
@@ -26,14 +27,8 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
   </div>
 </nav>
 
-<p style="max-width:900px;margin:7.5rem auto 1.2rem auto;text-align:center;color:#bfcbe6;">
-Diese Website befindet sich im Aufbau. Sie dient ausschließlich privaten, nicht-kommerziellen Informationszwecken. Es werden derzeit keine Dienstleistungen oder Produkte angeboten. Die Inhalte stellen keine gewerbliche Tätigkeit dar.
-</p>
-
-
 <details class="kingsepp-main-details" style="margin:2.5rem auto;max-width:900px;">
   <summary style="font-size:1.3em;font-weight:600;cursor:pointer;padding:1.2em 0;">
-    Kingsepp – Cloud Consulting & IT-Expertise (Profil & Kontakt anzeigen)
   </summary>
 
   <section id="home" class="hero">
@@ -57,10 +52,6 @@ Diese Website befindet sich im Aufbau. Sie dient ausschließlich privaten, nicht
           <p>Diese Website befindet sich im Aufbau. Sie dient ausschließlich privaten, nicht-kommerziellen Informationszwecken. Es werden derzeit keine Dienstleistungen oder Produkte angeboten. Die Inhalte stellen keine gewerbliche Tätigkeit dar.</p>
           <p>Als erfahrener Softwareentwickler und Cloud-Consultant helfe ich Unternehmen dabei, ihre IT-Infrastruktur zu modernisieren und für die digitale Zukunft zu rüsten.</p>
           <p>Mit tiefgreifender Expertise in Cloud-Technologien, DevOps und modernen Entwicklungspraktiken bringe ich Ihre Projekte erfolgreich voran.</p>
-          <p>
-            <strong>GitHub:</strong>
-            <a href="https://github.com/Kingsepp" target="_blank">github.com/Kingsepp</a>
-          </p>
         </div>
         <div class="about-stats">
           <div class="stat-card">
