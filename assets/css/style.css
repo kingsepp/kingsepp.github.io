@@ -38,6 +38,13 @@ body {
     box-shadow: 0 12px 40px rgba(0, 0, 0, 0.15);
 }
 
+
+.setup-guide,
+.demo-guide,
+.project-guide {
+    border-left:4px solid #38bdf8; padding:1.1em 1.5em; border-radius:8px;
+}
+
 /* ===========================
    NAVIGATION
    =========================== */
@@ -163,25 +170,33 @@ nav {
 }
 
 .cta-button {
-    display: inline-block;
-    background: linear-gradient(135deg, #3b82f6, #06b6d4);
-    color: white;
-    padding: 1.2rem 2.5rem;
-    border-radius: 50px;
-    text-decoration: none;
-    font-weight: 600;
-    font-size: 1.1rem;
-    transition: all 0.3s ease;
-    box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-    border: none;
-    cursor: pointer;
+  display: inline-block;
+  background: linear-gradient(135deg, #3b82f6, #06b6d4);
+  color: #fff;
+  padding: 1.2rem 1rem;
+  border-radius: 50px;
+  text-decoration: none;
+  font-weight: 600;
+  font-size: 1.1rem;
+  transition: all 0.3s ease;
+  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+  border: none;
+  cursor: pointer;
 }
 
 .cta-button:hover {
-    transform: translateY(-3px);
-    box-shadow: 0 15px 40px rgba(59, 130, 246, 0.4);
-    background: linear-gradient(135deg, #2563eb, #0891b2);
+  background: linear-gradient(
+    135deg,
+    #6b21a8, /* purple-800 */
+    #1e3a8a  /* blue-900 */
+  );
+  color: #fff;
+  transform: translateY(-3px); /* leichtes Anheben */
+  box-shadow: 
+    0 15px 40px rgba(107, 33, 168, 0.4),  /* lila Schatten */
+    0 20px 60px rgba(30, 58, 138, 0.3);   /* blauer Schatten */
 }
+
 
 /* ===========================
    SECTIONS
@@ -504,10 +519,6 @@ nav {
     box-shadow: 0 12px 35px rgba(59, 130, 246, 0.4);
     background: linear-gradient(135deg, #2563eb, #0891b2);
 }
-
-/* ===========================
-   FOOTER
-   =========================== */
 footer {
     background: rgba(15, 23, 42, 0.95);
     backdrop-filter: blur(20px);
@@ -522,9 +533,6 @@ footer p {
     font-weight: 500;
 }
 
-/* ===========================
-   FLOATING PARTICLES
-   =========================== */
 .particle {
     position: absolute;
     background: rgba(59, 130, 246, 0.1);
@@ -785,16 +793,6 @@ a:hover,
   text-decoration: underline;
 }
 
-/* Buttons (z.B. .cta-button) */
-.cta-button {
-  background: linear-gradient(135deg, var(--ai4mbse-blue), var(--ai4mbse-purple));
-  color: #fff;
-  /* ...existing button styles... */
-}
-.cta-button:hover {
-  background: linear-gradient(135deg, var(--ai4mbse-purple), var(--ai4mbse-blue));
-  color: #fff;
-}
 
 
 /* Hide navigation menu for this page */
@@ -835,9 +833,10 @@ nav,
   margin: 0;
   line-height: 1.5;
   text-align: left;
-  color: #fff; /* oder welche Farbe dein Text haben soll */
-  max-width: 600px; /* Optional: Breite des Textblocks begrenzen */
-}
+  color: #fff;
+  max-width: 600px;
+  padding: 2rem 0 1rem 1rem;
+
 
 
 .ai4mbse-download .button-group {

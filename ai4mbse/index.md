@@ -86,17 +86,12 @@ robots: noindex, nofollow
         </h2>
         
         <div class="content-wrapper">
-                        <!-- Hinweis zu Windows -->
-        <div class="callout callout-info" style="margin-bottom:2rem; background:rgba(56,189,248,0.10); color:#38bdf8; border-left:4px solid #38bdf8; padding:1.1em 1.5em; border-radius:8px;">
-          <strong>Hinweis:</strong> Das Plugin wurde ausschließlich unter <b>Windows</b> getestet. Die Anleitung und Installationsschritte beziehen sich nur auf Windows-Systeme.
-        </div>
         <div class="setup-guide">
             <div class="guide-step">
+                      <strong>Hinweis:</strong> Das Plugin wurde ausschließlich unter <b>Windows</b> getestet. Die Anleitung und Installationsschritte beziehen sich nur auf Windows-Systeme.
             <h3 class="step-title">1. ZIP-Paket herunterladen</h3>
             <p>
-                Klicken Sie auf 
-                <a href="AI4MBSE_Plugin.zip" class="link-primary">AI4MBSE_Plugin.zip</a> 
-                und speichern Sie die Datei lokal auf Ihrem Computer.
+                Klicken Sie auf AI4MBSE_Plugin.zip und speichern Sie die Datei lokal auf Ihrem Computer.
             </p>
             </div>
             
