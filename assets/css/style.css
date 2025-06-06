@@ -265,13 +265,15 @@ nav {
 
 .code-block {
   background: rgba(0, 0, 0, 0.2);
-  border-radius: 8px;
+  border-radius: 2px;
   padding: 1rem;
-  margin: 1rem 0;
+  margin: 1rem auto; /* Block horizontal zentrieren */
   font-family: monospace;
   overflow-x: auto;
   white-space: pre-wrap;
+  text-align: center; /* Inhalt zentrieren */
 }
+
 
 .section h2 {
     font-size: 3rem;
@@ -794,15 +796,6 @@ a:hover,
   color: #fff;
 }
 
-/* Passwort-Overlay (falls verwendet) */
-#ai4mbse_pw_input,
-.ai4mbse-password-overlay label {
-  color: var(--ai4mbse-link);
-}
-.ai4mbse-password-overlay button {
-  background: linear-gradient(90deg, var(--ai4mbse-gold), var(--ai4mbse-gold-hover));
-  color: #222c3a;
-}
 
 /* Hide navigation menu for this page */
 nav,
@@ -846,9 +839,7 @@ nav,
   max-width: 600px; /* Optional: Breite des Textblocks begrenzen */
 }
 
-/* --------------------------------------------------------
-   1) Button-Gruppe NUR in der Download-Section (ai4mbse-download)
---------------------------------------------------------- */
+
 .ai4mbse-download .button-group {
   display: flex;
   justify-content: center; /* Buttons horizontal zentrieren */
@@ -856,9 +847,7 @@ nav,
   margin-top: 1rem;        /* Abstand zum darüberliegenden Text */
 }
 
-/* --------------------------------------------------------
-   2) CTA-Button-Grundstil NUR in der Download-Section
---------------------------------------------------------- */
+
 .ai4mbse-download .cta-button {
   display: inline-block;
   padding: 0.75rem 1.5rem;
@@ -877,9 +866,7 @@ nav,
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
 }
 
-/* --------------------------------------------------------
-   3) Zweiter Button (PDF) abweichender Farbverlauf NUR hier
---------------------------------------------------------- */
+
 .ai4mbse-download .secondary-button {
   background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
 }
