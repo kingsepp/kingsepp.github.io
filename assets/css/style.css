@@ -187,7 +187,7 @@ nav {
    SECTIONS
    =========================== */
 .section {
-    padding: 8rem 0;
+    padding: 4rem 0;
     position: relative;
 }
 
@@ -211,6 +211,44 @@ nav {
   margin-top: 2rem;
   text-align: left;
 }
+
+/* --------------------------------------------------
+   1) Äußere Flex-Box: Logos + Text nebeneinander
+--------------------------------------------------- */
+.project-guide {
+  display: flex;
+  align-items: flex-start; /* Logos oben an Text ausrichten (kann auf center geändert werden) */
+  gap: 1rem;               /* Abstand zwischen Logo-Container und Text */
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 2rem;
+  margin-top: 2rem;
+}
+
+/* --------------------------------------------------
+   2) Innerer Container für die beiden Logos
+      – Hier entscheidest du, ob die Logos übereinander 
+        (flex-direction: column) oder nebeneinander
+        (flex-direction: row) stehen sollen.
+--------------------------------------------------- */
+.logo-group {
+  display: flex;
+  flex-direction: column; /* oder row, je nachdem wie du die Logos anordnen willst */
+  gap: 2rem;              /* hier von 0.5rem auf 1rem erhöhen */
+  flex-shrink: 0;
+}
+
+
+/* --------------------------------------------------
+   3) Größe der Logos anpassen
+--------------------------------------------------- */
+.project-logo {
+  width: 80px;    /* Beispiel: Breite 80 px, passt du nach Belieben an */
+  height: auto;   /* Seitenverhältnis bleibt erhalten */
+  display: block; /* entfernt Inline-Spacing-Probleme */
+}
+
+
 
 .guide-step {
   margin-bottom: 2.5rem;
@@ -643,4 +681,205 @@ footer p {
 .video-container video {
   width: 100%;
   display: block;
+}
+
+/* Farbpalette */
+:root {
+  --ai4mbse-blue: #38bdf8;
+  --ai4mbse-purple: #8b5cf6;
+  --ai4mbse-dark: #0f1629;
+  --ai4mbse-gold: #e6c97a;
+  --ai4mbse-gold-hover: #f3e7b0;
+  --ai4mbse-link: #e6c97a;
+  --ai4mbse-link-hover: #f3e7b0;
+}
+
+/* Animierter Hintergrund für die gesamte Seite */
+body {
+  background: linear-gradient(120deg, var(--ai4mbse-dark) 60%, #1e3a8a 100%);
+  animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+}
+@keyframes ai4mbse-bg-move {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+
+/* Banner: jetzt transparent, damit animierter Body-Hintergrund sichtbar ist */
+.ai4mbse-banner-hero {
+  min-height: 38vh !important;
+  padding: 0 !important;
+  background: transparent !important;
+  box-shadow: none;
+  border-radius: 0 0 32px 32px;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.ai4mbse-banner-title {
+  font-size: 4.2rem;
+  font-weight: 900;
+  letter-spacing: -0.04em;
+  margin-bottom: 1.2rem;
+  background: linear-gradient(90deg, var(--ai4mbse-blue) 20%, var(--ai4mbse-purple) 60%, var(--ai4mbse-blue) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  text-fill-color: transparent;
+  text-align: center;
+  line-height: 1.08;
+}
+
+.ai4mbse-banner-subtitle {
+  font-size: 2.1rem;
+  font-weight: 600;
+  color: var(--ai4mbse-blue);
+  text-align: center;
+  margin-bottom: 0;
+  line-height: 1.25;
+}
+
+.ai4mbse-banner-claim {
+  display: block;
+  font-size: 1.15rem;
+  font-weight: 500;
+  margin-top: 0.5rem;
+  color: var(--ai4mbse-purple);
+  letter-spacing: 0.01em;
+}
+@media (max-width: 900px) {
+  .ai4mbse-banner-title {
+    font-size: 2.7rem;
+  }
+  .ai4mbse-banner-subtitle {
+    font-size: 1.2rem;
+  }
+  .ai4mbse-banner-claim {
+    font-size: 0.95rem;
+  }
+  .ai4mbse-banner-hero {
+    min-height: 22vh !important;
+    border-radius: 0 0 18px 18px;
+  }
+}
+
+/* Dezente Linkfarben */
+a,
+a:visited,
+.link-primary {
+  color: var(--ai4mbse-link) !important;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+a:hover,
+.link-primary:hover {
+  color: var(--ai4mbse-link-hover) !important;
+  text-decoration: underline;
+}
+
+/* Buttons (z.B. .cta-button) */
+.cta-button {
+  background: linear-gradient(135deg, var(--ai4mbse-blue), var(--ai4mbse-purple));
+  color: #fff;
+  /* ...existing button styles... */
+}
+.cta-button:hover {
+  background: linear-gradient(135deg, var(--ai4mbse-purple), var(--ai4mbse-blue));
+  color: #fff;
+}
+
+/* Passwort-Overlay (falls verwendet) */
+#ai4mbse_pw_input,
+.ai4mbse-password-overlay label {
+  color: var(--ai4mbse-link);
+}
+.ai4mbse-password-overlay button {
+  background: linear-gradient(90deg, var(--ai4mbse-gold), var(--ai4mbse-gold-hover));
+  color: #222c3a;
+}
+
+/* Hide navigation menu for this page */
+nav,
+.nav-container,
+.nav-links,
+.hamburger,
+.nav-links-mobile {
+  display: none !important;
+}
+
+.ai4mbse-bullet-numbers {
+  list-style-type: decimal-leading-zero;
+  padding-left: 1.5em;
+}
+.ai4mbse-bullet-numbers > li {
+  font-variant-numeric: tabular-nums;
+  font-size: 1.07em;
+  margin-bottom: 0.5em;
+}
+.ai4mbse-bullet-numbers ul {
+  list-style-type: disc;
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
+  padding-left: 1.5em;
+  font-size: 0.98em;
+}
+
+
+
+.project-logo {
+  width: 80px;             /* Beispiel: Breite 80px, passe bei Bedarf an */
+  height: auto;
+  flex-shrink: 0;          /* verhindert, dass das Bild schrumpft */
+}
+
+.about-text {
+  margin: 0;
+  line-height: 1.5;
+  text-align: left;
+  color: #fff; /* oder welche Farbe dein Text haben soll */
+  max-width: 600px; /* Optional: Breite des Textblocks begrenzen */
+}
+
+/* --------------------------------------------------------
+   1) Button-Gruppe NUR in der Download-Section (ai4mbse-download)
+--------------------------------------------------------- */
+.ai4mbse-download .button-group {
+  display: flex;
+  justify-content: center; /* Buttons horizontal zentrieren */
+  gap: 1rem;               /* Abstand zwischen den Buttons */
+  margin-top: 1rem;        /* Abstand zum darüberliegenden Text */
+}
+
+/* --------------------------------------------------------
+   2) CTA-Button-Grundstil NUR in der Download-Section
+--------------------------------------------------------- */
+.ai4mbse-download .cta-button {
+  display: inline-block;
+  padding: 0.75rem 1.5rem;
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #fff;
+  text-decoration: none;
+  text-align: center;
+  border-radius: 9999px;
+  background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.ai4mbse-download .cta-button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* --------------------------------------------------------
+   3) Zweiter Button (PDF) abweichender Farbverlauf NUR hier
+--------------------------------------------------------- */
+.ai4mbse-download .secondary-button {
+  background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
 }

@@ -19,33 +19,63 @@ robots: noindex, nofollow
       </div>
     </header>
 
-    <!-- Download Section -->
-    <section class="section download-section glass-morphism" aria-labelledby="download-title">
-      <div class="container">
-        <h2 id="download-title" class="section-title">
-          <ai4mbse-icon name="download"></ai4mbse-icon> Download
+
+    <section class="section project-section glass-morphism" aria-labelledby="project-title">
+    <div class="container">
+        <h2 id="project-title" class="section-title">
+        <ai4mbse-icon name="project"></ai4mbse-icon> Projekt
         </h2>
         <div class="content-wrapper">
-          <div class="setup-guide">
-            <p class="about-text" style="text-align: center;">
-              Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML, API-Key-Anleitung etc.):
+        <!-- Äußere Flexbox: ganz links die Logos, rechts davon der Text -->
+        <div class="project-guide">
+            <!-- Kleiner Untercontainer nur für die beiden Logos -->
+            <div class="logo-group">
+            <img src="hm_logo.svg" alt="HM-Logo" class="project-logo">
+            <img src="https://mediapool.hm.edu/media/fk04/fk04_lokal/labore_3/ecse/Logo_ECSE_landscape_m.jpg" 
+                alt="ECSE-Logo" class="project-logo">
+            </div>
+            <!-- Text bleibt als zweites Flex-Kind -->
+            <p class="about-text">
+            Das Plug-in AI4MBSE wurde im Rahmen des Kurses „Systems Engineering Projekt“ 
+            im Masterstudiengang Systems Engineering der Fakultät 4 an der Hochschule München 
+            entwickelt. Die Idee und Aufgabenstellung stammt von Prof. Dr. Claudio Zuccaro 
+            und verfolgt das Ziel, die automatische Erstellung von Verknüpfungen in einem 
+            SysML-Systemmodell durch den Einsatz künstlicher Intelligenz zu unterstützen. 
+            Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Center 
+            Systems Engineering.
             </p>
-            <div style="text-align: center;">
-              <a href="AI4MBSE_Plugin.zip" class="cta-button">
-                <span style="font-size: 1.2em;">📦</span>
-                AI4MBSE_Plugin.zip herunterladen
-              </a>
-            </div>
-            <div style="text-align: center; margin-top: 1rem;">
-              <a href="APIKEY.pdf" class="cta-button" style="background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);">
-                <span style="font-size: 1.2em;">📄</span>
-                API-Key Anleitung (PDF mit Bildern)
-              </a>
-            </div>
-          </div>
         </div>
-      </div>
+        </div>
+    </div>
     </section>
+
+
+    <section class="section download-section glass-morphism ai4mbse-download" aria-labelledby="download-title">
+    <div class="container">
+        <h2 id="download-title" class="section-title">
+        <ai4mbse-icon name="download"></ai4mbse-icon> Download
+        </h2>
+        <div class="content-wrapper">
+        <div class="setup-guide">
+            <p class="about-text" style="text-align: center;">
+            Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML, API-Key-Anleitung etc.):
+            </p>
+
+            <!-- Flex-Container nur für diese Download-Section -->
+            <div class="button-group">
+            <a href="AI4MBSE_Plugin.zip" class="cta-button">
+                AI4MBSE_Plugin.zip herunterladen
+            </a>
+            <a href="APIKEY.pdf" class="cta-button secondary-button">
+                API-Key Anleitung (PDF mit Bildern)
+            </a>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+   
+
 
     <!-- Installation Section -->
     <section class="section installation-section glass-morphism" aria-labelledby="install-title">
@@ -160,155 +190,6 @@ robots: noindex, nofollow
     </section>
   </article>
 </main>
-
-<style>
-/* Farbpalette */
-:root {
-  --ai4mbse-blue: #38bdf8;
-  --ai4mbse-purple: #8b5cf6;
-  --ai4mbse-dark: #0f1629;
-  --ai4mbse-gold: #e6c97a;
-  --ai4mbse-gold-hover: #f3e7b0;
-  --ai4mbse-link: #e6c97a;
-  --ai4mbse-link-hover: #f3e7b0;
-}
-
-/* Animierter Hintergrund für die gesamte Seite */
-body {
-  background: linear-gradient(120deg, var(--ai4mbse-dark) 60%, #1e3a8a 100%);
-  animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
-  background-size: 200% 200%;
-}
-@keyframes ai4mbse-bg-move {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-
-/* Banner: jetzt transparent, damit animierter Body-Hintergrund sichtbar ist */
-.ai4mbse-banner-hero {
-  min-height: 38vh !important;
-  padding: 0 !important;
-  background: transparent !important;
-  box-shadow: none;
-  border-radius: 0 0 32px 32px;
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.ai4mbse-banner-title {
-  font-size: 4.2rem;
-  font-weight: 900;
-  letter-spacing: -0.04em;
-  margin-bottom: 1.2rem;
-  background: linear-gradient(90deg, var(--ai4mbse-blue) 20%, var(--ai4mbse-purple) 60%, var(--ai4mbse-blue) 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
-  text-fill-color: transparent;
-  text-align: center;
-  line-height: 1.08;
-}
-
-.ai4mbse-banner-subtitle {
-  font-size: 2.1rem;
-  font-weight: 600;
-  color: var(--ai4mbse-blue);
-  text-align: center;
-  margin-bottom: 0;
-  line-height: 1.25;
-}
-
-.ai4mbse-banner-claim {
-  display: block;
-  font-size: 1.15rem;
-  font-weight: 500;
-  margin-top: 0.5rem;
-  color: var(--ai4mbse-purple);
-  letter-spacing: 0.01em;
-}
-@media (max-width: 900px) {
-  .ai4mbse-banner-title {
-    font-size: 2.7rem;
-  }
-  .ai4mbse-banner-subtitle {
-    font-size: 1.2rem;
-  }
-  .ai4mbse-banner-claim {
-    font-size: 0.95rem;
-  }
-  .ai4mbse-banner-hero {
-    min-height: 22vh !important;
-    border-radius: 0 0 18px 18px;
-  }
-}
-
-/* Dezente Linkfarben */
-a,
-a:visited,
-.link-primary {
-  color: var(--ai4mbse-link) !important;
-  text-decoration: underline;
-  transition: color 0.2s;
-}
-a:hover,
-.link-primary:hover {
-  color: var(--ai4mbse-link-hover) !important;
-  text-decoration: underline;
-}
-
-/* Buttons (z.B. .cta-button) */
-.cta-button {
-  background: linear-gradient(135deg, var(--ai4mbse-blue), var(--ai4mbse-purple));
-  color: #fff;
-  /* ...existing button styles... */
-}
-.cta-button:hover {
-  background: linear-gradient(135deg, var(--ai4mbse-purple), var(--ai4mbse-blue));
-  color: #fff;
-}
-
-/* Passwort-Overlay (falls verwendet) */
-#ai4mbse_pw_input,
-.ai4mbse-password-overlay label {
-  color: var(--ai4mbse-link);
-}
-.ai4mbse-password-overlay button {
-  background: linear-gradient(90deg, var(--ai4mbse-gold), var(--ai4mbse-gold-hover));
-  color: #222c3a;
-}
-
-/* Hide navigation menu for this page */
-nav,
-.nav-container,
-.nav-links,
-.hamburger,
-.nav-links-mobile {
-  display: none !important;
-}
-
-.ai4mbse-bullet-numbers {
-  list-style-type: decimal-leading-zero;
-  padding-left: 1.5em;
-}
-.ai4mbse-bullet-numbers > li {
-  font-variant-numeric: tabular-nums;
-  font-size: 1.07em;
-  margin-bottom: 0.5em;
-}
-.ai4mbse-bullet-numbers ul {
-  list-style-type: disc;
-  margin-top: 0.5em;
-  margin-bottom: 0.5em;
-  padding-left: 1.5em;
-  font-size: 0.98em;
-}
-</style>
 
 <!-- Scripts for fancy hero animation -->
 <script src="/assets/js/ai4mbse-hero-animate.js"></script>
