@@ -170,19 +170,20 @@ nav {
 }
 
 .cta-button {
-  display: inline-block;
-  background: linear-gradient(135deg, #3b82f6, #06b6d4);
-  color: #fff;
-  padding: 1.2rem 1rem;
-  border-radius: 50px;
-  text-decoration: none;
-  font-weight: 600;
-  font-size: 1.1rem;
-  transition: all 0.3s ease;
-  box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
-  border: none;
-  cursor: pointer;
-}
+      display: inline-block;
+      background: linear-gradient(135deg, #3b82f6, #06b6d4);
+      color: #fff;
+      padding: 1.2rem 1rem;
+      border-radius: 50px;
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 1.1rem;
+      transition: all 0.3s ease;
+      box-shadow: 0 10px 30px rgba(59, 130, 246, 0.3);
+      border: none;
+      cursor: pointer;
+    }
+
 
 .cta-button:hover {
   background: linear-gradient(
@@ -841,9 +842,9 @@ nav,
 
 .ai4mbse-download .button-group {
   display: flex;
-  justify-content: center; /* Buttons horizontal zentrieren */
-  gap: 1rem;               /* Abstand zwischen den Buttons */
-  margin-top: 1rem;        /* Abstand zum darüberliegenden Text */
+  justify-content: center; /* horizontal zentrieren */
+  align-items: center;     /* vertikal zentrieren */
+  height: 100vh;           /* Container füllt den gesamten Viewport */
 }
 
 

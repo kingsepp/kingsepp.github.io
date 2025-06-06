@@ -62,14 +62,11 @@ robots: noindex, nofollow
             Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML, API-Key-Anleitung etc.):
             </p>
 
-            <!-- Flex-Container nur für diese Download-Section -->
-            <div class="button-group">
-            <a href="AI4MBSE_Plugin.zip" class="cta-button">
+            <!-- Centered button group -->
+            <div class="button-group" style="display:flex;justify-content:center;">
+              <a href="AI4MBSE_Plugin.zip" class="cta-button">
                 AI4MBSE_Plugin.zip herunterladen
-            </a>
-            <a href="APIKEY.pdf" class="cta-button secondary-button">
-                API-Key Anleitung (PDF mit Bildern)
-            </a>
+              </a>
             </div>
         </div>
         </div>
@@ -133,7 +130,9 @@ robots: noindex, nofollow
             <div class="guide-step">
             <h3 class="step-title">2. API Key als Umgebungsvariable setzen</h3>
             <p><strong>Öffne:</strong> Windows-Systemsteuerung.</p>
+            <img src="variable1.png" alt="variable1" class="variable1">
             <p><strong>Suche:</strong> Umgebungsvariablen und klicke auf Umgebungsvariablen….</p>
+            <img src="variable2.png" alt="variable2" class="variable2">
             <p><strong>Im Abschnitt Benutzervariablen:</strong></p>
                 <p>Klicke auf <strong>Neu…</strong>.</p>
                 <p><strong>Name:</strong> <code>GEMINI_API_KEY</code></p>
