@@ -403,10 +403,6 @@ robots: noindex, nofollow
             </div>
         </div>
         
-        <div class="support-contact">
-            <h3>Weitere Hilfe benötigt?</h3>
-            <p>Bei weiteren Fragen wenden Sie sich an: <strong>Prof. Dr. Claudio Zuccaro</strong> (Hochschule München)</p>
-        </div>
         </div>
     </div>
     </section>
@@ -440,11 +436,6 @@ robots: noindex, nofollow
   ↑ Nach oben
 </button>
 
-<!-- Footer -->
-<footer class="ai4mbse-footer-note" style="text-align:center; margin-top:2rem; font-size:1rem; color:#bfcbe6;">
-  &copy; 2025 Kingsepp – Alle Rechte vorbehalten.<br>
-  Hinweis: Diese Website ist ein rein privates, nicht-kommerzielles Informationsangebot.<br>
-</footer>
 
 <!-- Scripts for fancy hero animation -->
 <script src="/assets/js/ai4mbse-hero-animate.js"></script>
