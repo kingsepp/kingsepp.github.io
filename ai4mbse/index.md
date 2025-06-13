@@ -49,6 +49,10 @@ robots: noindex, nofollow
                 alt="ECSE-Logo" class="project-logo">
             <img src="ai4mbse_logo.png" alt="AI4MBSE-Logo" class="project-logo">
             </div>
+            
+            <div class="logo-credits" style="margin-top: 0.5rem; font-size: 0.8em; color: #94a3b8; text-align: center;">
+                Logos der Hochschule München und des Experience Centers Systems Engineering verwendet mit freundlicher Genehmigung
+            </div>
             <!-- Text bleibt als zweites Flex-Kind -->
             <p class="about-text">
             Das Plugin AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt 
@@ -59,6 +63,12 @@ robots: noindex, nofollow
             Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Centers 
             Systems Engineering.
             </p>
+            
+            <div class="github-link" style="margin-top: 1.5rem; padding: 1rem; background: rgba(96, 165, 250, 0.1); border-radius: 10px; border: 1px solid rgba(96, 165, 250, 0.3);">
+                <strong>🔗 Open Source:</strong> Der vollständige Quellcode ist verfügbar auf 
+                <a href="https://github.com/kingsepp/AI4MBSE" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none;">GitHub</a> 
+                unter MIT-Lizenz.
+            </div>
         </div>
         </div>
     </div>
