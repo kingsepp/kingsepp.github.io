@@ -19,6 +19,276 @@ body {
 }
 
 /* ===========================
+   NEW SECTIONS STYLES
+   =========================== */
+
+/* Features Grid */
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.feature-card {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    padding: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-5px);
+    background: rgba(255, 255, 255, 0.12);
+    border-color: rgba(59, 130, 246, 0.3);
+}
+
+.feature-title {
+    font-size: 1.1rem;
+    margin-bottom: 1rem;
+    color: #60a5fa;
+}
+
+.feature-description {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+/* Requirements Grid */
+.requirements-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 2rem;
+    margin-top: 2rem;
+}
+
+.requirement-category {
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.12);
+    border-radius: 15px;
+    padding: 1.5rem;
+}
+
+.category-title {
+    color: #60a5fa;
+    font-size: 1.2rem;
+    margin-bottom: 1rem;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    padding-bottom: 0.5rem;
+}
+
+.requirement-list {
+    list-style: none;
+    padding: 0;
+}
+
+.requirement-list li {
+    color: #cbd5e1;
+    margin-bottom: 0.8rem;
+    padding-left: 1rem;
+    position: relative;
+}
+
+.requirement-list li:before {
+    content: "✓";
+    position: absolute;
+    left: 0;
+    color: #34d399;
+    font-weight: bold;
+}
+
+/* Quick Start Steps */
+.quickstart-steps {
+    margin-top: 2rem;
+}
+
+.quickstart-step {
+    display: flex;
+    gap: 1.5rem;
+    margin-bottom: 2rem;
+    padding: 1.5rem;
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 15px;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.step-number {
+    flex-shrink: 0;
+    width: 40px;
+    height: 40px;
+    background: linear-gradient(135deg, #60a5fa, #06b6d4);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    color: white;
+}
+
+.step-content h4 {
+    color: #60a5fa;
+    margin-bottom: 0.5rem;
+}
+
+.step-description {
+    color: #cbd5e1;
+    line-height: 1.6;
+}
+
+.quickstart-tip {
+    background: rgba(34, 197, 94, 0.1);
+    border: 1px solid rgba(34, 197, 94, 0.3);
+    border-radius: 10px;
+    padding: 1rem;
+    margin-top: 2rem;
+    color: #cbd5e1;
+}
+
+/* FAQ Styles */
+.faq-container {
+    margin-top: 2rem;
+}
+
+.faq-item {
+    background: rgba(255, 255, 255, 0.08);
+    border-radius: 10px;
+    margin-bottom: 1rem;
+    overflow: hidden;
+    border: 1px solid rgba(255, 255, 255, 0.12);
+}
+
+.faq-question {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 1rem 1.5rem;
+    margin: 0;
+    color: #60a5fa;
+    cursor: pointer;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.faq-answer {
+    padding: 1.5rem;
+    color: #cbd5e1;
+}
+
+.faq-answer ul {
+    margin-top: 0.5rem;
+    padding-left: 1.5rem;
+}
+
+.faq-answer li {
+    margin-bottom: 0.5rem;
+}
+
+.support-contact {
+    background: rgba(59, 130, 246, 0.1);
+    border: 1px solid rgba(59, 130, 246, 0.3);
+    border-radius: 10px;
+    padding: 1.5rem;
+    margin-top: 2rem;
+    text-align: center;
+}
+
+.support-contact h3 {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+}
+
+/* Download Enhancements */
+.download-info {
+    text-align: center;
+    margin-bottom: 2rem;
+}
+
+.download-subtitle {
+    color: #60a5fa;
+    margin-bottom: 1rem;
+}
+
+.download-details {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    margin-top: 1rem;
+    flex-wrap: wrap;
+}
+
+.detail-item {
+    background: rgba(255, 255, 255, 0.05);
+    padding: 0.5rem 1rem;
+    border-radius: 8px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.enhanced-download {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.download-size {
+    font-size: 0.9em;
+    opacity: 0.8;
+}
+
+.download-note {
+    color: #94a3b8;
+}
+
+/* Back to Top Button */
+.back-to-top {
+    position: fixed;
+    bottom: 2rem;
+    right: 2rem;
+    background: linear-gradient(135deg, #60a5fa, #06b6d4);
+    color: white;
+    border: none;
+    border-radius: 50px;
+    padding: 0.8rem 1.2rem;
+    cursor: pointer;
+    font-weight: bold;
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.back-to-top:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(96, 165, 250, 0.4);
+}
+
+/* Callout Boxes */
+.callout {
+    padding: 1rem 1.5rem;
+    border-radius: 10px;
+    border-left: 4px solid;
+}
+
+.callout-info {
+    background: rgba(59, 130, 246, 0.1);
+    border-color: #3b82f6;
+    color: #cbd5e1;
+}
+
+.callout-warning {
+    background: rgba(245, 158, 11, 0.1);
+    border-color: #f59e0b;
+    color: #cbd5e1;
+}
+
+.link-primary {
+    color: #60a5fa;
+    text-decoration: none;
+}
+
+.link-primary:hover {
+    color: #93c5fd;
+    text-decoration: underline;
+}
+
+/* ===========================
    GLASSMORPHISM KARTEN
    =========================== */
 .glass-card {
