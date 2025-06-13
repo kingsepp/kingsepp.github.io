@@ -10,14 +10,12 @@ robots: noindex, nofollow
 ## Angaben gemäß § 5 TMG
 
 **Verantwortlich für den Inhalt:**  
-[Ihr Vor- und Nachname]  
-[Straße und Hausnummer]  
-[PLZ Ort]  
-Deutschland
+Thomas Schuster
+Schachenmeierstraße 16
+80636 Munich
 
 **Kontakt:**  
-E-Mail: [ihre.email@example.com]  
-Telefon: [+49 xxx xxxxxxx] *(optional)*
+E-Mail: th.kingsepp@gmail.com
 
 ## Haftungsausschluss
 
