@@ -10,12 +10,14 @@ robots: noindex, nofollow
 ## Angaben gemäß § 5 TMG
 
 **Verantwortlich für den Inhalt:**  
-Thomas Schuster
-Schachenmeierstraße 16
-80636 Munich
+Thomas Schuster  
+Schachenmeierstraße 16  
+80636 Munich  
+Deutschland
 
 **Kontakt:**  
-E-Mail: th.kingsepp@gmail.com
+E-Mail: th.kingsepp@gmail.com  
+Telefon: 08992657184
 
 ## Haftungsausschluss
 
@@ -29,7 +31,7 @@ Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wi
 Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen Zustimmung des jeweiligen Autors bzw. Erstellers.
 
 ### Datenschutz
-Diese Website dient ausschließlich informativen Zwecken. Es werden keine personenbezogenen Daten erhoben oder gespeichert, außer den technisch notwendigen Server-Logs des Hosting-Anbieters GitHub Pages.
+Informationen zur Datenverarbeitung finden Sie in unserer [Datenschutzerklärung](/datenschutz).
 
 ### Bildungszweck
 Diese Website wurde im Rahmen eines Studienprojekts an der Hochschule München erstellt und dient ausschließlich Bildungs- und Informationszwecken. Das bereitgestellte AI4MBSE-Plugin wird kostenfrei zur Verfügung gestellt.
@@ -38,7 +40,7 @@ Diese Website wurde im Rahmen eines Studienprojekts an der Hochschule München e
 ### Lizenz und Urheberrecht
 Das AI4MBSE-Plugin und die zugehörige Dokumentation unterliegen der **MIT-Lizenz**:
 
-**Copyright (c) 2025 [Ihr Name]**
+**Copyright (c) 2025 Thomas Schuster**
 
 Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der zugehörigen Dokumentationsdateien (die "Software") erhält, die Erlaubnis erteilt, sie uneingeschränkt zu nutzen, einschließlich und ohne Beschränkung der Rechte zur Nutzung, zum Kopieren, Verändern, Zusammenfügen, Veröffentlichen, Verteilen, Unterlizenzieren und/oder Verkaufen von Kopien der Software.
 
