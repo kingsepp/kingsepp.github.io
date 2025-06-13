@@ -37,7 +37,7 @@ robots: noindex, nofollow
             </div>
             <!-- Text bleibt als zweites Flex-Kind -->
             <p class="about-text">
-            Das Plugin AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt“ 
+            Das Plugin AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt 
             im Masterstudiengang Systems Engineering der Fakultät 4 an der Hochschule München 
             entwickelt. Die Idee und Aufgabenstellung stammt von Prof. Dr. Claudio Zuccaro 
             und verfolgt das Ziel, die automatische Erstellung von Verknüpfungen in einem 
