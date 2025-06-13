@@ -36,6 +36,18 @@ Diese Website dient ausschließlich informativen Zwecken. Es werden keine person
 ### Bildungszweck
 Diese Website wurde im Rahmen eines Studienprojekts an der Hochschule München erstellt und dient ausschließlich Bildungs- und Informationszwecken. Das bereitgestellte AI4MBSE-Plugin wird kostenfrei zur Verfügung gestellt.
 
+
+### Lizenz und Urheberrecht
+Das AI4MBSE-Plugin und die zugehörige Dokumentation unterliegen der **MIT-Lizenz**:
+
+**Copyright (c) 2025 [Ihr Name]**
+
+Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der zugehörigen Dokumentationsdateien (die "Software") erhält, die Erlaubnis erteilt, sie uneingeschränkt zu nutzen, einschließlich und ohne Beschränkung der Rechte zur Nutzung, zum Kopieren, Verändern, Zusammenfügen, Veröffentlichen, Verteilen, Unterlizenzieren und/oder Verkaufen von Kopien der Software.
+
+**Bedingung:** Obiger Copyright-Vermerk und dieser Erlaubnishinweis sind in allen Kopien oder Teilen der Software beizulegen.
+
+**DIE SOFTWARE WIRD OHNE JEDE AUSDRÜCKLICHE ODER IMPLIZIERTE GARANTIE BEREITGESTELLT, EINSCHLIEßLICH DER GARANTIE ZUR BENUTZUNG FÜR DEN VORGESEHENEN ODER EINEN BESTIMMTEN ZWECK SOWIE JEGLICHER RECHTSVERLETZUNG, JEDOCH NICHT DARAUF BESCHRÄNKT.**
+
 ### Haftungsausschluss für Software
 Das auf dieser Website bereitgestellte AI4MBSE-Plugin wird "wie besehen" (as-is) ohne jegliche Gewährleistung zur Verfügung gestellt. Der Anbieter übernimmt keine Haftung für:
 
