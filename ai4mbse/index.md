@@ -16,6 +16,20 @@ robots: noindex, nofollow
           KI-Integration für Magic Systems of Systems Architect<br>
           <span class="ai4mbse-banner-claim text-gradient">Automatisierung. Intelligenz. Effizienz.</span>
         </p>
+        
+        <!-- Navigation Menu -->
+        <nav class="hero-navigation" style="margin-top: 2rem;">
+          <div class="nav-links">
+            <a href="#project-title" class="nav-link">Projekt</a>
+            <a href="#features-title" class="nav-link">Funktionen</a>
+            <a href="#requirements-title" class="nav-link">Systemanforderungen</a>
+            <a href="#download-title" class="nav-link">Download</a>
+            <a href="#install-title" class="nav-link">Installation</a>
+            <a href="#quickstart-title" class="nav-link">Quick Start</a>
+            <a href="#troubleshooting-title" class="nav-link">FAQ</a>
+            <a href="#demo-title" class="nav-link">Demo</a>
+          </div>
+        </nav>
       </div>
     </header>
 
@@ -31,7 +45,7 @@ robots: noindex, nofollow
             <!-- Kleiner Untercontainer nur für die beiden Logos -->
             <div class="logo-group">
             <img src="hm_logo.svg" alt="HM-Logo" class="project-logo">
-            <img src="https://mediapool.hm.edu/media/fk04/fk04_lokal/labore_3/ecse/Logo_ECSE_landscape_m.jpg" 
+            <img src="ecse_logo.jpg" 
                 alt="ECSE-Logo" class="project-logo">
             <img src="ai4mbse_logo.png" alt="AI4MBSE-Logo" class="project-logo">
             </div>
@@ -50,6 +64,105 @@ robots: noindex, nofollow
     </div>
     </section>
 
+    <!-- Features Section -->
+    <section class="section features-section glass-morphism" aria-labelledby="features-title">
+    <div class="container">
+        <h2 id="features-title" class="section-title">
+        <ai4mbse-icon name="features"></ai4mbse-icon> Funktionen
+        </h2>
+        <div class="content-wrapper">
+        <div class="features-grid">
+            <div class="feature-card">
+                <h3 class="feature-title">🤖 KI-gestützte Anforderungsallokation</h3>
+                <p class="feature-description">
+                    Automatische Zuordnung von Systemanforderungen zu passenden Subsystemen 
+                    durch Google Gemini AI mit Konfidenzwerten und Begründungen.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">⚡ Asynchrone Verarbeitung</h3>
+                <p class="feature-description">
+                    Keine UI-Blockierung während der AI-Analyse. Echtzeitfortschritt 
+                    und Abbruchmöglichkeit für große Projektdaten.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">🔄 Automatische Modellintegration</h3>
+                <p class="feature-description">
+                    Erstellt automatisch SysML Satisfy-Abhängigkeiten zwischen 
+                    Anforderungen und Subsystemen nach Bestätigung.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">📁 Interaktive Ordnerauswahl</h3>
+                <p class="feature-description">
+                    Dynamische Navigation durch Projektstrukturen. Unterstützung 
+                    für große Projekte mit 1000+ Anforderungen.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">🔑 Einfache API-Verwaltung</h3>
+                <p class="feature-description">
+                    Direkte Eingabe des Google Gemini API-Schlüssels im Plugin. 
+                    Keine komplizierte Umgebungsvariablen-Konfiguration.
+                </p>
+            </div>
+            
+            <div class="feature-card">
+                <h3 class="feature-title">📊 Intelligente Bewertung</h3>
+                <p class="feature-description">
+                    AI liefert Konfidenzwerte und detaillierte Begründungen 
+                    für jede Allokationsempfehlung.
+                </p>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- System Requirements Section -->
+    <section class="section requirements-section glass-morphism" aria-labelledby="requirements-title">
+    <div class="container">
+        <h2 id="requirements-title" class="section-title">
+        <ai4mbse-icon name="system"></ai4mbse-icon> Systemanforderungen
+        </h2>
+        <div class="content-wrapper">
+        <div class="requirements-grid">
+            <div class="requirement-category">
+                <h3 class="category-title">Software</h3>
+                <ul class="requirement-list">
+                    <li><strong>Magic Systems of Systems Architect:</strong> 2024x oder neuer</li>
+                    <li><strong>Cameo Systems Modeler:</strong> 2024x oder neuer</li>
+                    <li><strong>Java:</strong> Version 17 oder höher</li>
+                    <li><strong>Google Gemini API:</strong> Aktiver API-Schlüssel erforderlich</li>
+                </ul>
+            </div>
+            
+            <div class="requirement-category">
+                <h3 class="category-title">Betriebssystem</h3>
+                <ul class="requirement-list">
+                    <li><strong>Windows:</strong> 10 oder 11 (getestet)</li>
+                    <li><strong>macOS:</strong> 10.15+ (theoretisch unterstützt)</li>
+                    <li><strong>Linux:</strong> Ubuntu 20.04+ (theoretisch unterstützt)</li>
+                </ul>
+            </div>
+            
+            <div class="requirement-category">
+                <h3 class="category-title">Hardware</h3>
+                <ul class="requirement-list">
+                    <li><strong>RAM:</strong> Mindestens 4 GB, 8 GB empfohlen</li>
+                    <li><strong>Speicher:</strong> 50 MB für Plugin-Installation</li>
+                    <li><strong>Internetverbindung:</strong> Für Google Gemini API erforderlich</li>
+                </ul>
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
 
     <section class="section download-section glass-morphism ai4mbse-download" aria-labelledby="download-title">
     <div class="container">
@@ -58,16 +171,34 @@ robots: noindex, nofollow
         </h2>
         <div class="content-wrapper">
         <div class="setup-guide">
-            <p class="about-text" style="text-align: center;">
-            Laden Sie das ZIP-Paket herunter. Es enthält alle notwendigen Dateien für die Installation:
-            </p>
+            <div class="download-info">
+                <h3 class="download-subtitle">Plugin-Paket herunterladen</h3>
+                <p class="download-description">
+                    Laden Sie das vollständige AI4MBSE-Plugin herunter. Das ZIP-Paket enthält alle notwendigen Dateien für die Installation.
+                </p>
+                
+                <div class="download-details">
+                    <div class="detail-item">
+                        <strong>Version:</strong> 1.7
+                    </div>
+                    <div class="detail-item">
+                        <strong>Dateigröße:</strong> ~2.5 MB
+                    </div>
+                    <div class="detail-item">
+                        <strong>Letzte Aktualisierung:</strong> Juni 2025
+                    </div>
+                </div>
+            </div>
 
-            <!-- Centered button group -->
-            <div class="button-group" style="display:flex;justify-content:center;">
-              <a href="AI4MBSE_Plugin.zip" class="cta-button">
+            <!-- Enhanced button group -->
+            <div class="button-group" style="display:flex;justify-content:center;margin-top:2rem;">
+              <a href="AI4MBSE_Plugin.zip" class="cta-button enhanced-download">
+                <span class="download-icon">⬇️</span>
                 AI4MBSE_Plugin.zip herunterladen
+                <span class="download-size">(~2.5 MB)</span>
               </a>
             </div>
+            
         </div>
         </div>
     </div>
@@ -118,6 +249,167 @@ robots: noindex, nofollow
     </div>
     </section>
 
+    <!-- Quick Start Section -->
+    <section class="section quickstart-section glass-morphism" aria-labelledby="quickstart-title">
+    <div class="container">
+        <h2 id="quickstart-title" class="section-title">
+        <ai4mbse-icon name="quickstart"></ai4mbse-icon> Quick Start
+        </h2>
+        <div class="content-wrapper">
+        <div class="quickstart-guide">
+            <p class="quickstart-intro">
+                Nach der Installation können Sie sofort mit der KI-gestützten Anforderungsallokation beginnen:
+            </p>
+            
+            <div class="quickstart-steps">
+                <div class="quickstart-step">
+                    <div class="step-number">1</div>
+                    <div class="step-content">
+                        <h4 class="step-title">Plugin starten</h4>
+                        <p class="step-description">
+                            Öffnen Sie Magic Draw/Cameo und navigieren Sie zu <strong>Tools → Find Subsystem for Requirement (AI4MBSE)</strong>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quickstart-step">
+                    <div class="step-number">2</div>
+                    <div class="step-content">
+                        <h4 class="step-title">API-Schlüssel eingeben</h4>
+                        <p class="step-description">
+                            Beim ersten Start werden Sie nach Ihrem Google Gemini API-Schlüssel gefragt. 
+                            <a href="https://ai.google.dev/gemini-api/docs/api-key?hl=de" target="_blank" rel="noopener">Hier erstellen</a>
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quickstart-step">
+                    <div class="step-number">3</div>
+                    <div class="step-content">
+                        <h4 class="step-title">Anforderungsordner auswählen</h4>
+                        <p class="step-description">
+                            Wählen Sie das Package mit Ihren Systemanforderungen aus der Projektstruktur
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quickstart-step">
+                    <div class="step-number">4</div>
+                    <div class="step-content">
+                        <h4 class="step-title">Spezifische Anforderung wählen</h4>
+                        <p class="step-description">
+                            Selektieren Sie die konkrete Anforderung, die Sie einem Subsystem zuordnen möchten
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quickstart-step">
+                    <div class="step-number">5</div>
+                    <div class="step-content">
+                        <h4 class="step-title">Subsystem-Ordner auswählen</h4>
+                        <p class="step-description">
+                            Wählen Sie das Package mit Ihren verfügbaren Subsystemen
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="quickstart-step">
+                    <div class="step-number">6</div>
+                    <div class="step-content">
+                        <h4 class="step-title">KI-Empfehlungen prüfen</h4>
+                        <p class="step-description">
+                            Überprüfen Sie die AI-Vorschläge mit Konfidenzwerten und Begründungen, dann bestätigen Sie die gewünschten Allokationen
+                        </p>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="quickstart-tip">
+                <strong>💡 Tipp:</strong> Das Plugin funktioniert am besten mit gut strukturierten SysML-Modellen und klaren Anforderungsbeschreibungen.
+            </div>
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- Troubleshooting Section -->
+    <section class="section troubleshooting-section glass-morphism" aria-labelledby="troubleshooting-title">
+    <div class="container">
+        <h2 id="troubleshooting-title" class="section-title">
+        <ai4mbse-icon name="help"></ai4mbse-icon> Häufige Probleme & Lösungen
+        </h2>
+        <div class="content-wrapper">
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3 class="faq-question">Plugin erscheint nicht im Tools-Menü</h3>
+                <div class="faq-answer">
+                    <p><strong>Lösung:</strong></p>
+                    <ul>
+                        <li>Überprüfen Sie, ob das Plugin korrekt im Plugins-Ordner entpackt wurde</li>
+                        <li>Starten Sie Magic Draw/Cameo neu</li>
+                        <li>Prüfen Sie die Konsole auf Fehlermeldungen: <em>Help → System Info → Log</em></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">API-Authentifizierungsfehler</h3>
+                <div class="faq-answer">
+                    <p><strong>Lösung:</strong></p>
+                    <ul>
+                        <li>Überprüfen Sie Ihren Google Gemini API-Schlüssel</li>
+                        <li>Stellen Sie sicher, dass der API-Schlüssel aktiv und nicht abgelaufen ist</li>
+                        <li>Prüfen Sie Ihre Internetverbindung</li>
+                        <li>Geben Sie den API-Schlüssel erneut im Plugin-Dialog ein</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Plugin reagiert nicht/hängt</h3>
+                <div class="faq-answer">
+                    <p><strong>Lösung:</strong></p>
+                    <ul>
+                        <li>Nutzen Sie die Abbruch-Funktion im Plugin-Dialog</li>
+                        <li>Bei sehr großen Modellen: Verarbeiten Sie kleinere Anforderungsgruppen</li>
+                        <li>Überprüfen Sie die verfügbare RAM (mindestens 4 GB empfohlen)</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">Keine Subsysteme gefunden</h3>
+                <div class="faq-answer">
+                    <p><strong>Lösung:</strong></p>
+                    <ul>
+                        <li>Stellen Sie sicher, dass Ihr Subsystem-Package korrekte SysML-Blöcke enthält</li>
+                        <li>Überprüfen Sie die Package-Struktur in Ihrem Modell</li>
+                        <li>Verwenden Sie die interaktive Ordnerauswahl zur Navigation</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <h3 class="faq-question">KI-Vorschläge sind ungenau</h3>
+                <div class="faq-answer">
+                    <p><strong>Lösung:</strong></p>
+                    <ul>
+                        <li>Verbessern Sie die Beschreibungen Ihrer Anforderungen</li>
+                        <li>Verwenden Sie präzise, technische Sprache</li>
+                        <li>Achten Sie auf die Konfidenzwerte der KI-Empfehlungen</li>
+                        <li>Nutzen Sie die Begründungen der KI zur Nachvollziehbarkeit</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        
+        <div class="support-contact">
+            <h3>Weitere Hilfe benötigt?</h3>
+            <p>Bei weiteren Fragen wenden Sie sich an: <strong>Prof. Dr. Claudio Zuccaro</strong> (Hochschule München)</p>
+        </div>
+        </div>
+    </div>
+    </section>
 
     <!-- Demo Section -->
     <section class="section demo-section glass-morphism" aria-labelledby="demo-title">
@@ -143,5 +435,49 @@ robots: noindex, nofollow
   </article>
 </main>
 
+<!-- Back to Top Button -->
+<button id="backToTop" class="back-to-top" onclick="scrollToTop()" style="display: none;">
+  ↑ Nach oben
+</button>
+
+<!-- Footer -->
+<footer class="ai4mbse-footer-note" style="text-align:center; margin-top:2rem; font-size:1rem; color:#bfcbe6;">
+  &copy; 2025 Kingsepp – Alle Rechte vorbehalten.<br>
+  Hinweis: Diese Website ist ein rein privates, nicht-kommerzielles Informationsangebot.<br>
+</footer>
+
 <!-- Scripts for fancy hero animation -->
 <script src="/assets/js/ai4mbse-hero-animate.js"></script>
+
+<!-- Back to Top Functionality -->
+<script>
+// Back to Top functionality
+window.onscroll = function() {
+    var backToTopButton = document.getElementById("backToTop");
+    if (document.body.scrollTop > 300 || document.documentElement.scrollTop > 300) {
+        backToTopButton.style.display = "block";
+    } else {
+        backToTopButton.style.display = "none";
+    }
+};
+
+function scrollToTop() {
+    document.body.scrollTop = 0;
+    document.documentElement.scrollTop = 0;
+}
+
+// Smooth scrolling for navigation links
+document.querySelectorAll('.nav-link').forEach(link => {
+    link.addEventListener('click', function(e) {
+        e.preventDefault();
+        const targetId = this.getAttribute('href');
+        const targetElement = document.querySelector(targetId);
+        if (targetElement) {
+            targetElement.scrollIntoView({
+                behavior: 'smooth',
+                block: 'start'
+            });
+        }
+    });
+});
+</script>
