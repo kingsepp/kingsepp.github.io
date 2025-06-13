@@ -33,16 +33,16 @@ robots: noindex, nofollow
             <img src="hm_logo.svg" alt="HM-Logo" class="project-logo">
             <img src="https://mediapool.hm.edu/media/fk04/fk04_lokal/labore_3/ecse/Logo_ECSE_landscape_m.jpg" 
                 alt="ECSE-Logo" class="project-logo">
-            <img src="ai4mbse_logo.png" alt="HM-Logo" class="project-logo">
+            <img src="ai4mbse_logo.png" alt="AI4MBSE-Logo" class="project-logo">
             </div>
             <!-- Text bleibt als zweites Flex-Kind -->
             <p class="about-text">
-            Das Plug-in AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt“ 
+            Das Plugin AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt“ 
             im Masterstudiengang Systems Engineering der Fakultät 4 an der Hochschule München 
             entwickelt. Die Idee und Aufgabenstellung stammt von Prof. Dr. Claudio Zuccaro 
             und verfolgt das Ziel, die automatische Erstellung von Verknüpfungen in einem 
             SysML-Systemmodell durch den Einsatz künstlicher Intelligenz zu unterstützen. 
-            Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Center 
+            Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Centers 
             Systems Engineering.
             </p>
         </div>
@@ -59,7 +59,7 @@ robots: noindex, nofollow
         <div class="content-wrapper">
         <div class="setup-guide">
             <p class="about-text" style="text-align: center;">
-            Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML etc.):
+            Laden Sie das ZIP-Paket herunter. Es enthält alle notwendigen Dateien für die Installation:
             </p>
 
             <!-- Centered button group -->
@@ -84,24 +84,33 @@ robots: noindex, nofollow
         
         <div class="content-wrapper">
         <div class="setup-guide">
+            <div class="callout callout-info" style="margin-bottom: 2rem;">
+                <strong>Hinweis:</strong> Das Plugin wurde ausschließlich unter <b>Windows</b> getestet. Die Anleitung und Installationsschritte beziehen sich nur auf Windows-Systeme.
+            </div>
+            
+            <div class="callout callout-warning" style="margin-bottom: 2rem;">
+                <strong>API-Schlüssel erforderlich:</strong> Das Plugin benötigt einen kostenlosen Google Gemini API-Schlüssel. 
+                <a href="https://ai.google.dev/gemini-api/docs/api-key?hl=de" target="_blank" rel="noopener" class="link-primary">Hier können Sie einen API-Schlüssel erstellen</a>.
+                Das Plugin fragt beim ersten Start nach dem Schlüssel.
+            </div>
+            
             <div class="guide-step">
-                      <strong>Hinweis:</strong> Das Plugin wurde ausschließlich unter <b>Windows</b> getestet. Die Anleitung und Installationsschritte beziehen sich nur auf Windows-Systeme.
             <h3 class="step-title">1. ZIP-Paket herunterladen</h3>
             <p>
-                Klicken Sie auf AI4MBSE_Plugin.zip und speichern Sie die Datei lokal auf Ihrem Computer.
+                Klicken Sie auf den Download-Button und speichern Sie die AI4MBSE_Plugin.zip-Datei lokal auf Ihrem Computer.
             </p>
             </div>
             
             <div class="guide-step">
-            <h3 class="step-title">2. ZIP entpacken</h3>
-            <p>Entpacken Sie das ZIP-Paket direkt in folgendes Verzeichnis:</p>
+            <h3 class="step-title">2. ZIP-Paket entpacken</h3>
+            <p>Entpacken Sie das ZIP-Paket direkt in das folgende Verzeichnis:</p>
             <pre class="code-block">
     <code>
     C:\Users\YOUR_USERNAME\AppData\Local\.magic.systems.of.systems.architect\2024x\plugins
     </code>
             </pre>
             <p>
-                Im Plugin-Ordner sollte dann ein AI4MBSE-Ordner mit allen relevanten Dateien enthalten sein.
+                Im Plugins-Ordner sollte anschließend ein AI4MBSE-Ordner mit allen relevanten Dateien enthalten sein.
             </p>
             </div>
         </div>
@@ -119,7 +128,7 @@ robots: noindex, nofollow
         
         <div class="content-wrapper">
           <div class="demo-guide">
-            <p class="demo-intro">Schauen Sie sich die folgende Demo an, um zu sehen, wie das AI4MBSE Plugin funktioniert:</p>
+            <p class="demo-intro">Schauen Sie sich die folgende Demo an, um zu sehen, wie das AI4MBSE-Plugin funktioniert:</p>
             
             <div class="video-wrapper" role="complementary">
             <video width="640" height="360" controls>
