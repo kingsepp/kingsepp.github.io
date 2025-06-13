@@ -59,7 +59,7 @@ robots: noindex, nofollow
         <div class="content-wrapper">
         <div class="setup-guide">
             <p class="about-text" style="text-align: center;">
-            Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML, API-Key-Anleitung etc.):
+            Laden Sie einfach das folgende ZIP-Paket herunter. Es enthält alle notwendigen Dateien (JAR, XML etc.):
             </p>
 
             <!-- Centered button group -->
@@ -108,53 +108,6 @@ robots: noindex, nofollow
         </div>
     </div>
     </section>
-
-    <section class="section api-section glass-morphism" aria-labelledby="api-title">
-    <div class="container">
-        <h2 id="api-title" class="section-title">
-        <ai4mbse-icon name="api"></ai4mbse-icon> API Konfiguration
-        </h2>
-
-        <div class="content-wrapper">
-        <div class="setup-guide">
-
-            <div class="guide-step">
-            <h3 class="step-title">1. Google Gemini API Key beantragen</h3>
-            <p><strong>Öffne:</strong> <a href="https://aistudio.google.com/app/apikey" class="link-primary" target="_blank" rel="noopener">aistudio.google.com/app/apikey</a></p>
-            <p>Melde dich mit deinem Google-Konto an.</p>
-            <p>Klicke auf <strong>Create API Key</strong>.</p>
-            <p>(Optional) Vergib einen Namen für den Key.</p>
-            <p><strong>Kopiere</strong> den angezeigten API Key und speichere ihn sicher ab.</p>
-            </div>
-
-            <div class="guide-step">
-            <h3 class="step-title">2. API Key als Umgebungsvariable setzen</h3>
-            <p><strong>Öffne:</strong> Windows-Systemsteuerung.</p>
-            <img src="variable1.png" alt="variable1" class="variable1">
-            <p><strong>Suche:</strong> Umgebungsvariablen und klicke auf Umgebungsvariablen….</p>
-            <img src="variable2.png" alt="variable2" class="variable2">
-            <p><strong>Im Abschnitt Benutzervariablen:</strong></p>
-                <p>Klicke auf <strong>Neu…</strong>.</p>
-                <p><strong>Name:</strong> <code>GEMINI_API_KEY</code></p>
-                <p><strong>Wert:</strong> Dein API Key</p>
-                <p>Speichern mit <strong>OK</strong>.</p>
-            <p>Schließe alle Fenster mit <strong>OK</strong>.</p>
-            <p>Starte ein neues CMD- oder PowerShell-Fenster, damit die Variable erkannt wird.</p>
-            <pre class="code-block">
-            <code>echo %GEMINI_API_KEY%</code>
-            </pre>
-            <p>Damit kannst du testen, ob der Key korrekt gesetzt wurde.</p>
-            </div>
-
-            <div class="callout callout-warning" style="margin-top: 2rem;">
-            <strong>Sicherheitshinweis:</strong> Teile deinen API Key niemals öffentlich!
-            </div>
-
-        </div>
-        </div>
-    </div>
-    </section>
-
 
 
     <!-- Demo Section -->
