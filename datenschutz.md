@@ -5,6 +5,20 @@ description: Datenschutzhinweise und Informationen zur Datenverarbeitung
 robots: noindex, nofollow
 ---
 
+<div id="turnstile-protection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+  <h2 style="color: #60a5fa; margin-bottom: 2rem;">Verifizierung erforderlich</h2>
+  <p style="color: #cbd5e1; margin-bottom: 2rem;">Bestätigen Sie, dass Sie ein Mensch sind, um auf die Datenschutzerklärung zuzugreifen.</p>
+  <div class="cf-turnstile" 
+       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
+       data-callback="onDatenschutzTurnstileSuccess" 
+       data-error-callback="onDatenschutzTurnstileError"
+       data-theme="dark"
+       data-size="normal">
+  </div>
+</div>
+
+<div id="datenschutz-content" style="display: none;">
+
 # Datenschutzerklärung
 
 ## Verantwortlicher
@@ -91,3 +105,5 @@ Diese Datenschutzerklärung kann bei Änderungen der Website oder rechtlichen An
 **Stand:** Juni 2025
 
 *Diese Datenschutzerklärung wurde für eine private, nicht-kommerzielle Website erstellt und entspricht den deutschen Datenschutzbestimmungen.*
+
+</div>

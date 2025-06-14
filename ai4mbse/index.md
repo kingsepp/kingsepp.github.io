@@ -6,7 +6,19 @@ keywords: AI, MBSE, Cameo Systems Modeler, Plugin, Systems Engineering
 robots: noindex, nofollow
 ---
 
-<main role="main">
+<div id="turnstile-protection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+  <h2 style="color: #60a5fa; margin-bottom: 2rem;">Verifizierung erforderlich</h2>
+  <p style="color: #cbd5e1; margin-bottom: 2rem;">Bestätigen Sie, dass Sie ein Mensch sind, um auf die AI4MBSE-Dokumentation zuzugreifen.</p>
+  <div class="cf-turnstile" 
+       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
+       data-callback="onAI4MBSETurnstileSuccess" 
+       data-error-callback="onAI4MBSETurnstileError"
+       data-theme="dark"
+       data-size="normal">
+  </div>
+</div>
+
+<main role="main" id="ai4mbse-content" style="display: none;">
   <article class="plugin-documentation">
     <!-- Hero Section -->
     <header class="hero glass-morphism ai4mbse-banner-hero" role="banner">
