@@ -5,6 +5,20 @@ description: Impressum und rechtliche Hinweise
 robots: noindex, nofollow
 ---
 
+<div id="turnstile-protection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+  <h2 style="color: #60a5fa; margin-bottom: 2rem;">Verifizierung erforderlich</h2>
+  <p style="color: #cbd5e1; margin-bottom: 2rem;">Bestätigen Sie, dass Sie ein Mensch sind, um auf das Impressum zuzugreifen.</p>
+  <div class="cf-turnstile" 
+       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
+       data-callback="onImpressumTurnstileSuccess" 
+       data-error-callback="onImpressumTurnstileError"
+       data-theme="dark"
+       data-size="normal">
+  </div>
+</div>
+
+<div id="impressum-content" style="display: none;">
+
 # Impressum
 
 ## Angaben gemäß § 5 TMG
@@ -92,3 +106,5 @@ Der Anbieter dieser Website übernimmt keine Verantwortung für die Verfügbarke
 ---
 
 *Stand: Juni 2025*
+
+</div>

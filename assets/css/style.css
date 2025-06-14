@@ -719,6 +719,84 @@ nav {
 }
 
 /* ===========================
+   TURNSTILE WIDGET STYLING
+   =========================== */
+.cf-turnstile {
+    margin: 1rem 0;
+    display: flex;
+    justify-content: center;
+}
+
+.contact-form .form-group:has(.cf-turnstile) {
+    text-align: center;
+    margin: 2rem 0;
+}
+
+.submit-button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    background: rgba(59, 130, 246, 0.3) !important;
+}
+
+.submit-button:disabled:hover {
+    transform: none !important;
+    box-shadow: none !important;
+}
+
+/* Page-level Turnstile Protection */
+#turnstile-protection {
+    background: rgba(255, 255, 255, 0.05);
+    backdrop-filter: blur(20px);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 3rem;
+    margin: 2rem auto;
+    max-width: 500px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+}
+
+#turnstile-protection h2 {
+    font-size: 1.8rem;
+    font-weight: 600;
+    margin-bottom: 1rem;
+}
+
+#turnstile-protection p {
+    font-size: 1rem;
+    line-height: 1.6;
+    margin-bottom: 2rem;
+}
+
+#turnstile-protection .cf-turnstile {
+    margin: 2rem 0;
+}
+
+.error-message {
+    color: #ef4444 !important;
+    font-weight: 500;
+    margin-top: 1rem !important;
+}
+
+/* Loading animation for protected content */
+#main-content,
+#impressum-content,
+#ai4mbse-content,
+#datenschutz-content {
+    animation: fadeIn 0.5s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ===========================
    CONTACT FORM
    =========================== */
 .contact-form {
