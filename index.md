@@ -3,6 +3,19 @@ layout: default
 title: Kingsepp - Cloud Consulting & IT-Expertise
 ---
 
+<div id="turnstile-protection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+  <h2 style="color: #60a5fa; margin-bottom: 2rem;">Verifizierung erforderlich</h2>
+  <p style="color: #cbd5e1; margin-bottom: 2rem;">Bestätigen Sie, dass Sie ein Mensch sind, um auf die Website zuzugreifen.</p>
+  <div class="cf-turnstile" 
+       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
+       data-callback="onMainPageTurnstileSuccess" 
+       data-error-callback="onMainPageTurnstileError"
+       data-theme="dark"
+       data-size="normal">
+  </div>
+</div>
+
+<div id="main-content" style="display: none;">
 
 <nav class="nav" style="display:block !important;">
   <div class="nav-container" style="display:flex !important;">
@@ -106,7 +119,7 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
   <section id="contact" class="section">
     <div class="container">
       <h2 class="section-title">Kontakt</h2>
-      <div class="contact-form">
+      <form class="contact-form" action="/contact" method="POST">
         <p style="text-align: center; margin-bottom: 2rem; color: #cbd5e1;">
           Bereit für Ihr nächstes Cloud-Projekt? Lassen Sie uns sprechen!
         </p>
@@ -126,8 +139,24 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
           <label for="message">Projektbeschreibung</label>
           <textarea id="message" name="message" rows="5" placeholder="Erzählen Sie mir von Ihrem Projekt..." required></textarea>
         </div>
+        <div class="form-group">
+          <div class="cf-turnstile" 
+               data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
+               data-callback="onTurnstileSuccess" 
+               data-error-callback="onTurnstileError"
+               data-expired-callback="onTurnstileExpired"
+               data-theme="dark"
+               data-size="normal"
+               data-retry="auto"
+               data-retry-interval="8000"
+               data-refresh-expired="auto"
+               data-appearance="always">
+          </div>
+        </div>
         <button type="submit" class="submit-button">Nachricht senden</button>
-      </div>
+      </form>
     </div>
   </section>
 </details>
+
+</div>

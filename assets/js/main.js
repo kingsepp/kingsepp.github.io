@@ -92,11 +92,227 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
-    // Form submission enhancement
-    const form = document.querySelector('form');
-    if (form) {
-        form.addEventListener('submit', function(e) {
+    // Turnstile callback functions for contact form
+    window.onTurnstileSuccess = function(token) {
+        console.log('Turnstile verification successful:', token);
+        const form = document.querySelector('form.contact-form');
+        if (form) {
+            // Enable submit button when verification is successful
             const submitButton = form.querySelector('.submit-button');
+            if (submitButton) {
+                submitButton.disabled = false;
+                submitButton.style.opacity = '1';
+            }
+        }
+    };
+
+    window.onTurnstileError = function(error) {
+        console.error('Turnstile verification failed:', error);
+        const form = document.querySelector('form.contact-form');
+        if (form) {
+            const submitButton = form.querySelector('.submit-button');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.5';
+            }
+        }
+    };
+
+    window.onTurnstileExpired = function() {
+        console.log('Turnstile token expired');
+        const form = document.querySelector('form.contact-form');
+        if (form) {
+            const submitButton = form.querySelector('.submit-button');
+            if (submitButton) {
+                submitButton.disabled = true;
+                submitButton.style.opacity = '0.5';
+            }
+        }
+    };
+
+    // Turnstile callback functions for page-level protection
+    window.onImpressumTurnstileSuccess = function(token) {
+        console.log('Impressum Turnstile verification successful:', token);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        const contentDiv = document.getElementById('impressum-content');
+        
+        if (protectionDiv && contentDiv) {
+            protectionDiv.style.display = 'none';
+            contentDiv.style.display = 'block';
+            
+            // Optional: Store verification status in sessionStorage
+            sessionStorage.setItem('impressum-verified', 'true');
+        }
+    };
+
+    window.onImpressumTurnstileError = function(error) {
+        console.error('Impressum Turnstile verification failed:', error);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        if (protectionDiv) {
+            const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
+            errorMsg.className = 'error-message';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.marginTop = '1rem';
+            errorMsg.textContent = 'Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            if (!protectionDiv.querySelector('.error-message')) {
+                protectionDiv.appendChild(errorMsg);
+            }
+        }
+    };
+
+    window.onAI4MBSETurnstileSuccess = function(token) {
+        console.log('AI4MBSE Turnstile verification successful:', token);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        const contentDiv = document.getElementById('ai4mbse-content');
+        
+        if (protectionDiv && contentDiv) {
+            protectionDiv.style.display = 'none';
+            contentDiv.style.display = 'block';
+            
+            // Optional: Store verification status in sessionStorage
+            sessionStorage.setItem('ai4mbse-verified', 'true');
+        }
+    };
+
+    window.onAI4MBSETurnstileError = function(error) {
+        console.error('AI4MBSE Turnstile verification failed:', error);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        if (protectionDiv) {
+            const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
+            errorMsg.className = 'error-message';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.marginTop = '1rem';
+            errorMsg.textContent = 'Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            if (!protectionDiv.querySelector('.error-message')) {
+                protectionDiv.appendChild(errorMsg);
+            }
+        }
+    };
+
+    // Additional callback functions for new protected pages
+    window.onMainPageTurnstileSuccess = function(token) {
+        console.log('Main Page Turnstile verification successful:', token);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        const contentDiv = document.getElementById('main-content');
+        
+        if (protectionDiv && contentDiv) {
+            protectionDiv.style.display = 'none';
+            contentDiv.style.display = 'block';
+            
+            // Store verification status in sessionStorage
+            sessionStorage.setItem('main-page-verified', 'true');
+        }
+    };
+
+    window.onMainPageTurnstileError = function(error) {
+        console.error('Main Page Turnstile verification failed:', error);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        if (protectionDiv) {
+            const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
+            errorMsg.className = 'error-message';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.marginTop = '1rem';
+            errorMsg.textContent = 'Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            if (!protectionDiv.querySelector('.error-message')) {
+                protectionDiv.appendChild(errorMsg);
+            }
+        }
+    };
+
+    window.onDatenschutzTurnstileSuccess = function(token) {
+        console.log('Datenschutz Turnstile verification successful:', token);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        const contentDiv = document.getElementById('datenschutz-content');
+        
+        if (protectionDiv && contentDiv) {
+            protectionDiv.style.display = 'none';
+            contentDiv.style.display = 'block';
+            
+            // Store verification status in sessionStorage
+            sessionStorage.setItem('datenschutz-verified', 'true');
+        }
+    };
+
+    window.onDatenschutzTurnstileError = function(error) {
+        console.error('Datenschutz Turnstile verification failed:', error);
+        const protectionDiv = document.getElementById('turnstile-protection');
+        if (protectionDiv) {
+            const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
+            errorMsg.className = 'error-message';
+            errorMsg.style.color = '#ef4444';
+            errorMsg.style.marginTop = '1rem';
+            errorMsg.textContent = 'Verifizierung fehlgeschlagen. Bitte versuchen Sie es erneut.';
+            if (!protectionDiv.querySelector('.error-message')) {
+                protectionDiv.appendChild(errorMsg);
+            }
+        }
+    };
+
+    // Check if user has already been verified in this session
+    function checkExistingVerification() {
+        // Check for Main page
+        if (document.getElementById('main-content') && sessionStorage.getItem('main-page-verified') === 'true') {
+            const protectionDiv = document.getElementById('turnstile-protection');
+            const contentDiv = document.getElementById('main-content');
+            if (protectionDiv && contentDiv) {
+                protectionDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+            }
+        }
+        
+        // Check for Impressum page
+        if (document.getElementById('impressum-content') && sessionStorage.getItem('impressum-verified') === 'true') {
+            const protectionDiv = document.getElementById('turnstile-protection');
+            const contentDiv = document.getElementById('impressum-content');
+            if (protectionDiv && contentDiv) {
+                protectionDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+            }
+        }
+        
+        // Check for AI4MBSE page
+        if (document.getElementById('ai4mbse-content') && sessionStorage.getItem('ai4mbse-verified') === 'true') {
+            const protectionDiv = document.getElementById('turnstile-protection');
+            const contentDiv = document.getElementById('ai4mbse-content');
+            if (protectionDiv && contentDiv) {
+                protectionDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+            }
+        }
+        
+        // Check for Datenschutz page
+        if (document.getElementById('datenschutz-content') && sessionStorage.getItem('datenschutz-verified') === 'true') {
+            const protectionDiv = document.getElementById('turnstile-protection');
+            const contentDiv = document.getElementById('datenschutz-content');
+            if (protectionDiv && contentDiv) {
+                protectionDiv.style.display = 'none';
+                contentDiv.style.display = 'block';
+            }
+        }
+    }
+
+    // Call the verification check
+    checkExistingVerification();
+
+    // Form submission enhancement
+    const form = document.querySelector('form.contact-form');
+    if (form) {
+        // Initially disable submit button until Turnstile verification
+        const submitButton = form.querySelector('.submit-button');
+        if (submitButton) {
+            submitButton.disabled = true;
+            submitButton.style.opacity = '0.5';
+        }
+
+        form.addEventListener('submit', function(e) {
+            // Check if Turnstile token exists
+            const turnstileResponse = form.querySelector('input[name="cf-turnstile-response"]');
+            if (!turnstileResponse || !turnstileResponse.value) {
+                e.preventDefault();
+                alert('Bitte bestätigen Sie, dass Sie kein Roboter sind.');
+                return;
+            }
+
             if (submitButton) {
                 submitButton.textContent = 'Wird gesendet...';
                 submitButton.disabled = true;
