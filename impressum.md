@@ -91,7 +91,11 @@ Das auf dieser Website bereitgestellte AI4MBSE-Plugin wird "wie besehen" (as-is)
 
 ### Externe APIs und Dienste
 
-Das Plugin nutzt die Google Gemini API. Für die Nutzung gelten die jeweiligen Nutzungsbedingungen und Datenschutzbestimmungen von Google. 
+**AI4MBSE-Plugin:**
+Das Plugin nutzt die Google Gemini API. Für die Nutzung gelten die jeweiligen Nutzungsbedingungen und Datenschutzbestimmungen von Google.
+
+**Website-Sicherheit:**
+Diese Website nutzt Cloudflare Turnstile zum Schutz vor automatisierten Zugriffen (Bots). Dabei werden technische Daten an Cloudflare übertragen.
 
 Der Anbieter dieser Website übernimmt keine Verantwortung für die Verfügbarkeit, Funktionalität oder Datenschutzpraktiken externer Dienste.
 

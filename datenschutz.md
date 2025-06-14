@@ -46,15 +46,30 @@ Diese Website wird über GitHub Pages gehostet. GitHub kann folgende Daten verar
 **Speicherdauer:** Entsprechend GitHub Privacy Policy  
 **Weitere Informationen:** [GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
 
-### 2. Keine aktive Datenerhebung
-Diese Website erhebt **keine personenbezogenen Daten** aktiv durch:
-- ❌ Kontaktformulare
+### 2. Cloudflare Turnstile (Bot-Schutz)
+Diese Website nutzt Cloudflare Turnstile zum Schutz vor automatisierten Zugriffen:
+
+**Verarbeitete Daten:**
+- **IP-Adresse** des Besuchers
+- **Browser-Informationen** (User-Agent, Sprache)
+- **Interaktionsdaten** (Mausbewegungen, Tastatureingaben)
+- **Challenge-Antworten** und Verifikationstoken
+
+**Rechtsgrundlage:** Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)  
+**Zweck:** Schutz vor Bots, Spam und missbräuchlicher Nutzung  
+**Speicherdauer:** Entsprechend Cloudflare Privacy Policy  
+**Datenübertragung:** USA (Angemessenheitsbeschluss)  
+**Weitere Informationen:** [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/)
+
+### 3. Minimale aktive Datenerhebung
+Diese Website erhebt darüber hinaus **keine weiteren personenbezogenen Daten** durch:
+- ❌ Kontaktformulare (noch nicht aktiv)
 - ❌ Cookies (außer technisch notwendige)
 - ❌ Newsletter-Anmeldungen
 - ❌ Kommentarfunktionen
 - ❌ Analytics-Tools
 
-### 3. AI4MBSE-Plugin und Google Gemini API
+### 4. AI4MBSE-Plugin und Google Gemini API
 Das zum Download angebotene Plugin nutzt die Google Gemini API:
 
 **Datenverarbeitung durch das Plugin:**
