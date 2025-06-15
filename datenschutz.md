@@ -79,7 +79,7 @@ Das zum Download angebotene Plugin nutzt die Google Gemini API:
 
 **Verantwortung des Nutzers:**
 - Der Nutzer ist für die API-Key-Erstellung bei Google verantwortlich
-- Es gelten die [Google Privacy Policy](https://policies.google.com/privacy) und [Google AI Terms](https://ai.google.dev/terms)
+- Es gelten die [Google Privacy Policy](https://policies.google.com/privacy) und [Google AI Terms](https://ai.google.dev/gemini-api/terms)
 - **Der Websitebetreiber hat keinen Einfluss** auf die Datenverarbeitung durch Google
 
 ## Ihre Rechte (DSGVO)

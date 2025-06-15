@@ -59,7 +59,7 @@ jobs:
     - name: Check Turnstile Configuration
       run: |
         echo "Checking Turnstile site keys..."
-        if grep -r "YOUR_SITE_KEY" . --exclude-dir=.git; then
+        if grep -r "YOUR_SITE_KEY" . --exclude-dir=.git --exclude-dir=.github; then
           echo "❌ Found placeholder site keys that need to be replaced!"
           exit 1
         else
