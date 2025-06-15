@@ -77,7 +77,10 @@ Diese Website nutzt Google Analytics zur Analyse des Nutzerverhaltens:
 **Datenübertragung:** USA (Angemessenheitsbeschluss)  
 **Weitere Informationen:** [Google Privacy Policy](https://policies.google.com/privacy) und [Google Analytics Datenschutz](https://support.google.com/analytics/answer/6004245)
 
+**Einwilligung:** Google Analytics wird nur nach Ihrer ausdrücklichen Einwilligung über das Cookie-Banner aktiviert.
+
 **Opt-Out:** Sie können die Erfassung durch Google Analytics verhindern durch:
+- Cookie-Banner: Klicken Sie auf "Nur notwendige" oder verwalten Sie Ihre Einstellungen
 - Browser-Add-on: [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
 - Cookie-Einstellungen Ihres Browsers
 
@@ -125,7 +128,12 @@ Diese Website verwendet Cookies für folgende Zwecke:
 - **GitHub Pages Cookies:** Können nicht beeinflusst werden
 - **Turnstile Cookies:** Für Bot-Schutz erforderlich
 
-**Cookie-Kontrolle:** Sie können Cookies in Ihren Browser-Einstellungen verwalten oder deaktivieren. Dies kann jedoch die Funktionalität der Website beeinträchtigen.
+**Cookie-Banner:** Beim ersten Besuch der Website erscheint ein Cookie-Banner mit folgenden Optionen:
+- **"Alle akzeptieren":** Stimmt allen Cookies zu (Analytics + notwendige)
+- **"Nur notwendige":** Akzeptiert nur technisch erforderliche Cookies
+- **"Einstellungen":** Ermöglicht granulare Kontrolle über Cookie-Kategorien
+
+**Cookie-Kontrolle:** Sie können Ihre Einwilligung jederzeit über die Cookie-Einstellungen ändern oder in Ihren Browser-Einstellungen verwalten.
 
 ## Externe Links
 Diese Website enthält Links zu externen Websites (z.B. GitHub Repository, Google AI). Für deren Datenschutzpraktiken übernehmen wir keine Verantwortung.
