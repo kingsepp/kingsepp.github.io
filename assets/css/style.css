@@ -502,9 +502,7 @@ nav {
    1) Äußere Flex-Box: Logos + Text nebeneinander
 --------------------------------------------------- */
 .project-guide {
-  display: flex;
-  align-items: flex-start; /* Logos oben an Text ausrichten (kann auf center geändert werden) */
-  gap: 1rem;               /* Abstand zwischen Logo-Container und Text */
+  display: block;          /* Von flex auf block ändern für bessere Kontrolle */
   background: rgba(255, 255, 255, 0.05);
   border-radius: 12px;
   padding: 2rem;
@@ -519,9 +517,11 @@ nav {
 --------------------------------------------------- */
 .logo-group {
   display: flex;
-  flex-direction: column; /* oder row, je nachdem wie du die Logos anordnen willst */
-  gap: 2rem;              /* hier von 0.5rem auf 1rem erhöhen */
-  flex-shrink: 0;
+  flex-direction: row;    /* Logos nebeneinander statt übereinander */
+  gap: 1.5rem;            /* Abstand zwischen den Logos */
+  justify-content: center; /* Logos zentrieren */
+  margin-bottom: 2rem;    /* Abstand zum Text darunter */
+  flex-wrap: wrap;        /* Bei kleinen Bildschirmen umbrechen */
 }
 
 
@@ -529,7 +529,7 @@ nav {
    3) Größe der Logos anpassen
 --------------------------------------------------- */
 .project-logo {
-  width: 80px;    /* Beispiel: Breite 80 px, passt du nach Belieben an */
+  width: 60px;    /* Etwas kleiner für bessere Proportion */
   height: auto;   /* Seitenverhältnis bleibt erhalten */
   display: block; /* entfernt Inline-Spacing-Probleme */
 }
@@ -1180,11 +1180,19 @@ nav,
 
 .about-text {
   margin: 0;
-  line-height: 1.5;
+  line-height: 1.6;
   text-align: left;
-  color: #fff;
-  max-width: 600px;
-  padding: 2rem 0 1rem 1rem;
+  color: #cbd5e1;
+  max-width: 100%;
+  padding: 0;
+}
+
+.logo-credits {
+  text-align: center;
+  margin-bottom: 2rem;
+  font-size: 0.8em;
+  color: #94a3b8;
+}
 
 
 
