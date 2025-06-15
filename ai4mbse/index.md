@@ -192,21 +192,23 @@ robots: noindex, nofollow
         <ai4mbse-icon name="download"></ai4mbse-icon> Download
         </h2>
         <div class="content-wrapper">
-            <div class="download-card">
-                <div class="download-header">
-                    <h3>AI4MBSE Plugin v1.7</h3>
-                    <span class="download-size">~2.5 MB</span>
-                </div>
-                
-                <div class="download-button-container">
-                    <a href="AI4MBSE_Plugin.zip" class="cta-button enhanced-download">
-                        <span class="download-icon">⬇️</span>
-                        Plugin herunterladen
-                    </a>
-                </div>
-                
-                <div class="download-note">
-                    <small>💡 Vollständiges ZIP-Paket mit allen Installationsdateien</small>
+            <div class="setup-guide">
+                <div class="download-card">
+                    <div class="download-header">
+                        <h3>AI4MBSE Plugin v1.7</h3>
+                        <span class="download-size">~2.5 MB</span>
+                    </div>
+                    
+                    <div class="download-button-container">
+                        <a href="AI4MBSE_Plugin.zip" class="cta-button enhanced-download">
+                            <span class="download-icon">⬇️</span>
+                            Plugin herunterladen
+                        </a>
+                    </div>
+                    
+                    <div class="download-note">
+                        <small>💡 Vollständiges ZIP-Paket mit allen Installationsdateien</small>
+                    </div>
                 </div>
             </div>
         </div>
