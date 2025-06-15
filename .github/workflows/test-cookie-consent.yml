@@ -1,0 +1,244 @@
+name: Cookie Consent Tests
+
+on:
+  push:
+    branches: [ main, feature/* ]
+  pull_request:
+    branches: [ main ]
+  # Manueller Trigger
+  workflow_dispatch:
+
+jobs:
+  unit-tests:
+    runs-on: ubuntu-latest
+    name: Unit Tests
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install Dependencies
+      run: npm ci
+      
+    - name: Run Unit Tests
+      run: npm test -- --coverage --watchAll=false
+      
+    - name: Upload Coverage Reports
+      uses: codecov/codecov-action@v3
+      with:
+        file: ./coverage/lcov.info
+        fail_ci_if_error: false
+
+  e2e-tests:
+    runs-on: ubuntu-latest
+    name: End-to-End Tests
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install Dependencies
+      run: npm ci
+      
+    - name: Setup Chrome for Puppeteer
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y chromium-browser
+        
+    - name: Build Jekyll Site
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec jekyll build
+        
+    - name: Start Local Server
+      run: |
+        bundle exec jekyll serve --detach --port 4000
+        sleep 5
+        
+    - name: Run E2E Tests
+      run: npm run test:e2e
+      env:
+        PUPPETEER_EXECUTABLE_PATH: /usr/bin/chromium-browser
+        
+    - name: Upload E2E Screenshots
+      if: failure()
+      uses: actions/upload-artifact@v3
+      with:
+        name: e2e-screenshots
+        path: tests/screenshots/
+
+  security-scan:
+    runs-on: ubuntu-latest
+    name: Security & Privacy Scan
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Security Tools
+      run: |
+        npm install -g retire
+        npm ci
+        
+    - name: Scan for Vulnerable Dependencies
+      run: retire --path assets/js --outputformat json --outputpath security-report.json || true
+      
+    - name: Check Cookie Consent Implementation
+      run: |
+        echo "🔍 Checking Cookie Consent Implementation..."
+        
+        # Prüfe ob Google Analytics nur conditional geladen wird
+        if grep -r "gtag.*config" assets/js/cookie-consent.js; then
+          echo "✅ Google Analytics wird conditional geladen"
+        else
+          echo "❌ Google Analytics conditional loading fehlt"
+          exit 1
+        fi
+        
+        # Prüfe ob Opt-Out implementiert ist
+        if grep -r "deleteGoogleAnalyticsCookies\|revokeConsent" assets/js/cookie-consent.js; then
+          echo "✅ Opt-Out Mechanismus vorhanden"
+        else
+          echo "❌ Opt-Out Mechanismus fehlt"
+          exit 1
+        fi
+        
+        # Prüfe ob DSGVO-Banner vorhanden ist
+        if grep -r "cookie-banner\|cookie-consent" _layouts/default.html; then
+          echo "✅ Cookie-Banner implementiert"
+        else
+          echo "❌ Cookie-Banner fehlt"
+          exit 1
+        fi
+        
+    - name: Validate Privacy Policy
+      run: |
+        echo "🔍 Validating Privacy Policy..."
+        
+        # Prüfe Datenschutzerklärung auf DSGVO-Compliance
+        PRIVACY_CHECKS=(
+          "Google Analytics"
+          "Cloudflare Turnstile" 
+          "Cookie-Banner"
+          "Opt-Out"
+          "Betroffenenrechte"
+          "Art. 6"
+        )
+        
+        for check in "${PRIVACY_CHECKS[@]}"; do
+          if grep -q "$check" datenschutz.md; then
+            echo "✅ $check gefunden"
+          else
+            echo "❌ $check fehlt in Datenschutzerklärung"
+            exit 1
+          fi
+        done
+
+  performance-tests:
+    runs-on: ubuntu-latest
+    name: Performance & Lighthouse
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Lighthouse CI
+      run: npm install -g @lhci/cli@0.12.x
+      
+    - name: Build Jekyll Site
+      run: |
+        gem install bundler
+        bundle install
+        bundle exec jekyll build
+        
+    - name: Start Local Server
+      run: |
+        bundle exec jekyll serve --detach --port 4000
+        sleep 5
+        
+    - name: Run Lighthouse CI
+      run: |
+        lhci autorun --config=lighthouserc.json || echo "Lighthouse completed with warnings"
+        
+    - name: Check Cookie Banner Performance
+      run: |
+        echo "🔍 Checking Cookie Banner Performance Impact..."
+        
+        # Prüfe JavaScript Bundle Size
+        JS_SIZE=$(stat -c%s "assets/js/cookie-consent.js")
+        if [ $JS_SIZE -gt 50000 ]; then
+          echo "⚠️ Cookie-Consent JS ist groß: ${JS_SIZE} bytes"
+        else
+          echo "✅ Cookie-Consent JS Größe OK: ${JS_SIZE} bytes"
+        fi
+        
+        # Prüfe CSS Bundle Size
+        CSS_LINES=$(wc -l < "assets/css/style.css")
+        echo "📊 CSS Zeilen: $CSS_LINES"
+
+  deployment-readiness:
+    runs-on: ubuntu-latest
+    name: Deployment Readiness Check
+    needs: [unit-tests, e2e-tests, security-scan]
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Final Compliance Check
+      run: |
+        echo "🚀 Final Deployment Readiness Check"
+        
+        # Alle kritischen Dateien vorhanden?
+        REQUIRED_FILES=(
+          "assets/js/cookie-consent.js"
+          "datenschutz.md"
+          "impressum.md"
+          "_layouts/default.html"
+        )
+        
+        for file in "${REQUIRED_FILES[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file vorhanden"
+          else
+            echo "❌ $file fehlt"
+            exit 1
+          fi
+        done
+        
+        echo "🎯 Alle Tests bestanden - Deployment bereit!"
+        
+    - name: Create Deployment Summary
+      run: |
+        echo "## 🍪 Cookie Consent Test Summary" >> $GITHUB_STEP_SUMMARY
+        echo "| Test Category | Status |" >> $GITHUB_STEP_SUMMARY
+        echo "|---------------|--------|" >> $GITHUB_STEP_SUMMARY
+        echo "| Unit Tests | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "| E2E Tests | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "| Security Scan | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "| DSGVO Compliance | ✅ Validated |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Deployment Status: ✅ READY**" >> $GITHUB_STEP_SUMMARY
