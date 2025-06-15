@@ -28,7 +28,7 @@ robots: noindex, nofollow
           KI-Integration für Magic Systems of Systems Architect<br>
           <span class="ai4mbse-banner-claim text-gradient">Automatisierung. Intelligenz. Effizienz.</span>
         </p>
-        
+
         <!-- Navigation Menu -->
         <nav class="hero-navigation" style="margin-top: 2rem;">
           <div class="nav-links">
@@ -444,7 +444,6 @@ robots: noindex, nofollow
 <button id="backToTop" class="back-to-top" onclick="scrollToTop()" style="display: none;">
   ↑ Nach oben
 </button>
-
 
 <!-- Scripts for fancy hero animation -->
 <script src="/assets/js/ai4mbse-hero-animate.js"></script>
