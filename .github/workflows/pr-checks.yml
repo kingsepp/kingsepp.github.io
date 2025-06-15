@@ -1,0 +1,85 @@
+name: PR Checks
+
+on:
+  pull_request:
+    branches: [ main ]
+
+jobs:
+  build-test:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v5
+      
+    - name: Build with Jekyll
+      run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Test HTML
+      run: |
+        bundle exec htmlproofer ./_site --check-html --disable-external
+        
+  markdown-lint:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Lint Markdown files
+      uses: articulate/actions-markdownlint@v1
+      with:
+        config: .markdownlint.json
+        files: '**/*.md'
+        ignore: 'node_modules'
+        
+  link-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check links
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        
+  turnstile-config-check:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    
+    - name: Check Turnstile Configuration
+      run: |
+        echo "Checking Turnstile site keys..."
+        if grep -r "YOUR_SITE_KEY" . --exclude-dir=.git; then
+          echo "❌ Found placeholder site keys that need to be replaced!"
+          exit 1
+        else
+          echo "✅ All site keys are configured"
+        fi
+        
+    - name: Validate HTML structure
+      run: |
+        echo "Checking Turnstile HTML structure..."
+        for file in *.md ai4mbse/*.md; do
+          if [[ -f "$file" ]]; then
+            if grep -q "cf-turnstile" "$file"; then
+              echo "✅ $file has Turnstile protection"
+              # Check if protection div and content div exist
+              if grep -q "turnstile-protection" "$file" && grep -q "style=\"display: none;\"" "$file"; then
+                echo "✅ $file has correct protection structure"
+              else
+                echo "❌ $file missing protection structure"
+                exit 1
+              fi
+            fi
+          fi
+        done
