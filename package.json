@@ -13,8 +13,7 @@
     "validate:privacy": "node scripts/validate-privacy-compliance.js",
     "validate:cookies": "node scripts/validate-cookie-implementation.js",
     "serve": "bundle exec jekyll serve",
-    "build": "bundle exec jekyll build",
-    "prepare": "husky install"
+    "build": "bundle exec jekyll build"
   },
   "keywords": ["jekyll", "github-pages", "ai4mbse", "cookie-consent", "dsgvo"],
   "author": "Thomas Schuster <th.kingsepp@gmail.com>",
