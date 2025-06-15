@@ -27,7 +27,7 @@ jobs:
         
     - name: Test HTML
       run: |
-        bundle exec htmlproofer ./_site --check-html --disable-external
+        bundle exec htmlproofer ./_site --checks Links,Images,Scripts --disable-external
         
   markdown-lint:
     runs-on: ubuntu-latest
@@ -50,6 +50,7 @@ jobs:
       uses: gaurav-nelson/github-action-markdown-link-check@v1
       with:
         use-quiet-mode: 'yes'
+        config-file: '.mlc_config.json'
         
   turnstile-config-check:
     runs-on: ubuntu-latest
