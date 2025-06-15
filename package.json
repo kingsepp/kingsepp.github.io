@@ -1,0 +1,57 @@
+{
+  "name": "kingsepp-github-io",
+  "version": "1.0.0",
+  "description": "Thomas Schuster's personal website with AI4MBSE plugin documentation",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "jest tests/e2e-cookie-test.js",
+    "test:all": "npm run test && npm run test:e2e",
+    "lint": "eslint assets/js/**/*.js",
+    "lint:fix": "eslint assets/js/**/*.js --fix",
+    "validate:privacy": "node scripts/validate-privacy-compliance.js",
+    "validate:cookies": "node scripts/validate-cookie-implementation.js",
+    "serve": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build"
+  },
+  "keywords": ["jekyll", "github-pages", "ai4mbse", "cookie-consent", "dsgvo"],
+  "author": "Thomas Schuster <th.kingsepp@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "jsdom": "^22.1.0",
+    "@testing-library/dom": "^9.3.1",
+    "puppeteer": "^21.1.1",
+    "eslint": "^8.45.0",
+    "husky": "^8.0.3",
+    "lighthouse": "^10.4.0",
+    "@lhci/cli": "^0.12.0"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "collectCoverageFrom": [
+      "assets/js/**/*.js",
+      "!assets/js/**/*.test.js"
+    ],
+    "coverageReporters": ["text", "lcov", "html"],
+    "testTimeout": 30000
+  },
+  "eslintConfig": {
+    "env": {
+      "browser": true,
+      "es2021": true,
+      "jest": true
+    },
+    "extends": "eslint:recommended",
+    "parserOptions": {
+      "ecmaVersion": "latest",
+      "sourceType": "module"
+    },
+    "rules": {
+      "no-unused-vars": "warn",
+      "no-console": "off"
+    }
+  }
+}
