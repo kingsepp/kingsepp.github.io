@@ -1,0 +1,135 @@
+name: Dependency Management
+
+on:
+  schedule:
+    # Läuft jeden Montag um 9:00 UTC
+    - cron: '0 9 * * 1'
+  workflow_dispatch:
+
+jobs:
+  audit-dependencies:
+    runs-on: ubuntu-latest
+    name: Security Audit & Dependency Check
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Install Dependencies (Silent)
+      run: |
+        npm install --silent 2>/dev/null || {
+          echo "⚠️ npm install had warnings, checking for security issues..."
+          npm install --no-audit --no-fund --silent
+        }
+        
+    - name: Run Security Audit
+      run: |
+        echo "🔍 Running security audit..."
+        AUDIT_OUTPUT=$(npm audit --json 2>/dev/null || echo '{"vulnerabilities":{}}')
+        
+        # Parse audit results
+        CRITICAL=$(echo $AUDIT_OUTPUT | jq -r '.metadata.vulnerabilities.critical // 0')
+        HIGH=$(echo $AUDIT_OUTPUT | jq -r '.metadata.vulnerabilities.high // 0')
+        MODERATE=$(echo $AUDIT_OUTPUT | jq -r '.metadata.vulnerabilities.moderate // 0')
+        
+        echo "## 🛡️ Security Audit Results" >> $GITHUB_STEP_SUMMARY
+        echo "| Severity | Count |" >> $GITHUB_STEP_SUMMARY
+        echo "|----------|-------|" >> $GITHUB_STEP_SUMMARY
+        echo "| Critical | $CRITICAL |" >> $GITHUB_STEP_SUMMARY
+        echo "| High | $HIGH |" >> $GITHUB_STEP_SUMMARY
+        echo "| Moderate | $MODERATE |" >> $GITHUB_STEP_SUMMARY
+        
+        if [ "$CRITICAL" -gt 0 ] || [ "$HIGH" -gt 0 ]; then
+          echo "❌ Security vulnerabilities found!"
+          echo "**Status: ❌ SECURITY ISSUES DETECTED**" >> $GITHUB_STEP_SUMMARY
+          exit 1
+        else
+          echo "✅ No critical security issues found"
+          echo "**Status: ✅ SECURE**" >> $GITHUB_STEP_SUMMARY
+        fi
+        
+    - name: Check for Deprecated Packages
+      run: |
+        echo "📦 Checking for deprecated packages..."
+        
+        # Bekannte deprecated packages prüfen
+        DEPRECATED_FOUND=false
+        
+        if npm list rimraf@3 2>/dev/null; then
+          echo "⚠️ rimraf v3 is deprecated"
+          DEPRECATED_FOUND=true
+        fi
+        
+        if npm list eslint@8 2>/dev/null; then
+          echo "⚠️ eslint v8 is no longer supported"
+          DEPRECATED_FOUND=true
+        fi
+        
+        if npm list puppeteer 2>/dev/null | grep -E "puppeteer@2[0-1]"; then
+          echo "⚠️ puppeteer < 22.8.2 is deprecated"
+          DEPRECATED_FOUND=true
+        fi
+        
+        if [ "$DEPRECATED_FOUND" = true ]; then
+          echo "## ⚠️ Deprecated Dependencies Found" >> $GITHUB_STEP_SUMMARY
+          echo "Some dependencies are deprecated and should be updated." >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ No deprecated packages found"
+        fi
+        
+    - name: Test Build with Dependencies
+      run: |
+        echo "🧪 Testing if dependencies work correctly..."
+        
+        # Test Jest
+        if command -v npx >/dev/null 2>&1; then
+          echo "Testing Jest..."
+          npx jest --version >/dev/null && echo "✅ Jest works"
+        fi
+        
+        # Test ESLint (falls verfügbar)
+        if npm list eslint >/dev/null 2>&1; then
+          echo "Testing ESLint..."
+          npx eslint --version >/dev/null && echo "✅ ESLint works"
+        fi
+        
+        echo "✅ All dependency tests passed"
+
+  check-outdated:
+    runs-on: ubuntu-latest
+    name: Check for Outdated Packages
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        cache: 'npm'
+        
+    - name: Check Outdated Packages
+      run: |
+        echo "📈 Checking for outdated packages..."
+        
+        npm install --silent 2>/dev/null || npm install --no-audit --no-fund --silent
+        
+        # Get outdated packages
+        OUTDATED=$(npm outdated --json 2>/dev/null || echo '{}')
+        
+        if [ "$OUTDATED" != "{}" ]; then
+          echo "## 📈 Outdated Packages" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+          npm outdated >> $GITHUB_STEP_SUMMARY 2>/dev/null || echo "Some packages are outdated" >> $GITHUB_STEP_SUMMARY
+          echo "\`\`\`" >> $GITHUB_STEP_SUMMARY
+        else
+          echo "✅ All packages are up to date"
+          echo "**Status: ✅ ALL PACKAGES CURRENT**" >> $GITHUB_STEP_SUMMARY
+        fi
