@@ -25,34 +25,6 @@ robots: noindex, nofollow
       <p class="legal-subtitle">Angaben gemäß § 5 TMG</p>
     </header>
 
-    <section class="legal-section contact-info">
-      <h2 class="section-heading">Verantwortlich für den Inhalt</h2>
-      <div class="contact-card">
-        <div class="contact-details">
-          <div class="contact-item">
-            <span class="contact-label">Name:</span>
-            <span class="contact-value">Thomas Schuster</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Adresse:</span>
-            <span class="contact-value">
-              Schachenmeierstraße 16<br>
-              80636 München<br>
-              Deutschland
-            </span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">E-Mail:</span>
-            <span class="contact-value">th.kingsepp@gmail.com</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Telefon:</span>
-            <span class="contact-value">08992657184</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="legal-section">
       <h2 class="section-heading">Haftungsausschluss</h2>
       
@@ -194,6 +166,34 @@ robots: noindex, nofollow
               GitHub Privacy Statement
             </a>
           </p>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-section contact-info">
+      <h2 class="section-heading">Verantwortlich für den Inhalt</h2>
+      <div class="contact-card">
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">Name:</span>
+            <span class="contact-value">Thomas Schuster</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Adresse:</span>
+            <span class="contact-value">
+              Schachenmeierstraße 16<br>
+              80636 München<br>
+              Deutschland
+            </span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">E-Mail:</span>
+            <span class="contact-value">th.kingsepp@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Telefon:</span>
+            <span class="contact-value">08992657184</span>
+          </div>
         </div>
       </div>
     </section>
