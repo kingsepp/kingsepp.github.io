@@ -61,15 +61,34 @@ Diese Website nutzt Cloudflare Turnstile zum Schutz vor automatisierten Zugriffe
 **Datenübertragung:** USA (Angemessenheitsbeschluss)  
 **Weitere Informationen:** [Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/)
 
-### 3. Minimale aktive Datenerhebung
+### 3. Google Analytics (Website-Analyse)
+Diese Website nutzt Google Analytics zur Analyse des Nutzerverhaltens:
+
+**Verarbeitete Daten:**
+- **IP-Adresse** (anonymisiert)
+- **Seitenaufrufe** und Verweildauer
+- **Geräteinformationen** (Browser, Betriebssystem)
+- **Referrer-URLs** und Suchbegriffe
+- **Geografische Herkunft** (anonymisiert auf Stadtebene)
+
+**Rechtsgrundlage:** Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)  
+**Zweck:** Website-Optimierung und Verbesserung der Nutzererfahrung  
+**Speicherdauer:** 26 Monate (Google Analytics Standard)  
+**Datenübertragung:** USA (Angemessenheitsbeschluss)  
+**Weitere Informationen:** [Google Privacy Policy](https://policies.google.com/privacy) und [Google Analytics Datenschutz](https://support.google.com/analytics/answer/6004245)
+
+**Opt-Out:** Sie können die Erfassung durch Google Analytics verhindern durch:
+- Browser-Add-on: [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
+- Cookie-Einstellungen Ihres Browsers
+
+### 4. Weitere Datenerhebung
 Diese Website erhebt darüber hinaus **keine weiteren personenbezogenen Daten** durch:
 - ❌ Kontaktformulare (noch nicht aktiv)
-- ❌ Cookies (außer technisch notwendige)
 - ❌ Newsletter-Anmeldungen
 - ❌ Kommentarfunktionen
-- ❌ Analytics-Tools
+- ❌ Weitere Analytics-Tools
 
-### 4. AI4MBSE-Plugin und Google Gemini API
+### 5. AI4MBSE-Plugin und Google Gemini API
 Das zum Download angebotene Plugin nutzt die Google Gemini API:
 
 **Datenverarbeitung durch das Plugin:**
@@ -94,13 +113,19 @@ Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:
 
 **Beschwerderecht:** Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren.
 
-## Keine Cookies
-Diese Website verwendet keine Cookies für:
-- ❌ Tracking oder Analytics
-- ❌ Werbung oder Marketing
-- ❌ Social Media Integration
+## Cookies
+Diese Website verwendet Cookies für folgende Zwecke:
 
-**Technisch notwendige Cookies** von GitHub Pages können nicht beeinflusst werden.
+**Google Analytics Cookies:**
+- **_ga, _ga_[ID]:** Zur Unterscheidung von Nutzern und Sessions
+- **Speicherdauer:** 2 Jahre bzw. 24 Stunden
+- **Zweck:** Website-Analyse und Nutzungsstatistiken
+
+**Technisch notwendige Cookies:**
+- **GitHub Pages Cookies:** Können nicht beeinflusst werden
+- **Turnstile Cookies:** Für Bot-Schutz erforderlich
+
+**Cookie-Kontrolle:** Sie können Cookies in Ihren Browser-Einstellungen verwalten oder deaktivieren. Dies kann jedoch die Funktionalität der Website beeinträchtigen.
 
 ## Externe Links
 Diese Website enthält Links zu externen Websites (z.B. GitHub Repository, Google AI). Für deren Datenschutzpraktiken übernehmen wir keine Verantwortung.
