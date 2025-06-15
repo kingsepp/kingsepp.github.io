@@ -9,9 +9,9 @@ robots: noindex, nofollow
 <div id="turnstile-protection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
   <h2 style="color: #60a5fa; margin-bottom: 2rem;">Verifizierung erforderlich</h2>
   <p style="color: #cbd5e1; margin-bottom: 2rem;">Bestätigen Sie, dass Sie ein Mensch sind, um auf die AI4MBSE-Dokumentation zuzugreifen.</p>
-  <div class="cf-turnstile" 
-       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
-       data-callback="onAI4MBSETurnstileSuccess" 
+  <div class="cf-turnstile"
+       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ"
+       data-callback="onAI4MBSETurnstileSuccess"
        data-error-callback="onAI4MBSETurnstileError"
        data-theme="dark"
        data-size="normal">
@@ -61,7 +61,7 @@ robots: noindex, nofollow
                 alt="ECSE-Logo" class="project-logo">
             <img src="ai4mbse_logo.png" alt="AI4MBSE-Logo" class="project-logo">
             </div>
-            
+
             <div class="logo-credits" style="margin-top: 0.5rem; font-size: 0.8em; color: #94a3b8; text-align: center;">
                 Logos der Hochschule München und des Experience Centers Systems Engineering verwendet mit freundlicher Genehmigung
             </div>
