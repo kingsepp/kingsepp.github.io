@@ -1400,3 +1400,312 @@ a:hover,
   color: #e6c97a !important;
   text-decoration: underline;
 }
+
+/* ===========================
+   IMPRESSUM STYLES
+   =========================== */
+.impressum-page {
+  min-height: 100vh;
+  padding: 2rem 0;
+  background: transparent;
+}
+
+.legal-container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 2rem;
+}
+
+.legal-header {
+  text-align: center;
+  margin-bottom: 3rem;
+  padding-bottom: 2rem;
+  border-bottom: 2px solid rgba(96, 165, 250, 0.3);
+}
+
+.legal-title {
+  font-size: 3rem;
+  font-weight: 700;
+  background: linear-gradient(135deg, #f8fafc, #cbd5e1);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.legal-subtitle {
+  font-size: 1.2rem;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.legal-section {
+  margin-bottom: 3rem;
+}
+
+.section-heading {
+  font-size: 1.8rem;
+  color: #60a5fa;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+  border-left: 4px solid #60a5fa;
+  padding-left: 1rem;
+}
+
+.legal-subsection {
+  margin-bottom: 2rem;
+}
+
+.subsection-heading {
+  font-size: 1.3rem;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.legal-text {
+  color: #cbd5e1;
+  line-height: 1.7;
+  margin-bottom: 1rem;
+  font-size: 1rem;
+}
+
+.legal-link {
+  color: #60a5fa !important;
+  text-decoration: underline;
+  transition: color 0.3s ease;
+}
+
+.legal-link:hover {
+  color: #93c5fd !important;
+}
+
+/* Contact Information Card */
+.contact-card {
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 15px;
+  padding: 2rem;
+  margin-top: 1rem;
+}
+
+.contact-details {
+  display: grid;
+  gap: 1rem;
+}
+
+.contact-item {
+  display: grid;
+  grid-template-columns: 120px 1fr;
+  gap: 1rem;
+  align-items: start;
+}
+
+.contact-label {
+  font-weight: 600;
+  color: #94a3b8;
+}
+
+.contact-value {
+  color: #f8fafc;
+  font-weight: 500;
+}
+
+/* Info Cards */
+.info-card, .license-card, .disclaimer-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  margin-top: 1rem;
+}
+
+/* License Section */
+.license-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1rem;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.license-title {
+  font-size: 1.4rem;
+  color: #60a5fa;
+  margin: 0;
+  font-weight: 600;
+}
+
+.license-badge {
+  background: rgba(34, 197, 94, 0.2);
+  color: #22c55e;
+  padding: 0.4rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.85rem;
+  font-weight: 600;
+  border: 1px solid rgba(34, 197, 94, 0.3);
+}
+
+.copyright-notice {
+  font-size: 1.1rem;
+  color: #f8fafc;
+  margin-bottom: 1rem;
+}
+
+.license-condition {
+  background: rgba(59, 130, 246, 0.1);
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  border-radius: 8px;
+  padding: 1rem;
+  margin-top: 1rem;
+  color: #cbd5e1;
+}
+
+/* Disclaimer Section */
+.disclaimer-warning {
+  background: rgba(245, 158, 11, 0.1);
+  border: 1px solid rgba(245, 158, 11, 0.3);
+  border-radius: 10px;
+  padding: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.warning-title {
+  color: #f59e0b;
+  font-size: 1.2rem;
+  margin-bottom: 0.5rem;
+  font-weight: 600;
+}
+
+.warning-text {
+  color: #cbd5e1;
+  margin: 0;
+  font-weight: 500;
+}
+
+.disclaimer-subtitle {
+  color: #f8fafc;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.disclaimer-items {
+  list-style: none;
+  padding: 0;
+}
+
+.disclaimer-items li {
+  background: rgba(239, 68, 68, 0.1);
+  border: 1px solid rgba(239, 68, 68, 0.2);
+  border-radius: 8px;
+  padding: 0.8rem;
+  margin-bottom: 0.5rem;
+  color: #cbd5e1;
+}
+
+.risk-notice {
+  background: rgba(239, 68, 68, 0.15);
+  border: 2px solid rgba(239, 68, 68, 0.3);
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  color: #f8fafc;
+  text-align: center;
+  font-size: 1.05rem;
+}
+
+/* External Services Grid */
+.service-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1.5rem;
+}
+
+.service-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 12px;
+  padding: 1.5rem;
+  transition: all 0.3s ease;
+}
+
+.service-card:hover {
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(96, 165, 250, 0.3);
+  transform: translateY(-2px);
+}
+
+.service-title {
+  color: #60a5fa;
+  font-size: 1.1rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+.service-description {
+  color: #cbd5e1;
+  line-height: 1.6;
+  margin: 0;
+}
+
+/* Legal Footer */
+.legal-footer {
+  margin-top: 4rem;
+  padding-top: 2rem;
+  border-top: 2px solid rgba(96, 165, 250, 0.3);
+  text-align: center;
+}
+
+.footer-content {
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 12px;
+  padding: 1.5rem;
+}
+
+.footer-text {
+  color: #f8fafc;
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+}
+
+.footer-note {
+  color: #94a3b8;
+  font-size: 0.9rem;
+  margin: 0;
+  font-style: italic;
+}
+
+/* Responsive Design for Impressum */
+@media (max-width: 768px) {
+  .legal-container {
+    padding: 0 1rem;
+  }
+  
+  .legal-title {
+    font-size: 2.2rem;
+  }
+  
+  .contact-item {
+    grid-template-columns: 1fr;
+    gap: 0.5rem;
+  }
+  
+  .contact-label {
+    font-weight: 700;
+  }
+  
+  .license-header {
+    flex-direction: column;
+    gap: 1rem;
+    align-items: start;
+  }
+  
+  .service-grid {
+    grid-template-columns: 1fr;
+  }
+}
