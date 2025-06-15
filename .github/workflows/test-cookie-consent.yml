@@ -28,7 +28,11 @@ jobs:
         node-version: '18'
         
     - name: Install Dependencies
-      run: npm install
+      run: |
+        npm install --silent 2>/dev/null || {
+          echo "⚠️ npm install had warnings, but continuing..."
+          npm install --no-audit --no-fund --silent
+        }
       
     - name: Validate Cookie Consent Implementation
       run: |

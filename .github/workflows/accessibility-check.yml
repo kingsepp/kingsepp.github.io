@@ -17,8 +17,14 @@ jobs:
         
     - name: Install dependencies
       run: |
-        npm install -g @axe-core/cli
-        npm install -g pa11y-ci
+        npm install -g @axe-core/cli --silent 2>/dev/null || {
+          echo "⚠️ npm install had warnings, but continuing..."
+          npm install -g @axe-core/cli --no-audit --no-fund --silent
+        }
+        npm install -g pa11y-ci --silent 2>/dev/null || {
+          echo "⚠️ npm install had warnings, but continuing..."
+          npm install -g pa11y-ci --no-audit --no-fund --silent
+        }
         
     - name: Setup Ruby and build site
       uses: ruby/setup-ruby@v1
