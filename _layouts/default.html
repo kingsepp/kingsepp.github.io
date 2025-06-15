@@ -9,15 +9,7 @@
     {% endif %}
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
     
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6P6F8KLCQS"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'G-6P6F8KLCQS');
-    </script>
+    <!-- Google Analytics wird nur nach Cookie-Einwilligung geladen -->
 </head>
 <body>
     {% include header.html %}
@@ -30,7 +22,71 @@
     <!-- Turnstile API -->
     <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" defer></script>
     
+    <!-- Cookie Consent Banner -->
+    <div id="cookie-banner" class="cookie-banner" style="display: none;">
+      <div class="cookie-content">
+        <div class="cookie-text">
+          <h3>🍪 Cookie-Einstellungen</h3>
+          <p>
+            Diese Website verwendet Cookies zur Analyse des Nutzerverhaltens (Google Analytics) 
+            und für technische Funktionen. Sie können Ihre Einwilligung jederzeit widerrufen.
+          </p>
+        </div>
+        <div class="cookie-buttons">
+          <button id="cookie-accept-all" class="cookie-btn cookie-accept">
+            Alle akzeptieren
+          </button>
+          <button id="cookie-essential-only" class="cookie-btn cookie-decline">
+            Nur notwendige
+          </button>
+          <button id="cookie-settings" class="cookie-btn cookie-settings">
+            Einstellungen
+          </button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Cookie Settings Modal -->
+    <div id="cookie-modal" class="cookie-modal" style="display: none;">
+      <div class="cookie-modal-content">
+        <div class="cookie-modal-header">
+          <h2>Cookie-Einstellungen</h2>
+          <button id="cookie-modal-close" class="cookie-close">&times;</button>
+        </div>
+        <div class="cookie-modal-body">
+          <div class="cookie-category">
+            <div class="cookie-category-header">
+              <h3>Notwendige Cookies</h3>
+              <label class="cookie-toggle">
+                <input type="checkbox" id="essential-cookies" checked disabled>
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <p>Diese Cookies sind für die Grundfunktionen der Website erforderlich.</p>
+          </div>
+          
+          <div class="cookie-category">
+            <div class="cookie-category-header">
+              <h3>Analytics Cookies (Google Analytics)</h3>
+              <label class="cookie-toggle">
+                <input type="checkbox" id="analytics-cookies">
+                <span class="toggle-slider"></span>
+              </label>
+            </div>
+            <p>Helfen uns zu verstehen, wie Besucher mit der Website interagieren.</p>
+          </div>
+        </div>
+        <div class="cookie-modal-footer">
+          <button id="cookie-save-settings" class="cookie-btn cookie-accept">
+            Einstellungen speichern
+          </button>
+          <a href="/datenschutz" class="cookie-privacy-link">Datenschutzerklärung</a>
+        </div>
+      </div>
+    </div>
+
     <!-- Scripts -->
+    <script src="{{ '/assets/js/cookie-consent.js' | relative_url }}" defer></script>
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 </body>
 </html>
