@@ -20,13 +20,14 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^29.7.0",
-    "jsdom": "^22.1.0",
+    "jsdom": "^24.0.0",
     "@testing-library/dom": "^9.3.1",
-    "puppeteer": "^21.1.1",
-    "eslint": "^8.45.0",
-    "husky": "^8.0.3",
-    "lighthouse": "^10.4.0",
-    "@lhci/cli": "^0.12.0"
+    "puppeteer": "^22.8.2",
+    "@eslint/js": "^9.0.0",
+    "eslint": "^9.0.0",
+    "husky": "^9.0.0",
+    "lighthouse": "^12.0.0",
+    "@lhci/cli": "^0.15.0"
   },
   "jest": {
     "testEnvironment": "jsdom",
@@ -44,7 +45,7 @@
       "es2021": true,
       "jest": true
     },
-    "extends": "eslint:recommended",
+    "extends": ["eslint:recommended"],
     "parserOptions": {
       "ecmaVersion": "latest",
       "sourceType": "module"
