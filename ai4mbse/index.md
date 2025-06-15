@@ -75,11 +75,53 @@ robots: noindex, nofollow
             Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Centers 
             Systems Engineering.
             </p>
-            
-            <div class="github-link" style="margin-top: 1.5rem; padding: 1rem; background: rgba(96, 165, 250, 0.1); border-radius: 10px; border: 1px solid rgba(96, 165, 250, 0.3);">
-                <strong>🔗 Open Source:</strong> Der vollständige Quellcode ist verfügbar auf 
-                <a href="https://github.com/kingsepp/AI4MBSE" target="_blank" rel="noopener" style="color: #60a5fa; text-decoration: none;">GitHub</a> 
-                unter MIT-Lizenz.
+        </div>
+        </div>
+    </div>
+    </section>
+
+    <!-- GitHub Repository Section -->
+    <section class="section github-section glass-morphism" aria-labelledby="github-title">
+    <div class="container">
+        <h2 id="github-title" class="section-title">
+        <ai4mbse-icon name="github"></ai4mbse-icon> GitHub Repository
+        </h2>
+        <div class="content-wrapper">
+        <div class="setup-guide">
+            <div class="github-card">
+                <div class="github-header">
+                    <div class="repo-icon">📂</div>
+                    <div class="repo-info">
+                        <h3>kingsepp/AI4MBSE</h3>
+                        <p>KI-gestütztes Plugin für Magic Systems of Systems Architect</p>
+                    </div>
+                    <div class="license-badge">MIT</div>
+                </div>
+                
+                <div class="repo-stats">
+                    <div class="stat-item">
+                        <span class="stat-icon">⭐</span>
+                        <span class="stat-label">Open Source</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">📄</span>
+                        <span class="stat-label">MIT Lizenz</span>
+                    </div>
+                    <div class="stat-item">
+                        <span class="stat-icon">🔧</span>
+                        <span class="stat-label">Java Plugin</span>
+                    </div>
+                </div>
+                
+                <div class="github-actions">
+                    <a href="https://github.com/kingsepp/AI4MBSE" target="_blank" rel="noopener" class="cta-button github-link">
+                        <span class="github-icon">🔗</span>
+                        Repository ansehen
+                    </a>
+                    <p class="github-note">
+                        <small>Vollständiger Quellcode, Dokumentation und Entwicklungshistorie</small>
+                    </p>
+                </div>
             </div>
         </div>
         </div>
