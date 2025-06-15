@@ -1,0 +1,196 @@
+name: Cookie Consent Tests
+
+on:
+  # Nur bei Pull Requests testen - nicht bei jedem Push
+  pull_request:
+    branches: [ main ]
+    paths: 
+      - 'assets/js/cookie-consent.js'
+      - '_layouts/default.html'
+      - 'datenschutz.md'
+      - 'impressum.md'
+      - 'assets/css/style.css'
+  # Manueller Trigger für Debugging
+  workflow_dispatch:
+
+jobs:
+  basic-tests:
+    runs-on: ubuntu-latest
+    name: Basic Tests & Validation
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Setup Node.js
+      uses: actions/setup-node@v4
+      with:
+        node-version: '18'
+        
+    - name: Install Dependencies
+      run: npm install
+      
+    - name: Validate Cookie Consent Implementation
+      run: |
+        echo "🔍 Checking Cookie Consent Implementation..."
+        
+        # Prüfe ob wichtige Dateien vorhanden sind
+        if [ -f "assets/js/cookie-consent.js" ]; then
+          echo "✅ Cookie Consent JS gefunden"
+        else
+          echo "❌ Cookie Consent JS fehlt"
+          exit 1
+        fi
+        
+        # Prüfe ob Google Analytics conditional geladen wird
+        if grep -q "loadGoogleAnalytics" assets/js/cookie-consent.js; then
+          echo "✅ Google Analytics wird conditional geladen"
+        else
+          echo "❌ Google Analytics conditional loading fehlt"
+          exit 1
+        fi
+        
+        # Prüfe ob Opt-Out implementiert ist
+        if grep -q "deleteGoogleAnalyticsCookies\|revokeConsent" assets/js/cookie-consent.js; then
+          echo "✅ Opt-Out Mechanismus vorhanden"
+        else
+          echo "❌ Opt-Out Mechanismus fehlt"
+          exit 1
+        fi
+        
+        # Prüfe ob Cookie-Banner vorhanden ist
+        if grep -q "cookie-banner" _layouts/default.html; then
+          echo "✅ Cookie-Banner implementiert"
+        else
+          echo "❌ Cookie-Banner fehlt"
+          exit 1
+        fi
+
+  privacy-compliance:
+    runs-on: ubuntu-latest
+    name: Privacy Policy Compliance
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Validate DSGVO Compliance
+      run: |
+        echo "🔍 Validating DSGVO Compliance..."
+        
+        # Prüfe Datenschutzerklärung
+        PRIVACY_CHECKS=("Google Analytics" "Cookie-Banner" "Opt-Out" "Art. 6")
+        
+        for check in "${PRIVACY_CHECKS[@]}"; do
+          if grep -q "$check" datenschutz.md; then
+            echo "✅ $check gefunden"
+          else
+            echo "❌ $check fehlt in Datenschutzerklärung"
+            exit 1
+          fi
+        done
+        
+        # Prüfe Impressum
+        if grep -q "Thomas Schuster" impressum.md && grep -q "Schachenmeierstraße" impressum.md; then
+          echo "✅ Impressum vollständig"
+        else
+          echo "❌ Impressum unvollständig"
+          exit 1
+        fi
+
+  file-validation:
+    runs-on: ubuntu-latest
+    name: File Structure Validation
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Check Required Files
+      run: |
+        echo "📁 Checking Required Files..."
+        
+        REQUIRED_FILES=(
+          "assets/js/cookie-consent.js"
+          "assets/css/style.css"
+          "datenschutz.md"
+          "impressum.md"
+          "_layouts/default.html"
+          "package.json"
+        )
+        
+        for file in "${REQUIRED_FILES[@]}"; do
+          if [ -f "$file" ]; then
+            echo "✅ $file vorhanden"
+          else
+            echo "❌ $file fehlt"
+            exit 1
+          fi
+        done
+        
+    - name: Check Bundle Sizes
+      run: |
+        echo "📊 Checking Bundle Sizes..."
+        
+        if [ -f "assets/js/cookie-consent.js" ]; then
+          JS_SIZE=$(stat -c%s "assets/js/cookie-consent.js" 2>/dev/null || stat -f%z "assets/js/cookie-consent.js")
+          echo "📦 Cookie Consent JS: ${JS_SIZE} bytes"
+          
+          if [ $JS_SIZE -gt 100000 ]; then
+            echo "⚠️ JS Bundle ist groß (>${JS_SIZE} bytes)"
+          else
+            echo "✅ JS Bundle Größe OK"
+          fi
+        fi
+
+  syntax-check:
+    runs-on: ubuntu-latest
+    name: Syntax & Format Check
+    
+    steps:
+    - name: Checkout Code
+      uses: actions/checkout@v4
+      
+    - name: Check JavaScript Syntax
+      run: |
+        echo "📝 Checking JavaScript Syntax..."
+        
+        # Prüfe JS-Syntax mit Node
+        if node -c assets/js/cookie-consent.js; then
+          echo "✅ JavaScript Syntax OK"
+        else
+          echo "❌ JavaScript Syntax Fehler"
+          exit 1
+        fi
+        
+    - name: Check HTML Structure
+      run: |
+        echo "🏗️ Checking HTML Structure..."
+        
+        # Prüfe ob wichtige HTML-Elemente vorhanden sind
+        if grep -q "cookie-banner" _layouts/default.html && grep -q "cookie-modal" _layouts/default.html; then
+          echo "✅ HTML Struktur OK"
+        else
+          echo "❌ HTML Struktur unvollständig"
+          exit 1
+        fi
+
+  deployment-readiness:
+    runs-on: ubuntu-latest
+    name: Deployment Ready Check
+    needs: [basic-tests, privacy-compliance, file-validation, syntax-check]
+    
+    steps:
+    - name: Final Summary
+      run: |
+        echo "🎯 All Tests Passed - Ready for Deployment!"
+        
+        echo "## 🍪 Cookie Consent Test Summary" >> $GITHUB_STEP_SUMMARY
+        echo "| Test Category | Status |" >> $GITHUB_STEP_SUMMARY
+        echo "|---------------|--------|" >> $GITHUB_STEP_SUMMARY
+        echo "| Basic Implementation | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "| Privacy Compliance | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "| File Structure | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "| Syntax Check | ✅ Passed |" >> $GITHUB_STEP_SUMMARY
+        echo "" >> $GITHUB_STEP_SUMMARY
+        echo "**Status: ✅ DEPLOYMENT READY**" >> $GITHUB_STEP_SUMMARY

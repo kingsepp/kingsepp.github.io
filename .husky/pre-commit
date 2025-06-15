@@ -1,0 +1,53 @@
+#!/usr/bin/env sh
+. "$(dirname -- "$0")/_/husky.sh"
+
+echo "🔍 Running pre-commit checks..."
+
+# 1. Lint JavaScript
+echo "📝 Linting JavaScript..."
+npx eslint assets/js/cookie-consent.js || {
+    echo "❌ JavaScript Linting failed"
+    exit 1
+}
+
+# 2. Unit Tests
+echo "🧪 Running Unit Tests..."
+npm test -- --watchAll=false --silent || {
+    echo "❌ Unit Tests failed"
+    exit 1
+}
+
+# 3. Cookie Consent Validation
+echo "🍪 Validating Cookie Consent Implementation..."
+
+# Prüfe ob GA conditional geladen wird
+if ! grep -q "loadGoogleAnalytics" assets/js/cookie-consent.js; then
+    echo "❌ Google Analytics conditional loading nicht gefunden"
+    exit 1
+fi
+
+# Prüfe ob Opt-Out vorhanden ist
+if ! grep -q "revokeConsent\|deleteGoogleAnalyticsCookies" assets/js/cookie-consent.js; then
+    echo "❌ Cookie Opt-Out Mechanismus fehlt"
+    exit 1
+fi
+
+# Prüfe Datenschutzerklärung
+PRIVACY_KEYWORDS=("Google Analytics" "Cookie-Banner" "Opt-Out" "DSGVO")
+for keyword in "${PRIVACY_KEYWORDS[@]}"; do
+    if ! grep -q "$keyword" datenschutz.md; then
+        echo "❌ '$keyword' fehlt in Datenschutzerklärung"
+        exit 1
+    fi
+done
+
+# 4. Performance Check
+echo "⚡ Checking Performance..."
+JS_SIZE=$(stat -c%s "assets/js/cookie-consent.js" 2>/dev/null || stat -f%z "assets/js/cookie-consent.js")
+if [ $JS_SIZE -gt 100000 ]; then
+    echo "⚠️ Cookie-Consent.js ist sehr groß: ${JS_SIZE} bytes"
+    echo "💡 Überdenke Code-Optimierung"
+fi
+
+echo "✅ All pre-commit checks passed!"
+echo "🚀 Ready to commit"
