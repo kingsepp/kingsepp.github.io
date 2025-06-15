@@ -1,10 +1,16 @@
 name: Cookie Consent Tests
 
 on:
-  push:
-    branches: [ main, feature/* ]
+  # Nur bei Pull Requests testen - nicht bei jedem Push
   pull_request:
     branches: [ main ]
+    paths: 
+      - 'assets/js/cookie-consent.js'
+      - '_layouts/default.html'
+      - 'datenschutz.md'
+      - 'impressum.md'
+      - 'assets/css/style.css'
+  # Manueller Trigger für Debugging
   workflow_dispatch:
 
 jobs:
