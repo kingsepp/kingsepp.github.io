@@ -12,6 +12,8 @@
     "lint:fix": "eslint assets/js/**/*.js --fix",
     "validate:privacy": "node scripts/validate-privacy-compliance.js",
     "validate:cookies": "node scripts/validate-cookie-implementation.js",
+    "test:analytics": "node tests/analytics-consent-test.js",
+    "test:cookie-new": "jest tests/cookie-consent-new.test.js",
     "serve": "bundle exec jekyll serve",
     "build": "bundle exec jekyll build"
   },
@@ -20,6 +22,7 @@
   "license": "MIT",
   "devDependencies": {
     "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^24.0.0",
     "@testing-library/dom": "^9.3.1",
     "puppeteer": "^22.8.2",
@@ -32,9 +35,11 @@
   "jest": {
     "testEnvironment": "jsdom",
     "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
+    "testPathIgnorePatterns": ["<rootDir>/_site/", "<rootDir>/node_modules/"],
     "collectCoverageFrom": [
       "assets/js/**/*.js",
-      "!assets/js/**/*.test.js"
+      "!assets/js/**/*.test.js",
+      "!_site/**"
     ],
     "coverageReporters": ["text", "lcov", "html"],
     "testTimeout": 30000

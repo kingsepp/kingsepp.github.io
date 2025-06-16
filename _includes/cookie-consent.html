@@ -1,0 +1,122 @@
+<style>
+    #cookie-notice {
+        padding: 1rem 2rem; 
+        display: none; 
+        text-align: center; 
+        position: fixed; 
+        bottom: 0; 
+        width: calc(100% - 4rem); 
+        background: rgba(15, 23, 42, 0.98);
+        backdrop-filter: blur(20px);
+        border-top: 1px solid rgba(96, 165, 250, 0.3);
+        color: #cbd5e1;
+        z-index: 10000;
+        box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.3);
+        border-radius: 12px 12px 0 0;
+    }
+    
+    #cookie-notice span {
+        display: inline-block;
+        margin-right: 1rem;
+        font-size: 1rem;
+        line-height: 1.5;
+    }
+    
+    #cookie-notice a {
+        display: inline-block; 
+        cursor: pointer; 
+        margin-left: 0.5rem;
+        padding: 0.6rem 1.2rem;
+        border-radius: 6px;
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        transition: all 0.3s ease;
+    }
+    
+    .btn-approve {
+        background: linear-gradient(135deg, #3b82f6, #06b6d4);
+        color: white;
+        border: none;
+    }
+    
+    .btn-approve:hover {
+        background: linear-gradient(135deg, #2563eb, #0891b2);
+        transform: translateY(-1px);
+    }
+    
+    .btn-info {
+        background: transparent;
+        color: #60a5fa;
+        border: 1px solid #60a5fa;
+    }
+    
+    .btn-info:hover {
+        background: rgba(96, 165, 250, 0.1);
+        color: #93c5fd;
+    }
+    
+    @media (max-width: 767px) {
+        #cookie-notice {
+            padding: 1rem;
+            width: calc(100% - 2rem);
+            text-align: center;
+        }
+        #cookie-notice span {
+            display: block; 
+            margin-bottom: 1rem;
+            margin-right: 0;
+        }
+        #cookie-notice a {
+            display: block;
+            margin: 0.5rem 0;
+            width: 100%;
+        }
+    }
+</style>
+
+<div id="cookie-notice">
+    <span>🍪 Diese Website verwendet Cookies zur Analyse des Nutzerverhaltens (Google Analytics). Mit "Akzeptieren" stimmen Sie der Verwendung zu.</span>
+    <a id="cookie-notice-accept" class="btn-approve">Akzeptieren</a>
+    <a href="/datenschutz" class="btn-info">Datenschutzerklärung</a>
+</div>
+
+<script>
+    function createCookie(name,value,days) {
+        var expires = "";
+        if (days) {
+            var date = new Date();
+            date.setTime(date.getTime() + (days*24*60*60*1000));
+            expires = "; expires=" + date.toUTCString();
+        }
+        document.cookie = name + "=" + value + expires + "; path=/";
+    }
+    
+    function readCookie(name) {
+        var nameEQ = name + "=";
+        var ca = document.cookie.split(';');
+        for(var i=0;i < ca.length;i++) {
+            var c = ca[i];
+            while (c.charAt(0)==' ') c = c.substring(1,c.length);
+            if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+        }
+        return null;
+    }
+    
+    function eraseCookie(name) {
+        createCookie(name,"",-1);
+    }
+
+    // Load analytics only if consent was given
+    if(readCookie('cookie-notice-dismissed')=='true') {
+        {% include ga.js %}
+    } else {
+        document.getElementById('cookie-notice').style.display = 'block';
+    }
+    
+    document.getElementById('cookie-notice-accept').addEventListener("click",function() {
+        createCookie('cookie-notice-dismissed','true',31);
+        document.getElementById('cookie-notice').style.display = 'none';
+        location.reload();
+    });
+</script>

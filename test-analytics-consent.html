@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Google Analytics Consent Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a1a1a; color: #fff; }
+        .test-box { background: #2a2a2a; padding: 15px; margin: 10px 0; border-radius: 8px; border-left: 4px solid #60a5fa; }
+        .status { font-weight: bold; }
+        .success { color: #22c55e; }
+        .error { color: #ef4444; }
+        .warning { color: #f59e0b; }
+        button { background: #60a5fa; color: white; border: none; padding: 10px 20px; border-radius: 5px; cursor: pointer; margin: 5px; }
+        #results { margin-top: 20px; }
+    </style>
+</head>
+<body>
+    <h1>🧪 Google Analytics Consent Test</h1>
+    
+    <div class="test-box">
+        <h3>🍪 Cookie Status</h3>
+        <div id="cookie-status">Überprüfe...</div>
+    </div>
+    
+    <div class="test-box">
+        <h3>📡 Network Requests</h3>
+        <div id="network-status">Überwache...</div>
+    </div>
+    
+    <div class="test-box">
+        <h3>🔧 Test Actions</h3>
+        <button onclick="simulateAccept()">✅ Cookie Akzeptanz simulieren (mit Reload)</button>
+        <button onclick="simulateDecline()">❌ Cookie Ablehnung simulieren</button>
+        <button onclick="clearAllCookies()">🗑️ Alle Cookies löschen</button>
+        <button onclick="window.location.href='/'">🏠 Zur Hauptseite (mit Banner)</button>
+    </div>
+    
+    <div id="results"></div>
+
+    <script>
+        // Network Request Monitor
+        let networkRequests = [];
+        
+        // Override fetch to monitor requests
+        const originalFetch = window.fetch;
+        window.fetch = function(...args) {
+            const url = args[0];
+            if (url.includes('google-analytics') || url.includes('googletagmanager') || url.includes('collect')) {
+                networkRequests.push({
+                    url: url,
+                    timestamp: new Date().toLocaleTimeString(),
+                    type: 'Google Analytics'
+                });
+                updateNetworkStatus();
+            }
+            return originalFetch.apply(this, args);
+        };
+
+        // Monitor Google Analytics gtag calls
+        let gtagCalls = [];
+        if (window.gtag) {
+            const originalGtag = window.gtag;
+            window.gtag = function(...args) {
+                gtagCalls.push({
+                    args: args,
+                    timestamp: new Date().toLocaleTimeString()
+                });
+                updateResults();
+                return originalGtag.apply(this, args);
+            };
+        }
+
+        function checkCookieStatus() {
+            const cookies = document.cookie.split(';').map(c => c.trim());
+            const gaCookies = cookies.filter(c => c.startsWith('_ga'));
+            const consentCookie = cookies.find(c => c.startsWith('cookie-notice-dismissed='));
+            
+            let status = '<div class="status">';
+            
+            if (gaCookies.length > 0) {
+                status += '<span class="error">❌ Google Analytics Cookies gefunden: ' + gaCookies.length + '</span><br>';
+                gaCookies.forEach(cookie => {
+                    status += '<small>• ' + cookie + '</small><br>';
+                });
+            } else {
+                status += '<span class="success">✅ Keine Google Analytics Cookies</span><br>';
+            }
+            
+            if (consentCookie) {
+                const consentValue = consentCookie.split('=')[1];
+                status += '<span class="warning">🍪 Consent Status: ' + consentValue + '</span>';
+            } else {
+                status += '<span class="warning">⚠️ Kein Consent Cookie gefunden</span>';
+            }
+            
+            // Check for cookie banner visibility
+            const banner = document.getElementById('cookie-notice');
+            if (banner) {
+                const isVisible = window.getComputedStyle(banner).display !== 'none';
+                status += '<br><span class="' + (isVisible ? 'warning' : 'success') + '">🏷️ Cookie Banner: ' + (isVisible ? 'Sichtbar' : 'Versteckt') + '</span>';
+            }
+            
+            status += '</div>';
+            document.getElementById('cookie-status').innerHTML = status;
+        }
+
+        function updateNetworkStatus() {
+            let status = '<div class="status">';
+            
+            if (networkRequests.length > 0) {
+                status += '<span class="error">❌ Google Analytics Requests erkannt:</span><br>';
+                networkRequests.forEach(req => {
+                    status += '<small>' + req.timestamp + ': ' + req.type + '</small><br>';
+                });
+            } else {
+                status += '<span class="success">✅ Keine Google Analytics Network Requests</span>';
+            }
+            
+            status += '</div>';
+            document.getElementById('network-status').innerHTML = status;
+        }
+
+        function updateResults() {
+            let results = '<div class="test-box"><h3>📊 Test Results</h3>';
+            
+            results += '<h4>Gtag Calls:</h4>';
+            if (gtagCalls.length > 0) {
+                results += '<span class="error">❌ ' + gtagCalls.length + ' gtag() calls detected</span><br>';
+                gtagCalls.forEach(call => {
+                    results += '<small>' + call.timestamp + ': gtag(' + JSON.stringify(call.args) + ')</small><br>';
+                });
+            } else {
+                results += '<span class="success">✅ No gtag() calls yet</span><br>';
+            }
+            
+            results += '</div>';
+            document.getElementById('results').innerHTML = results;
+        }
+
+        function simulateAccept() {
+            // Simulate cookie consent acceptance (new system)
+            document.cookie = "cookie-notice-dismissed=true; path=/; max-age=31536000";
+            
+            // Reload page to trigger analytics loading
+            console.log("🔄 Reloading page to load analytics...");
+            setTimeout(() => {
+                window.location.reload();
+            }, 1000);
+        }
+
+        function simulateDecline() {
+            document.cookie = "cookie-notice-dismissed=false; path=/; max-age=31536000";
+            setTimeout(checkCookieStatus, 500);
+        }
+
+        function clearAllCookies() {
+            // Clear all cookies
+            document.cookie.split(";").forEach(function(c) { 
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+            });
+            networkRequests = [];
+            gtagCalls = [];
+            setTimeout(() => {
+                checkCookieStatus();
+                updateNetworkStatus();
+                updateResults();
+            }, 500);
+        }
+
+        // Initial check
+        checkCookieStatus();
+        updateNetworkStatus();
+        updateResults();
+        
+        // Update every 2 seconds
+        setInterval(() => {
+            checkCookieStatus();
+        }, 2000);
+    </script>
+</body>
+</html>
