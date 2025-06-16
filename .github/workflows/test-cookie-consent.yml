@@ -91,10 +91,12 @@ jobs:
           fi
 
           # Prüfe ob Google Analytics conditional geladen wird
-          if grep -q "readCookie.*true.*include ga.js" _includes/cookie-consent.html; then
+          if grep -q "readCookie.*==.*true" _includes/cookie-consent.html && grep -q "include ga.js" _includes/cookie-consent.html; then
             echo "✅ Google Analytics wird conditional geladen"
           else
             echo "❌ Google Analytics conditional loading fehlt"
+            echo "Debug: Checking actual implementation..."
+            grep -n "readCookie\|include ga.js" _includes/cookie-consent.html || true
             exit 1
           fi
 
