@@ -27,13 +27,13 @@ robots: noindex, nofollow
 
     <section class="legal-section">
       <h2 class="section-heading">Haftungsausschluss</h2>
-      
+
       <div class="legal-subsection">
         <h3 class="subsection-heading">Haftung für Inhalte</h3>
         <p class="legal-text">
-          Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit, 
-          Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen. 
-          Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten 
+          Die Inhalte dieser Website wurden mit größter Sorgfalt erstellt. Für die Richtigkeit,
+          Vollständigkeit und Aktualität der Inhalte können wir jedoch keine Gewähr übernehmen.
+          Als Diensteanbieter sind wir gemäß § 7 Abs. 1 TMG für eigene Inhalte auf diesen Seiten
           nach den allgemeinen Gesetzen verantwortlich.
         </p>
       </div>
@@ -41,9 +41,9 @@ robots: noindex, nofollow
       <div class="legal-subsection">
         <h3 class="subsection-heading">Haftung für Links</h3>
         <p class="legal-text">
-          Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen 
-          Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen. 
-          Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber 
+          Unser Angebot enthält Links zu externen Webseiten Dritter, auf deren Inhalte wir keinen
+          Einfluss haben. Deshalb können wir für diese fremden Inhalte auch keine Gewähr übernehmen.
+          Für die Inhalte der verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
           der Seiten verantwortlich.
         </p>
       </div>
@@ -51,9 +51,9 @@ robots: noindex, nofollow
       <div class="legal-subsection">
         <h3 class="subsection-heading">Urheberrecht</h3>
         <p class="legal-text">
-          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen 
-          dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art 
-          der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen 
+          Die durch die Seitenbetreiber erstellten Inhalte und Werke auf diesen Seiten unterliegen
+          dem deutschen Urheberrecht. Die Vervielfältigung, Bearbeitung, Verbreitung und jede Art
+          der Verwertung außerhalb der Grenzen des Urheberrechtes bedürfen der schriftlichen
           Zustimmung des jeweiligen Autors bzw. Erstellers.
         </p>
       </div>
@@ -62,7 +62,7 @@ robots: noindex, nofollow
     <section class="legal-section">
       <h2 class="section-heading">Datenschutz</h2>
       <p class="legal-text">
-        Informationen zur Datenverarbeitung finden Sie in unserer 
+        Informationen zur Datenverarbeitung finden Sie in unserer
         <a href="/datenschutz" class="legal-link">Datenschutzerklärung</a>.
       </p>
     </section>
@@ -71,9 +71,9 @@ robots: noindex, nofollow
       <h2 class="section-heading">Bildungszweck</h2>
       <div class="info-card">
         <p class="legal-text">
-          Diese Website wurde im Rahmen eines Studienprojekts an der 
-          <strong>Hochschule München</strong> erstellt und dient ausschließlich Bildungs- 
-          und Informationszwecken. Das bereitgestellte AI4MBSE-Plugin wird kostenfrei 
+          Diese Website wurde im Rahmen eines Studienprojekts an der
+          <strong>Hochschule München</strong> erstellt und dient ausschließlich Bildungs-
+          und Informationszwecken. Das bereitgestellte AI4MBSE-Plugin wird kostenfrei
           zur Verfügung gestellt.
         </p>
       </div>
@@ -91,13 +91,13 @@ robots: noindex, nofollow
             <strong>Copyright © 2025 Thomas Schuster</strong>
           </p>
           <p class="legal-text">
-            Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der 
-            zugehörigen Dokumentationsdateien erhält, die Erlaubnis erteilt, sie uneingeschränkt 
-            zu nutzen, einschließlich der Rechte zur Nutzung, zum Kopieren, Verändern, 
+            Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der
+            zugehörigen Dokumentationsdateien erhält, die Erlaubnis erteilt, sie uneingeschränkt
+            zu nutzen, einschließlich der Rechte zur Nutzung, zum Kopieren, Verändern,
             Zusammenfügen, Veröffentlichen, Verteilen, Unterlizenzieren und/oder Verkaufen.
           </p>
           <div class="license-condition">
-            <strong>Bedingung:</strong> Obiger Copyright-Vermerk und dieser Erlaubnishinweis 
+            <strong>Bedingung:</strong> Obiger Copyright-Vermerk und dieser Erlaubnishinweis
             sind in allen Kopien beizulegen.
           </div>
         </div>
@@ -113,7 +113,7 @@ robots: noindex, nofollow
             Das AI4MBSE-Plugin wird "wie besehen" ohne jegliche Gewährleistung bereitgestellt.
           </p>
         </div>
-        
+
         <div class="disclaimer-list">
           <h4 class="disclaimer-subtitle">Ausschluss der Haftung für:</h4>
           <ul class="disclaimer-items">
@@ -124,7 +124,7 @@ robots: noindex, nofollow
             <li><strong>Datenschutz:</strong> Datenübertragung an Google Gemini API</li>
           </ul>
         </div>
-        
+
         <div class="risk-notice">
           <strong>Die Nutzung erfolgt ausschließlich auf eigene Gefahr und Verantwortung.</strong>
         </div>
@@ -133,35 +133,35 @@ robots: noindex, nofollow
 
     <section class="legal-section external-services">
       <h2 class="section-heading">Externe Dienste</h2>
-      
+
       <div class="service-grid">
         <div class="service-card">
           <h3 class="service-title">🤖 Google Gemini API</h3>
           <p class="service-description">
-            Das AI4MBSE-Plugin nutzt die Google Gemini API. Es gelten die 
+            Das AI4MBSE-Plugin nutzt die Google Gemini API. Es gelten die
             <a href="https://policies.google.com/privacy" target="_blank" class="legal-link">
               Google Privacy Policy
-            </a> und 
+            </a> und
             <a href="https://ai.google.dev/gemini-api/terms" target="_blank" class="legal-link">
               Gemini API Terms
             </a>.
           </p>
         </div>
-        
+
         <div class="service-card">
           <h3 class="service-title">🛡️ Cloudflare Turnstile</h3>
           <p class="service-description">
-            Bot-Schutz durch Cloudflare Turnstile. Technische Daten werden an Cloudflare übertragen. 
+            Bot-Schutz durch Cloudflare Turnstile. Technische Daten werden an Cloudflare übertragen.
             <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="legal-link">
               Cloudflare Privacy Policy
             </a>
           </p>
         </div>
-        
+
         <div class="service-card">
           <h3 class="service-title">📡 GitHub Pages</h3>
           <p class="service-description">
-            Website-Hosting durch GitHub Pages. 
+            Website-Hosting durch GitHub Pages.
             <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" class="legal-link">
               GitHub Privacy Statement
             </a>
@@ -204,7 +204,7 @@ robots: noindex, nofollow
           <strong>Stand:</strong> Juni 2025
         </p>
         <p class="footer-note">
-          Dieses Impressum entspricht den deutschen rechtlichen Anforderungen für private, 
+          Dieses Impressum entspricht den deutschen rechtlichen Anforderungen für private,
           nicht-kommerzielle Websites.
         </p>
       </div>

@@ -1,7 +1,9 @@
 // Fancy animated hero for AI4MBSE Plugin (2025 style)
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero-content');
-  if (!hero) return;
+  if (!hero) {
+    return;
+  }
 
   // 1. Animated gradient text for headline
   const h1 = hero.querySelector('h1');
@@ -26,7 +28,9 @@ document.addEventListener('DOMContentLoaded', () => {
         subtitle.innerHTML += text.charAt(i) === '<' ? '' : text.charAt(i);
         if (text.charAt(i) === '<') {
           // Skip HTML tags
-          while (i < text.length && text.charAt(i) !== '>') i++;
+          while (i < text.length && text.charAt(i) !== '>') {
+            i++;
+          }
         }
         i++;
         setTimeout(typeWriter, 22);
@@ -47,8 +51,8 @@ document.addEventListener('DOMContentLoaded', () => {
     p.style.width = p.style.height = Math.random() * 18 + 12 + 'px';
     p.style.background = particleColors[Math.floor(Math.random() * particleColors.length)];
     p.style.opacity = 0.18 + Math.random() * 0.22;
-    p.style.animationDuration = (8 + Math.random() * 8) + 's';
-    p.style.animationDelay = (Math.random() * 4) + 's';
+    p.style.animationDuration = 8 + Math.random() * 8 + 's';
+    p.style.animationDelay = Math.random() * 4 + 's';
     hero.appendChild(p);
   }
 });
