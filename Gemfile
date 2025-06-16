@@ -17,3 +17,6 @@ gem "tzinfo-data", platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 gem "csv"
 gem "logger"
 gem "base64"
+
+# Testing
+gem "html-proofer", "~> 5.0"
