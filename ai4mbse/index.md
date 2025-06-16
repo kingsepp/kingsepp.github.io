@@ -57,7 +57,7 @@ robots: noindex, nofollow
             <!-- Kleiner Untercontainer nur für die beiden Logos -->
             <div class="logo-group">
             <img src="hm_logo.svg" alt="HM-Logo" class="project-logo">
-            <img src="ecse_logo.jpg"
+            <img src="ecse_logo.jpg" 
                 alt="ECSE-Logo" class="project-logo">
             <img src="ai4mbse_logo.png" alt="AI4MBSE-Logo" class="project-logo">
             </div>
@@ -67,12 +67,12 @@ robots: noindex, nofollow
             </div>
             <!-- Text bleibt als zweites Flex-Kind -->
             <p class="about-text">
-            Das Plugin AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt
-            im Masterstudiengang Systems Engineering der Fakultät 4 an der Hochschule München
-            entwickelt. Die Idee und Aufgabenstellung stammt von Prof. Dr. Claudio Zuccaro
-            und verfolgt das Ziel, die automatische Erstellung von Verknüpfungen in einem
-            SysML-Systemmodell durch den Einsatz künstlicher Intelligenz zu unterstützen.
-            Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Centers
+            Das Plugin AI4MBSE wurde im Rahmen des Kurses Systems Engineering Projekt 
+            im Masterstudiengang Systems Engineering der Fakultät 4 an der Hochschule München 
+            entwickelt. Die Idee und Aufgabenstellung stammt von Prof. Dr. Claudio Zuccaro 
+            und verfolgt das Ziel, die automatische Erstellung von Verknüpfungen in einem 
+            SysML-Systemmodell durch den Einsatz künstlicher Intelligenz zu unterstützen. 
+            Realisiert wurde das Projekt mit freundlicher Unterstützung des Experience Centers 
             Systems Engineering.
             </p>
         </div>
@@ -91,47 +91,47 @@ robots: noindex, nofollow
             <div class="feature-card">
                 <h3 class="feature-title">🤖 KI-gestützte Anforderungsallokation</h3>
                 <p class="feature-description">
-                    Automatische Zuordnung von Systemanforderungen zu passenden Subsystemen
+                    Automatische Zuordnung von Systemanforderungen zu passenden Subsystemen 
                     durch Google Gemini AI mit Konfidenzwerten und Begründungen.
                 </p>
             </div>
-
+            
             <div class="feature-card">
                 <h3 class="feature-title">⚡ Asynchrone Verarbeitung</h3>
                 <p class="feature-description">
-                    Keine UI-Blockierung während der AI-Analyse. Echtzeitfortschritt
+                    Keine UI-Blockierung während der AI-Analyse. Echtzeitfortschritt 
                     und Abbruchmöglichkeit für große Projektdaten.
                 </p>
             </div>
-
+            
             <div class="feature-card">
                 <h3 class="feature-title">🔄 Automatische Modellintegration</h3>
                 <p class="feature-description">
-                    Erstellt automatisch SysML Satisfy-Abhängigkeiten zwischen
+                    Erstellt automatisch SysML Satisfy-Abhängigkeiten zwischen 
                     Anforderungen und Subsystemen nach Bestätigung.
                 </p>
             </div>
-
+            
             <div class="feature-card">
                 <h3 class="feature-title">📁 Interaktive Ordnerauswahl</h3>
                 <p class="feature-description">
-                    Dynamische Navigation durch Projektstrukturen. Unterstützung
+                    Dynamische Navigation durch Projektstrukturen. Unterstützung 
                     für große Projekte mit 1000+ Anforderungen.
                 </p>
             </div>
-
+            
             <div class="feature-card">
                 <h3 class="feature-title">🔑 Einfache API-Verwaltung</h3>
                 <p class="feature-description">
-                    Direkte Eingabe des Google Gemini API-Schlüssels im Plugin.
+                    Direkte Eingabe des Google Gemini API-Schlüssels im Plugin. 
                     Keine komplizierte Umgebungsvariablen-Konfiguration.
                 </p>
             </div>
-
+            
             <div class="feature-card">
                 <h3 class="feature-title">📊 Intelligente Bewertung</h3>
                 <p class="feature-description">
-                    AI liefert Konfidenzwerte und detaillierte Begründungen
+                    AI liefert Konfidenzwerte und detaillierte Begründungen 
                     für jede Allokationsempfehlung.
                 </p>
             </div>
@@ -157,7 +157,7 @@ robots: noindex, nofollow
                     <li><strong>Google Gemini API:</strong> Aktiver API-Schlüssel erforderlich</li>
                 </ul>
             </div>
-
+            
             <div class="requirement-category">
                 <h3 class="category-title">Betriebssystem</h3>
                 <ul class="requirement-list">
@@ -166,7 +166,7 @@ robots: noindex, nofollow
                     <li><strong>Linux:</strong> Ubuntu 20.04+ (theoretisch unterstützt)</li>
                 </ul>
             </div>
-
+            
             <div class="requirement-category">
                 <h3 class="category-title">Hardware</h3>
                 <ul class="requirement-list">
@@ -192,14 +192,14 @@ robots: noindex, nofollow
                         <h3>AI4MBSE Plugin v1.7</h3>
                         <span class="download-size">~2.5 MB</span>
                     </div>
-
+                    
                     <div class="download-button-container">
                         <a href="AI4MBSE_Plugin.zip" class="cta-button enhanced-download">
                             <span class="download-icon">⬇️</span>
                             Plugin herunterladen
                         </a>
                     </div>
-
+                    
                     <div class="download-note">
                         <small>💡 Vollständiges ZIP-Paket mit allen Installationsdateien</small>
                     </div>
@@ -208,7 +208,7 @@ robots: noindex, nofollow
         </div>
     </div>
     </section>
-
+   
 
 
     <!-- Installation Section -->
@@ -217,26 +217,26 @@ robots: noindex, nofollow
         <h2 id="install-title" class="section-title">
         <ai4mbse-icon name="install"></ai4mbse-icon> Installation
         </h2>
-
+        
         <div class="content-wrapper">
         <div class="setup-guide">
             <div class="callout callout-info" style="margin-bottom: 2rem;">
                 <strong>Hinweis:</strong> Das Plugin wurde ausschließlich unter <b>Windows</b> getestet. Die Anleitung und Installationsschritte beziehen sich nur auf Windows-Systeme.
             </div>
-
+            
             <div class="callout callout-warning" style="margin-bottom: 2rem;">
-                <strong>API-Schlüssel erforderlich:</strong> Das Plugin benötigt einen kostenlosen Google Gemini API-Schlüssel.
+                <strong>API-Schlüssel erforderlich:</strong> Das Plugin benötigt einen kostenlosen Google Gemini API-Schlüssel. 
                 <a href="https://ai.google.dev/gemini-api/docs/api-key?hl=de" target="_blank" rel="noopener" class="link-primary">Hier können Sie einen API-Schlüssel erstellen</a>.
                 Das Plugin fragt beim ersten Start nach dem Schlüssel.
             </div>
-
+            
             <div class="guide-step">
             <h3 class="step-title">1. ZIP-Paket herunterladen</h3>
             <p>
                 Klicken Sie auf den Download-Button und speichern Sie die AI4MBSE_Plugin.zip-Datei lokal auf Ihrem Computer.
             </p>
             </div>
-
+            
             <div class="guide-step">
             <h3 class="step-title">2. ZIP-Paket entpacken</h3>
             <p>Entpacken Sie das ZIP-Paket direkt in das folgende Verzeichnis:</p>
@@ -271,7 +271,7 @@ robots: noindex, nofollow
                     </div>
                     <div class="license-badge">MIT</div>
                 </div>
-
+                
                 <div class="repo-stats">
                     <div class="stat-item">
                         <span class="stat-icon">⭐</span>
@@ -286,7 +286,7 @@ robots: noindex, nofollow
                         <span class="stat-label">Java Plugin</span>
                     </div>
                 </div>
-
+                
                 <div class="github-actions">
                     <a href="https://github.com/kingsepp/AI4MBSE" target="_blank" rel="noopener" class="cta-button github-link">
                         <span class="github-icon">🔗</span>
@@ -313,7 +313,7 @@ robots: noindex, nofollow
             <p class="quickstart-intro">
                 Nach der Installation können Sie sofort mit der KI-gestützten Anforderungsallokation beginnen:
             </p>
-
+            
             <div class="quickstart-steps">
                 <div class="quickstart-step">
                     <div class="step-number">1</div>
@@ -324,18 +324,18 @@ robots: noindex, nofollow
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="quickstart-step">
                     <div class="step-number">2</div>
                     <div class="step-content">
                         <h4 class="step-title">API-Schlüssel eingeben</h4>
                         <p class="step-description">
-                            Beim ersten Start werden Sie nach Ihrem Google Gemini API-Schlüssel gefragt.
+                            Beim ersten Start werden Sie nach Ihrem Google Gemini API-Schlüssel gefragt. 
                             <a href="https://ai.google.dev/gemini-api/docs/api-key?hl=de" target="_blank" rel="noopener">Hier erstellen</a>
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="quickstart-step">
                     <div class="step-number">3</div>
                     <div class="step-content">
@@ -345,7 +345,7 @@ robots: noindex, nofollow
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="quickstart-step">
                     <div class="step-number">4</div>
                     <div class="step-content">
@@ -355,7 +355,7 @@ robots: noindex, nofollow
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="quickstart-step">
                     <div class="step-number">5</div>
                     <div class="step-content">
@@ -365,7 +365,7 @@ robots: noindex, nofollow
                         </p>
                     </div>
                 </div>
-
+                
                 <div class="quickstart-step">
                     <div class="step-number">6</div>
                     <div class="step-content">
@@ -376,7 +376,7 @@ robots: noindex, nofollow
                     </div>
                 </div>
             </div>
-
+            
             <div class="quickstart-tip">
                 <strong>💡 Tipp:</strong> Das Plugin funktioniert am besten mit gut strukturierten SysML-Modellen und klaren Anforderungsbeschreibungen.
             </div>
@@ -404,7 +404,7 @@ robots: noindex, nofollow
                     </ul>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <h3 class="faq-question">API-Authentifizierungsfehler</h3>
                 <div class="faq-answer">
@@ -417,7 +417,7 @@ robots: noindex, nofollow
                     </ul>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <h3 class="faq-question">Plugin reagiert nicht/hängt</h3>
                 <div class="faq-answer">
@@ -429,7 +429,7 @@ robots: noindex, nofollow
                     </ul>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <h3 class="faq-question">Keine Subsysteme gefunden</h3>
                 <div class="faq-answer">
@@ -441,7 +441,7 @@ robots: noindex, nofollow
                     </ul>
                 </div>
             </div>
-
+            
             <div class="faq-item">
                 <h3 class="faq-question">KI-Vorschläge sind ungenau</h3>
                 <div class="faq-answer">
@@ -455,7 +455,7 @@ robots: noindex, nofollow
                 </div>
             </div>
         </div>
-
+        
         </div>
     </div>
     </section>
@@ -466,11 +466,11 @@ robots: noindex, nofollow
         <h2 id="demo-title" class="section-title">
           <ai4mbse-icon name="video"></ai4mbse-icon> Live Demo
         </h2>
-
+        
         <div class="content-wrapper">
           <div class="demo-guide">
             <p class="demo-intro">Schauen Sie sich die folgende Demo an, um zu sehen, wie das AI4MBSE-Plugin funktioniert:</p>
-
+            
             <div class="video-wrapper" role="complementary">
             <video width="640" height="360" controls>
                 <source src="demo.mp4" type="video/mp4">
@@ -481,7 +481,6 @@ robots: noindex, nofollow
         </div>
       </div>
     </section>
-
   </article>
 </main>
 

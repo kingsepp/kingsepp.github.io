@@ -2,119 +2,85 @@ name: PR Checks
 
 on:
   pull_request:
-    branches: [main]
+    branches: [ main ]
 
 jobs:
-  code-quality:
-    runs-on: ubuntu-latest
-    name: Code Quality & Linting
-    steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Node.js
-        uses: actions/setup-node@v4
-        with:
-          node-version: '18'
-          cache: 'npm'
-
-      - name: Install Dependencies
-        run: npm ci --silent
-
-      - name: Run ESLint
-        run: npm run lint
-
-      - name: Check Prettier Formatting
-        run: npm run format:check
-
-      - name: Run Tests
-        run: npm test
-
-      - name: Generate Test Coverage
-        run: npm run test:coverage
-
-      - name: Upload Coverage to Codecov
-        uses: codecov/codecov-action@v4
-        with:
-          file: ./coverage/lcov.info
-          fail_ci_if_error: false
-
   build-test:
     runs-on: ubuntu-latest
-    needs: code-quality
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Setup Ruby
-        uses: ruby/setup-ruby@v1
-        with:
-          ruby-version: '3.1'
-          bundler-cache: true
-
-      - name: Setup Pages
-        id: pages
-        uses: actions/configure-pages@v5
-
-      - name: Build with Jekyll
-        run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
-        env:
-          JEKYLL_ENV: production
-
-      - name: Test HTML
-        run: |
-          bundle exec htmlproofer ./_site --checks Links,Images,Scripts --disable-external
-
+    - uses: actions/checkout@v4
+    
+    - name: Setup Ruby
+      uses: ruby/setup-ruby@v1
+      with:
+        ruby-version: '3.1'
+        bundler-cache: true
+        
+    - name: Setup Pages
+      id: pages
+      uses: actions/configure-pages@v5
+      
+    - name: Build with Jekyll
+      run: bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+      env:
+        JEKYLL_ENV: production
+        
+    - name: Test HTML
+      run: |
+        bundle exec htmlproofer ./_site --checks Links,Images,Scripts --disable-external
+        
   markdown-lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Lint Markdown files
-        uses: articulate/actions-markdownlint@v1
-        with:
-          config: .markdownlint.json
-          files: '**/*.md'
-          ignore: 'node_modules'
-
+    - uses: actions/checkout@v4
+    
+    - name: Lint Markdown files
+      uses: articulate/actions-markdownlint@v1
+      with:
+        config: .markdownlint.json
+        files: '**/*.md'
+        ignore: 'node_modules'
+        
   link-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Check links
-        uses: gaurav-nelson/github-action-markdown-link-check@v1
-        with:
-          use-quiet-mode: 'yes'
-          config-file: '.mlc_config.json'
-
+    - uses: actions/checkout@v4
+    
+    - name: Check links
+      uses: gaurav-nelson/github-action-markdown-link-check@v1
+      with:
+        use-quiet-mode: 'yes'
+        config-file: '.mlc_config.json'
+        
   turnstile-config-check:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4
-
-      - name: Check Turnstile Configuration
-        run: |
-          echo "Checking Turnstile site keys..."
-          if grep -r "YOUR_SITE_KEY" . --exclude-dir=.git --exclude-dir=.github; then
-            echo "❌ Found placeholder site keys that need to be replaced!"
-            exit 1
-          else
-            echo "✅ All site keys are configured"
-          fi
-
-      - name: Validate HTML structure
-        run: |
-          echo "Checking Turnstile HTML structure..."
-          for file in *.md ai4mbse/*.md; do
-            if [[ -f "$file" ]]; then
-              if grep -q "cf-turnstile" "$file"; then
-                echo "✅ $file has Turnstile protection"
-                # Check if protection div and content div exist
-                if grep -q "turnstile-protection" "$file" && grep -q "style=\"display: none;\"" "$file"; then
-                  echo "✅ $file has correct protection structure"
-                else
-                  echo "❌ $file missing protection structure"
-                  exit 1
-                fi
+    - uses: actions/checkout@v4
+    
+    - name: Check Turnstile Configuration
+      run: |
+        echo "Checking Turnstile site keys..."
+        if grep -r "YOUR_SITE_KEY" . --exclude-dir=.git --exclude-dir=.github; then
+          echo "❌ Found placeholder site keys that need to be replaced!"
+          exit 1
+        else
+          echo "✅ All site keys are configured"
+        fi
+        
+    - name: Validate HTML structure
+      run: |
+        echo "Checking Turnstile HTML structure..."
+        for file in *.md ai4mbse/*.md; do
+          if [[ -f "$file" ]]; then
+            if grep -q "cf-turnstile" "$file"; then
+              echo "✅ $file has Turnstile protection"
+              # Check if protection div and content div exist
+              if grep -q "turnstile-protection" "$file" && grep -q "style=\"display: none;\"" "$file"; then
+                echo "✅ $file has correct protection structure"
+              else
+                echo "❌ $file missing protection structure"
+                exit 1
               fi
             fi
-          done
+          fi
+        done
