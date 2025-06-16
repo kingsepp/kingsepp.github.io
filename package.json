@@ -14,50 +14,77 @@
     "validate:cookies": "node scripts/validate-cookie-implementation.js",
     "test:analytics": "node tests/analytics-consent-test.js",
     "test:cookie-new": "jest tests/cookie-consent-new.test.js",
+    "test:integration": "jest tests/integration.test.js",
+    "validate:links": "node scripts/validate-links.js",
+    "cicd:local": "./scripts/local-cicd-pipeline.sh",
     "serve": "bundle exec jekyll serve",
-    "build": "bundle exec jekyll build"
+    "build": "bundle exec jekyll build",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "precommit": "npm run lint && npm run test && npm run format:check",
+    "prebuild": "npm run precommit",
+    "check:all": "npm run lint && npm run test && npm run format:check && npm run build",
+    "pre-push": "./scripts/pre-push-checks.sh",
+    "prepare": "husky install || true"
   },
-  "keywords": ["jekyll", "github-pages", "ai4mbse", "cookie-consent", "dsgvo"],
+  "type": "module",
+  "keywords": [
+    "jekyll",
+    "github-pages",
+    "ai4mbse",
+    "cookie-consent",
+    "dsgvo"
+  ],
   "author": "Thomas Schuster <th.kingsepp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@lhci/cli": "^0.15.0",
+    "@testing-library/dom": "^9.3.1",
+    "eslint": "^9.0.0",
+    "husky": "^9.0.0",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "jsdom": "^24.0.0",
-    "@testing-library/dom": "^9.3.1",
-    "puppeteer": "^22.8.2",
-    "@eslint/js": "^9.0.0",
-    "eslint": "^9.0.0",
-    "husky": "^9.0.0",
     "lighthouse": "^12.0.0",
-    "@lhci/cli": "^0.15.0"
+    "lint-staged": "^15.5.2",
+    "prettier": "^3.5.3",
+    "puppeteer": "^22.8.2"
   },
   "jest": {
     "testEnvironment": "jsdom",
-    "setupFilesAfterEnv": ["<rootDir>/tests/setup.js"],
-    "testPathIgnorePatterns": ["<rootDir>/_site/", "<rootDir>/node_modules/"],
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/_site/",
+      "<rootDir>/node_modules/"
+    ],
     "collectCoverageFrom": [
       "assets/js/**/*.js",
       "!assets/js/**/*.test.js",
       "!_site/**"
     ],
-    "coverageReporters": ["text", "lcov", "html"],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
     "testTimeout": 30000
   },
-  "eslintConfig": {
-    "env": {
-      "browser": true,
-      "es2021": true,
-      "jest": true
-    },
-    "extends": ["eslint:recommended"],
-    "parserOptions": {
-      "ecmaVersion": "latest",
-      "sourceType": "module"
-    },
-    "rules": {
-      "no-unused-vars": "warn",
-      "no-console": "off"
+  "lint-staged": {
+    "*.{js,json,md,yml,yaml}": [
+      "prettier --write",
+      "git add"
+    ],
+    "*.js": [
+      "eslint --fix",
+      "git add"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
     }
   }
 }

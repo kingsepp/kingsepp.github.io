@@ -1,13 +1,13 @@
 ﻿title: Kingsepp
 description: Cloud Consulting & IT-Expertise für moderne Unternehmen
-url: "https://kingsepp.dev"
-baseurl: ""
+url: 'https://kingsepp.dev'
+baseurl: ''
 
 # Theme (wenn verwendet)
 # theme: jekyll-theme-slate
 
 # Repository Info
-repository: "Kingsepp/kingsepp.github.io"
+repository: 'Kingsepp/kingsepp.github.io'
 
 # Plugins
 plugins:
