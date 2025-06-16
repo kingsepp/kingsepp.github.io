@@ -40,7 +40,7 @@ print_header() {
 }
 
 print_step() {
-    ((CURRENT_STEP++))
+    CURRENT_STEP=$((CURRENT_STEP + 1))
     echo -e "\n${BLUE}${GEAR} Step ${CURRENT_STEP}/${TOTAL_STEPS}: $1${NC}"
     echo "─────────────────────────────────────────────"
 }
@@ -50,12 +50,12 @@ print_success() {
 }
 
 print_error() {
-    ((ERRORS++))
+    ERRORS=$((ERRORS + 1))
     echo -e "${RED}${CROSS} $1${NC}"
 }
 
 print_warning() {
-    ((WARNINGS++))
+    WARNINGS=$((WARNINGS + 1))
     echo -e "${YELLOW}${WARNING} $1${NC}"
 }
 
