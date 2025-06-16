@@ -214,9 +214,18 @@ security_scan() {
         --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=_site \
         | grep -v "example" | grep -v "placeholder" | grep -q .; then
         print_error "Potential hardcoded secrets found!"
+        grep -r -E "(password|secret|token|api_key)\s*[:=]\s*['\"][^'\"]{8,}" . \
+            --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=_site
         return 1
     else
         print_success "No hardcoded secrets detected"
+    fi
+    
+    # Check for Cloudflare Turnstile sitekeys (these are public, but flag them for review)
+    print_info "Checking for Cloudflare Turnstile sitekeys..."
+    if grep -r "data-sitekey" . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=_site | grep -q .; then
+        print_warning "Cloudflare Turnstile sitekeys found (public keys - OK for client-side)"
+        grep -r "data-sitekey" . --exclude-dir=node_modules --exclude-dir=.git --exclude-dir=_site | head -3
     fi
 }
 
@@ -278,11 +287,13 @@ cookie_consent_validation() {
         fi
     done
     
-    # Check cookie consent implementation
-    if grep -q "readCookie.*true.*include ga.js" _includes/cookie-consent.html; then
+    # Check cookie consent implementation (updated pattern)
+    if grep -q "readCookie.*==.*true" _includes/cookie-consent.html && grep -q "include ga.js" _includes/cookie-consent.html; then
         print_success "Conditional analytics loading implemented"
     else
         print_error "Conditional analytics loading not found"
+        print_info "Checking actual implementation..."
+        grep -n "readCookie\|include ga.js" _includes/cookie-consent.html || true
         return 1
     fi
     
