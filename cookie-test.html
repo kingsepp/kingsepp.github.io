@@ -1,0 +1,127 @@
+---
+layout: default
+title: Cookie Test
+---
+
+<div style="padding: 2rem; max-width: 800px; margin: 0 auto">
+  <h1>🍪 Cookie Consent Test Page</h1>
+
+  <div style="background: #f0f0f0; padding: 1rem; border-radius: 8px; margin: 1rem 0">
+    <h2>Debug Information:</h2>
+    <p><strong>Cookie Value:</strong> <span id="cookie-status">Loading...</span></p>
+    <p><strong>Banner Visible:</strong> <span id="banner-status">Loading...</span></p>
+    <p><strong>All Cookies:</strong> <span id="all-cookies">Loading...</span></p>
+  </div>
+
+  <div style="margin: 2rem 0">
+    <button
+      onclick="clearCookies()"
+      style="
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        background: #dc2626;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      "
+    >
+      🗑️ Clear All Cookies
+    </button>
+
+    <button
+      onclick="updateDebugInfo()"
+      style="
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        background: #2563eb;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      "
+    >
+      🔄 Refresh Status
+    </button>
+
+    <button
+      onclick="showBanner()"
+      style="
+        padding: 0.5rem 1rem;
+        margin: 0.5rem;
+        background: #059669;
+        color: white;
+        border: none;
+        border-radius: 4px;
+        cursor: pointer;
+      "
+    >
+      👁️ Force Show Banner
+    </button>
+  </div>
+
+  <div style="background: #f9fafb; border: 1px solid #d1d5db; padding: 1rem; border-radius: 8px">
+    <h3>Erwartetes Verhalten:</h3>
+    <ul>
+      <li>Bei <strong>erstem Besuch</strong>: Cookie-Banner sollte erscheinen</li>
+      <li>
+        Nach <strong>"Akzeptieren"</strong>: Banner verschwindet, Google Analytics wird geladen
+      </li>
+      <li>Bei <strong>erneutem Besuch</strong>: Kein Banner, Analytics lädt automatisch</li>
+    </ul>
+  </div>
+</div>
+
+<script>
+  function clearCookies() {
+    // Clear all cookies
+    document.cookie.split(';').forEach(function (c) {
+      document.cookie = c
+        .replace(/^ +/, '')
+        .replace(/=.*/, '=;expires=' + new Date().toUTCString() + ';path=/');
+    });
+    console.log('All cookies cleared');
+    alert('Cookies gelöscht! Seite wird neu geladen...');
+    location.reload();
+  }
+
+  function updateDebugInfo() {
+    // Check cookie status
+    const cookieValue =
+      typeof readCookie === 'function'
+        ? readCookie('cookie-notice-dismissed')
+        : 'readCookie function not available';
+    document.getElementById('cookie-status').textContent = cookieValue || 'null';
+
+    // Check banner visibility
+    const banner = document.getElementById('cookie-notice');
+    const isVisible = banner ? getComputedStyle(banner).display !== 'none' : false;
+    document.getElementById('banner-status').textContent = banner
+      ? isVisible
+        ? 'Sichtbar'
+        : 'Versteckt'
+      : 'Banner nicht gefunden';
+
+    // Show all cookies
+    document.getElementById('all-cookies').textContent = document.cookie || 'Keine Cookies';
+
+    console.log('Debug info updated');
+  }
+
+  function showBanner() {
+    const banner = document.getElementById('cookie-notice');
+    if (banner) {
+      banner.style.display = 'block';
+      console.log('Banner forced to show');
+      alert('Banner wurde sichtbar gemacht!');
+    } else {
+      console.error('Banner element not found!');
+      alert('Banner-Element nicht gefunden!');
+    }
+  }
+
+  // Update debug info when page loads
+  document.addEventListener('DOMContentLoaded', function () {
+    setTimeout(updateDebugInfo, 500); // Small delay to ensure everything is loaded
+  });
+</script>

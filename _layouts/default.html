@@ -21,6 +21,35 @@
     <!-- Cookie Consent System -->
     {% include cookie-consent.html %}
 
+    <!-- Conditional Google Analytics -->
+    <script>
+      // Load Google Analytics only if consent is given
+      function loadAnalytics() {
+        if (typeof readCookie === 'function' && readCookie('cookie-notice-dismissed') === 'true') {
+          console.log('Loading Google Analytics after consent');
+
+          // Load gtag script
+          const script = document.createElement('script');
+          script.async = true;
+          script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6P6F8KLCQS';
+          document.head.appendChild(script);
+
+          // Initialize gtag
+          window.dataLayer = window.dataLayer || [];
+          function gtag() {
+            dataLayer.push(arguments);
+          }
+          gtag('js', new Date());
+          gtag('config', 'G-6P6F8KLCQS', {
+            anonymize_ip: true,
+          });
+        }
+      }
+
+      // Load analytics after page load
+      document.addEventListener('DOMContentLoaded', loadAnalytics);
+    </script>
+
     <!-- Main Scripts -->
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
   </body>

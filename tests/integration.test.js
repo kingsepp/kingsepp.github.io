@@ -139,15 +139,16 @@ describe('Jekyll Site Integration Tests', () => {
       expect(content).toMatch(/cookie-notice/);
       expect(content).toMatch(/createCookie/);
       expect(content).toMatch(/readCookie/);
-      expect(content).toMatch(/{% include ga\.js %}/);
+      expect(content).toMatch(/checkCookieConsent/);
     });
 
     test('Google Analytics should be conditionally loaded', () => {
-      const gaPath = path.join(projectRoot, '_includes/ga.js');
-      const content = fs.readFileSync(gaPath, 'utf8');
+      const layoutPath = path.join(projectRoot, '_layouts/default.html');
+      const content = fs.readFileSync(layoutPath, 'utf8');
 
-      expect(content).toMatch(/gtag/);
+      expect(content).toMatch(/loadAnalytics/);
       expect(content).toMatch(/G-6P6F8KLCQS/);
+      expect(content).toMatch(/readCookie.*cookie-notice-dismissed/);
     });
   });
 
