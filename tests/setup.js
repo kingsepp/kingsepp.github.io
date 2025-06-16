@@ -8,23 +8,23 @@ global.document = {
   cookie: '',
   getElementById: jest.fn().mockReturnValue({
     style: { display: 'none' },
-    addEventListener: jest.fn()
+    addEventListener: jest.fn(),
   }),
   addEventListener: jest.fn(),
   createElement: jest.fn(() => ({
     style: {},
-    addEventListener: jest.fn()
-  }))
+    addEventListener: jest.fn(),
+  })),
 };
 
 global.window = {
   location: {
     reload: jest.fn(),
-    href: ''
+    href: '',
   },
   getComputedStyle: jest.fn(() => ({
-    display: 'none'
-  }))
+    display: 'none',
+  })),
 };
 
 // Console Logs für bessere Test-Ausgaben
@@ -33,7 +33,7 @@ global.console = {
   log: jest.fn(),
   error: jest.fn(),
   warn: jest.fn(),
-  info: jest.fn()
+  info: jest.fn(),
 };
 
 // Cleanup nach jedem Test

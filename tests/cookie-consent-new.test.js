@@ -6,17 +6,16 @@
 global.document = {
   cookie: '',
   getElementById: jest.fn(),
-  addEventListener: jest.fn()
+  addEventListener: jest.fn(),
 };
 
 global.window = {
   location: {
-    reload: jest.fn()
-  }
+    reload: jest.fn(),
+  },
 };
 
 describe('Jekyll Cookie Consent System', () => {
-  
   beforeEach(() => {
     // Reset document.cookie before each test
     global.document.cookie = '';
@@ -24,17 +23,16 @@ describe('Jekyll Cookie Consent System', () => {
   });
 
   describe('Cookie Management Functions', () => {
-    
     test('createCookie should set cookie with correct format', () => {
       // Mock the createCookie function
       function createCookie(name, value, days) {
-        var expires = "";
+        var expires = '';
         if (days) {
           var date = new Date();
-          date.setTime(date.getTime() + (days * 24 * 60 * 60 * 1000));
-          expires = "; expires=" + date.toUTCString();
+          date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
+          expires = '; expires=' + date.toUTCString();
         }
-        global.document.cookie = name + "=" + value + expires + "; path=/";
+        global.document.cookie = name + '=' + value + expires + '; path=/';
         return global.document.cookie;
       }
 
@@ -46,14 +44,14 @@ describe('Jekyll Cookie Consent System', () => {
     test('readCookie should find existing cookie', () => {
       // Set up mock cookie
       global.document.cookie = 'cookie-notice-dismissed=true; path=/';
-      
+
       function readCookie(name) {
-        var nameEQ = name + "=";
+        var nameEQ = name + '=';
         var ca = global.document.cookie.split(';');
-        for(var i=0;i < ca.length;i++) {
+        for (var i = 0; i < ca.length; i++) {
           var c = ca[i];
-          while (c.charAt(0)==' ') c = c.substring(1,c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
       }
@@ -64,14 +62,14 @@ describe('Jekyll Cookie Consent System', () => {
 
     test('readCookie should return null for non-existing cookie', () => {
       global.document.cookie = '';
-      
+
       function readCookie(name) {
-        var nameEQ = name + "=";
+        var nameEQ = name + '=';
         var ca = global.document.cookie.split(';');
-        for(var i=0;i < ca.length;i++) {
+        for (var i = 0; i < ca.length; i++) {
           var c = ca[i];
-          while (c.charAt(0)==' ') c = c.substring(1,c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length,c.length);
+          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
+          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
         }
         return null;
       }
@@ -82,19 +80,18 @@ describe('Jekyll Cookie Consent System', () => {
   });
 
   describe('Cookie Consent Logic', () => {
-    
     test('should show banner when no consent cookie exists', () => {
       global.document.cookie = '';
       const mockElement = { style: { display: '' } };
       global.document.getElementById = jest.fn().mockReturnValue(mockElement);
-      
+
       function readCookie(name) {
         return null; // Simulate no cookie
       }
 
       // Simulate the main logic
       const shouldShowBanner = readCookie('cookie-notice-dismissed') !== 'true';
-      
+
       if (shouldShowBanner) {
         global.document.getElementById('cookie-notice').style.display = 'block';
       }
@@ -106,7 +103,7 @@ describe('Jekyll Cookie Consent System', () => {
 
     test('should not show banner when consent cookie is true', () => {
       global.document.cookie = 'cookie-notice-dismissed=true';
-      
+
       function readCookie(name) {
         if (name === 'cookie-notice-dismissed') return 'true';
         return null;
@@ -122,17 +119,17 @@ describe('Jekyll Cookie Consent System', () => {
   });
 
   describe('Accept Button Behavior', () => {
-    
     test('accept button should set cookie and hide banner', () => {
-      const mockElement = { 
+      const mockElement = {
         style: { display: 'block' },
-        addEventListener: jest.fn()
+        addEventListener: jest.fn(),
       };
       global.document.getElementById = jest.fn().mockReturnValue(mockElement);
-      
+
       // Simulate button click handler (ohne reload für Test)
       function handleAcceptClick() {
-        global.document.cookie = 'cookie-notice-dismissed=true; path=/; max-age=' + (31 * 24 * 60 * 60);
+        global.document.cookie =
+          'cookie-notice-dismissed=true; path=/; max-age=' + 31 * 24 * 60 * 60;
         const element = global.document.getElementById('cookie-notice');
         element.style.display = 'none';
         // window.location.reload() würde normalerweise hier aufgerufen werden
@@ -147,19 +144,18 @@ describe('Jekyll Cookie Consent System', () => {
   });
 
   describe('Analytics Loading', () => {
-    
     test('should include analytics when consent is given', () => {
       // This would be tested through Jekyll template rendering
       // In a real test, we'd check if {% include ga.js %} is processed
-      
+
       function shouldLoadAnalytics() {
         global.document.cookie = 'cookie-notice-dismissed=true';
-        
+
         function readCookie(name) {
           if (name === 'cookie-notice-dismissed') return 'true';
           return null;
         }
-        
+
         return readCookie('cookie-notice-dismissed') === 'true';
       }
 
@@ -169,11 +165,11 @@ describe('Jekyll Cookie Consent System', () => {
     test('should not include analytics when consent is not given', () => {
       function shouldLoadAnalytics() {
         global.document.cookie = '';
-        
+
         function readCookie(name) {
           return null;
         }
-        
+
         return readCookie('cookie-notice-dismissed') === 'true';
       }
 
@@ -183,7 +179,6 @@ describe('Jekyll Cookie Consent System', () => {
 });
 
 describe('Integration with Jekyll Template System', () => {
-  
   test('cookie consent include should be referenced in layout', () => {
     // Mock file content check
     const layoutContent = `
@@ -194,7 +189,7 @@ describe('Integration with Jekyll Template System', () => {
       </body>
       </html>
     `;
-    
+
     expect(layoutContent).toContain('{% include cookie-consent.html %}');
   });
 
@@ -206,8 +201,8 @@ describe('Integration with Jekyll Template System', () => {
       }
       </script>
     `;
-    
-    expect(cookieConsentContent).toContain("{% include ga.js %}");
+
+    expect(cookieConsentContent).toContain('{% include ga.js %}');
     expect(cookieConsentContent).toContain("readCookie('cookie-notice-dismissed')=='true'");
   });
 });
