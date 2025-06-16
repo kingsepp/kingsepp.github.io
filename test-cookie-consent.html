@@ -1,257 +1,215 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Cookie Consent Test</title>
     <style>
-      body {
-        font-family: Arial, sans-serif;
-        padding: 20px;
-        background: #1a202c;
-        color: white;
-      }
-      .test-section {
-        margin: 20px 0;
-        padding: 15px;
-        background: #2d3748;
-        border-radius: 8px;
-      }
-      .test-button {
-        padding: 10px 15px;
-        margin: 5px;
-        background: #3b82f6;
-        color: white;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-      }
-      .test-result {
-        margin: 10px 0;
-        padding: 10px;
-        background: #065f46;
-        border-radius: 5px;
-      }
-      .test-error {
-        background: #7f1d1d !important;
-      }
-      .status-indicator {
-        display: inline-block;
-        width: 10px;
-        height: 10px;
-        border-radius: 50%;
-        margin-right: 5px;
-      }
-      .status-ok {
-        background: #22c55e;
-      }
-      .status-fail {
-        background: #ef4444;
-      }
-      .status-pending {
-        background: #f59e0b;
-      }
+        body { font-family: Arial, sans-serif; padding: 20px; background: #1a202c; color: white; }
+        .test-section { margin: 20px 0; padding: 15px; background: #2d3748; border-radius: 8px; }
+        .test-button { padding: 10px 15px; margin: 5px; background: #3b82f6; color: white; border: none; border-radius: 5px; cursor: pointer; }
+        .test-result { margin: 10px 0; padding: 10px; background: #065f46; border-radius: 5px; }
+        .test-error { background: #7f1d1d !important; }
+        .status-indicator { display: inline-block; width: 10px; height: 10px; border-radius: 50%; margin-right: 5px; }
+        .status-ok { background: #22c55e; }
+        .status-fail { background: #ef4444; }
+        .status-pending { background: #f59e0b; }
     </style>
-  </head>
-  <body>
+</head>
+<body>
     <h1>🍪 Cookie Consent System Test</h1>
-
+    
     <div class="test-section">
-      <h2>📊 Current Status</h2>
-      <div id="current-status">
-        <p><span class="status-indicator status-pending"></span>Loading...</p>
-      </div>
-      <button class="test-button" onclick="checkCurrentStatus()">Status aktualisieren</button>
+        <h2>📊 Current Status</h2>
+        <div id="current-status">
+            <p><span class="status-indicator status-pending"></span>Loading...</p>
+        </div>
+        <button class="test-button" onclick="checkCurrentStatus()">Status aktualisieren</button>
     </div>
 
     <div class="test-section">
-      <h2>🧪 Test Actions</h2>
-      <button class="test-button" onclick="testAcceptAll()">Test: Alle Cookies akzeptieren</button>
-      <button class="test-button" onclick="testEssentialOnly()">
-        Test: Nur notwendige Cookies
-      </button>
-      <button class="test-button" onclick="testRevoke()">Test: Einwilligung widerrufen</button>
-      <button class="test-button" onclick="clearAllData()">Reset: Alle Daten löschen</button>
+        <h2>🧪 Test Actions</h2>
+        <button class="test-button" onclick="testAcceptAll()">Test: Alle Cookies akzeptieren</button>
+        <button class="test-button" onclick="testEssentialOnly()">Test: Nur notwendige Cookies</button>
+        <button class="test-button" onclick="testRevoke()">Test: Einwilligung widerrufen</button>
+        <button class="test-button" onclick="clearAllData()">Reset: Alle Daten löschen</button>
     </div>
 
     <div class="test-section">
-      <h2>🔍 Verification Tests</h2>
-      <button class="test-button" onclick="verifyGoogleAnalytics()">
-        Google Analytics Status prüfen
-      </button>
-      <button class="test-button" onclick="verifyCookies()">Cookie-Status prüfen</button>
-      <button class="test-button" onclick="verifyLocalStorage()">LocalStorage prüfen</button>
+        <h2>🔍 Verification Tests</h2>
+        <button class="test-button" onclick="verifyGoogleAnalytics()">Google Analytics Status prüfen</button>
+        <button class="test-button" onclick="verifyCookies()">Cookie-Status prüfen</button>
+        <button class="test-button" onclick="verifyLocalStorage()">LocalStorage prüfen</button>
     </div>
 
     <div class="test-section">
-      <h2>📋 Test Results</h2>
-      <div id="test-results"></div>
+        <h2>📋 Test Results</h2>
+        <div id="test-results"></div>
     </div>
 
     <script>
-      // Test-Funktionen
-      let testResults = [];
+        // Test-Funktionen
+        let testResults = [];
 
-      function addTestResult(test, result, details = '') {
-        const timestamp = new Date().toLocaleTimeString();
-        const status = result ? '✅' : '❌';
-        const resultDiv = document.getElementById('test-results');
-
-        testResults.push({ test, result, details, timestamp });
-
-        resultDiv.innerHTML = testResults
-          .map(
-            r =>
-              `<div class="test-result ${r.result ? '' : 'test-error'}">
+        function addTestResult(test, result, details = '') {
+            const timestamp = new Date().toLocaleTimeString();
+            const status = result ? '✅' : '❌';
+            const resultDiv = document.getElementById('test-results');
+            
+            testResults.push({ test, result, details, timestamp });
+            
+            resultDiv.innerHTML = testResults.map(r => 
+                `<div class="test-result ${r.result ? '' : 'test-error'}">
                     ${r.result ? '✅' : '❌'} [${r.timestamp}] ${r.test}
                     ${r.details ? `<br><small>${r.details}</small>` : ''}
                 </div>`
-          )
-          .join('');
-      }
+            ).join('');
+        }
 
-      function checkCurrentStatus() {
-        const consent = localStorage.getItem('cookie-consent');
-        const hasGAScript = !!document.querySelector('script[src*="googletagmanager"]');
-        const gaCookies = document.cookie.split(';').filter(c => c.trim().startsWith('_ga'));
-
-        let status = '';
-        if (consent) {
-          const consentData = JSON.parse(consent);
-          status = `
+        function checkCurrentStatus() {
+            const consent = localStorage.getItem('cookie-consent');
+            const hasGAScript = !!document.querySelector('script[src*="googletagmanager"]');
+            const gaCookies = document.cookie.split(';').filter(c => c.trim().startsWith('_ga'));
+            
+            let status = '';
+            if (consent) {
+                const consentData = JSON.parse(consent);
+                status = `
                     <p><span class="status-indicator status-ok"></span>Einwilligung vorhanden</p>
                     <p>Analytics: ${consentData.analytics ? '✅ Akzeptiert' : '❌ Abgelehnt'}</p>
                     <p>Google Analytics Script: ${hasGAScript ? '✅ Geladen' : '❌ Nicht geladen'}</p>
                     <p>GA Cookies: ${gaCookies.length} gefunden</p>
                     <p>Zeitstempel: ${new Date(consentData.timestamp).toLocaleString()}</p>
                 `;
-        } else {
-          status =
-            '<p><span class="status-indicator status-fail"></span>Keine Einwilligung gespeichert</p>';
+            } else {
+                status = '<p><span class="status-indicator status-fail"></span>Keine Einwilligung gespeichert</p>';
+            }
+            
+            document.getElementById('current-status').innerHTML = status;
         }
 
-        document.getElementById('current-status').innerHTML = status;
-      }
-
-      function testAcceptAll() {
-        // Simuliere "Alle akzeptieren"
-        const consent = { analytics: true, essential: true, timestamp: Date.now(), version: '1.0' };
-        localStorage.setItem('cookie-consent', JSON.stringify(consent));
-
-        // Warte kurz und prüfe dann
-        setTimeout(() => {
-          const hasGA = !!document.querySelector('script[src*="googletagmanager"]');
-          addTestResult(
-            'Alle Cookies akzeptieren',
-            true,
-            `LocalStorage gesetzt, Google Analytics sollte laden`
-          );
-          checkCurrentStatus();
-        }, 500);
-      }
-
-      function testEssentialOnly() {
-        // Simuliere "Nur notwendige"
-        const consent = {
-          analytics: false,
-          essential: true,
-          timestamp: Date.now(),
-          version: '1.0',
-        };
-        localStorage.setItem('cookie-consent', JSON.stringify(consent));
-
-        // Lösche GA-Cookies
-        document.cookie.split(';').forEach(cookie => {
-          const name = cookie.split('=')[0].trim();
-          if (name.startsWith('_ga')) {
-            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-          }
-        });
-
-        addTestResult('Nur notwendige Cookies', true, 'Analytics deaktiviert, GA-Cookies gelöscht');
-        checkCurrentStatus();
-      }
-
-      function testRevoke() {
-        localStorage.removeItem('cookie-consent');
-
-        // Lösche alle GA-Cookies
-        document.cookie.split(';').forEach(cookie => {
-          const name = cookie.split('=')[0].trim();
-          if (name.startsWith('_ga')) {
-            document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-          }
-        });
-
-        addTestResult('Einwilligung widerrufen', true, 'LocalStorage gelöscht, Cookies entfernt');
-        checkCurrentStatus();
-      }
-
-      function clearAllData() {
-        localStorage.clear();
-        sessionStorage.clear();
-
-        // Alle Cookies löschen
-        document.cookie.split(';').forEach(cookie => {
-          const name = cookie.split('=')[0].trim();
-          document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
-        });
-
-        testResults = [];
-        document.getElementById('test-results').innerHTML = '';
-        addTestResult('Reset komplett', true, 'Alle Daten gelöscht');
-        checkCurrentStatus();
-      }
-
-      function verifyGoogleAnalytics() {
-        const hasGtagScript = !!document.querySelector('script[src*="googletagmanager"]');
-        const hasGtagFunction = typeof gtag !== 'undefined';
-        const hasDataLayer = window.dataLayer && Array.isArray(window.dataLayer);
-
-        const score = [hasGtagScript, hasGtagFunction, hasDataLayer].filter(Boolean).length;
-
-        addTestResult(
-          'Google Analytics Verifikation',
-          score >= 1,
-          `Script: ${hasGtagScript}, gtag(): ${hasGtagFunction}, dataLayer: ${hasDataLayer}`
-        );
-      }
-
-      function verifyCookies() {
-        const allCookies = document.cookie.split(';').map(c => c.trim());
-        const gaCookies = allCookies.filter(c => c.startsWith('_ga'));
-        const otherCookies = allCookies.filter(c => !c.startsWith('_ga') && c);
-
-        addTestResult(
-          'Cookie-Verifikation',
-          true,
-          `GA-Cookies: ${gaCookies.length}, Andere: ${otherCookies.length}`
-        );
-      }
-
-      function verifyLocalStorage() {
-        const consent = localStorage.getItem('cookie-consent');
-        const hasConsent = !!consent;
-        let consentValid = false;
-
-        if (hasConsent) {
-          try {
-            const data = JSON.parse(consent);
-            consentValid = data.hasOwnProperty('analytics') && data.hasOwnProperty('timestamp');
-          } catch (e) {
-            consentValid = false;
-          }
+        function testAcceptAll() {
+            // Simuliere "Alle akzeptieren"
+            const consent = { analytics: true, essential: true, timestamp: Date.now(), version: '1.0' };
+            localStorage.setItem('cookie-consent', JSON.stringify(consent));
+            
+            // Warte kurz und prüfe dann
+            setTimeout(() => {
+                const hasGA = !!document.querySelector('script[src*="googletagmanager"]');
+                addTestResult(
+                    'Alle Cookies akzeptieren', 
+                    true,
+                    `LocalStorage gesetzt, Google Analytics sollte laden`
+                );
+                checkCurrentStatus();
+            }, 500);
         }
 
-        addTestResult(
-          'LocalStorage Verifikation',
-          hasConsent && consentValid,
-          `Consent vorhanden: ${hasConsent}, Gültig: ${consentValid}`
-        );
-      }
+        function testEssentialOnly() {
+            // Simuliere "Nur notwendige"
+            const consent = { analytics: false, essential: true, timestamp: Date.now(), version: '1.0' };
+            localStorage.setItem('cookie-consent', JSON.stringify(consent));
+            
+            // Lösche GA-Cookies
+            document.cookie.split(';').forEach(cookie => {
+                const name = cookie.split('=')[0].trim();
+                if (name.startsWith('_ga')) {
+                    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+                }
+            });
+            
+            addTestResult(
+                'Nur notwendige Cookies', 
+                true,
+                'Analytics deaktiviert, GA-Cookies gelöscht'
+            );
+            checkCurrentStatus();
+        }
 
-      // Initial Status laden
-      checkCurrentStatus();
+        function testRevoke() {
+            localStorage.removeItem('cookie-consent');
+            
+            // Lösche alle GA-Cookies
+            document.cookie.split(';').forEach(cookie => {
+                const name = cookie.split('=')[0].trim();
+                if (name.startsWith('_ga')) {
+                    document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+                }
+            });
+            
+            addTestResult(
+                'Einwilligung widerrufen', 
+                true,
+                'LocalStorage gelöscht, Cookies entfernt'
+            );
+            checkCurrentStatus();
+        }
+
+        function clearAllData() {
+            localStorage.clear();
+            sessionStorage.clear();
+            
+            // Alle Cookies löschen
+            document.cookie.split(';').forEach(cookie => {
+                const name = cookie.split('=')[0].trim();
+                document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
+            });
+            
+            testResults = [];
+            document.getElementById('test-results').innerHTML = '';
+            addTestResult('Reset komplett', true, 'Alle Daten gelöscht');
+            checkCurrentStatus();
+        }
+
+        function verifyGoogleAnalytics() {
+            const hasGtagScript = !!document.querySelector('script[src*="googletagmanager"]');
+            const hasGtagFunction = typeof gtag !== 'undefined';
+            const hasDataLayer = window.dataLayer && Array.isArray(window.dataLayer);
+            
+            const score = [hasGtagScript, hasGtagFunction, hasDataLayer].filter(Boolean).length;
+            
+            addTestResult(
+                'Google Analytics Verifikation',
+                score >= 1,
+                `Script: ${hasGtagScript}, gtag(): ${hasGtagFunction}, dataLayer: ${hasDataLayer}`
+            );
+        }
+
+        function verifyCookies() {
+            const allCookies = document.cookie.split(';').map(c => c.trim());
+            const gaCookies = allCookies.filter(c => c.startsWith('_ga'));
+            const otherCookies = allCookies.filter(c => !c.startsWith('_ga') && c);
+            
+            addTestResult(
+                'Cookie-Verifikation',
+                true,
+                `GA-Cookies: ${gaCookies.length}, Andere: ${otherCookies.length}`
+            );
+        }
+
+        function verifyLocalStorage() {
+            const consent = localStorage.getItem('cookie-consent');
+            const hasConsent = !!consent;
+            let consentValid = false;
+            
+            if (hasConsent) {
+                try {
+                    const data = JSON.parse(consent);
+                    consentValid = data.hasOwnProperty('analytics') && data.hasOwnProperty('timestamp');
+                } catch (e) {
+                    consentValid = false;
+                }
+            }
+            
+            addTestResult(
+                'LocalStorage Verifikation',
+                hasConsent && consentValid,
+                `Consent vorhanden: ${hasConsent}, Gültig: ${consentValid}`
+            );
+        }
+
+        // Initial Status laden
+        checkCurrentStatus();
     </script>
-  </body>
+</body>
 </html>
