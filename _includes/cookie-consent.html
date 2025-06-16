@@ -110,16 +110,43 @@
       createCookie(name,"",-1);
   }
 
+  // Debug logging
+  console.log('Cookie Consent Script loaded');
+  console.log('Current cookies:', document.cookie);
+  
   // Load analytics only if consent was given
-  if(readCookie('cookie-notice-dismissed')=='true') {
+  const consentCookie = readCookie('cookie-notice-dismissed');
+  console.log('Consent cookie value:', consentCookie);
+  
+  if(consentCookie == 'true') {
+      console.log('Consent given - loading analytics');
       {% include ga.js %}
   } else {
-      document.getElementById('cookie-notice').style.display = 'block';
+      console.log('No consent - showing banner');
+      // Wait for DOM to be ready
+      document.addEventListener('DOMContentLoaded', function() {
+          const banner = document.getElementById('cookie-notice');
+          if (banner) {
+              banner.style.display = 'block';
+              console.log('Cookie banner displayed');
+          } else {
+              console.error('Cookie banner element not found!');
+          }
+      });
   }
 
-  document.getElementById('cookie-notice-accept').addEventListener("click",function() {
-      createCookie('cookie-notice-dismissed','true',31);
-      document.getElementById('cookie-notice').style.display = 'none';
-      location.reload();
+  // Wait for DOM before adding event listener
+  document.addEventListener('DOMContentLoaded', function() {
+      const acceptButton = document.getElementById('cookie-notice-accept');
+      if (acceptButton) {
+          acceptButton.addEventListener("click", function() {
+              console.log('Accept button clicked');
+              createCookie('cookie-notice-dismissed','true',31);
+              document.getElementById('cookie-notice').style.display = 'none';
+              location.reload();
+          });
+      } else {
+          console.error('Accept button not found!');
+      }
   });
 </script>

@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cookie Debug Test</title>
+</head>
+<body>
+    <h1>Cookie Consent Debug</h1>
+    
+    <div id="debug-info">
+        <h2>Debug Information:</h2>
+        <p>Cookie Value: <span id="cookie-value">-</span></p>
+        <p>Banner Visible: <span id="banner-status">-</span></p>
+        <p>DOM Ready: <span id="dom-status">-</span></p>
+    </div>
+
+    <button onclick="clearAllCookies()">🗑️ Clear All Cookies</button>
+    <button onclick="checkCookieStatus()">🔍 Check Cookie Status</button>
+    <button onclick="showBanner()">👁️ Force Show Banner</button>
+
+    <!-- Include the actual cookie consent -->
+    {% include cookie-consent.html %}
+
+    <script>
+        // Debug functions
+        function clearAllCookies() {
+            document.cookie.split(";").forEach(function(c) { 
+                document.cookie = c.replace(/^ +/, "").replace(/=.*/, "=;expires=" + new Date().toUTCString() + ";path=/"); 
+            });
+            console.log('All cookies cleared');
+            location.reload();
+        }
+
+        function checkCookieStatus() {
+            const cookieValue = readCookie('cookie-notice-dismissed');
+            document.getElementById('cookie-value').textContent = cookieValue || 'null';
+            
+            const banner = document.getElementById('cookie-notice');
+            const isVisible = banner && getComputedStyle(banner).display !== 'none';
+            document.getElementById('banner-status').textContent = isVisible ? 'Visible' : 'Hidden';
+            
+            console.log('Cookie:', cookieValue);
+            console.log('Banner visible:', isVisible);
+            console.log('All cookies:', document.cookie);
+        }
+
+        function showBanner() {
+            const banner = document.getElementById('cookie-notice');
+            if (banner) {
+                banner.style.display = 'block';
+                console.log('Banner forced to show');
+            } else {
+                console.error('Banner element not found!');
+            }
+        }
+
+        // Check status when page loads
+        document.addEventListener('DOMContentLoaded', function() {
+            document.getElementById('dom-status').textContent = 'Ready';
+            setTimeout(checkCookieStatus, 100); // Small delay to ensure everything is loaded
+        });
+
+        // Enhanced logging
+        console.log('Debug script loaded');
+        console.log('Initial cookies:', document.cookie);
+    </script>
+
+    <style>
+        body { font-family: Arial, sans-serif; margin: 2rem; }
+        #debug-info { background: #f0f0f0; padding: 1rem; margin: 1rem 0; border-radius: 8px; }
+        button { padding: 0.5rem 1rem; margin: 0.5rem; cursor: pointer; }
+    </style>
+</body>
+</html>
