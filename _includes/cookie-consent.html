@@ -132,12 +132,16 @@
   </div>
   <div class="cookie-content">
     <p>
-      Um die Informationen auf dieser Webseite und das Leistungsangebot den Bedürfnissen der Nutzer anpassen zu können, setzen wir Cookies ein. Sie können über die nachstehenden Einstellungen selbst entscheiden, welche Cookies bei der Nutzung der Webseite gesetzt werden sollen.
+      Um die Informationen auf dieser Webseite und das Leistungsangebot den Bedürfnissen der Nutzer
+      anpassen zu können, setzen wir Cookies ein. Sie können über die nachstehenden Einstellungen
+      selbst entscheiden, welche Cookies bei der Nutzung der Webseite gesetzt werden sollen.
     </p>
     <p>
-      <strong>Verwendete Cookies:</strong><br>
-      • <strong>Technisch notwendige Cookies:</strong> Speichern Ihre Cookie-Einstellungen (Dauer: 31 Tage)<br>
-      • <strong>Google Analytics:</strong> Sammelt anonymisierte Nutzungsdaten zur Webseitenoptimierung (Dauer: 26 Monate)
+      <strong>Verwendete Cookies:</strong><br />
+      • <strong>Technisch notwendige Cookies:</strong> Speichern Ihre Cookie-Einstellungen (Dauer:
+      31 Tage)<br />
+      • <strong>Google Analytics:</strong> Sammelt anonymisierte Nutzungsdaten zur
+      Webseitenoptimierung (Dauer: 26 Monate)
     </p>
   </div>
   <div class="cookie-buttons">
@@ -150,126 +154,148 @@
 </div>
 
 <!-- Widerrufs-Button (immer sichtbar am unteren Rand) -->
-<div id="cookie-revoke" style="
-  position: fixed;
-  bottom: 10px;
-  right: 10px;
-  z-index: 9999;
-  background: rgba(15, 23, 42, 0.9);
-  border: 1px solid rgba(96, 165, 250, 0.3);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  backdrop-filter: blur(10px);
-">
-  <a href="#" id="revoke-consent" style="
-    color: #60a5fa;
-    text-decoration: none;
-    font-size: 0.8rem;
-    font-weight: 500;
-  ">Cookie-Einstellungen ändern</a>
+<div
+  id="cookie-revoke"
+  style="
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+    background: rgba(15, 23, 42, 0.9);
+    border: 1px solid rgba(96, 165, 250, 0.3);
+    border-radius: 8px;
+    padding: 0.5rem 1rem;
+    backdrop-filter: blur(10px);
+  "
+>
+  <a
+    href="#"
+    id="revoke-consent"
+    style="color: #60a5fa; text-decoration: none; font-size: 0.8rem; font-weight: 500"
+    >Cookie-Einstellungen ändern</a
+  >
 </div>
 
 <!-- Detaillierte Cookie-Einstellungen Modal -->
-<div id="cookie-settings-modal" style="
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  z-index: 10001;
-  backdrop-filter: blur(5px);
-">
-  <div style="
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-    background: #0f172a;
-    border: 1px solid rgba(96, 165, 250, 0.3);
-    border-radius: 12px;
-    padding: 2rem;
-    max-width: 600px;
-    width: 90%;
-    max-height: 80vh;
-    overflow-y: auto;
-    color: #cbd5e1;
-  ">
-    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
-      <h2 style="color: #60a5fa; margin: 0;">Cookie-Einstellungen</h2>
-      <button id="close-settings" style="
-        background: none;
-        border: none;
-        color: #60a5fa;
-        font-size: 1.5rem;
-        cursor: pointer;
-      ">&times;</button>
+<div
+  id="cookie-settings-modal"
+  style="
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    z-index: 10001;
+    backdrop-filter: blur(5px);
+  "
+>
+  <div
+    style="
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: #0f172a;
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 12px;
+      padding: 2rem;
+      max-width: 600px;
+      width: 90%;
+      max-height: 80vh;
+      overflow-y: auto;
+      color: #cbd5e1;
+    "
+  >
+    <div
+      style="
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1.5rem;
+      "
+    >
+      <h2 style="color: #60a5fa; margin: 0">Cookie-Einstellungen</h2>
+      <button
+        id="close-settings"
+        style="background: none; border: none; color: #60a5fa; font-size: 1.5rem; cursor: pointer"
+      >
+        &times;
+      </button>
     </div>
 
     <div class="cookie-category">
-      <h3 style="color: #60a5fa; margin-bottom: 1rem;">Technisch notwendige Cookies</h3>
-      <div style="
-        background: rgba(96, 165, 250, 0.1);
-        border-left: 3px solid #60a5fa;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        border-radius: 0 8px 8px 0;
-      ">
+      <h3 style="color: #60a5fa; margin-bottom: 1rem">Technisch notwendige Cookies</h3>
+      <div
+        style="
+          background: rgba(96, 165, 250, 0.1);
+          border-left: 3px solid #60a5fa;
+          padding: 1rem;
+          margin-bottom: 1.5rem;
+          border-radius: 0 8px 8px 0;
+        "
+      >
         <p><strong>Zweck:</strong> Speicherung Ihrer Cookie-Einstellungen und Einwilligungen</p>
         <p><strong>Dauer:</strong> 31 Tage</p>
         <p><strong>Anbieter:</strong> Diese Website (Erstanbieter)</p>
         <p><strong>Daten:</strong> Cookie-Einwilligung, Zeitstempel, Browser-Information</p>
-        <p style="margin-bottom: 0;"><strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)</p>
-        <label style="
-          display: flex;
-          align-items: center;
-          margin-top: 1rem;
-          cursor: not-allowed;
-          opacity: 0.7;
-        ">
-          <input type="checkbox" checked disabled style="margin-right: 0.5rem;">
+        <p style="margin-bottom: 0">
+          <strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)
+        </p>
+        <label
+          style="
+            display: flex;
+            align-items: center;
+            margin-top: 1rem;
+            cursor: not-allowed;
+            opacity: 0.7;
+          "
+        >
+          <input type="checkbox" checked disabled style="margin-right: 0.5rem" />
           Immer aktiv (technisch erforderlich)
         </label>
       </div>
     </div>
 
     <div class="cookie-category">
-      <h3 style="color: #60a5fa; margin-bottom: 1rem;">Google Analytics</h3>
-      <div style="
-        background: rgba(255, 193, 7, 0.1);
-        border-left: 3px solid #ffc107;
-        padding: 1rem;
-        margin-bottom: 1.5rem;
-        border-radius: 0 8px 8px 0;
-      ">
+      <h3 style="color: #60a5fa; margin-bottom: 1rem">Google Analytics</h3>
+      <div
+        style="
+          background: rgba(255, 193, 7, 0.1);
+          border-left: 3px solid #ffc107;
+          padding: 1rem;
+          margin-bottom: 1.5rem;
+          border-radius: 0 8px 8px 0;
+        "
+      >
         <p><strong>Zweck:</strong> Analyse des Nutzerverhaltens zur Webseitenoptimierung</p>
         <p><strong>Dauer:</strong> 26 Monate (_ga), 24 Stunden (_gid)</p>
         <p><strong>Anbieter:</strong> Google LLC, USA</p>
-        <p><strong>Daten:</strong> Anonymisierte IP-Adresse, Browser-Typ, Besuchszeiten, besuchte Seiten</p>
+        <p>
+          <strong>Daten:</strong> Anonymisierte IP-Adresse, Browser-Typ, Besuchszeiten, besuchte
+          Seiten
+        </p>
         <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</p>
-        <p style="margin-bottom: 0;"><strong>Datenschutz:</strong> IP-Anonymisierung aktiviert, keine Personalisierung</p>
-        <label style="
-          display: flex;
-          align-items: center;
-          margin-top: 1rem;
-          cursor: pointer;
-        ">
-          <input type="checkbox" id="analytics-consent" style="margin-right: 0.5rem;">
+        <p style="margin-bottom: 0">
+          <strong>Datenschutz:</strong> IP-Anonymisierung aktiviert, keine Personalisierung
+        </p>
+        <label style="display: flex; align-items: center; margin-top: 1rem; cursor: pointer">
+          <input type="checkbox" id="analytics-consent" style="margin-right: 0.5rem" />
           Google Analytics zulassen
         </label>
       </div>
     </div>
 
-    <div style="
-      display: flex;
-      gap: 1rem;
-      justify-content: flex-end;
-      margin-top: 2rem;
-      flex-wrap: wrap;
-    ">
-      <a id="save-settings" class="btn-settings" style="text-decoration: none;">Einstellungen speichern</a>
-      <a id="accept-all-settings" class="btn-approve" style="text-decoration: none;">Alle akzeptieren</a>
+    <div
+      style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem; flex-wrap: wrap"
+    >
+      <a id="save-settings" class="btn-settings" style="text-decoration: none"
+        >Einstellungen speichern</a
+      >
+      <a id="accept-all-settings" class="btn-approve" style="text-decoration: none"
+        >Alle akzeptieren</a
+      >
     </div>
   </div>
 </div>
@@ -292,7 +318,7 @@
       timestamp: new Date().toISOString(),
       userAgent: navigator.userAgent,
       ipHash: 'client-side', // IP wird serverseitig gehashed
-      version: '1.0'
+      version: '1.0',
     };
     localStorage.setItem('dsgvo-consent-record', JSON.stringify(consentRecord));
     console.log('DSGVO Zustimmung dokumentiert:', consentRecord);
@@ -321,7 +347,10 @@
     const banner = document.getElementById('cookie-notice');
     const revokeButton = document.getElementById('cookie-revoke');
 
-    if (!consentCookie || (consentCookie !== 'accept' && consentCookie !== 'essential' && consentCookie !== 'reject')) {
+    if (
+      !consentCookie ||
+      (consentCookie !== 'accept' && consentCookie !== 'essential' && consentCookie !== 'reject')
+    ) {
       console.log('No consent - showing banner');
       if (banner) {
         banner.style.display = 'block';
@@ -416,7 +445,7 @@
     document.getElementById('accept-all-settings')?.addEventListener('click', acceptAllFromModal);
 
     // Close modal on background click
-    document.getElementById('cookie-settings-modal')?.addEventListener('click', function(e) {
+    document.getElementById('cookie-settings-modal')?.addEventListener('click', function (e) {
       if (e.target.id === 'cookie-settings-modal') {
         closeSettingsModal();
       }
@@ -427,13 +456,13 @@
   function openSettingsModal() {
     const modal = document.getElementById('cookie-settings-modal');
     const currentChoice = readCookie('cookie-notice-dismissed');
-    
+
     // Set current analytics preference
     const analyticsCheckbox = document.getElementById('analytics-consent');
     if (analyticsCheckbox) {
       analyticsCheckbox.checked = currentChoice === 'accept';
     }
-    
+
     modal.style.display = 'block';
   }
 
@@ -444,18 +473,18 @@
   function saveSettingsFromModal() {
     const analyticsConsent = document.getElementById('analytics-consent').checked;
     const choice = analyticsConsent ? 'accept' : 'essential';
-    
+
     createCookie('cookie-notice-dismissed', choice, 31);
     logConsent(choice);
-    
+
     if (!analyticsConsent) {
       clearAnalyticsCookies();
     }
-    
+
     closeSettingsModal();
     document.getElementById('cookie-notice').style.display = 'none';
     document.getElementById('cookie-revoke').style.display = 'block';
-    
+
     if (analyticsConsent) {
       location.reload();
     }
@@ -476,7 +505,7 @@
     cookies.forEach(cookie => {
       const eqPos = cookie.indexOf('=');
       const name = eqPos > -1 ? cookie.substr(0, eqPos).trim() : cookie.trim();
-      
+
       if (name.startsWith('_ga') || name.startsWith('_gid')) {
         document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
         document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.${window.location.hostname}`;
