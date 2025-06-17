@@ -15,5 +15,4 @@ echo "🏗️ Testing Jekyll build..."
 bundle exec jekyll build --destination _site_test
 rm -rf _site_test
 
-echo "✅ Pre-commit checks completed\!"
-EOF < /dev/null
+echo "✅ Pre-commit checks completed!"
