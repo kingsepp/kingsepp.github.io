@@ -28,7 +28,7 @@ robots: noindex, nofollow
     <section class="legal-section">
       <h2 class="section-heading">Geltungsbereich</h2>
       <p class="legal-text">
-        Diese Datenschutzerklärung gilt für die private Website kingsepp.github.io und
+        Diese Datenschutzerklärung gilt für die private Website kingsepp.dev und
         das bereitgestellte AI4MBSE-Plugin.
       </p>
     </section>
@@ -229,8 +229,8 @@ robots: noindex, nofollow
       <div class="legal-subsection">
         <h3 class="subsection-heading">Google Analytics Cookies</h3>
         <ul class="legal-list">
-          <li><strong>_ga, _ga_[ID]:</strong> Zur Unterscheidung von Nutzern und Sessions</li>
-          <li><strong>Speicherdauer:</strong> 2 Jahre bzw. 24 Stunden</li>
+          <li><strong>Nutzer-Cookies:</strong> Zur Unterscheidung von wiederkehrenden Besuchern (Speicherdauer: 2 Jahre)</li>
+          <li><strong>Sitzungs-Cookies:</strong> Zur Verfolgung der aktuellen Website-Sitzung (Speicherdauer: 24 Stunden)</li>
           <li><strong>Zweck:</strong> Website-Analyse und Nutzungsstatistiken</li>
         </ul>
       </div>
