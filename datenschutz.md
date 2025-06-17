@@ -5,7 +5,7 @@ description: Datenschutzhinweise und Informationen zur Datenverarbeitung
 robots: noindex, nofollow
 ---
 
-<div id="turnstile-protection" style="display: flex; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
+<div id="datenschutz-turnstile-protection" style="display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center;">
   <h2 style="color: #60a5fa; margin-bottom: 2rem;">Verifizierung erforderlich</h2>
   <p style="color: #cbd5e1; margin-bottom: 2rem;">Bestätigen Sie, dass Sie ein Mensch sind, um auf die Datenschutzerklärung zuzugreifen.</p>
   <div class="cf-turnstile" 
