@@ -25,7 +25,10 @@
     <script>
       // Load Google Analytics only if user accepted all cookies
       function loadAnalytics() {
-        if (typeof readCookie === 'function' && readCookie('cookie-notice-dismissed') === 'accept') {
+        if (
+          typeof readCookie === 'function' &&
+          readCookie('cookie-notice-dismissed') === 'accept'
+        ) {
           console.log('Loading Google Analytics after consent');
 
           // Load gtag script
@@ -43,10 +46,13 @@
           gtag('config', 'G-6P6F8KLCQS', {
             anonymize_ip: true,
             allow_google_signals: false,
-            allow_ad_personalization_signals: false
+            allow_ad_personalization_signals: false,
           });
         } else {
-          console.log('Analytics not loaded - user consent:', readCookie('cookie-notice-dismissed'));
+          console.log(
+            'Analytics not loaded - user consent:',
+            readCookie('cookie-notice-dismissed')
+          );
         }
       }
 
