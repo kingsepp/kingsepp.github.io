@@ -133,7 +133,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Turnstile callback functions for page-level protection
   window.onImpressumTurnstileSuccess = function (token) {
     console.log('Impressum Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('impressum-turnstile-protection');
     const contentDiv = document.getElementById('impressum-content');
 
     if (protectionDiv && contentDiv) {
@@ -147,7 +147,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onImpressumTurnstileError = function (error) {
     console.error('Impressum Turnstile verification failed:', error);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('impressum-turnstile-protection');
     if (protectionDiv) {
       const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
       errorMsg.className = 'error-message';
@@ -162,7 +162,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onAI4MBSETurnstileSuccess = function (token) {
     console.log('AI4MBSE Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('ai4mbse-turnstile-protection');
     const contentDiv = document.getElementById('ai4mbse-content');
 
     if (protectionDiv && contentDiv) {
@@ -176,7 +176,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onAI4MBSETurnstileError = function (error) {
     console.error('AI4MBSE Turnstile verification failed:', error);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('ai4mbse-turnstile-protection');
     if (protectionDiv) {
       const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
       errorMsg.className = 'error-message';
@@ -192,7 +192,7 @@ document.addEventListener('DOMContentLoaded', () => {
   // Additional callback functions for new protected pages
   window.onMainPageTurnstileSuccess = function (token) {
     console.log('Main Page Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('main-turnstile-protection');
     const contentDiv = document.getElementById('main-content');
 
     if (protectionDiv && contentDiv) {
@@ -206,7 +206,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onMainPageTurnstileError = function (error) {
     console.error('Main Page Turnstile verification failed:', error);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('main-turnstile-protection');
     if (protectionDiv) {
       const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
       errorMsg.className = 'error-message';
@@ -221,7 +221,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onDatenschutzTurnstileSuccess = function (token) {
     console.log('Datenschutz Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('datenschutz-turnstile-protection');
     const contentDiv = document.getElementById('datenschutz-content');
 
     if (protectionDiv && contentDiv) {
@@ -235,7 +235,7 @@ document.addEventListener('DOMContentLoaded', () => {
 
   window.onDatenschutzTurnstileError = function (error) {
     console.error('Datenschutz Turnstile verification failed:', error);
-    const protectionDiv = document.getElementById('turnstile-protection');
+    const protectionDiv = document.getElementById('datenschutz-turnstile-protection');
     if (protectionDiv) {
       const errorMsg = protectionDiv.querySelector('.error-message') || document.createElement('p');
       errorMsg.className = 'error-message';
@@ -255,7 +255,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('main-content') &&
       sessionStorage.getItem('main-page-verified') === 'true'
     ) {
-      const protectionDiv = document.getElementById('turnstile-protection');
+      const protectionDiv = document.getElementById('main-turnstile-protection');
       const contentDiv = document.getElementById('main-content');
       if (protectionDiv && contentDiv) {
         protectionDiv.style.display = 'none';
@@ -268,7 +268,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('impressum-content') &&
       sessionStorage.getItem('impressum-verified') === 'true'
     ) {
-      const protectionDiv = document.getElementById('turnstile-protection');
+      const protectionDiv = document.getElementById('impressum-turnstile-protection');
       const contentDiv = document.getElementById('impressum-content');
       if (protectionDiv && contentDiv) {
         protectionDiv.style.display = 'none';
@@ -281,7 +281,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('ai4mbse-content') &&
       sessionStorage.getItem('ai4mbse-verified') === 'true'
     ) {
-      const protectionDiv = document.getElementById('turnstile-protection');
+      const protectionDiv = document.getElementById('ai4mbse-turnstile-protection');
       const contentDiv = document.getElementById('ai4mbse-content');
       if (protectionDiv && contentDiv) {
         protectionDiv.style.display = 'none';
@@ -294,7 +294,7 @@ document.addEventListener('DOMContentLoaded', () => {
       document.getElementById('datenschutz-content') &&
       sessionStorage.getItem('datenschutz-verified') === 'true'
     ) {
-      const protectionDiv = document.getElementById('turnstile-protection');
+      const protectionDiv = document.getElementById('datenschutz-turnstile-protection');
       const contentDiv = document.getElementById('datenschutz-content');
       if (protectionDiv && contentDiv) {
         protectionDiv.style.display = 'none';
