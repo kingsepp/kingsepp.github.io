@@ -17,182 +17,343 @@ robots: noindex, nofollow
   </div>
 </div>
 
-<div id="datenschutz-content" style="display: none;">
+<div id="datenschutz-content" class="datenschutz-page" style="display: none;">
+  <div class="legal-container">
+    
+    <header class="legal-header">
+      <h1 class="legal-title">Datenschutzerklärung</h1>
+      <p class="legal-subtitle">Informationen zur Datenverarbeitung gemäß DSGVO</p>
+    </header>
 
-# Datenschutzerklärung
+    <section class="legal-section">
+      <h2 class="section-heading">Geltungsbereich</h2>
+      <p class="legal-text">
+        Diese Datenschutzerklärung gilt für die private Website kingsepp.github.io und
+        das bereitgestellte AI4MBSE-Plugin.
+      </p>
+    </section>
 
-## Verantwortlicher
+    <section class="legal-section">
+      <h2 class="section-heading">Datenschutzbeauftragter</h2>
+      <p class="legal-text">
+        Als Betreiber einer privaten, nicht-kommerziellen Website bin ich nicht zur Bestellung
+        eines Datenschutzbeauftragten verpflichtet. Bei Fragen zum Datenschutz wenden Sie
+        sich direkt an mich (Kontaktdaten siehe unten).
+      </p>
+    </section>
 
-Thomas Schuster  
-Schachenmeierstraße 16  
-80636 Munich  
-Deutschland  
-E-Mail: th.kingsepp@gmail.com
+    <section class="legal-section">
+      <h2 class="section-heading">Art der Datenverarbeitung</h2>
 
-## Geltungsbereich
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">1. Bereitstellung der Website und Protokolldateien</h3>
+        <p class="legal-text">
+          Bei jedem Zugriff auf Inhalte der Website werden vorübergehend Daten gespeichert,
+          die möglicherweise eine Identifizierung zulassen. Die folgenden Daten werden hierbei erhoben:
+        </p>
+        <ul class="legal-list">
+          <li><strong>Datum und Uhrzeit</strong> des Zugriffs</li>
+          <li><strong>IP-Adresse</strong> des Besuchers</li>
+          <li><strong>Hostname</strong> des zugreifenden Rechners</li>
+          <li><strong>Website</strong>, von der aus die Website aufgerufen wurde (Referrer-URL)</li>
+          <li><strong>Websites</strong>, die über die Website aufgerufen werden</li>
+          <li><strong>Besuchte Seite</strong> auf unserer Website</li>
+          <li><strong>Meldung</strong>, ob der Abruf erfolgreich war</li>
+          <li><strong>Übertragene Datenmenge</strong></li>
+          <li><strong>Informationen über den Browsertyp</strong> und die verwendete Version</li>
+          <li><strong>Betriebssystem</strong></li>
+        </ul>
+        <div class="info-card">
+          <p class="legal-text">
+            <strong>Zweck:</strong> Die vorübergehende Speicherung der Daten ist für den Ablauf eines
+            Websitebesuchs erforderlich, um eine Auslieferung der Website zu ermöglichen. Eine weitere
+            Speicherung in Protokolldateien erfolgt, um die Funktionsfähigkeit der Website und die
+            Sicherheit der informationstechnischen Systeme sicherzustellen.<br>
+            <strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)<br>
+            <strong>Hosting:</strong> Die Website wird bei GitHub Inc., USA gehostet. GitHub empfängt
+            die oben genannten Daten als Auftragsverarbeiter.<br>
+            <strong>Speicherdauer:</strong> Die Daten werden gelöscht, sobald sie für die Erreichung
+            des Zwecks ihrer Erhebung nicht mehr erforderlich sind. Bei der Bereitstellung der Website
+            ist dies der Fall, wenn die jeweilige Sitzung beendet ist. Protokolldateien werden
+            maximal 24 Stunden direkt zugänglich aufbewahrt und nach maximal 4 Wochen endgültig gelöscht.<br>
+            <strong>Weitere Informationen:</strong>
+            <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" class="legal-link">
+              GitHub Privacy Statement
+            </a>
+          </p>
+        </div>
+      </div>
 
-Diese Datenschutzerklärung gilt für die private Website kingsepp.github.io und
-das bereitgestellte AI4MBSE-Plugin.
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">2. Cloudflare Turnstile (Bot-Schutz)</h3>
+        <p class="legal-text">
+          Diese Website nutzt Cloudflare Turnstile zum Schutz vor automatisierten Zugriffen:
+        </p>
+        <ul class="legal-list">
+          <li><strong>IP-Adresse</strong> des Besuchers</li>
+          <li><strong>Browser-Informationen</strong> (User-Agent, Sprache)</li>
+          <li><strong>Interaktionsdaten</strong> (Mausbewegungen, Tastatureingaben)</li>
+          <li><strong>Challenge-Antworten</strong> und Verifikationstoken</li>
+        </ul>
+        <div class="info-card">
+          <p class="legal-text">
+            <strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)<br>
+            <strong>Zweck:</strong> Schutz vor Bots, Spam und missbräuchlicher Nutzung<br>
+            <strong>Speicherdauer:</strong> Entsprechend Cloudflare Privacy Policy<br>
+            <strong>Datenübertragung:</strong> USA (Angemessenheitsbeschluss)<br>
+            <strong>Weitere Informationen:</strong>
+            <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="legal-link">
+              Cloudflare Privacy Policy
+            </a>
+          </p>
+        </div>
+      </div>
 
-## Art der Datenverarbeitung
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">3. Google Analytics (Website-Analyse)</h3>
+        <p class="legal-text">
+          Diese Website nutzt Google Analytics zur Analyse des Nutzerverhaltens:
+        </p>
+        <ul class="legal-list">
+          <li><strong>IP-Adresse</strong> (anonymisiert)</li>
+          <li><strong>Seitenaufrufe</strong> und Verweildauer</li>
+          <li><strong>Geräteinformationen</strong> (Browser, Betriebssystem)</li>
+          <li><strong>Referrer-URLs</strong> und Suchbegriffe</li>
+          <li><strong>Geografische Herkunft</strong> (anonymisiert auf Stadtebene)</li>
+        </ul>
+        <div class="info-card">
+          <p class="legal-text">
+            <strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)<br>
+            <strong>Zweck:</strong> Website-Optimierung und Verbesserung der Nutzererfahrung<br>
+            <strong>Speicherdauer:</strong> 26 Monate (Google Analytics Standard)<br>
+            <strong>Datenübertragung:</strong> USA (Angemessenheitsbeschluss)<br>
+            <strong>Weitere Informationen:</strong>
+            <a href="https://policies.google.com/privacy" target="_blank" class="legal-link">Google Privacy Policy</a> und
+            <a href="https://support.google.com/analytics/answer/6004245" target="_blank" class="legal-link">Google Analytics Datenschutz</a>
+          </p>
+        </div>
+        <div class="disclaimer-card">
+          <div class="disclaimer-warning">
+            <h4 class="warning-title">📊 Einwilligung erforderlich</h4>
+            <p class="warning-text">
+              Google Analytics wird nur nach Ihrer ausdrücklichen Einwilligung über das Cookie-Banner aktiviert.
+            </p>
+          </div>
+          <div class="disclaimer-list">
+            <h4 class="disclaimer-subtitle">Opt-Out Möglichkeiten:</h4>
+            <ul class="disclaimer-items">
+              <li><strong>Cookie-Banner:</strong> Klicken Sie auf "Nur notwendige" oder "Alle ablehnen"</li>
+              <li><strong>Browser-Add-on:</strong> <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" class="legal-link">Google Analytics Opt-out Browser Add-on</a></li>
+              <li><strong>Cookie-Einstellungen:</strong> Verwalten Sie Cookies in Ihren Browser-Einstellungen</li>
+            </ul>
+          </div>
+        </div>
+      </div>
 
-### 1. Hosting durch GitHub Pages
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">4. AI4MBSE-Plugin und Google Gemini API</h3>
+        <p class="legal-text">
+          Das zum Download angebotene Plugin nutzt die Google Gemini API:
+        </p>
+        <div class="info-card">
+          <p class="legal-text">
+            <strong>Datenverarbeitung durch das Plugin:</strong><br>
+            • Das Plugin überträgt Anforderungsdaten an Google Gemini API<br>
+            • Verarbeitung erfolgt lokal auf dem Computer des Nutzers<br>
+            • Keine Speicherung von Nutzerdaten durch den Websitebetreiber
+          </p>
+        </div>
+        <div class="disclaimer-card">
+          <div class="disclaimer-warning">
+            <h4 class="warning-title">⚠️ Verantwortung des Nutzers</h4>
+            <p class="warning-text">
+              Der Nutzer ist für die API-Key-Erstellung bei Google verantwortlich.
+              Es gelten die <a href="https://policies.google.com/privacy" target="_blank" class="legal-link">Google Privacy Policy</a> und
+              <a href="https://ai.google.dev/gemini-api/terms" target="_blank" class="legal-link">Gemini API Terms</a>.
+              Der Websitebetreiber hat keinen Einfluss auf die Datenverarbeitung durch Google.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
 
-Diese Website wird über GitHub Pages gehostet. GitHub kann folgende Daten
-verarbeiten:
+    <section class="legal-section">
+      <h2 class="section-heading">Ihre Rechte (DSGVO)</h2>
+      <p class="legal-text">
+        Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:
+      </p>
+      <div class="service-grid">
+        <div class="service-card">
+          <h3 class="service-title">📋 Auskunft</h3>
+          <p class="service-description">Art. 15 DSGVO - Recht auf Auskunft über gespeicherte Daten</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">✏️ Berichtigung</h3>
+          <p class="service-description">Art. 16 DSGVO - Recht auf Korrektur unrichtiger Daten</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">🗑️ Löschung</h3>
+          <p class="service-description">Art. 17 DSGVO - Recht auf Löschung personenbezogener Daten</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">⏸️ Einschränkung</h3>
+          <p class="service-description">Art. 18 DSGVO - Recht auf Einschränkung der Verarbeitung</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">⛔ Widerspruch</h3>
+          <p class="service-description">Art. 21 DSGVO - Recht auf Widerspruch gegen Verarbeitung</p>
+        </div>
+        <div class="service-card">
+          <h3 class="service-title">📤 Übertragbarkeit</h3>
+          <p class="service-description">Art. 20 DSGVO - Recht auf Datenübertragbarkeit (soweit technisch möglich und rechtlich zulässig)</p>
+        </div>
+      </div>
+      <div class="info-card">
+        <p class="legal-text">
+          <strong>Beschwerderecht:</strong> Sie können sich bei einer Datenschutz-Aufsichtsbehörde beschweren.<br>
+          <strong>Hinweis zur Datenübertragbarkeit:</strong> Die Erfassung der Daten zur Bereitstellung der Website
+          und die Speicherung der Protokolldateien sind für den Betrieb der Internetseite zwingend erforderlich.
+          Sie beruhen nicht auf einer Einwilligung nach Art. 6 Abs. 1 Buchstabe a DSGVO oder auf einem Vertrag
+          nach Art. 6 Abs. 1 Buchstabe b DSGVO, sondern sind nach Art. 6 Abs. 1 Buchstabe f DSGVO gerechtfertigt.
+          Die Voraussetzungen des Art. 20 Abs. 1 DSGVO sind demnach für diese Daten nicht erfüllt.
+        </p>
+      </div>
+    </section>
 
-- **IP-Adresse** des Besuchers
-- **Datum und Uhrzeit** des Zugriffs
-- **Aufgerufene Seiten** und Dateien
-- **Browser-Informationen** (User-Agent)
-- **Referrer-URL** (vorherige Website)
+    <section class="legal-section">
+      <h2 class="section-heading">Cookies</h2>
+      <p class="legal-text">
+        Diese Website verwendet Cookies für folgende Zwecke:
+      </p>
 
-**Rechtsgrundlage:** Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)  
-**Zweck:** Technische Bereitstellung der Website  
-**Speicherdauer:** Entsprechend GitHub Privacy Policy  
-**Weitere Informationen:**
-[GitHub Privacy Statement](https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement)
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">Google Analytics Cookies</h3>
+        <ul class="legal-list">
+          <li><strong>_ga, _ga_[ID]:</strong> Zur Unterscheidung von Nutzern und Sessions</li>
+          <li><strong>Speicherdauer:</strong> 2 Jahre bzw. 24 Stunden</li>
+          <li><strong>Zweck:</strong> Website-Analyse und Nutzungsstatistiken</li>
+        </ul>
+      </div>
 
-### 2. Cloudflare Turnstile (Bot-Schutz)
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">Technisch notwendige Cookies</h3>
+        <ul class="legal-list">
+          <li><strong>GitHub Pages Cookies:</strong> Können nicht beeinflusst werden</li>
+          <li><strong>Turnstile Cookies:</strong> Für Bot-Schutz erforderlich</li>
+          <li><strong>Cookie-Einstellungen:</strong> Speichern Ihre Cookie-Präferenzen</li>
+        </ul>
+      </div>
 
-Diese Website nutzt Cloudflare Turnstile zum Schutz vor automatisierten
-Zugriffen:
+      <div class="info-card">
+        <p class="legal-text">
+          <strong>Cookie-Banner:</strong> Beim ersten Besuch der Website erscheint ein Cookie-Banner
+          mit drei Optionen: "Alle akzeptieren", "Nur notwendige" und "Alle ablehnen".<br>
+          <strong>Cookie-Kontrolle:</strong> Sie können Ihre Einwilligung jederzeit über die
+          Cookie-Einstellungen ändern oder in Ihren Browser-Einstellungen verwalten.
+        </p>
+      </div>
+    </section>
 
-**Verarbeitete Daten:**
+    <section class="legal-section">
+      <h2 class="section-heading">Weitere Informationen</h2>
 
-- **IP-Adresse** des Besuchers
-- **Browser-Informationen** (User-Agent, Sprache)
-- **Interaktionsdaten** (Mausbewegungen, Tastatureingaben)
-- **Challenge-Antworten** und Verifikationstoken
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">Externe Links</h3>
+        <p class="legal-text">
+          Diese Website enthält Links zu externen Websites (z.B. GitHub Repository, Google AI).
+          Für deren Datenschutzpraktiken übernehmen wir keine Verantwortung.
+        </p>
+      </div>
 
-**Rechtsgrundlage:** Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)  
-**Zweck:** Schutz vor Bots, Spam und missbräuchlicher Nutzung  
-**Speicherdauer:** Entsprechend Cloudflare Privacy Policy  
-**Datenübertragung:** USA (Angemessenheitsbeschluss)  
-**Weitere Informationen:**
-[Cloudflare Privacy Policy](https://www.cloudflare.com/privacypolicy/)
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">SSL-Verschlüsselung</h3>
+        <p class="legal-text">
+          Diese Website nutzt SSL-Verschlüsselung für sichere Datenübertragung.
+        </p>
+      </div>
 
-### 3. Google Analytics (Website-Analyse)
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">Kontakt bei Datenschutzfragen</h3>
+        <p class="legal-text">
+          Bei Fragen zum Datenschutz wenden Sie sich an: <strong>th.kingsepp@gmail.com</strong>
+        </p>
+      </div>
 
-Diese Website nutzt Google Analytics zur Analyse des Nutzerverhaltens:
+      <div class="legal-subsection">
+        <h3 class="subsection-heading">Änderungen dieser Datenschutzerklärung</h3>
+        <p class="legal-text">
+          Diese Datenschutzerklärung kann bei Änderungen der Website oder rechtlichen
+          Anforderungen angepasst werden.
+        </p>
+      </div>
+    </section>
 
-**Verarbeitete Daten:**
+    <section class="legal-section">
+      <h2 class="section-heading">Widerspruchsrecht</h2>
+      <div class="disclaimer-card">
+        <div class="disclaimer-warning">
+          <h3 class="warning-title">⚖️ Recht auf Widerspruch gemäß Art. 21 Abs. 1 DSGVO</h3>
+          <p class="warning-text">
+            Sie haben das Recht, aus Gründen, die sich aus Ihrer besonderen Situation ergeben,
+            jederzeit gegen die Verarbeitung Ihrer personenbezogenen Daten, die aufgrund von
+            Artikel 6 Abs. 1 Buchstabe f DSGVO erfolgt, Widerspruch einzulegen.
+          </p>
+        </div>
+        <div class="disclaimer-list">
+          <p class="legal-text">
+            <strong>Folgen eines Widerspruchs:</strong> Der Verantwortliche verarbeitet die
+            personenbezogenen Daten dann nicht mehr, es sei denn, er kann zwingende schutzwürdige
+            Gründe für die Verarbeitung nachweisen, die die Interessen, Rechte und Freiheiten der
+            betroffenen Person überwiegen, oder die Verarbeitung dient der Geltendmachung, Ausübung
+            oder Verteidigung von Rechtsansprüchen.
+          </p>
+          <p class="legal-text">
+            <strong>Hinweis:</strong> Die Erfassung der Daten zur Bereitstellung der Website und die
+            Speicherung der Protokolldateien sind für den Betrieb der Internetseite zwingend erforderlich.
+          </p>
+        </div>
+      </div>
+    </section>
 
-- **IP-Adresse** (anonymisiert)
-- **Seitenaufrufe** und Verweildauer
-- **Geräteinformationen** (Browser, Betriebssystem)
-- **Referrer-URLs** und Suchbegriffe
-- **Geografische Herkunft** (anonymisiert auf Stadtebene)
+    <section class="legal-section contact-info">
+      <h2 class="section-heading">Verantwortlicher für den Inhalt</h2>
+      <div class="contact-card">
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">Name:</span>
+            <span class="contact-value">Thomas Schuster</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Adresse:</span>
+            <span class="contact-value">
+              Schachenmeierstraße 16<br>
+              80636 München<br>
+              Deutschland
+            </span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">E-Mail:</span>
+            <span class="contact-value">th.kingsepp@gmail.com</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Telefon:</span>
+            <span class="contact-value">08992657184</span>
+          </div>
+        </div>
+      </div>
+    </section>
 
-**Rechtsgrundlage:** Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)  
-**Zweck:** Website-Optimierung und Verbesserung der Nutzererfahrung  
-**Speicherdauer:** 26 Monate (Google Analytics Standard)  
-**Datenübertragung:** USA (Angemessenheitsbeschluss)  
-**Weitere Informationen:**
-[Google Privacy Policy](https://policies.google.com/privacy) und
-[Google Analytics Datenschutz](https://support.google.com/analytics/answer/6004245)
+    <footer class="legal-footer">
+      <div class="footer-content">
+        <p class="footer-text">
+          <strong>Stand:</strong> Juni 2025
+        </p>
+        <p class="footer-note">
+          Diese Datenschutzerklärung wurde für eine private, nicht-kommerzielle Website
+          erstellt und entspricht den deutschen Datenschutzbestimmungen.
+        </p>
+      </div>
+    </footer>
 
-**Einwilligung:** Google Analytics wird nur nach Ihrer ausdrücklichen
-Einwilligung über das Cookie-Banner aktiviert.
-
-**Opt-Out:** Sie können die Erfassung durch Google Analytics verhindern durch:
-
-- Cookie-Banner: Klicken Sie auf "Nur notwendige" oder verwalten Sie Ihre
-  Einstellungen
-- Browser-Add-on:
-  [Google Analytics Opt-out Browser Add-on](https://tools.google.com/dlpage/gaoptout)
-- Cookie-Einstellungen Ihres Browsers
-
-### 4. Weitere Datenerhebung
-
-Diese Website erhebt darüber hinaus **keine weiteren personenbezogenen Daten**
-durch:
-
-- ❌ Kontaktformulare (noch nicht aktiv)
-- ❌ Newsletter-Anmeldungen
-- ❌ Kommentarfunktionen
-- ❌ Weitere Analytics-Tools
-
-### 5. AI4MBSE-Plugin und Google Gemini API
-
-Das zum Download angebotene Plugin nutzt die Google Gemini API:
-
-**Datenverarbeitung durch das Plugin:**
-
-- Das Plugin überträgt **Anforderungsdaten** an Google Gemini API
-- **Verarbeitung erfolgt lokal** auf dem Computer des Nutzers
-- **Keine Speicherung** von Nutzerdaten durch den Websitebetreiber
-
-**Verantwortung des Nutzers:**
-
-- Der Nutzer ist für die API-Key-Erstellung bei Google verantwortlich
-- Es gelten die [Google Privacy Policy](https://policies.google.com/privacy) und
-  [Gemini API Terms](https://ai.google.dev/gemini-api/terms)
-- **Der Websitebetreiber hat keinen Einfluss** auf die Datenverarbeitung durch
-  Google
-
-## Ihre Rechte (DSGVO)
-
-Sie haben folgende Rechte bezüglich Ihrer personenbezogenen Daten:
-
-- **Auskunft** (Art. 15 DSGVO)
-- **Berichtigung** (Art. 16 DSGVO)
-- **Löschung** (Art. 17 DSGVO)
-- **Einschränkung der Verarbeitung** (Art. 18 DSGVO)
-- **Widerspruch** (Art. 21 DSGVO)
-- **Datenübertragbarkeit** (Art. 20 DSGVO)
-
-**Beschwerderecht:** Sie können sich bei einer Datenschutz-Aufsichtsbehörde
-beschweren.
-
-## Cookies
-
-Diese Website verwendet Cookies für folgende Zwecke:
-
-**Google Analytics Cookies:**
-
-- **_ga, \_ga_[ID]:** Zur Unterscheidung von Nutzern und Sessions
-- **Speicherdauer:** 2 Jahre bzw. 24 Stunden
-- **Zweck:** Website-Analyse und Nutzungsstatistiken
-
-**Technisch notwendige Cookies:**
-
-- **GitHub Pages Cookies:** Können nicht beeinflusst werden
-- **Turnstile Cookies:** Für Bot-Schutz erforderlich
-
-**Cookie-Banner:** Beim ersten Besuch der Website erscheint ein Cookie-Banner
-mit folgenden Optionen:
-
-- **"Alle akzeptieren":** Stimmt allen Cookies zu (Analytics + notwendige)
-- **"Nur notwendige":** Akzeptiert nur technisch erforderliche Cookies
-- **"Einstellungen":** Ermöglicht granulare Kontrolle über Cookie-Kategorien
-
-**Cookie-Kontrolle:** Sie können Ihre Einwilligung jederzeit über die
-Cookie-Einstellungen ändern oder in Ihren Browser-Einstellungen verwalten.
-
-## Externe Links
-
-Diese Website enthält Links zu externen Websites (z.B. GitHub Repository, Google
-AI). Für deren Datenschutzpraktiken übernehmen wir keine Verantwortung.
-
-## SSL-Verschlüsselung
-
-Diese Website nutzt SSL-Verschlüsselung für sichere Datenübertragung.
-
-## Kontakt bei Datenschutzfragen
-
-Bei Fragen zum Datenschutz wenden Sie sich an: **E-Mail:** th.kingsepp@gmail.com
-
-## Änderungen dieser Datenschutzerklärung
-
-Diese Datenschutzerklärung kann bei Änderungen der Website oder rechtlichen
-Anforderungen angepasst werden.
-
----
-
-**Stand:** Juni 2025
-
-_Diese Datenschutzerklärung wurde für eine private, nicht-kommerzielle Website
-erstellt und entspricht den deutschen Datenschutzbestimmungen._
-
+  </div>
 </div>
