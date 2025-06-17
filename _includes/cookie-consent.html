@@ -367,6 +367,15 @@
       if (revokeButton) {
         revokeButton.style.display = 'block';
       }
+
+      // Handle consent-based loading
+      if (consentCookie === 'accept' || consentCookie === 'essential') {
+        // Load Cloudflare Turnstile for bot protection
+        loadCloudflare();
+      } else if (consentCookie === 'reject') {
+        // Block website if essential cookies are rejected
+        blockWebsite();
+      }
     }
   }
 
@@ -387,6 +396,8 @@
         logConsent('accept'); // DSGVO Dokumentation
         document.getElementById('cookie-notice').style.display = 'none';
         document.getElementById('cookie-revoke').style.display = 'block';
+        // Load Cloudflare Turnstile for bot protection
+        loadCloudflare();
         location.reload();
       });
     }
@@ -398,7 +409,8 @@
         logConsent('essential'); // DSGVO Dokumentation
         document.getElementById('cookie-notice').style.display = 'none';
         document.getElementById('cookie-revoke').style.display = 'block';
-        // No reload needed for essential-only cookies
+        // Load Cloudflare Turnstile for bot protection (essential)
+        loadCloudflare();
       });
     }
 
@@ -408,9 +420,10 @@
         createCookie('cookie-notice-dismissed', 'reject', 31);
         logConsent('reject'); // DSGVO Dokumentation
         document.getElementById('cookie-notice').style.display = 'none';
-        document.getElementById('cookie-revoke').style.display = 'block';
         // Clear any existing analytics cookies
         clearAnalyticsCookies();
+        // Block website since essential cookies are rejected
+        blockWebsite();
       });
     }
 
@@ -511,5 +524,120 @@
         document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.${window.location.hostname}`;
       }
     });
+  }
+
+  // Cloudflare Turnstile Management
+  let turnstileLoaded = false;
+
+  function loadCloudflare() {
+    if (turnstileLoaded) return;
+
+    // Load Turnstile API
+    const script = document.createElement('script');
+    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
+    script.defer = true;
+    script.onload = function () {
+      console.log('🛡️ Cloudflare Turnstile loaded');
+      initializeTurnstileWidgets();
+    };
+    document.head.appendChild(script);
+    turnstileLoaded = true;
+  }
+
+  function initializeTurnstileWidgets() {
+    // Show all turnstile protection divs
+    const protectionDivs = document.querySelectorAll('[id$="-turnstile-protection"]');
+    protectionDivs.forEach(div => {
+      if (div) {
+        div.style.display = 'flex';
+      }
+    });
+
+    // Show page content after consent
+    const contentDivs = document.querySelectorAll('[id$="-content"]');
+    contentDivs.forEach(div => {
+      if (div && div.style.display === 'none') {
+        // Content will be shown after successful Turnstile verification
+        console.log('Content ready to show after Turnstile verification');
+      }
+    });
+  }
+
+  function blockWebsite() {
+    // Hide all content
+    const contentDivs = document.querySelectorAll('[id$="-content"]');
+    contentDivs.forEach(div => {
+      if (div) {
+        div.style.display = 'none';
+      }
+    });
+
+    // Show blocking message
+    const blockingDiv = document.createElement('div');
+    blockingDiv.id = 'website-blocked';
+    blockingDiv.style.cssText = `
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: rgba(15, 23, 42, 0.95);
+      backdrop-filter: blur(10px);
+      z-index: 20000;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      color: #cbd5e1;
+      padding: 2rem;
+    `;
+    blockingDiv.innerHTML = `
+      <div style="max-width: 500px;">
+        <h2 style="color: #ef4444; margin-bottom: 1.5rem;">⚠️ Technische Cookies erforderlich</h2>
+        <p style="margin-bottom: 2rem; line-height: 1.6;">
+          Diese Website benötigt technisch notwendige Cookies für den Bot-Schutz durch Cloudflare Turnstile. 
+          Ohne diese Cookies kann die Website nicht sicher bereitgestellt werden.
+        </p>
+        <p style="margin-bottom: 2rem;">
+          Bitte akzeptieren Sie die notwendigen Cookies, um fortzufahren.
+        </p>
+        <button onclick="showCookieSettings()" style="
+          background: linear-gradient(135deg, #3b82f6, #06b6d4);
+          color: white;
+          border: none;
+          padding: 1rem 2rem;
+          border-radius: 8px;
+          font-weight: 600;
+          cursor: pointer;
+          font-size: 1rem;
+        ">Cookie-Einstellungen anzeigen</button>
+      </div>
+    `;
+
+    if (!document.getElementById('website-blocked')) {
+      document.body.appendChild(blockingDiv);
+    }
+  }
+
+  // Function to show cookie settings from blocked state
+  function showCookieSettings() {
+    // Remove blocking overlay
+    const blockingDiv = document.getElementById('website-blocked');
+    if (blockingDiv) {
+      blockingDiv.remove();
+    }
+
+    // Show cookie banner again
+    const banner = document.getElementById('cookie-notice');
+    if (banner) {
+      banner.style.display = 'block';
+    }
+
+    // Hide revoke button
+    const revokeButton = document.getElementById('cookie-revoke');
+    if (revokeButton) {
+      revokeButton.style.display = 'none';
+    }
   }
 </script>
