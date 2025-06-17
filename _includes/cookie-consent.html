@@ -545,20 +545,21 @@
   }
 
   function initializeTurnstileWidgets() {
-    // Show all turnstile protection divs
+    // Show all turnstile protection divs and hide content
     const protectionDivs = document.querySelectorAll('[id$="-turnstile-protection"]');
     protectionDivs.forEach(div => {
       if (div) {
         div.style.display = 'flex';
+        console.log('Showing Turnstile protection:', div.id);
       }
     });
 
-    // Show page content after consent
+    // Hide all content divs initially
     const contentDivs = document.querySelectorAll('[id$="-content"]');
     contentDivs.forEach(div => {
-      if (div && div.style.display === 'none') {
-        // Content will be shown after successful Turnstile verification
-        console.log('Content ready to show after Turnstile verification');
+      if (div) {
+        div.style.display = 'none';
+        console.log('Hiding content until verification:', div.id);
       }
     });
   }
