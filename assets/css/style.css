@@ -346,13 +346,19 @@ body {
 .callout-info {
   background: rgba(59, 130, 246, 0.1);
   border-color: #3b82f6;
-  color: #cbd5e1;
+  color: var(--text-secondary);
 }
 
 .callout-warning {
   background: rgba(245, 158, 11, 0.1);
   border-color: #f59e0b;
-  color: #cbd5e1;
+  color: var(--text-secondary);
+}
+
+/* Light mode callout text */
+[data-theme='light'] .callout-info,
+[data-theme='light'] .callout-warning {
+  color: var(--text-primary);
 }
 
 .link-primary {
@@ -645,6 +651,14 @@ nav {
   -webkit-text-fill-color: transparent;
   background-clip: text;
   font-weight: 700;
+}
+
+/* Section headings for light mode */
+[data-theme='light'] .section h2 {
+  background: linear-gradient(135deg, #1e3a8a, #2563eb);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 
 /* ===========================
