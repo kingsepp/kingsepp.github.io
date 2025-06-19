@@ -321,7 +321,35 @@ document.addEventListener('DOMContentLoaded', () => {
       const turnstileResponse = form.querySelector('input[name="cf-turnstile-response"]');
       if (!turnstileResponse || !turnstileResponse.value) {
         e.preventDefault();
-        alert('Bitte bestätigen Sie, dass Sie kein Roboter sind.');
+        // Show user-friendly error message instead of alert
+        const errorMsg = document.createElement('div');
+        errorMsg.style.cssText = `
+          color: #ef4444;
+          background: rgba(239, 68, 68, 0.1);
+          border: 1px solid rgba(239, 68, 68, 0.3);
+          border-radius: 8px;
+          padding: 1rem;
+          margin-top: 1rem;
+          text-align: center;
+          font-weight: 500;
+        `;
+        errorMsg.textContent = 'Bitte bestätigen Sie, dass Sie kein Roboter sind.';
+
+        // Remove any existing error messages
+        const existingError = form.querySelector('.turnstile-error');
+        if (existingError) {
+          existingError.remove();
+        }
+
+        errorMsg.className = 'turnstile-error';
+        form.appendChild(errorMsg);
+
+        // Auto-remove error message after 5 seconds
+        setTimeout(() => {
+          if (errorMsg.parentNode) {
+            errorMsg.remove();
+          }
+        }, 5000);
         return;
       }
 
