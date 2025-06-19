@@ -3,6 +3,76 @@
 /* ===========================
    CSS VARIABLEN & RESET
    =========================== */
+
+/* Dark Theme (Default) */
+:root {
+  --bg-primary: linear-gradient(135deg, #0f1629 0%, #192841 25%, #2d3748 50%, #1a202c 100%);
+  --bg-secondary: rgba(255, 255, 255, 0.08);
+  --bg-tertiary: rgba(255, 255, 255, 0.12);
+  --bg-card: rgba(255, 255, 255, 0.08);
+  --bg-card-hover: rgba(255, 255, 255, 0.12);
+  --bg-nav: rgba(15, 23, 42, 0.95);
+  --bg-nav-scroll: rgba(15, 23, 42, 0.98);
+  --bg-footer: rgba(15, 23, 42, 0.9);
+  --bg-modal: rgba(0, 0, 0, 0.8);
+  --bg-cookie: rgba(15, 23, 42, 0.98);
+  --bg-blocked: rgba(15, 23, 42, 0.95);
+
+  --text-primary: #f7fafc;
+  --text-secondary: #cbd5e1;
+  --text-muted: #94a3b8;
+  --text-accent: #60a5fa;
+  --text-heading: #60a5fa;
+
+  --border-primary: rgba(255, 255, 255, 0.12);
+  --border-secondary: rgba(255, 255, 255, 0.1);
+  --border-accent: rgba(96, 165, 250, 0.3);
+  --border-cookie: rgba(96, 165, 250, 0.3);
+
+  --shadow-primary: rgba(0, 0, 0, 0.3);
+  --shadow-card: 0 -8px 32px rgba(0, 0, 0, 0.3);
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.1);
+
+  --accent-blue: #60a5fa;
+  --accent-cyan: #06b6d4;
+  --accent-gradient: linear-gradient(135deg, #3b82f6, #06b6d4);
+  --accent-gradient-hover: linear-gradient(135deg, #2563eb, #0891b2);
+}
+
+/* Light Theme */
+[data-theme='light'] {
+  --bg-primary: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 25%, #cbd5e1 50%, #f1f5f9 100%);
+  --bg-secondary: rgba(0, 0, 0, 0.08);
+  --bg-tertiary: rgba(0, 0, 0, 0.12);
+  --bg-card: rgba(255, 255, 255, 0.9);
+  --bg-card-hover: rgba(255, 255, 255, 0.95);
+  --bg-nav: rgba(255, 255, 255, 0.95);
+  --bg-nav-scroll: rgba(255, 255, 255, 0.98);
+  --bg-footer: rgba(255, 255, 255, 0.9);
+  --bg-modal: rgba(0, 0, 0, 0.5);
+  --bg-cookie: rgba(255, 255, 255, 0.98);
+  --bg-blocked: rgba(255, 255, 255, 0.95);
+
+  --text-primary: #1e293b;
+  --text-secondary: #475569;
+  --text-muted: #64748b;
+  --text-accent: #3b82f6;
+  --text-heading: #2563eb;
+
+  --border-primary: rgba(0, 0, 0, 0.12);
+  --border-secondary: rgba(0, 0, 0, 0.1);
+  --border-accent: rgba(59, 130, 246, 0.3);
+  --border-cookie: rgba(59, 130, 246, 0.3);
+
+  --shadow-primary: rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 -8px 32px rgba(0, 0, 0, 0.1);
+  --shadow-nav: 0 4px 20px rgba(0, 0, 0, 0.05);
+
+  --accent-blue: #3b82f6;
+  --accent-cyan: #0891b2;
+  --accent-gradient: linear-gradient(135deg, #3b82f6, #0891b2);
+  --accent-gradient-hover: linear-gradient(135deg, #2563eb, #0e7490);
+}
 * {
   margin: 0;
   padding: 0;
@@ -15,11 +85,14 @@ body {
     -apple-system,
     BlinkMacSystemFont,
     sans-serif;
-  background: linear-gradient(135deg, #0f1629 0%, #192841 25%, #2d3748 50%, #1a202c 100%);
-  color: #f7fafc;
+  background: var(--bg-primary);
+  color: var(--text-primary);
   line-height: 1.6;
   overflow-x: hidden;
   min-height: 100vh;
+  transition:
+    background 0.3s ease,
+    color 0.3s ease;
 }
 
 /* ===========================
@@ -341,6 +414,42 @@ nav {
   justify-content: space-between;
   align-items: center;
   padding: 0 2rem;
+}
+
+.nav-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.theme-toggle {
+  background: rgba(255, 255, 255, 0.1);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 50%;
+  width: 44px;
+  height: 44px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+}
+
+.theme-toggle:hover {
+  background: rgba(255, 255, 255, 0.15);
+  border-color: rgba(96, 165, 250, 0.5);
+  transform: scale(1.05);
+}
+
+.theme-icon {
+  font-size: 1.2rem;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.theme-toggle:hover .theme-icon {
+  transform: rotate(15deg);
 }
 
 .logo {
@@ -1106,6 +1215,15 @@ footer p {
 
   .nav-links {
     display: none;
+  }
+
+  .theme-toggle {
+    width: 40px;
+    height: 40px;
+  }
+
+  .theme-icon {
+    font-size: 1.1rem;
   }
 }
 

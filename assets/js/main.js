@@ -375,6 +375,42 @@ document.addEventListener('DOMContentLoaded', () => {
       mobileNav.classList.toggle('active');
     });
   }
+
+  // Theme toggle functionality
+  const themeToggle = document.querySelector('.theme-toggle');
+  const body = document.body;
+
+  // Load saved theme from localStorage or default to dark
+  const savedTheme = localStorage.getItem('theme') || 'dark';
+  if (savedTheme === 'light') {
+    body.setAttribute('data-theme', 'light');
+    if (themeToggle) {
+      themeToggle.querySelector('.theme-icon').textContent = '🌙';
+      themeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
+    }
+  }
+
+  // Theme toggle event listener
+  if (themeToggle) {
+    themeToggle.addEventListener('click', () => {
+      const currentTheme = body.getAttribute('data-theme');
+      const themeIcon = themeToggle.querySelector('.theme-icon');
+
+      if (currentTheme === 'light') {
+        // Switch to dark mode
+        body.removeAttribute('data-theme');
+        themeIcon.textContent = '☀️';
+        themeToggle.setAttribute('aria-label', 'Zu hellem Modus wechseln');
+        localStorage.setItem('theme', 'dark');
+      } else {
+        // Switch to light mode
+        body.setAttribute('data-theme', 'light');
+        themeIcon.textContent = '🌙';
+        themeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
+        localStorage.setItem('theme', 'light');
+      }
+    });
+  }
 });
 
 // Add performance optimization
