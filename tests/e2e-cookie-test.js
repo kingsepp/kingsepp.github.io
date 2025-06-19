@@ -30,8 +30,8 @@ describe('Cookie Consent E2E Tests', () => {
       }
     });
 
-    // Navigation zur Website
-    await page.goto('https://kingsepp.github.io', {
+    // Navigation zur lokalen Testseite
+    await page.goto('http://localhost:4000', {
       waitUntil: 'networkidle2',
     });
   });
@@ -41,157 +41,173 @@ describe('Cookie Consent E2E Tests', () => {
   });
 
   test('Cookie-Banner erscheint beim ersten Besuch', async () => {
+    // Lösche alle Cookies um sicherzustellen, dass Banner erscheint
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Warte auf Cookie-Banner
-    await page.waitForSelector('#cookie-banner', { visible: true });
+    await page.waitForSelector('#cookie-notice', { visible: true });
 
-    const bannerVisible = await page.isVisible('#cookie-banner');
-    expect(bannerVisible).toBe(true);
+    const bannerVisible = await page.$('#cookie-notice');
+    expect(bannerVisible).toBeTruthy();
 
-    // Prüfe Button-Texte
-    const acceptText = await page.textContent('#cookie-accept-all');
-    const declineText = await page.textContent('#cookie-essential-only');
-    const settingsText = await page.textContent('#cookie-settings');
+    // Prüfe Button-Texte mit korrekten IDs
+    const acceptText = await page.textContent('#cookie-notice-accept');
+    const essentialText = await page.textContent('#cookie-notice-essential');
+    const settingsText = await page.textContent('#cookie-settings-btn');
 
     expect(acceptText).toContain('Alle akzeptieren');
-    expect(declineText).toContain('Nur notwendige');
-    expect(settingsText).toContain('Einstellungen');
+    expect(essentialText).toContain('Nur notwendige');
+    expect(settingsText).toContain('Cookie-Einstellungen');
   });
 
   test('Alle Cookies akzeptieren lädt Google Analytics', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Warte auf Banner und klicke "Alle akzeptieren"
-    await page.waitForSelector('#cookie-accept-all');
-    await page.click('#cookie-accept-all');
+    await page.waitForSelector('#cookie-notice-accept');
+    await page.click('#cookie-notice-accept');
 
     // Banner sollte verschwinden
     await page.waitForFunction(
-      () => document.getElementById('cookie-banner').style.display === 'none'
+      () => document.getElementById('cookie-notice').style.display === 'none'
     );
 
     // Warte kurz auf GA-Loading
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(3000);
 
     // Prüfe ob Google Analytics Script geladen wurde
     const gaScript = await page.$('script[src*="googletagmanager"]');
     expect(gaScript).toBeTruthy();
 
-    // Prüfe localStorage
-    const consent = await page.evaluate(() => {
-      return localStorage.getItem('cookie-consent');
-    });
-
-    const consentData = JSON.parse(consent);
-    expect(consentData.analytics).toBe(true);
-    expect(consentData.essential).toBe(true);
+    // Prüfe Cookie statt localStorage (da das aktuelle System Cookies verwendet)
+    const cookies = await page.cookies();
+    const consentCookie = cookies.find(c => c.name === 'cookie-notice-dismissed');
+    expect(consentCookie).toBeTruthy();
+    expect(consentCookie.value).toBe('accept');
   });
 
   test('Nur notwendige Cookies lädt kein Google Analytics', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Klicke "Nur notwendige"
-    await page.waitForSelector('#cookie-essential-only');
-    await page.click('#cookie-essential-only');
+    await page.waitForSelector('#cookie-notice-essential');
+    await page.click('#cookie-notice-essential');
 
     // Banner sollte verschwinden
     await page.waitForFunction(
-      () => document.getElementById('cookie-banner').style.display === 'none'
+      () => document.getElementById('cookie-notice').style.display === 'none'
     );
 
     // Warte kurz
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
 
     // Prüfe dass kein GA-Script geladen wurde
     const gaScript = await page.$('script[src*="googletagmanager"]');
     expect(gaScript).toBeFalsy();
 
-    // Prüfe localStorage
-    const consent = await page.evaluate(() => {
-      return localStorage.getItem('cookie-consent');
-    });
-
-    const consentData = JSON.parse(consent);
-    expect(consentData.analytics).toBe(false);
-    expect(consentData.essential).toBe(true);
+    // Prüfe Cookie
+    const cookies = await page.cookies();
+    const consentCookie = cookies.find(c => c.name === 'cookie-notice-dismissed');
+    expect(consentCookie).toBeTruthy();
+    expect(consentCookie.value).toBe('essential');
   });
 
   test('Cookie-Einstellungen Modal funktioniert', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Klicke "Einstellungen"
-    await page.waitForSelector('#cookie-settings');
-    await page.click('#cookie-settings');
+    await page.waitForSelector('#cookie-settings-btn');
+    await page.click('#cookie-settings-btn');
 
     // Modal sollte erscheinen
-    await page.waitForSelector('#cookie-modal', { visible: true });
+    await page.waitForSelector('#cookie-settings-modal', { visible: true });
 
-    const modalVisible = await page.isVisible('#cookie-modal');
-    expect(modalVisible).toBe(true);
+    const modalVisible = await page.$('#cookie-settings-modal');
+    expect(modalVisible).toBeTruthy();
 
-    // Prüfe Toggle-Switches
-    const essentialCheckbox = await page.$('#essential-cookies');
-    const analyticsCheckbox = await page.$('#analytics-cookies');
-
-    expect(essentialCheckbox).toBeTruthy();
+    // Prüfe Analytics Checkbox (Essential ist fest aktiviert)
+    const analyticsCheckbox = await page.$('#analytics-consent');
     expect(analyticsCheckbox).toBeTruthy();
 
-    // Essential sollte checked und disabled sein
-    const essentialChecked = await page.$eval('#essential-cookies', el => el.checked);
-    const essentialDisabled = await page.$eval('#essential-cookies', el => el.disabled);
-
-    expect(essentialChecked).toBe(true);
-    expect(essentialDisabled).toBe(true);
+    // Modal schließen testen
+    await page.click('#close-settings');
+    await page.waitForFunction(
+      () => document.getElementById('cookie-settings-modal').style.display === 'none'
+    );
   });
 
   test('Cookie-Einstellungen speichern funktioniert', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Öffne Settings
-    await page.click('#cookie-settings');
-    await page.waitForSelector('#cookie-modal', { visible: true });
+    await page.click('#cookie-settings-btn');
+    await page.waitForSelector('#cookie-settings-modal', { visible: true });
 
     // Analytics aktivieren
-    await page.click('#analytics-cookies');
+    await page.click('#analytics-consent');
 
     // Einstellungen speichern
-    await page.click('#cookie-save-settings');
+    await page.click('#save-settings');
 
     // Modal sollte schließen
     await page.waitForFunction(
-      () => document.getElementById('cookie-modal').style.display === 'none'
+      () => document.getElementById('cookie-settings-modal').style.display === 'none'
     );
 
-    // Prüfe localStorage
-    const consent = await page.evaluate(() => {
-      return localStorage.getItem('cookie-consent');
-    });
-
-    const consentData = JSON.parse(consent);
-    expect(consentData.analytics).toBe(true);
+    // Prüfe Cookie
+    const cookies = await page.cookies();
+    const consentCookie = cookies.find(c => c.name === 'cookie-notice-dismissed');
+    expect(consentCookie).toBeTruthy();
+    expect(consentCookie.value).toBe('accept');
   });
 
   test('Cookies bleiben nach Seitenneuladung bestehen', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Akzeptiere alle Cookies
-    await page.click('#cookie-accept-all');
-    await page.waitForTimeout(500);
+    await page.waitForSelector('#cookie-notice-accept');
+    await page.click('#cookie-notice-accept');
+    await page.waitForTimeout(1000);
 
     // Seite neu laden
     await page.reload({ waitUntil: 'networkidle2' });
 
     // Banner sollte NICHT mehr erscheinen
-    await page.waitForTimeout(1000);
+    await page.waitForTimeout(2000);
 
     const bannerVisible = await page.evaluate(() => {
-      const banner = document.getElementById('cookie-banner');
+      const banner = document.getElementById('cookie-notice');
       return banner && banner.style.display !== 'none';
     });
 
     expect(bannerVisible).toBe(false);
 
-    // Consent sollte noch vorhanden sein
-    const consent = await page.evaluate(() => {
-      return localStorage.getItem('cookie-consent');
-    });
-
-    expect(consent).toBeTruthy();
+    // Cookie sollte noch vorhanden sein
+    const cookies = await page.cookies();
+    const consentCookie = cookies.find(c => c.name === 'cookie-notice-dismissed');
+    expect(consentCookie).toBeTruthy();
   });
 
   test('GA-Cookies werden gesetzt nach Einwilligung', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Akzeptiere alle Cookies
-    await page.click('#cookie-accept-all');
-    await page.waitForTimeout(3000); // Warte auf GA-Initialisierung
+    await page.waitForSelector('#cookie-notice-accept');
+    await page.click('#cookie-notice-accept');
+    await page.waitForTimeout(4000); // Warte auf GA-Initialisierung
 
     // Prüfe GA-Cookies
     const cookies = await page.cookies();
@@ -200,21 +216,25 @@ describe('Cookie Consent E2E Tests', () => {
     expect(gaCookies.length).toBeGreaterThan(0);
   });
 
-  test('GA-Cookies werden gelöscht nach Ablehnung', async () => {
+  test('GA-Cookies werden gelöscht nach Widerruf', async () => {
+    // Lösche Cookies und reload
+    await page.deleteCookie(...(await page.cookies()));
+    await page.reload({ waitUntil: 'networkidle2' });
+
     // Erst akzeptieren (um Cookies zu setzen)
-    await page.click('#cookie-accept-all');
-    await page.waitForTimeout(2000);
+    await page.waitForSelector('#cookie-notice-accept');
+    await page.click('#cookie-notice-accept');
+    await page.waitForTimeout(3000);
 
-    // Dann Seite neu laden und ablehnen
-    await page.reload({ waitUntil: 'networkidle2' });
-
-    // LocalStorage löschen um Banner zu erzwingen
-    await page.evaluate(() => localStorage.clear());
-    await page.reload({ waitUntil: 'networkidle2' });
+    // Widerruf über Widerrufs-Button
+    await page.waitForSelector('#revoke-consent');
+    await page.click('#revoke-consent');
+    await page.waitForTimeout(1000);
 
     // Nur notwendige wählen
-    await page.click('#cookie-essential-only');
-    await page.waitForTimeout(1000);
+    await page.waitForSelector('#cookie-notice-essential');
+    await page.click('#cookie-notice-essential');
+    await page.waitForTimeout(2000);
 
     // GA-Cookies sollten gelöscht sein
     const cookies = await page.cookies();
@@ -230,7 +250,7 @@ describe('Cookie Consent Developer Tools', () => {
     const browser = await puppeteer.launch({ headless: false });
     const page = await browser.newPage();
 
-    await page.goto('https://kingsepp.github.io');
+    await page.goto('http://localhost:4000');
 
     // Entwickler-Hilfsfunktionen testen
     const testCommands = `
