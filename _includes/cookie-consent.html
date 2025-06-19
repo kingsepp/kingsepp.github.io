@@ -153,7 +153,7 @@
   </div>
 </div>
 
-<!-- Widerrufs-Button (immer sichtbar am unteren Rand) -->
+<!-- Widerrufs-Button und Theme Toggle (immer sichtbar am unteren Rand) -->
 <div
   id="cookie-revoke"
   style="
@@ -161,19 +161,56 @@
     bottom: 10px;
     right: 10px;
     z-index: 9999;
-    background: rgba(15, 23, 42, 0.9);
-    border: 1px solid rgba(96, 165, 250, 0.3);
-    border-radius: 8px;
-    padding: 0.5rem 1rem;
-    backdrop-filter: blur(10px);
+    display: flex;
+    gap: 0.5rem;
+    align-items: center;
   "
 >
-  <a
-    href="#"
-    id="revoke-consent"
-    style="color: #60a5fa; text-decoration: none; font-size: 0.8rem; font-weight: 500"
-    >Cookie-Einstellungen ändern</a
+  <!-- Theme Toggle Button -->
+  <div
+    style="
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 8px;
+      padding: 0.5rem;
+      backdrop-filter: blur(10px);
+    "
   >
+    <button
+      class="theme-toggle-cookie"
+      type="button"
+      aria-label="Zu hellem Modus wechseln"
+      style="
+        background: none;
+        border: none;
+        color: #60a5fa;
+        font-size: 1rem;
+        cursor: pointer;
+        padding: 0;
+        transition: all 0.3s ease;
+      "
+    >
+      <span class="theme-icon-cookie">☀️</span>
+    </button>
+  </div>
+
+  <!-- Cookie Settings Button -->
+  <div
+    style="
+      background: rgba(15, 23, 42, 0.9);
+      border: 1px solid rgba(96, 165, 250, 0.3);
+      border-radius: 8px;
+      padding: 0.5rem 1rem;
+      backdrop-filter: blur(10px);
+    "
+  >
+    <a
+      href="#"
+      id="revoke-consent"
+      style="color: #60a5fa; text-decoration: none; font-size: 0.8rem; font-weight: 500"
+      >Cookie-Einstellungen ändern</a
+    >
+  </div>
 </div>
 
 <!-- Detaillierte Cookie-Einstellungen Modal -->
@@ -641,4 +678,69 @@
       revokeButton.style.display = 'none';
     }
   }
+
+  // Theme Toggle functionality for cookie area
+  document.addEventListener('DOMContentLoaded', function () {
+    const cookieThemeToggle = document.querySelector('.theme-toggle-cookie');
+    const body = document.body;
+
+    // Sync with main theme toggle on page load
+    function syncCookieThemeToggle() {
+      const savedTheme = localStorage.getItem('theme') || 'dark';
+      const themeIconCookie = document.querySelector('.theme-icon-cookie');
+
+      if (savedTheme === 'light') {
+        body.setAttribute('data-theme', 'light');
+        if (themeIconCookie) {
+          themeIconCookie.textContent = '🌙';
+          cookieThemeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
+        }
+      } else {
+        body.removeAttribute('data-theme');
+        if (themeIconCookie) {
+          themeIconCookie.textContent = '☀️';
+          cookieThemeToggle.setAttribute('aria-label', 'Zu hellem Modus wechseln');
+        }
+      }
+    }
+
+    // Initial sync
+    syncCookieThemeToggle();
+
+    // Cookie theme toggle event listener
+    if (cookieThemeToggle) {
+      cookieThemeToggle.addEventListener('click', () => {
+        const currentTheme = body.getAttribute('data-theme');
+        const themeIconCookie = cookieThemeToggle.querySelector('.theme-icon-cookie');
+        const mainThemeIcon = document.querySelector('.theme-icon');
+        const mainThemeToggle = document.querySelector('.theme-toggle');
+
+        if (currentTheme === 'light') {
+          // Switch to dark mode
+          body.removeAttribute('data-theme');
+          themeIconCookie.textContent = '☀️';
+          cookieThemeToggle.setAttribute('aria-label', 'Zu hellem Modus wechseln');
+          localStorage.setItem('theme', 'dark');
+
+          // Sync main theme toggle
+          if (mainThemeIcon) {
+            mainThemeIcon.textContent = '☀️';
+            mainThemeToggle.setAttribute('aria-label', 'Zu hellem Modus wechseln');
+          }
+        } else {
+          // Switch to light mode
+          body.setAttribute('data-theme', 'light');
+          themeIconCookie.textContent = '🌙';
+          cookieThemeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
+          localStorage.setItem('theme', 'light');
+
+          // Sync main theme toggle
+          if (mainThemeIcon) {
+            mainThemeIcon.textContent = '🌙';
+            mainThemeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
+          }
+        }
+      });
+    }
+  });
 </script>
