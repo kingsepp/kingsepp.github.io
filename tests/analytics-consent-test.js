@@ -41,6 +41,9 @@ async function testAnalyticsConsent() {
     console.log('📄 Loading page...');
     await page.goto('http://localhost:4000', { waitUntil: 'networkidle2' });
 
+    // Clear any existing cookies first
+    await page.deleteCookie(...(await page.cookies()));
+
     // Wait a bit for any delayed analytics
     await new Promise(resolve => setTimeout(resolve, 3000));
 
@@ -62,7 +65,7 @@ async function testAnalyticsConsent() {
     // Step 2: Accept cookies
     console.log('\n🍪 Accepting cookies...');
 
-    // Wait for cookie banner and click accept (new system)
+    // Wait for cookie banner and click accept (updated selectors)
     await page.waitForSelector('#cookie-notice-accept', { timeout: 5000 });
     await page.click('#cookie-notice-accept');
 
@@ -105,8 +108,8 @@ async function testAnalyticsConsent() {
 
     // Check if banner appears again and no analytics
     const bannerVisible = await page.$('#cookie-notice');
-    const finalCookies = await page.cookies();
-    const gaFinalCookies = finalCookies.filter(c => c.name.startsWith('_ga'));
+    const finalCheckCookies = await page.cookies();
+    const gaFinalCookies = finalCheckCookies.filter(c => c.name.startsWith('_ga'));
 
     if (bannerVisible && gaFinalCookies.length === 0) {
       console.log('   ✅ GOOD: Banner reappears and analytics cookies cleared');

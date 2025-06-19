@@ -26,9 +26,9 @@ describe('Jekyll Cookie Consent System', () => {
     test('createCookie should set cookie with correct format', () => {
       // Mock the createCookie function
       function createCookie(name, value, days) {
-        var expires = '';
+        let expires = '';
         if (days) {
-          var date = new Date();
+          const date = new Date();
           date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
           expires = '; expires=' + date.toUTCString();
         }
@@ -46,12 +46,16 @@ describe('Jekyll Cookie Consent System', () => {
       global.document.cookie = 'cookie-notice-dismissed=true; path=/';
 
       function readCookie(name) {
-        var nameEQ = name + '=';
-        var ca = global.document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        const nameEQ = name + '=';
+        const ca = global.document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+          }
+          if (c.indexOf(nameEQ) === 0) {
+            return c.substring(nameEQ.length, c.length);
+          }
         }
         return null;
       }
@@ -64,12 +68,16 @@ describe('Jekyll Cookie Consent System', () => {
       global.document.cookie = '';
 
       function readCookie(name) {
-        var nameEQ = name + '=';
-        var ca = global.document.cookie.split(';');
-        for (var i = 0; i < ca.length; i++) {
-          var c = ca[i];
-          while (c.charAt(0) == ' ') c = c.substring(1, c.length);
-          if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+        const nameEQ = name + '=';
+        const ca = global.document.cookie.split(';');
+        for (let i = 0; i < ca.length; i++) {
+          let c = ca[i];
+          while (c.charAt(0) === ' ') {
+            c = c.substring(1, c.length);
+          }
+          if (c.indexOf(nameEQ) === 0) {
+            return c.substring(nameEQ.length, c.length);
+          }
         }
         return null;
       }
@@ -105,7 +113,9 @@ describe('Jekyll Cookie Consent System', () => {
       global.document.cookie = 'cookie-notice-dismissed=true';
 
       function readCookie(name) {
-        if (name === 'cookie-notice-dismissed') return 'true';
+        if (name === 'cookie-notice-dismissed') {
+          return 'true';
+        }
         return null;
       }
 
@@ -152,7 +162,9 @@ describe('Jekyll Cookie Consent System', () => {
         global.document.cookie = 'cookie-notice-dismissed=true';
 
         function readCookie(name) {
-          if (name === 'cookie-notice-dismissed') return 'true';
+          if (name === 'cookie-notice-dismissed') {
+            return 'true';
+          }
           return null;
         }
 

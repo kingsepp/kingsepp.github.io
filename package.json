@@ -15,6 +15,7 @@
     "test:analytics": "node tests/analytics-consent-test.js",
     "test:cookie-new": "jest tests/cookie-consent-new.test.js",
     "test:integration": "jest tests/integration.test.js",
+    "test:theme": "jest tests/theme-toggle.test.js",
     "validate:links": "node scripts/validate-links.js",
     "cicd:local": "./scripts/local-cicd-pipeline.sh",
     "serve": "bundle exec jekyll serve",
