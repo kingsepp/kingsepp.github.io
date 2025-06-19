@@ -172,7 +172,7 @@
       background: rgba(15, 23, 42, 0.9);
       border: 1px solid rgba(96, 165, 250, 0.3);
       border-radius: 8px;
-      padding: 0.5rem;
+      padding: 0.3rem 0.5rem;
       backdrop-filter: blur(10px);
     "
   >
@@ -184,10 +184,11 @@
         background: none;
         border: none;
         color: #60a5fa;
-        font-size: 1rem;
+        font-size: 0.9rem;
         cursor: pointer;
         padding: 0;
         transition: all 0.3s ease;
+        min-width: 20px;
       "
     >
       <span class="theme-icon-cookie">☀️</span>
@@ -712,8 +713,6 @@
       cookieThemeToggle.addEventListener('click', () => {
         const currentTheme = body.getAttribute('data-theme');
         const themeIconCookie = cookieThemeToggle.querySelector('.theme-icon-cookie');
-        const mainThemeIcon = document.querySelector('.theme-icon');
-        const mainThemeToggle = document.querySelector('.theme-toggle');
 
         if (currentTheme === 'light') {
           // Switch to dark mode
@@ -721,24 +720,12 @@
           themeIconCookie.textContent = '☀️';
           cookieThemeToggle.setAttribute('aria-label', 'Zu hellem Modus wechseln');
           localStorage.setItem('theme', 'dark');
-
-          // Sync main theme toggle
-          if (mainThemeIcon) {
-            mainThemeIcon.textContent = '☀️';
-            mainThemeToggle.setAttribute('aria-label', 'Zu hellem Modus wechseln');
-          }
         } else {
           // Switch to light mode
           body.setAttribute('data-theme', 'light');
           themeIconCookie.textContent = '🌙';
           cookieThemeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
           localStorage.setItem('theme', 'light');
-
-          // Sync main theme toggle
-          if (mainThemeIcon) {
-            mainThemeIcon.textContent = '🌙';
-            mainThemeToggle.setAttribute('aria-label', 'Zu dunklem Modus wechseln');
-          }
         }
       });
     }

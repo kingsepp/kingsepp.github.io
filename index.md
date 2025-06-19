@@ -20,15 +20,10 @@ title: Kingsepp - Cloud Consulting & IT-Expertise
 <nav class="nav" style="display:block !important;">
   <div class="nav-container" style="display:flex !important;">
     <a href="/" class="logo">Kingsepp Consulting</a>
-    <div class="nav-controls">
-      <button class="theme-toggle" type="button" aria-label="Zu hellem Modus wechseln">
-        <span class="theme-icon">☀️</span>
-      </button>
-      <div class="hamburger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+    <div class="hamburger">
+      <span></span>
+      <span></span>
+      <span></span>
     </div>
     <ul class="nav-links" style="display:flex !important;">
       <li><a href="#home">Home</a></li>

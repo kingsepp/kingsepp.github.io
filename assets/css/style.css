@@ -416,42 +416,6 @@ nav {
   padding: 0 2rem;
 }
 
-.nav-controls {
-  display: flex;
-  align-items: center;
-  gap: 1rem;
-}
-
-.theme-toggle {
-  background: rgba(255, 255, 255, 0.1);
-  border: 1px solid rgba(255, 255, 255, 0.2);
-  border-radius: 50%;
-  width: 44px;
-  height: 44px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all 0.3s ease;
-  backdrop-filter: blur(10px);
-}
-
-.theme-toggle:hover {
-  background: rgba(255, 255, 255, 0.15);
-  border-color: rgba(96, 165, 250, 0.5);
-  transform: scale(1.05);
-}
-
-.theme-icon {
-  font-size: 1.2rem;
-  display: block;
-  transition: transform 0.3s ease;
-}
-
-.theme-toggle:hover .theme-icon {
-  transform: rotate(15deg);
-}
-
 .logo {
   font-size: 1.8rem;
   font-weight: 700;
@@ -1216,15 +1180,6 @@ footer p {
   .nav-links {
     display: none;
   }
-
-  .theme-toggle {
-    width: 40px;
-    height: 40px;
-  }
-
-  .theme-icon {
-    font-size: 1.1rem;
-  }
 }
 
 /* ===========================
@@ -1254,11 +1209,48 @@ footer p {
   --ai4mbse-link-hover: #f3e7b0;
 }
 
-/* Animierter Hintergrund für die gesamte Seite */
-body {
+/* Animierter Hintergrund nur für AI4MBSE-Seite im Dark Mode */
+body:has(#ai4mbse-content):not([data-theme='light']) {
   background: linear-gradient(120deg, var(--ai4mbse-dark) 60%, #1e3a8a 100%);
   animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
   background-size: 200% 200%;
+}
+
+/* AI4MBSE Light Mode Background */
+body:has(#ai4mbse-content)[data-theme='light'] {
+  background: linear-gradient(120deg, #f8fafc 60%, #e2e8f0 100%);
+  animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+}
+
+/* Fallback für Browser ohne :has() Support - Dark Mode */
+body:not([data-theme='light']) #ai4mbse-content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, var(--ai4mbse-dark) 60%, #1e3a8a 100%);
+  animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+  z-index: -1;
+  pointer-events: none;
+}
+
+/* Fallback für Browser ohne :has() Support - Light Mode */
+body[data-theme='light'] #ai4mbse-content::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(120deg, #f8fafc 60%, #e2e8f0 100%);
+  animation: ai4mbse-bg-move 16s ease-in-out infinite alternate;
+  background-size: 200% 200%;
+  z-index: -1;
+  pointer-events: none;
 }
 @keyframes ai4mbse-bg-move {
   0% {
