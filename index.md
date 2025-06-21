@@ -28,14 +28,10 @@ title: Referenzen - Kingsepp
     <ul class="nav-links" style="display:flex !important;">
       <li><a href="/">Referenzen</a></li>
       <li><a href="/ai4mbse">AI4MBSE</a></li>
-      <li><a href="/impressum">Impressum</a></li>
-      <li><a href="/datenschutz">Datenschutz</a></li>
     </ul>
     <div class="nav-links-mobile" style="display:none;">
       <a href="/">Referenzen</a>
       <a href="/ai4mbse">AI4MBSE</a>
-      <a href="/impressum">Impressum</a>
-      <a href="/datenschutz">Datenschutz</a>
     </div>
   </div>
 </nav>

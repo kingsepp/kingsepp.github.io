@@ -91,7 +91,6 @@ describe('Jekyll Site Integration Tests', () => {
 
       expect(content).toMatch(/Referenzen|Kingsepp/i);
       expect(content).toMatch(/AI4MBSE|Projekte|Cloud-Technologien/i);
-      expect(content).toMatch(/Impressum|Datenschutz/i);
     });
 
     test('consulting page should exist but not be referenced', () => {
