@@ -7,6 +7,11 @@
     {% if page.robots %}
     <meta name="robots" content="{{ page.robots }}" />
     {% endif %}
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
+    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.png' | relative_url }}" />
+
     <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
   </head>
   <body>

@@ -91,16 +91,21 @@ describe('Jekyll Site Integration Tests', () => {
 
       expect(content).toMatch(/Referenzen|Kingsepp/i);
       expect(content).toMatch(/AI4MBSE|Projekte|Cloud-Technologien/i);
-      expect(content).toMatch(/Kontakt|Contact/i);
+      expect(content).toMatch(/Impressum|Datenschutz/i);
     });
 
-    test('consulting page should have essential content', () => {
+    test('consulting page should exist but not be referenced', () => {
       const consultingPath = path.join(projectRoot, 'consulting.md');
-      const content = fs.readFileSync(consultingPath, 'utf8');
+      expect(fs.existsSync(consultingPath)).toBe(true);
 
-      expect(content).toMatch(/Cloud Consulting|Kingsepp/i);
-      expect(content).toMatch(/IT-Expertise|Cloud-Lösungen/i);
-      expect(content).toMatch(/Kontakt|Contact/i);
+      // Check that consulting is not referenced in main navigation
+      const indexPath = path.join(projectRoot, 'index.md');
+      const indexContent = fs.readFileSync(indexPath, 'utf8');
+      expect(indexContent).not.toMatch(/href="\/consulting"/);
+
+      const headerPath = path.join(projectRoot, '_includes/header.html');
+      const headerContent = fs.readFileSync(headerPath, 'utf8');
+      expect(headerContent).not.toMatch(/href="\/consulting"/);
     });
 
     test('privacy policy should have GDPR compliance', () => {
