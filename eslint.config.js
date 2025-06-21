@@ -72,7 +72,7 @@ export default [
     },
   },
   {
-    files: ['tests/**/*.js'],
+    files: ['tests/**/*.js', 'playwright.config.js'],
     languageOptions: {
       globals: {
         jest: 'readonly',
@@ -88,6 +88,8 @@ export default [
         module: 'readonly',
         __dirname: 'readonly',
         __filename: 'readonly',
+        process: 'readonly',
+        Buffer: 'readonly',
       },
     },
   },

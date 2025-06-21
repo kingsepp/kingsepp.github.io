@@ -16,6 +16,13 @@
     "test:cookie-new": "jest tests/cookie-consent-new.test.js",
     "test:integration": "jest tests/integration.test.js",
     "test:theme": "jest tests/theme-toggle.test.js",
+    "test:cross-browser": "playwright test",
+    "test:cross-browser:chromium": "playwright test --project=chromium",
+    "test:cross-browser:firefox": "playwright test --project=firefox",
+    "test:cross-browser:webkit": "playwright test --project=webkit",
+    "test:cross-browser:mobile": "playwright test --project=\"Mobile Chrome\" --project=\"Mobile Safari\"",
+    "test:cross-browser:headed": "playwright test --headed",
+    "test:cross-browser:debug": "playwright test --debug",
     "validate:links": "node scripts/validate-links.js",
     "cicd:local": "./scripts/local-cicd-pipeline.sh",
     "serve": "bundle exec jekyll serve",
@@ -41,6 +48,7 @@
   "devDependencies": {
     "@eslint/js": "^9.0.0",
     "@lhci/cli": "^0.15.0",
+    "@playwright/test": "^1.53.1",
     "@testing-library/dom": "^9.3.1",
     "eslint": "^9.0.0",
     "husky": "^9.0.0",
@@ -49,6 +57,7 @@
     "jsdom": "^24.0.0",
     "lighthouse": "^12.0.0",
     "lint-staged": "^15.5.2",
+    "playwright": "^1.53.1",
     "prettier": "^3.5.3",
     "puppeteer": "^22.8.2"
   },
@@ -59,7 +68,8 @@
     ],
     "testPathIgnorePatterns": [
       "<rootDir>/_site/",
-      "<rootDir>/node_modules/"
+      "<rootDir>/node_modules/",
+      "<rootDir>/tests/playwright/"
     ],
     "collectCoverageFrom": [
       "assets/js/**/*.js",
@@ -75,12 +85,10 @@
   },
   "lint-staged": {
     "*.{js,json,md,yml,yaml}": [
-      "prettier --write",
-      "git add"
+      "prettier --write"
     ],
     "*.js": [
-      "eslint --fix",
-      "git add"
+      "eslint --fix"
     ]
   },
   "husky": {
