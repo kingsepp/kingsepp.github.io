@@ -89,6 +89,15 @@ describe('Jekyll Site Integration Tests', () => {
       const indexPath = path.join(projectRoot, 'index.md');
       const content = fs.readFileSync(indexPath, 'utf8');
 
+      expect(content).toMatch(/Referenzen|Kingsepp/i);
+      expect(content).toMatch(/AI4MBSE|Projekte|Cloud-Technologien/i);
+      expect(content).toMatch(/Kontakt|Contact/i);
+    });
+
+    test('consulting page should have essential content', () => {
+      const consultingPath = path.join(projectRoot, 'consulting.md');
+      const content = fs.readFileSync(consultingPath, 'utf8');
+
       expect(content).toMatch(/Cloud Consulting|Kingsepp/i);
       expect(content).toMatch(/IT-Expertise|Cloud-Lösungen/i);
       expect(content).toMatch(/Kontakt|Contact/i);
