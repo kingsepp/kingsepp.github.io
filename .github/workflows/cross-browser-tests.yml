@@ -1,0 +1,159 @@
+name: Cross-Browser Tests
+
+on:
+  push:
+    branches: [main, develop]
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run cross-browser tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+
+jobs:
+  cross-browser-tests:
+    name: Cross-Browser Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 30
+
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium, firefox, webkit]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          bundle install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Run Cross-Browser Tests - ${{ matrix.browser }}
+        run: npx playwright test --project=${{ matrix.browser }}
+        env:
+          CI: true
+
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ matrix.browser }}
+          path: playwright-report/
+          retention-days: 7
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.browser }}
+          path: test-results/
+          retention-days: 7
+
+  mobile-tests:
+    name: Mobile Browser Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          bundle install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install --with-deps chromium webkit
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Run Mobile Tests
+        run: npx playwright test --project="Mobile Chrome" --project="Mobile Safari"
+        env:
+          CI: true
+
+      - name: Upload Mobile Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-mobile
+          path: playwright-report/
+          retention-days: 7
+
+  cross-browser-summary:
+    name: Cross-Browser Test Summary
+    runs-on: ubuntu-latest
+    needs: [cross-browser-tests, mobile-tests]
+    if: always()
+
+    steps:
+      - name: Download all test reports
+        uses: actions/download-artifact@v4
+        with:
+          path: all-reports/
+
+      - name: Generate Test Summary
+        run: |
+          echo "# Cross-Browser Test Results" >> $GITHUB_STEP_SUMMARY
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Desktop Browsers" >> $GITHUB_STEP_SUMMARY
+
+          for browser in chromium firefox webkit; do
+            if [ -f "all-reports/playwright-report-$browser/index.html" ]; then
+              echo "✅ $browser: Tests completed" >> $GITHUB_STEP_SUMMARY
+            else
+              echo "❌ $browser: Tests failed or incomplete" >> $GITHUB_STEP_SUMMARY
+            fi
+          done
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Mobile Browsers" >> $GITHUB_STEP_SUMMARY
+
+          if [ -f "all-reports/playwright-report-mobile/index.html" ]; then
+            echo "✅ Mobile: Tests completed" >> $GITHUB_STEP_SUMMARY
+          else
+            echo "❌ Mobile: Tests failed or incomplete" >> $GITHUB_STEP_SUMMARY
+          fi
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "## Test Coverage" >> $GITHUB_STEP_SUMMARY
+          echo "- **Chromium/Chrome**: Desktop + Mobile" >> $GITHUB_STEP_SUMMARY
+          echo "- **Firefox**: Desktop" >> $GITHUB_STEP_SUMMARY  
+          echo "- **Safari/Webkit**: Desktop + Mobile (iOS)" >> $GITHUB_STEP_SUMMARY
+          echo "- **Edge**: Available for manual testing" >> $GITHUB_STEP_SUMMARY
+
+          echo "" >> $GITHUB_STEP_SUMMARY
+          echo "📊 View detailed reports in the artifacts section." >> $GITHUB_STEP_SUMMARY
