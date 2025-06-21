@@ -36,11 +36,7 @@ title: Referenzen - Kingsepp
   </div>
 </nav>
 
-<details class="kingsepp-main-details" style="margin:2.5rem auto;max-width:900px;">
-  <summary style="font-size:1.3em;font-weight:600;cursor:pointer;padding:1.2em 0;">
-  </summary>
-
-  <section id="home" class="hero">
+<section id="home" class="hero">
     <div class="hero-background"></div>
     <div class="hero-content">
       <h1 class="hero-title">Referenzen & Projekte</h1>
@@ -119,6 +115,5 @@ title: Referenzen - Kingsepp
       </div>
     </div>
   </section>
-</details>
 
 </div>
