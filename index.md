@@ -27,15 +27,15 @@ title: Referenzen - Kingsepp
     </div>
     <ul class="nav-links" style="display:flex !important;">
       <li><a href="/">Referenzen</a></li>
-      <li><a href="/consulting">Consulting</a></li>
       <li><a href="/ai4mbse">AI4MBSE</a></li>
-      <li><a href="/consulting#contact">Kontakt</a></li>
+      <li><a href="/impressum">Impressum</a></li>
+      <li><a href="/datenschutz">Datenschutz</a></li>
     </ul>
     <div class="nav-links-mobile" style="display:none;">
       <a href="/">Referenzen</a>
-      <a href="/consulting">Consulting</a>
       <a href="/ai4mbse">AI4MBSE</a>
-      <a href="/consulting#contact">Kontakt</a>
+      <a href="/impressum">Impressum</a>
+      <a href="/datenschutz">Datenschutz</a>
     </div>
   </div>
 </nav>
@@ -52,7 +52,7 @@ title: Referenzen - Kingsepp
         Einblick in ausgewählte Projekte und Entwicklungen aus dem Bereich
         AI, Cloud-Technologien und moderne Softwareentwicklung.
       </p>
-      <a href="/consulting" class="cta-button">Mehr über Consulting</a>
+      <a href="/ai4mbse" class="cta-button">AI4MBSE erkunden</a>
     </div>
   </section>
 
@@ -100,7 +100,7 @@ title: Referenzen - Kingsepp
           <h3>Projektübersicht</h3>
           <p><strong>Hinweis:</strong> Diese Website befindet sich im Aufbau und dient ausschließlich privaten, nicht-kommerziellen Informationszwecken. Es werden derzeit keine Dienstleistungen oder Produkte angeboten.</p>
           <p>Die hier gezeigten Projekte spiegeln persönliche Entwicklungen und Experimente im Bereich der modernen Softwareentwicklung wider.</p>
-          <p>Für professionelle Consulting-Dienstleistungen besuchen Sie bitte die <a href="/consulting" style="color: #60a5fa;">Consulting-Seite</a>.</p>
+          <p>Die hier gezeigten Projekte dienen ausschließlich privaten, nicht-kommerziellen Informationszwecken.</p>
         </div>
         <div class="about-stats">
           <div class="stat-card">

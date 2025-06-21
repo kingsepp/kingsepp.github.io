@@ -38,3 +38,8 @@ _includes/ga.js
 
 # Test outputs
 coverage/
+test-results/
+playwright-report/
+
+# Claude Code settings (auto-generated)
+.claude/
