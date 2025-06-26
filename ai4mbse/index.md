@@ -472,8 +472,10 @@ robots: noindex, nofollow
             <p class="demo-intro">Schauen Sie sich die folgende Demo an, um zu sehen, wie das AI4MBSE-Plugin funktioniert:</p>
 
             <div class="video-wrapper" role="complementary">
-            <p><strong>Demo-Video wird in Kürze verfügbar sein.</strong></p>
-            <p>Das Video wird derzeit optimiert und bald hier angezeigt.</p>
+            <video width="640" height="360" controls>
+                <source src="demo.mp4" type="video/mp4">
+                Ihr Browser unterstützt das Video-Tag nicht.
+            </video>
             </div>
           </div>
         </div>
