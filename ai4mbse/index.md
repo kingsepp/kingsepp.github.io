@@ -473,7 +473,7 @@ robots: noindex, nofollow
 
             <div class="video-wrapper" role="complementary">
             <video width="640" height="360" controls>
-                <source src="demo.mp4" type="video/mp4">
+                <source src="ai4mbse_demo.mp4" type="video/mp4">
                 Ihr Browser unterstützt das Video-Tag nicht.
             </video>
             </div>
@@ -525,10 +525,3 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 </script>
-
-## Demo
-
-<video width="640" height="360" controls>
-  <source src="demoV17.mp4" type="video/mp4">
-  Ihr Browser unterstützt das Video-Tag nicht.
-</video>
