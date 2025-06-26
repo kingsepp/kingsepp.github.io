@@ -187,7 +187,7 @@ describe('Jekyll Site Integration Tests', () => {
     test('AI4MBSE assets should exist', () => {
       const ai4mbseAssets = [
         'ai4mbse/ai4mbse_logo.png',
-        // 'ai4mbse/ai4mbse_demo.mp4', // Temporarily removed for LFS setup
+        'ai4mbse/ai4mbse_demo.mp4',
         'ai4mbse/AI4MBSE_Plugin.zip',
       ];
 
