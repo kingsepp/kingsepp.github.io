@@ -528,4 +528,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
 
 ## Demo
 
-<p><strong>Hinweis:</strong> Das Demo-Video ist temporär nicht verfügbar. Es wird in Kürze über Git LFS wieder bereitgestellt.</p>
+<video width="640" height="360" controls>
+  <source src="demoV17.mp4" type="video/mp4">
+  Ihr Browser unterstützt das Video-Tag nicht.
+</video>
