@@ -1,0 +1,17 @@
+version: '3.8'
+
+services:
+  playwright-tests:
+    image: mcr.microsoft.com/playwright:v1.40.0-focal
+    volumes:
+      - .:/app
+    working_dir: /app
+    command: >
+      bash -c "
+        npm ci &&
+        bundle install &&
+        bundle exec jekyll build &&
+        npx playwright test --project=chromium
+      "
+    environment:
+      - CI=true

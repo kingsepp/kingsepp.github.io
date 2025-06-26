@@ -525,3 +525,7 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 </script>
+
+## Demo
+
+<p><strong>Hinweis:</strong> Das Demo-Video ist temporär nicht verfügbar. Es wird in Kürze über Git LFS wieder bereitgestellt.</p>
