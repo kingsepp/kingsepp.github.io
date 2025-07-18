@@ -288,7 +288,7 @@ robots: noindex, nofollow
                 </div>
 
                 <div class="github-actions">
-                    <a href="https://github.com/kingsepp/AI4MBSE" target="_blank" rel="noopener" class="cta-button github-link">
+                    <a href="https://github.com/kingsepp/ai4mbse-plugin" target="_blank" rel="noopener" class="cta-button github-link">
                         <span class="github-icon">🔗</span>
                         Repository ansehen
                     </a>
