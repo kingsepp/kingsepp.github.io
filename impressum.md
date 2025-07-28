@@ -88,7 +88,7 @@ robots: noindex, nofollow
         </div>
         <div class="license-content">
           <p class="copyright-notice">
-            <strong>Copyright © 2025 Thomas Schuster</strong>
+            <strong>Copyright © 2025 Th. Kingsepp</strong>
           </p>
           <p class="legal-text">
             Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der
@@ -176,7 +176,7 @@ robots: noindex, nofollow
         <div class="contact-details">
           <div class="contact-item">
             <span class="contact-label">Name:</span>
-            <span class="contact-value">Thomas Schuster</span>
+            <span class="contact-value">Th. Kingsepp</span>
           </div>
           <div class="contact-item">
             <span class="contact-label">E-Mail:</span>

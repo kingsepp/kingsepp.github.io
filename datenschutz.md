@@ -321,7 +321,7 @@ robots: noindex, nofollow
         <div class="contact-details">
           <div class="contact-item">
             <span class="contact-label">Name:</span>
-            <span class="contact-value">Thomas Schuster</span>
+            <span class="contact-value">Th. Kingsepp</span>
           </div>
           <div class="contact-item">
             <span class="contact-label">E-Mail:</span>
