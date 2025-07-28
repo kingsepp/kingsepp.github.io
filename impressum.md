@@ -179,22 +179,29 @@ robots: noindex, nofollow
             <span class="contact-value">Thomas Schuster</span>
           </div>
           <div class="contact-item">
-            <span class="contact-label">Adresse:</span>
-            <span class="contact-value">
-              Schachenmeierstraße 16<br>
-              80636 München<br>
-              Deutschland
-            </span>
-          </div>
-          <div class="contact-item">
             <span class="contact-label">E-Mail:</span>
             <span class="contact-value">th.kingsepp@gmail.com</span>
           </div>
           <div class="contact-item">
-            <span class="contact-label">Telefon:</span>
-            <span class="contact-value">08992657184</span>
+            <span class="contact-label">Projekt:</span>
+            <span class="contact-value">
+              Private, nicht-kommerzielle Website<br>
+              Hochschule München - Studienprojekt
+            </span>
           </div>
         </div>
+      </div>
+    </section>
+
+    <section class="legal-section disclaimer-section">
+      <h2 class="section-heading">🎓 Bildungsprojekt</h2>
+      <div class="info-card">
+        <p class="legal-text">
+          <strong>Wichtiger Hinweis:</strong> Diese Website ist ein privates, nicht-kommerzielles
+          Bildungsprojekt im Rahmen eines Studiums an der Hochschule München. Es werden keine
+          Dienstleistungen oder Produkte verkauft. Das bereitgestellte AI4MBSE-Plugin wird
+          kostenlos zur Verfügung gestellt.
+        </p>
       </div>
     </section>
 

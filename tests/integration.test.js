@@ -124,9 +124,8 @@ describe('Jekyll Site Integration Tests', () => {
 
       const legalRequirements = [
         'Thomas Schuster',
-        'Schachenmeierstraße',
-        'München',
-        'Telefon',
+        'Hochschule München',
+        'Bildungsprojekt',
         'E-Mail',
       ];
 
