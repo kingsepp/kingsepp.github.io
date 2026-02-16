@@ -1,7 +1,7 @@
 {
   "name": "kingsepp-github-io",
   "version": "1.0.0",
-  "description": "Thomas Schuster's personal website with AI4MBSE plugin documentation",
+  "description": "Kingsepp Consulting's personal website with AI4MBSE plugin documentation",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -10,7 +10,7 @@
     "test:all": "npm run test && npm run test:e2e",
     "test:local-ci": "./scripts/local-cross-browser-tests.sh",
     "test:pre-push": "./scripts/pre-push-tests.sh",
-    "test:docker": "docker-compose -f docker-compose.test.yml up --build --abort-on-container-exit",
+    "test:docker": "docker-compose -f docker/docker-compose.test.yml up --build --abort-on-container-exit",
     "test:docker-direct": "docker run --rm -v $(pwd):/app -w /app mcr.microsoft.com/playwright:v1.40.0-focal bash -c 'npm ci && bundle install && bundle exec jekyll build && npx playwright test --project=chromium'",
     "pretest:cross-browser": "bundle exec jekyll build",
     "lint": "eslint assets/js/**/*.js",
@@ -48,7 +48,7 @@
     "cookie-consent",
     "dsgvo"
   ],
-  "author": "Thomas Schuster <th.kingsepp@gmail.com>",
+  "author": "Kingsepp Consulting <th.kingsepp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
