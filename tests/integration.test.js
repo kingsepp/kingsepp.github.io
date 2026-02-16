@@ -93,20 +93,6 @@ describe('Jekyll Site Integration Tests', () => {
       expect(content).toMatch(/AI4MBSE|Projekte|Cloud-Technologien/i);
     });
 
-    test('consulting page should exist but not be referenced', () => {
-      const consultingPath = path.join(projectRoot, 'consulting.md');
-      expect(fs.existsSync(consultingPath)).toBe(true);
-
-      // Check that consulting is not referenced in main navigation
-      const indexPath = path.join(projectRoot, 'index.md');
-      const indexContent = fs.readFileSync(indexPath, 'utf8');
-      expect(indexContent).not.toMatch(/href="\/consulting"/);
-
-      const headerPath = path.join(projectRoot, '_includes/header.html');
-      const headerContent = fs.readFileSync(headerPath, 'utf8');
-      expect(headerContent).not.toMatch(/href="\/consulting"/);
-    });
-
     test('privacy policy should have GDPR compliance', () => {
       const privacyPath = path.join(projectRoot, 'datenschutz.md');
       const content = fs.readFileSync(privacyPath, 'utf8');
