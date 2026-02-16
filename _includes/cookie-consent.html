@@ -1,7 +1,8 @@
 <style>
+  /* Cookie Banner - SICHTBAR by default (DSGVO-konform) */
   #cookie-notice {
     padding: 2rem;
-    display: none;
+    display: block; /* WICHTIG: Sichtbar by default */
     position: fixed;
     bottom: 0;
     left: 0;
@@ -94,6 +95,17 @@
     transform: translateY(-2px);
   }
 
+  /* Revoke button - VERSTECKT by default */
+  #cookie-revoke {
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
+    z-index: 9999;
+    display: none; /* WICHTIG: Versteckt by default */
+    gap: 0.5rem;
+    align-items: center;
+  }
+
   @media (max-width: 767px) {
     #cookie-notice {
       padding: 1rem;
@@ -115,15 +127,15 @@
   </div>
   <div class="cookie-content">
     <p>
-      Um die Informationen auf dieser Webseite und das Leistungsangebot den Bedürfnissen der Nutzer
-      anpassen zu können, setzen wir Cookies ein. Sie können über die nachstehenden Einstellungen
-      selbst entscheiden, welche Cookies bei der Nutzung der Webseite gesetzt werden sollen.
+      <strong>WICHTIG:</strong> Diese Website verwendet Cookies. Ohne Ihre Einwilligung werden nur
+      technisch notwendige Cookies gesetzt. Google Analytics wird nur mit Ihrer ausdrücklichen
+      Zustimmung aktiviert.
     </p>
     <p>
       <strong>Verwendete Cookies:</strong><br />
       • <strong>Technisch notwendige Cookies:</strong> Speichern Ihre Cookie-Einstellungen (Dauer:
       31 Tage)<br />
-      • <strong>Google Analytics:</strong> Sammelt anonymisierte Nutzungsdaten zur
+      • <strong>Google Analytics (opt-in):</strong> Sammelt anonymisierte Nutzungsdaten zur
       Webseitenoptimierung (Dauer: 26 Monate)
     </p>
   </div>
@@ -138,18 +150,7 @@
   </div>
 </div>
 
-<div
-  id="cookie-revoke"
-  style="
-    position: fixed;
-    bottom: 10px;
-    right: 10px;
-    z-index: 9999;
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  "
->
+<div id="cookie-revoke">
   <div
     style="
       background: rgba(250, 250, 250, 0.95);
@@ -277,6 +278,10 @@
           margin-bottom: 1.5rem;
         "
       >
+        <p>
+          <strong>⚠️ Opt-In erforderlich:</strong> Google Analytics wird nur nach Ihrer
+          ausdrücklichen Zustimmung aktiviert.
+        </p>
         <label style="display: flex; align-items: center; margin-top: 1rem; cursor: pointer">
           <input
             type="checkbox"
@@ -331,6 +336,7 @@
 </div>
 
 <script>
+  // Cookie Helper Functions
   function createCookie(name, value, days) {
     var expires = '';
     if (days) {
@@ -338,7 +344,8 @@
       date.setTime(date.getTime() + days * 24 * 60 * 60 * 1000);
       expires = '; expires=' + date.toUTCString();
     }
-    document.cookie = name + '=' + value + expires + '; path=/';
+    document.cookie = name + '=' + value + expires + '; path=/; SameSite=Strict';
+    console.log('[Cookie] Created:', name, '=', value);
   }
 
   function readCookie(name) {
@@ -354,62 +361,79 @@
 
   function eraseCookie(name) {
     createCookie(name, '', -1);
+    console.log('[Cookie] Erased:', name);
   }
 
+  // DSGVO-konforme Cookie-Consent-Logik
   function checkCookieConsent() {
     const consentCookie = readCookie('cookie-notice-dismissed');
-
     const banner = document.getElementById('cookie-notice');
     const revokeButton = document.getElementById('cookie-revoke');
 
+    console.log('[Cookie] Consent status:', consentCookie || 'NONE');
+
     if (!consentCookie) {
+      // KEIN Cookie = Banner MUSS sichtbar sein (DSGVO-konform)
+      console.log('[Cookie] No consent found - showing banner');
       if (banner) banner.style.display = 'block';
       if (revokeButton) revokeButton.style.display = 'none';
     } else {
+      // Cookie vorhanden = Banner verstecken, Revoke-Button zeigen
+      console.log('[Cookie] Consent found - hiding banner');
       if (banner) banner.style.display = 'none';
-      if (revokeButton) revokeButton.style.display = 'block';
+      if (revokeButton) revokeButton.style.display = 'flex';
     }
   }
 
+  // Event Listeners
   document.addEventListener('DOMContentLoaded', function () {
+    console.log('[Cookie] DOMContentLoaded - initializing');
     checkCookieConsent();
 
+    // AKZEPTIEREN - Google Analytics wird geladen
     document.getElementById('cookie-notice-accept')?.addEventListener('click', function () {
+      console.log('[Cookie] User accepted all cookies');
       createCookie('cookie-notice-dismissed', 'accept', 31);
       document.getElementById('cookie-notice').style.display = 'none';
-      document.getElementById('cookie-revoke').style.display = 'block';
+      document.getElementById('cookie-revoke').style.display = 'flex';
       if (typeof loadCloudflare === 'function') loadCloudflare();
-      location.reload();
+      location.reload(); // Reload to load Analytics
     });
 
+    // NUR NOTWENDIGE - Google Analytics wird NICHT geladen
     document.getElementById('cookie-notice-essential')?.addEventListener('click', function () {
+      console.log('[Cookie] User accepted only essential cookies');
       createCookie('cookie-notice-dismissed', 'essential', 31);
       document.getElementById('cookie-notice').style.display = 'none';
-      document.getElementById('cookie-revoke').style.display = 'block';
+      document.getElementById('cookie-revoke').style.display = 'flex';
       if (typeof loadCloudflare === 'function') loadCloudflare();
     });
 
+    // ABLEHNEN - Google Analytics wird NICHT geladen
     document.getElementById('cookie-notice-reject')?.addEventListener('click', function () {
+      console.log('[Cookie] User rejected all non-essential cookies');
       createCookie('cookie-notice-dismissed', 'reject', 31);
       document.getElementById('cookie-notice').style.display = 'none';
+      document.getElementById('cookie-revoke').style.display = 'flex';
       if (typeof clearAnalyticsCookies === 'function') clearAnalyticsCookies();
     });
 
+    // Consent widerrufen
     document.getElementById('revoke-consent')?.addEventListener('click', function (e) {
       e.preventDefault();
+      console.log('[Cookie] User revoked consent');
       eraseCookie('cookie-notice-dismissed');
       document.getElementById('cookie-notice').style.display = 'block';
       document.getElementById('cookie-revoke').style.display = 'none';
     });
 
-    document.getElementById('cookie-settings-btn')?.addEventListener('click', function () {
-      openSettingsModal();
-    });
-
+    // Modal-Funktionen
+    document.getElementById('cookie-settings-btn')?.addEventListener('click', openSettingsModal);
     document.getElementById('close-settings')?.addEventListener('click', closeSettingsModal);
-
     document.getElementById('save-settings')?.addEventListener('click', saveSettingsFromModal);
-    document.getElementById('accept-all-settings')?.addEventListener('click', acceptAllFromModal);
+    document
+      .getElementById('accept-all-settings')
+      ?.addEventListener('click', acceptAllFromModal);
 
     document.getElementById('cookie-settings-modal')?.addEventListener('click', function (e) {
       if (e.target.id === 'cookie-settings-modal') closeSettingsModal();
@@ -431,22 +455,25 @@
   function saveSettingsFromModal() {
     const analyticsConsent = document.getElementById('analytics-consent').checked;
     const choice = analyticsConsent ? 'accept' : 'essential';
+    console.log('[Cookie] Settings saved:', choice);
     createCookie('cookie-notice-dismissed', choice, 31);
     closeSettingsModal();
     document.getElementById('cookie-notice').style.display = 'none';
-    document.getElementById('cookie-revoke').style.display = 'block';
+    document.getElementById('cookie-revoke').style.display = 'flex';
     if (analyticsConsent) location.reload();
   }
 
   function acceptAllFromModal() {
+    console.log('[Cookie] All cookies accepted from modal');
     createCookie('cookie-notice-dismissed', 'accept', 31);
     closeSettingsModal();
     document.getElementById('cookie-notice').style.display = 'none';
-    document.getElementById('cookie-revoke').style.display = 'block';
+    document.getElementById('cookie-revoke').style.display = 'flex';
     location.reload();
   }
 
   function clearAnalyticsCookies() {
+    console.log('[Cookie] Clearing all Analytics cookies');
     const cookies = document.cookie.split(';');
     cookies.forEach(cookie => {
       const eqPos = cookie.indexOf('=');
@@ -454,6 +481,7 @@
       if (name.startsWith('_ga') || name.startsWith('_gid')) {
         document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/`;
         document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.${window.location.hostname}`;
+        console.log('[Cookie] Cleared:', name);
       }
     });
   }
