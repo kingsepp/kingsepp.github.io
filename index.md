@@ -8,7 +8,7 @@ description: Cloud Developer & Project Manager building cloud-native systems and
 <div class="hero">
   <div class="prompt">kingsepp.dev</div>
   <div class="role">Cloud Developer + Project Manager</div>
-  <div class="description">Building cloud-native systems // Automating workflows // Leading projects</div>
+  <div class="description">Building <span class="highlight">cloud-native</span> systems // <span class="highlight">Automating</span> workflows // <span class="highlight">Leading</span> projects</div>
 </div>
 
 <div class="projects">
