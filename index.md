@@ -41,6 +41,16 @@ description:
   </div>
   
   <div class="project-card">
+    <a href="{{ '/vereins-app' | relative_url }}">
+      <div class="project-title">vereins-app</div>
+      <div class="project-description">
+        Full-Stack Warenwirtschafts- und Benutzerverwaltungssystem für Jugendvereine. 
+        Rollenbasierte Lagerverwaltung mit Next.js 16, React 19 und PostgreSQL.
+      </div>
+    </a>
+  </div>
+  
+  <div class="project-card">
     <a href="{{ '/cloud-migration' | relative_url }}">
       <div class="project-title">cloud-migration</div>
       <div class="project-description">
