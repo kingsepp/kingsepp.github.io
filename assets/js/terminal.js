@@ -2,7 +2,9 @@
 (function () {
   const promptElement = document.querySelector('.hero .prompt');
 
-  if (!promptElement) {return;}
+  if (!promptElement) {
+    return;
+  }
 
   const fullText = 'kingsepp.dev';
   let currentIndex = 0;

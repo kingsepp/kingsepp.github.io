@@ -43,7 +43,9 @@ export default async function globalSetup() {
     let replacedCount = 0;
     for (const filePath of htmlFiles) {
       const replaced = replaceInHtmlFile(filePath, PRODUCTION_SITEKEY, TEST_SITEKEY);
-      if (replaced) {replacedCount++;}
+      if (replaced) {
+        replacedCount++;
+      }
     }
 
     console.log(`✅ Replaced Turnstile sitekeys in ${replacedCount} HTML file(s) under _site`);
