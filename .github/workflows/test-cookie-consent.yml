@@ -144,7 +144,7 @@ jobs:
           done
 
           # Prüfe Impressum
-          if grep -q "Thomas Schuster" impressum.md && grep -q "Schachenmeierstraße" impressum.md; then
+          if grep -q "Kingsepp Consulting" impressum.md && grep -q "info@kingsepp.dev" impressum.md; then
             echo "✅ Impressum vollständig"
           else
             echo "❌ Impressum unvollständig"
