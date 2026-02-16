@@ -1,7 +1,7 @@
 {
   "name": "kingsepp-github-io",
   "version": "1.0.0",
-  "description": "Thomas Schuster's personal website with AI4MBSE plugin documentation",
+  "description": "Kingsepp Consulting's personal website with AI4MBSE plugin documentation",
   "scripts": {
     "test": "jest",
     "test:watch": "jest --watch",
@@ -48,7 +48,7 @@
     "cookie-consent",
     "dsgvo"
   ],
-  "author": "Thomas Schuster <th.kingsepp@gmail.com>",
+  "author": "Kingsepp Consulting <th.kingsepp@gmail.com>",
   "license": "MIT",
   "devDependencies": {
     "@eslint/js": "^9.0.0",
