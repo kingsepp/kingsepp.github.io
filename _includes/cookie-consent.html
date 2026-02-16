@@ -8,7 +8,7 @@
     right: 0;
     background: rgba(250, 250, 250, 0.98);
     backdrop-filter: blur(20px);
-    border-top: 3px solid var(--accent-color, #00BCD4);
+    border-top: 3px solid var(--accent-color, #00bcd4);
     color: #111111;
     z-index: 10000;
     box-shadow: 0 -8px 32px rgba(0, 0, 0, 0.1);
@@ -18,14 +18,14 @@
   }
 
   .cookie-header h3 {
-    color: var(--accent-color, #00BCD4);
+    color: var(--accent-color, #00bcd4);
     margin: 0 0 1rem 0;
     font-size: 1.2rem;
     font-weight: 700;
   }
 
   .cookie-header h3:before {
-    content: "$ ";
+    content: '$ ';
     opacity: 0.7;
   }
 
@@ -66,26 +66,26 @@
 
   #cookie-notice button:before,
   #cookie-notice a.btn-link:before {
-    content: "[ ";
+    content: '[ ';
     opacity: 0.5;
   }
 
   #cookie-notice button:after,
   #cookie-notice a.btn-link:after {
-    content: " ]";
+    content: ' ]';
     opacity: 0.5;
   }
 
   #cookie-notice button:hover,
   #cookie-notice a.btn-link:hover {
     background: #111111;
-    color: #FAFAFA;
+    color: #fafafa;
     transform: translateY(-2px);
   }
 
   #cookie-notice button.btn-approve {
-    background: var(--accent-color, #00BCD4);
-    border-color: var(--accent-color, #00BCD4);
+    background: var(--accent-color, #00bcd4);
+    border-color: var(--accent-color, #00bcd4);
     color: white;
   }
 
@@ -131,7 +131,9 @@
     <button id="cookie-notice-accept" class="btn-approve" type="button">Alle akzeptieren</button>
     <button id="cookie-notice-essential" class="btn-essential" type="button">Nur notwendige</button>
     <button id="cookie-notice-reject" class="btn-reject" type="button">Alle ablehnen</button>
-    <button id="cookie-settings-btn" class="btn-settings" type="button">Cookie-Einstellungen</button>
+    <button id="cookie-settings-btn" class="btn-settings" type="button">
+      Cookie-Einstellungen
+    </button>
     <a href="/datenschutz" class="btn-link">Datenschutzerklärung</a>
   </div>
 </div>
@@ -151,7 +153,7 @@
   <div
     style="
       background: rgba(250, 250, 250, 0.95);
-      border: 1px solid var(--accent-color, #00BCD4);
+      border: 1px solid var(--accent-color, #00bcd4);
       border-radius: 4px;
       padding: 0.5rem 1rem;
       backdrop-filter: blur(10px);
@@ -161,7 +163,7 @@
       href="#"
       id="revoke-consent"
       style="
-        color: var(--accent-color, #00BCD4);
+        color: var(--accent-color, #00bcd4);
         text-decoration: none;
         font-size: 0.8rem;
         font-weight: 700;
@@ -195,8 +197,8 @@
       top: 50%;
       left: 50%;
       transform: translate(-50%, -50%);
-      background: #FAFAFA;
-      border: 3px solid var(--accent-color, #00BCD4);
+      background: #fafafa;
+      border: 3px solid var(--accent-color, #00bcd4);
       border-radius: 0;
       padding: 2rem;
       max-width: 600px;
@@ -214,7 +216,9 @@
         margin-bottom: 1.5rem;
       "
     >
-      <h2 style="color: var(--accent-color, #00BCD4); margin: 0; font-weight: 700;">$ Cookie-Optionen</h2>
+      <h2 style="color: var(--accent-color, #00bcd4); margin: 0; font-weight: 700">
+        $ Cookie-Optionen
+      </h2>
       <button
         id="close-settings"
         aria-label="Schließen"
@@ -222,7 +226,7 @@
         style="
           background: none;
           border: none;
-          color: var(--accent-color, #00BCD4);
+          color: var(--accent-color, #00bcd4);
           font-size: 1.5rem;
           cursor: pointer;
           font-weight: 700;
@@ -233,14 +237,16 @@
     </div>
 
     <div class="cookie-category">
-      <h3 style="color: var(--accent-color, #00BCD4); margin-bottom: 1rem; font-weight: 700;">Technisch notwendige Cookies</h3>
+      <h3 style="color: var(--accent-color, #00bcd4); margin-bottom: 1rem; font-weight: 700">
+        Technisch notwendige Cookies
+      </h3>
       <div
         style="
           background: transparent;
-          border-left: 3px solid var(--accent-color, #00BCD4);
+          border-left: 3px solid var(--accent-color, #00bcd4);
           padding: 1rem;
           margin-bottom: 1.5rem;
-          border: 1px solid #E5E5E5;
+          border: 1px solid #e5e5e5;
         "
       >
         <p><strong>Zweck:</strong> Speicherung Ihrer Cookie-Einstellungen und Einwilligungen</p>
@@ -260,43 +266,66 @@
     </div>
 
     <div class="cookie-category">
-      <h3 style="color: var(--accent-color, #00BCD4); margin-bottom: 1rem; font-weight: 700;">Google Analytics</h3>
+      <h3 style="color: var(--accent-color, #00bcd4); margin-bottom: 1rem; font-weight: 700">
+        Google Analytics
+      </h3>
       <div
         style="
           background: transparent;
-          border: 1px solid #E5E5E5;
+          border: 1px solid #e5e5e5;
           padding: 1rem;
           margin-bottom: 1.5rem;
         "
       >
         <label style="display: flex; align-items: center; margin-top: 1rem; cursor: pointer">
-          <input type="checkbox" id="analytics-consent" style="margin-right: 0.5rem; accent-color: var(--accent-color, #00BCD4);" />
+          <input
+            type="checkbox"
+            id="analytics-consent"
+            style="margin-right: 0.5rem; accent-color: var(--accent-color, #00bcd4)"
+          />
           Google Analytics zulassen
         </label>
       </div>
     </div>
 
-    <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem; flex-wrap: wrap">
-      <button id="save-settings" type="button" aria-label="Einstellungen speichern" style="
-        border: 2px solid #111111;
-        padding: 0.8rem 1.5rem;
-        background: transparent;
-        color: #111111;
-        cursor: pointer;
-        font-weight: 700;
-        transition: all 0.2s;
-        font-family: inherit;
-      ">Einstellungen speichern</button>
-      <button id="accept-all-settings" type="button" class="btn-approve" aria-label="Alle akzeptieren" style="
-        background: var(--accent-color, #00BCD4);
-        border: 2px solid var(--accent-color, #00BCD4);
-        color: white;
-        padding: 0.8rem 1.5rem;
-        cursor: pointer;
-        font-weight: 700;
-        transition: all 0.2s;
-        font-family: inherit;
-      ">Alle akzeptieren</button>
+    <div
+      style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem; flex-wrap: wrap"
+    >
+      <button
+        id="save-settings"
+        type="button"
+        aria-label="Einstellungen speichern"
+        style="
+          border: 2px solid #111111;
+          padding: 0.8rem 1.5rem;
+          background: transparent;
+          color: #111111;
+          cursor: pointer;
+          font-weight: 700;
+          transition: all 0.2s;
+          font-family: inherit;
+        "
+      >
+        Einstellungen speichern
+      </button>
+      <button
+        id="accept-all-settings"
+        type="button"
+        class="btn-approve"
+        aria-label="Alle akzeptieren"
+        style="
+          background: var(--accent-color, #00bcd4);
+          border: 2px solid var(--accent-color, #00bcd4);
+          color: white;
+          padding: 0.8rem 1.5rem;
+          cursor: pointer;
+          font-weight: 700;
+          transition: all 0.2s;
+          font-family: inherit;
+        "
+      >
+        Alle akzeptieren
+      </button>
     </div>
   </div>
 </div>

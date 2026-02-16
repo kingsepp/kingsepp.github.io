@@ -1,8 +1,9 @@
 document.addEventListener('DOMContentLoaded', () => {
   // Check if running locally and auto-bypass Turnstile
-  const isLocalhost = window.location.hostname === 'localhost' || 
-                       window.location.hostname === '127.0.0.1' || 
-                       window.location.hostname === '';
+  const isLocalhost =
+    window.location.hostname === 'localhost' ||
+    window.location.hostname === '127.0.0.1' ||
+    window.location.hostname === '';
 
   // Turnstile callback functions for page-level protection
   window.onMainPageTurnstileSuccess = function (token) {
@@ -136,14 +137,42 @@ document.addEventListener('DOMContentLoaded', () => {
   // Check if user has already been verified in this session
   function checkExistingVerification() {
     const pages = [
-      { content: 'main-content', protection: 'main-turnstile-protection', key: 'main-page-verified' },
-      { content: 'impressum-content', protection: 'impressum-turnstile-protection', key: 'impressum-verified' },
-      { content: 'ai4mbse-content', protection: 'ai4mbse-turnstile-protection', key: 'ai4mbse-verified' },
-      { content: 'datenschutz-content', protection: 'datenschutz-turnstile-protection', key: 'datenschutz-verified' },
-      { content: 'projects-content', protection: 'projects-turnstile-protection', key: 'projects-verified' },
+      {
+        content: 'main-content',
+        protection: 'main-turnstile-protection',
+        key: 'main-page-verified',
+      },
+      {
+        content: 'impressum-content',
+        protection: 'impressum-turnstile-protection',
+        key: 'impressum-verified',
+      },
+      {
+        content: 'ai4mbse-content',
+        protection: 'ai4mbse-turnstile-protection',
+        key: 'ai4mbse-verified',
+      },
+      {
+        content: 'datenschutz-content',
+        protection: 'datenschutz-turnstile-protection',
+        key: 'datenschutz-verified',
+      },
+      {
+        content: 'projects-content',
+        protection: 'projects-turnstile-protection',
+        key: 'projects-verified',
+      },
       { content: 'about-content', protection: 'about-turnstile-protection', key: 'about-verified' },
-      { content: 'cloud-migration-content', protection: 'cloud-migration-turnstile-protection', key: 'cloud-migration-verified' },
-      { content: 'devops-automation-content', protection: 'devops-automation-turnstile-protection', key: 'devops-automation-verified' }
+      {
+        content: 'cloud-migration-content',
+        protection: 'cloud-migration-turnstile-protection',
+        key: 'cloud-migration-verified',
+      },
+      {
+        content: 'devops-automation-content',
+        protection: 'devops-automation-turnstile-protection',
+        key: 'devops-automation-verified',
+      },
     ];
 
     pages.forEach(page => {
@@ -157,7 +186,7 @@ document.addEventListener('DOMContentLoaded', () => {
           protectionDiv.style.display = 'none';
           contentDiv.style.display = 'block';
           sessionStorage.setItem(page.key, 'true');
-        } 
+        }
         // Check session storage
         else if (sessionStorage.getItem(page.key) === 'true') {
           protectionDiv.style.display = 'none';

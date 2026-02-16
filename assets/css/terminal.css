@@ -3,11 +3,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
 
 :root {
-  --bg-white: #FAFAFA;
+  --bg-white: #fafafa;
   --text-black: #111111;
-  --divider-gray: #E5E5E5;
-  --hover-bg: #F5F5F5;
-  --accent-color: #00BCD4;
+  --divider-gray: #e5e5e5;
+  --hover-bg: #f5f5f5;
+  --accent-color: #00bcd4;
   --accent-light: rgba(0, 188, 212, 0.1);
   --accent-hover: rgba(0, 188, 212, 0.2);
 }
@@ -58,7 +58,7 @@ nav a {
 }
 
 nav a:before {
-  content: "/";
+  content: '/';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 2px;
@@ -92,7 +92,7 @@ nav a:focus-visible {
 }
 
 .hero .prompt:before {
-  content: "> ";
+  content: '> ';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 8px;
@@ -106,7 +106,7 @@ nav a:focus-visible {
 }
 
 .hero .role:before {
-  content: "$ ";
+  content: '$ ';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 8px;
@@ -120,7 +120,7 @@ nav a:focus-visible {
 }
 
 .hero .description:before {
-  content: "$ ";
+  content: '$ ';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 8px;
@@ -136,16 +136,16 @@ nav a:focus-visible {
   .hero {
     margin-bottom: 80px;
   }
-  
+
   .hero .prompt {
     font-size: 32px;
     margin-bottom: 24px;
   }
-  
+
   .hero .role {
     font-size: 16px;
   }
-  
+
   .hero .description {
     font-size: 15px;
   }
@@ -167,7 +167,7 @@ nav a:focus-visible {
 }
 
 .projects-header:before {
-  content: "$ ";
+  content: '$ ';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 8px;
@@ -221,7 +221,7 @@ nav a:focus-visible {
 }
 
 .project-title:after {
-  content: "/";
+  content: '/';
   margin-left: 4px;
   opacity: 0.3;
 }
@@ -244,7 +244,7 @@ nav a:focus-visible {
 }
 
 .content-section h2:before {
-  content: "$ ";
+  content: '$ ';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 8px;
@@ -285,12 +285,12 @@ a:focus-visible {
 }
 
 .terminal-link:before {
-  content: "[ ";
+  content: '[ ';
   opacity: 0.5;
 }
 
 .terminal-link:after {
-  content: " ]";
+  content: ' ]';
   opacity: 0.5;
 }
 
@@ -308,7 +308,9 @@ a:focus-visible {
 }
 
 /* Überschriften */
-h1, h2, h3 {
+h1,
+h2,
+h3 {
   font-weight: 700;
   margin-top: 60px;
   margin-bottom: 20px;
@@ -333,7 +335,8 @@ p {
 }
 
 /* Listen */
-ul, ol {
+ul,
+ol {
   margin-bottom: 20px;
   padding-left: 40px;
   max-width: 700px;
@@ -392,7 +395,7 @@ hr {
 }
 
 .features h3:before {
-  content: "$ ";
+  content: '$ ';
   color: var(--accent-color);
   opacity: 0.7;
   margin-right: 8px;

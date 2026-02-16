@@ -2,7 +2,9 @@
 layout: default
 title: Home
 typing_effect: true
-description: Cloud Developer & Project Manager building cloud-native systems and automating workflows
+description:
+  Cloud Developer & Project Manager building cloud-native systems and automating
+  workflows
 ---
 
 <div id="main-turnstile-protection" style="display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; padding: 2rem;">
