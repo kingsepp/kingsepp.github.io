@@ -72,6 +72,9 @@
     document.addEventListener('DOMContentLoaded', loadAnalytics);
   </script>
 
+  <!-- Main JavaScript with Turnstile callbacks -->
+  <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+
   {% if page.typing_effect %}
   <script src="{{ '/assets/js/terminal.js' | relative_url }}"></script>
   {% endif %}
