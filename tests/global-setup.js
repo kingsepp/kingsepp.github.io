@@ -3,7 +3,7 @@
  * Replaces Cloudflare Turnstile sitekeys with test keys for automated testing
  */
 
-import { readFileSync, writeFileSync } from 'fs';
+import { readFileSync, writeFileSync, readdirSync } from 'fs';
 import { join } from 'path';
 
 function replaceInHtmlFile(filePath, productionKey, testKey) {
@@ -17,7 +17,7 @@ function replaceInHtmlFile(filePath, productionKey, testKey) {
 }
 
 function walkHtmlFiles(dir) {
-  const entries = require('fs').readdirSync(dir, { withFileTypes: true });
+  const entries = readdirSync(dir, { withFileTypes: true });
   const files = [];
   for (const entry of entries) {
     const fullPath = join(dir, entry.name);
@@ -33,7 +33,6 @@ function walkHtmlFiles(dir) {
 export default async function globalSetup() {
   console.log('🔧 Setting up Playwright tests - replacing Turnstile sitekeys with test keys');
 
-  // Cloudflare Turnstile test sitekey (always passes)
   const TEST_SITEKEY = '1x00000000000000000000AA';
   const PRODUCTION_SITEKEY = '0x4AAAAAABhCvPtIE3gog0lZ';
 
