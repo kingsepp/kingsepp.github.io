@@ -6,6 +6,7 @@
   --bg-white: #FAFAFA;
   --text-black: #111111;
   --divider-gray: #E5E5E5;
+  --hover-bg: #F5F5F5;
 }
 
 * {
@@ -22,9 +23,9 @@ body {
   background: var(--bg-white);
   color: var(--text-black);
   font-family: 'Anonymous Pro', 'IBM Plex Mono', 'JetBrains Mono', monospace;
-  font-size: 14px;
+  font-size: 15px;
   line-height: 1.8;
-  max-width: 800px;
+  max-width: 900px;
   margin: 0 auto;
   padding: 80px 40px;
   min-height: 100vh;
@@ -33,114 +34,159 @@ body {
 @media (max-width: 768px) {
   body {
     padding: 60px 30px;
-    font-size: 13px;
+    font-size: 14px;
   }
 }
 
 /* Navigation */
 nav {
-  margin-bottom: 80px;
-  font-size: 15px;
+  margin-bottom: 100px;
+  font-size: 16px;
 }
 
 nav a {
   color: var(--text-black);
   text-decoration: none;
-  margin-right: 20px;
+  margin-right: 24px;
   transition: all 0.2s ease;
   cursor: pointer;
-  border-bottom: 1px solid transparent;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
 }
 
 nav a:before {
   content: "/";
+  opacity: 0.4;
+  margin-right: 2px;
 }
 
 nav a:hover {
-  border-bottom: 1px solid var(--text-black);
+  border-bottom: 2px solid var(--text-black);
 }
 
 /* Hero Terminal-Prompt */
 .hero {
-  margin-bottom: 100px;
+  margin-bottom: 120px;
 }
 
 .hero .prompt {
-  font-size: 24px;
-  margin-bottom: 40px;
-  font-weight: 400;
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
 }
 
 .hero .prompt:before {
   content: "> ";
+  opacity: 0.3;
+  margin-right: 8px;
 }
 
-.hero .role,
+.hero .role {
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.hero .role:before {
+  content: "$ ";
+  opacity: 0.3;
+  margin-right: 8px;
+}
+
 .hero .description {
-  font-size: 15px;
+  font-size: 16px;
   margin-bottom: 10px;
-  opacity: 0.9;
+  opacity: 0.8;
+  font-weight: 400;
 }
 
-.hero .role:before,
 .hero .description:before {
   content: "$ ";
+  opacity: 0.3;
+  margin-right: 8px;
 }
 
 @media (max-width: 768px) {
   .hero {
-    margin-bottom: 60px;
+    margin-bottom: 80px;
   }
   
   .hero .prompt {
-    font-size: 20px;
-    margin-bottom: 30px;
+    font-size: 32px;
+    margin-bottom: 24px;
   }
   
-  .hero .role,
+  .hero .role {
+    font-size: 16px;
+  }
+  
   .hero .description {
-    font-size: 14px;
+    font-size: 15px;
   }
 }
 
-/* Projekte */
+/* Projekte Section */
 .projects {
   margin-top: 80px;
+  padding: 40px 0;
 }
 
-.projects h2 {
-  font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 30px;
+.projects-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
 }
 
-.projects h2:before {
-  content: "$ ls projects/";
-  display: block;
+.projects-header:before {
+  content: "$ ";
+  opacity: 0.3;
+  margin-right: 8px;
+}
+
+/* Project Cards */
+.project-card {
+  border: 1px solid var(--divider-gray);
+  padding: 24px;
   margin-bottom: 20px;
-}
-
-.project-item {
-  margin-bottom: 15px;
-  padding-left: 20px;
-}
-
-.project-item a {
-  color: var(--text-black);
-  text-decoration: underline;
-  text-decoration-style: dotted;
-  text-underline-offset: 4px;
-  transition: all 0.2s ease;
+  transition: all 0.3s ease;
   cursor: pointer;
+  background: var(--bg-white);
 }
 
-.project-item a:after {
+.project-card:hover {
+  background: var(--hover-bg);
+  border-color: var(--text-black);
+  transform: translateX(4px);
+}
+
+.project-card a {
+  text-decoration: none;
+  color: var(--text-black);
+  display: block;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+}
+
+.project-title:after {
   content: "/";
+  margin-left: 4px;
+  opacity: 0.3;
 }
 
-.project-item a:hover {
-  text-decoration-style: solid;
-  opacity: 0.7;
+.project-description {
+  font-size: 14px;
+  opacity: 0.8;
+  line-height: 1.6;
 }
 
 /* Content Sections */
@@ -149,27 +195,29 @@ nav a:hover {
 }
 
 .content-section h2 {
-  font-size: 16px;
-  font-weight: 400;
-  margin-bottom: 20px;
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
 }
 
 .content-section h2:before {
-  content: "$ cat ";
+  content: "$ ";
+  opacity: 0.3;
+  margin-right: 8px;
 }
 
 /* Standard Links in Content */
 a {
   color: var(--text-black);
   text-decoration: underline;
-  text-decoration-style: dotted;
+  text-decoration-style: solid;
   text-underline-offset: 3px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 a:hover {
-  text-decoration-style: solid;
+  opacity: 0.6;
 }
 
 /* Links / Buttons */
@@ -177,44 +225,48 @@ a:hover {
   display: inline-block;
   color: var(--text-black);
   text-decoration: none;
-  border: 1px solid var(--text-black);
-  padding: 8px 20px;
+  border: 2px solid var(--text-black);
+  padding: 12px 24px;
   margin-top: 20px;
   margin-right: 10px;
   transition: all 0.2s ease;
   cursor: pointer;
+  font-weight: 700;
 }
 
 .terminal-link:before {
   content: "[ ";
+  opacity: 0.5;
 }
 
 .terminal-link:after {
   content: " ]";
+  opacity: 0.5;
 }
 
 .terminal-link:hover {
   background: var(--text-black);
   color: var(--bg-white);
+  transform: translateY(-2px);
 }
 
 /* Überschriften */
 h1, h2, h3 {
-  font-weight: 400;
+  font-weight: 700;
   margin-top: 60px;
   margin-bottom: 20px;
 }
 
 h1 {
-  font-size: 18px;
+  font-size: 24px;
 }
 
 h2 {
-  font-size: 16px;
+  font-size: 20px;
 }
 
 h3 {
-  font-size: 15px;
+  font-size: 17px;
 }
 
 /* Absätze */
@@ -231,7 +283,8 @@ ul, ol {
 }
 
 li {
-  margin-bottom: 8px;
+  margin-bottom: 10px;
+  line-height: 1.7;
 }
 
 /* Code-Blöcke */
@@ -268,13 +321,16 @@ hr {
 }
 
 .features h3 {
-  font-size: 15px;
-  margin-top: 30px;
-  margin-bottom: 15px;
+  font-size: 17px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  font-weight: 700;
 }
 
 .features h3:before {
   content: "$ ";
+  opacity: 0.3;
+  margin-right: 8px;
 }
 
 /* Footer */
@@ -289,13 +345,11 @@ footer {
 footer a {
   color: var(--text-black);
   text-decoration: underline;
-  text-decoration-style: dotted;
   text-underline-offset: 3px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 footer a:hover {
-  text-decoration-style: solid;
-  opacity: 0.8;
+  opacity: 1;
 }
