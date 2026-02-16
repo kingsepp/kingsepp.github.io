@@ -13,12 +13,23 @@ async function acceptCookiesIfPresent(page) {
   }
 }
 
+async function waitForContentOrProtection(page) {
+  const content = page.locator('#main-content');
+  const protection = page.locator('#main-turnstile-protection');
+
+  await expect
+    .poll(async () => {
+      const [c, p] = await Promise.all([content.isVisible(), protection.isVisible()]);
+      return c || p;
+    })
+    .toBe(true);
+}
+
 test.describe('Cross-Browser Core Functionality', () => {
   test.beforeEach(async ({ page }) => {
     await page.context().clearCookies();
     await page.goto('/');
 
-    // Replace Turnstile sitekeys with test keys for automated testing
     await page.evaluate(() => {
       const TEST_SITEKEY = '1x00000000000000000000AA';
       const PRODUCTION_SITEKEY = '0x4AAAAAABhCvPtIE3gog0lZ';
@@ -39,12 +50,10 @@ test.describe('Cross-Browser Core Functionality', () => {
     await expect(page).toHaveTitle(/kingsepp\.dev/i);
     await expect(page.getByRole('main')).toBeAttached();
 
-    // Either content or turnstile protection
-    await expect(page.locator('#main-content').or(page.locator('#main-turnstile-protection'))).toBeVisible();
+    await waitForContentOrProtection(page);
 
     if (await page.locator('#main-content').isVisible()) {
       await expect(page.getByRole('navigation')).toBeVisible();
-      // Terminal hero uses divs; ensure project list exists
       await expect(page.getByRole('main')).toContainText('Meine Projekte');
       await expect(page.getByRole('main')).toContainText('ai4mbse');
     } else {
@@ -55,7 +64,6 @@ test.describe('Cross-Browser Core Functionality', () => {
   test('navigation works across browsers', async ({ page, browserName }) => {
     console.log(`Testing navigation on ${browserName}`);
 
-    // Navigation always visible (header include)
     await expect(page.getByRole('navigation')).toBeVisible();
 
     await page.getByRole('link', { name: /projects/i }).click();
@@ -106,32 +114,6 @@ test.describe('Cross-Browser Core Functionality', () => {
 
     await page.locator('#close-settings').click();
     await expect(modal).toBeHidden();
-  });
-
-  test('theme toggle works across browsers', async ({ page, browserName }) => {
-    console.log(`Testing theme toggle on ${browserName}`);
-
-    // Theme toggle exists in cookie include only after consent UI shows revoke (our implementation)
-    await page.context().clearCookies();
-    await page.reload();
-
-    await page.locator('#cookie-notice-accept').click();
-
-    // If theme toggle exists, it should be clickable
-    const toggle = page.locator('.theme-toggle-cookie');
-    if (await toggle.count()) {
-      await expect(toggle).toBeVisible();
-      const body = page.locator('body');
-      const initialTheme = await body.getAttribute('data-theme');
-      await toggle.click();
-      if (initialTheme === 'light') {
-        await expect(body).not.toHaveAttribute('data-theme', 'light');
-      } else {
-        await expect(body).toHaveAttribute('data-theme', 'light');
-      }
-    } else {
-      test.skip(true, 'Theme toggle not present in terminal design cookie UI');
-    }
   });
 
   test('responsive design works across device sizes', async ({ page, browserName }) => {

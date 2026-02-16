@@ -5,6 +5,19 @@
 
 import { test, expect } from '@playwright/test';
 
+async function waitForContentOrProtection(page) {
+  // Avoid locator.or() strict mode: assert at least one of them is visible.
+  const content = page.locator('#main-content');
+  const protection = page.locator('#main-turnstile-protection');
+
+  await expect
+    .poll(async () => {
+      const [c, p] = await Promise.all([content.isVisible(), protection.isVisible()]);
+      return c || p;
+    })
+    .toBe(true);
+}
+
 test.describe('Browser Compatibility Tests', () => {
   test.beforeEach(async ({ page }) => {
     await page.context().clearCookies();
@@ -28,8 +41,7 @@ test.describe('Browser Compatibility Tests', () => {
     await page.locator('#cookie-notice-accept').click();
     await expect(page.locator('#cookie-notice')).toBeHidden();
 
-    // Either content or turnstile protection
-    await expect(page.locator('#main-content').or(page.locator('#main-turnstile-protection'))).toBeVisible();
+    await waitForContentOrProtection(page);
   });
 
   test('CSS Custom Properties (Variables) support', async ({ page, browserName }) => {
@@ -45,7 +57,6 @@ test.describe('Browser Compatibility Tests', () => {
   test('Local Storage functionality', async ({ page, browserName }) => {
     console.log(`Testing localStorage on ${browserName}`);
 
-    // Theme is stored by terminal theme toggle; if not present, just validate localStorage works.
     await page.evaluate(() => localStorage.setItem('playwright-test', 'ok'));
     const value = await page.evaluate(() => localStorage.getItem('playwright-test'));
     expect(value).toBe('ok');
