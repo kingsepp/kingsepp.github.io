@@ -16,11 +16,7 @@
   {% seo %}
 </head>
 <body>
-  <nav>
-    <a href="{{ '/' | relative_url }}">home</a>
-    <a href="{{ '/projects' | relative_url }}">projects</a>
-    <a href="{{ '/about' | relative_url }}">about</a>
-  </nav>
+  {% include header.html %}
 
   <main>
     {{ content }}
