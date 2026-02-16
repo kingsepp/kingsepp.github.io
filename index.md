@@ -7,13 +7,40 @@ description: Cloud Developer & Project Manager building cloud-native systems and
 
 <div class="hero">
   <div class="prompt">kingsepp.dev</div>
-  <div class="role">role: cloud-developer + project-manager</div>
-  <div class="description">description: building cloud-native systems // automating workflows // leading projects</div>
+  <div class="role">Cloud Developer + Project Manager</div>
+  <div class="description">Building cloud-native systems // Automating workflows // Leading projects</div>
 </div>
 
 <div class="projects">
-  <h2></h2>
-  <div class="project-item">- <a href="{{ '/ai4mbse' | relative_url }}">ai4mbse</a></div>
-  <div class="project-item">- <a href="{{ '/cloud-migration' | relative_url }}">cloud-migration</a></div>
-  <div class="project-item">- <a href="{{ '/devops-automation' | relative_url }}">devops-automation</a></div>
+  <h2 class="projects-header">Meine Projekte</h2>
+  
+  <div class="project-card">
+    <a href="{{ '/ai4mbse' | relative_url }}">
+      <div class="project-title">ai4mbse</div>
+      <div class="project-description">
+        KI-gestütztes Plugin für Model-Based Systems Engineering. 
+        Automatische Zuordnung von Systemanforderungen zu Subsystemen via Google Gemini AI.
+      </div>
+    </a>
+  </div>
+  
+  <div class="project-card">
+    <a href="{{ '/cloud-migration' | relative_url }}">
+      <div class="project-title">cloud-migration</div>
+      <div class="project-description">
+        Strategien und Best Practices für die Migration von Legacy-Systemen 
+        zu modernen Cloud-Native Architekturen mit Kubernetes und Terraform.
+      </div>
+    </a>
+  </div>
+  
+  <div class="project-card">
+    <a href="{{ '/devops-automation' | relative_url }}">
+      <div class="project-title">devops-automation</div>
+      <div class="project-description">
+        CI/CD Pipelines, Infrastructure as Code und GitOps Workflows 
+        für schnellere Deployments und höhere Code-Qualität.
+      </div>
+    </a>
+  </div>
 </div>
