@@ -4,6 +4,20 @@ title: AI4MBSE
 description: KI-gestütztes Plugin für Model-Based Systems Engineering
 ---
 
+<div id="ai4mbse-turnstile-protection" style="display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; padding: 2rem;">
+  <h2 style="color: var(--accent-color, #00BCD4); margin-bottom: 2rem; font-family: 'Anonymous Pro', monospace; font-weight: 700;">$ Verifizierung erforderlich</h2>
+  <p style="color: #111111; margin-bottom: 2rem; font-family: 'Anonymous Pro', monospace;">Bestätigen Sie, dass Sie ein Mensch sind, um auf die AI4MBSE-Dokumentation zuzugreifen.</p>
+  <div class="cf-turnstile" 
+       data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ" 
+       data-callback="onAI4MBSETurnstileSuccess" 
+       data-error-callback="onAI4MBSETurnstileError"
+       data-theme="light"
+       data-size="normal">
+  </div>
+</div>
+
+<div id="ai4mbse-content" style="display: none;">
+
 <div class="content-section">
   <h2>README</h2>
 
@@ -64,4 +78,6 @@ description: KI-gestütztes Plugin für Model-Based Systems Engineering
     $ echo "Disclaimer: Dieses Projekt dient ausschließlich privaten, nicht-kommerziellen Informationszwecken. 
     Es werden keine Dienstleistungen oder Produkte angeboten."
   </p>
+</div>
+
 </div>
