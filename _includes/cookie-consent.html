@@ -47,7 +47,8 @@
     justify-content: center;
   }
 
-  #cookie-notice a {
+  #cookie-notice button,
+  #cookie-notice a.btn-link {
     display: inline-block;
     cursor: pointer;
     padding: 0.8rem 1.5rem;
@@ -60,38 +61,37 @@
     border: 2px solid #111111;
     background: transparent;
     color: #111111;
+    font-family: inherit;
   }
 
-  #cookie-notice a:before {
+  #cookie-notice button:before,
+  #cookie-notice a.btn-link:before {
     content: "[ ";
     opacity: 0.5;
   }
 
-  #cookie-notice a:after {
+  #cookie-notice button:after,
+  #cookie-notice a.btn-link:after {
     content: " ]";
     opacity: 0.5;
   }
 
-  .btn-approve {
-    background: var(--accent-color, #00BCD4) !important;
-    border-color: var(--accent-color, #00BCD4) !important;
-    color: white !important;
-  }
-
-  .btn-approve:hover {
-    opacity: 0.8;
-    transform: translateY(-2px);
-  }
-
-  #cookie-notice a:hover {
+  #cookie-notice button:hover,
+  #cookie-notice a.btn-link:hover {
     background: #111111;
     color: #FAFAFA;
     transform: translateY(-2px);
   }
 
-  .btn-approve:hover {
-    background: var(--accent-color, #00BCD4) !important;
-    color: white !important;
+  #cookie-notice button.btn-approve {
+    background: var(--accent-color, #00BCD4);
+    border-color: var(--accent-color, #00BCD4);
+    color: white;
+  }
+
+  #cookie-notice button.btn-approve:hover {
+    opacity: 0.85;
+    transform: translateY(-2px);
   }
 
   @media (max-width: 767px) {
@@ -102,15 +102,16 @@
     .cookie-buttons {
       flex-direction: column;
     }
-    #cookie-notice a {
+    #cookie-notice button,
+    #cookie-notice a.btn-link {
       width: 100%;
     }
   }
 </style>
 
-<div id="cookie-notice">
+<div id="cookie-notice" role="dialog" aria-label="Cookie-Einstellungen" aria-modal="false">
   <div class="cookie-header">
-    <h3>Cookie-Einstellungen</h3>
+    <h3 id="cookie-banner-title">Cookie-Einstellungen</h3>
   </div>
   <div class="cookie-content">
     <p>
@@ -127,15 +128,14 @@
     </p>
   </div>
   <div class="cookie-buttons">
-    <a id="cookie-notice-accept" class="btn-approve">Alle akzeptieren</a>
-    <a id="cookie-notice-essential" class="btn-essential">Nur notwendige</a>
-    <a id="cookie-notice-reject" class="btn-reject">Alle ablehnen</a>
-    <a id="cookie-settings-btn" class="btn-settings">Cookie-Einstellungen</a>
-    <a href="/datenschutz" class="btn-info">Datenschutzerklärung</a>
+    <button id="cookie-notice-accept" class="btn-approve" type="button">Alle akzeptieren</button>
+    <button id="cookie-notice-essential" class="btn-essential" type="button">Nur notwendige</button>
+    <button id="cookie-notice-reject" class="btn-reject" type="button">Alle ablehnen</button>
+    <button id="cookie-settings-btn" class="btn-settings" type="button">Cookie-Einstellungen</button>
+    <a href="/datenschutz" class="btn-link">Datenschutzerklärung</a>
   </div>
 </div>
 
-<!-- Widerrufs-Button (immer sichtbar am unteren Rand) -->
 <div
   id="cookie-revoke"
   style="
@@ -148,7 +148,6 @@
     align-items: center;
   "
 >
-  <!-- Cookie Settings Button -->
   <div
     style="
       background: rgba(250, 250, 250, 0.95);
@@ -162,9 +161,9 @@
       href="#"
       id="revoke-consent"
       style="
-        color: var(--accent-color, #00BCD4); 
-        text-decoration: none; 
-        font-size: 0.8rem; 
+        color: var(--accent-color, #00BCD4);
+        text-decoration: none;
+        font-size: 0.8rem;
         font-weight: 700;
         font-family: 'Anonymous Pro', monospace;
       "
@@ -173,9 +172,10 @@
   </div>
 </div>
 
-<!-- Detaillierte Cookie-Einstellungen Modal -->
 <div
   id="cookie-settings-modal"
+  aria-label="Cookie-Einstellungen Modal"
+  role="dialog"
   style="
     display: none;
     position: fixed;
@@ -214,14 +214,16 @@
         margin-bottom: 1.5rem;
       "
     >
-      <h2 style="color: var(--accent-color, #00BCD4); margin: 0; font-weight: 700;">$ Cookie-Einstellungen</h2>
+      <h2 style="color: var(--accent-color, #00BCD4); margin: 0; font-weight: 700;">$ Cookie-Optionen</h2>
       <button
         id="close-settings"
+        aria-label="Schließen"
+        type="button"
         style="
-          background: none; 
-          border: none; 
-          color: var(--accent-color, #00BCD4); 
-          font-size: 1.5rem; 
+          background: none;
+          border: none;
+          color: var(--accent-color, #00BCD4);
+          font-size: 1.5rem;
           cursor: pointer;
           font-weight: 700;
         "
@@ -242,12 +244,6 @@
         "
       >
         <p><strong>Zweck:</strong> Speicherung Ihrer Cookie-Einstellungen und Einwilligungen</p>
-        <p><strong>Dauer:</strong> 31 Tage</p>
-        <p><strong>Anbieter:</strong> Diese Website (Erstanbieter)</p>
-        <p><strong>Daten:</strong> Cookie-Einwilligung, Zeitstempel, Browser-Information</p>
-        <p style="margin-bottom: 0">
-          <strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)
-        </p>
         <label
           style="
             display: flex;
@@ -273,17 +269,6 @@
           margin-bottom: 1.5rem;
         "
       >
-        <p><strong>Zweck:</strong> Analyse des Nutzerverhaltens zur Webseitenoptimierung</p>
-        <p><strong>Dauer:</strong> 26 Monate (_ga), 24 Stunden (_gid)</p>
-        <p><strong>Anbieter:</strong> Google LLC, USA</p>
-        <p>
-          <strong>Daten:</strong> Anonymisierte IP-Adresse, Browser-Typ, Besuchszeiten, besuchte
-          Seiten
-        </p>
-        <p><strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)</p>
-        <p style="margin-bottom: 0">
-          <strong>Datenschutz:</strong> IP-Anonymisierung aktiviert, keine Personalisierung
-        </p>
         <label style="display: flex; align-items: center; margin-top: 1rem; cursor: pointer">
           <input type="checkbox" id="analytics-consent" style="margin-right: 0.5rem; accent-color: var(--accent-color, #00BCD4);" />
           Google Analytics zulassen
@@ -291,28 +276,27 @@
       </div>
     </div>
 
-    <div
-      style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem; flex-wrap: wrap"
-    >
-      <a id="save-settings" style="
+    <div style="display: flex; gap: 1rem; justify-content: flex-end; margin-top: 2rem; flex-wrap: wrap">
+      <button id="save-settings" type="button" aria-label="Einstellungen speichern" style="
         border: 2px solid #111111;
         padding: 0.8rem 1.5rem;
-        text-decoration: none;
+        background: transparent;
         color: #111111;
         cursor: pointer;
         font-weight: 700;
         transition: all 0.2s;
-      ">[ Einstellungen speichern ]</a>
-      <a id="accept-all-settings" class="btn-approve" style="
+        font-family: inherit;
+      ">Einstellungen speichern</button>
+      <button id="accept-all-settings" type="button" class="btn-approve" aria-label="Alle akzeptieren" style="
         background: var(--accent-color, #00BCD4);
         border: 2px solid var(--accent-color, #00BCD4);
         color: white;
         padding: 0.8rem 1.5rem;
-        text-decoration: none;
         cursor: pointer;
         font-weight: 700;
         transition: all 0.2s;
-      ">[ Alle akzeptieren ]</a>
+        font-family: inherit;
+      ">Alle akzeptieren</button>
     </div>
   </div>
 </div>
@@ -326,18 +310,6 @@
       expires = '; expires=' + date.toUTCString();
     }
     document.cookie = name + '=' + value + expires + '; path=/';
-  }
-
-  function logConsent(choice) {
-    const consentRecord = {
-      choice: choice,
-      timestamp: new Date().toISOString(),
-      userAgent: navigator.userAgent,
-      ipHash: 'client-side',
-      version: '1.0',
-    };
-    localStorage.setItem('dsgvo-consent-record', JSON.stringify(consentRecord));
-    console.log('DSGVO Zustimmung dokumentiert:', consentRecord);
   }
 
   function readCookie(name) {
@@ -357,110 +329,61 @@
 
   function checkCookieConsent() {
     const consentCookie = readCookie('cookie-notice-dismissed');
-    console.log('Cookie consent status:', consentCookie);
 
     const banner = document.getElementById('cookie-notice');
     const revokeButton = document.getElementById('cookie-revoke');
 
-    if (
-      !consentCookie ||
-      (consentCookie !== 'accept' && consentCookie !== 'essential' && consentCookie !== 'reject')
-    ) {
-      console.log('No consent - showing banner');
-      if (banner) {
-        banner.style.display = 'block';
-        console.log('Cookie banner displayed');
-      }
-      if (revokeButton) {
-        revokeButton.style.display = 'none';
-      }
+    if (!consentCookie) {
+      if (banner) banner.style.display = 'block';
+      if (revokeButton) revokeButton.style.display = 'none';
     } else {
-      console.log('Consent already given:', consentCookie);
-      if (banner) {
-        banner.style.display = 'none';
-      }
-      if (revokeButton) {
-        revokeButton.style.display = 'block';
-      }
-
-      if (consentCookie === 'accept' || consentCookie === 'essential') {
-        loadCloudflare();
-      } else if (consentCookie === 'reject') {
-        blockWebsite();
-      }
+      if (banner) banner.style.display = 'none';
+      if (revokeButton) revokeButton.style.display = 'block';
     }
   }
 
   document.addEventListener('DOMContentLoaded', function () {
     checkCookieConsent();
 
-    const acceptButton = document.getElementById('cookie-notice-accept');
-    const essentialButton = document.getElementById('cookie-notice-essential');
-    const rejectButton = document.getElementById('cookie-notice-reject');
-    const settingsButton = document.getElementById('cookie-settings-btn');
+    document.getElementById('cookie-notice-accept')?.addEventListener('click', function () {
+      createCookie('cookie-notice-dismissed', 'accept', 31);
+      document.getElementById('cookie-notice').style.display = 'none';
+      document.getElementById('cookie-revoke').style.display = 'block';
+      if (typeof loadCloudflare === 'function') loadCloudflare();
+      location.reload();
+    });
 
-    if (acceptButton) {
-      acceptButton.addEventListener('click', function () {
-        console.log('Accept all cookies button clicked');
-        createCookie('cookie-notice-dismissed', 'accept', 31);
-        logConsent('accept');
-        document.getElementById('cookie-notice').style.display = 'none';
-        document.getElementById('cookie-revoke').style.display = 'block';
-        loadCloudflare();
-        location.reload();
-      });
-    }
+    document.getElementById('cookie-notice-essential')?.addEventListener('click', function () {
+      createCookie('cookie-notice-dismissed', 'essential', 31);
+      document.getElementById('cookie-notice').style.display = 'none';
+      document.getElementById('cookie-revoke').style.display = 'block';
+      if (typeof loadCloudflare === 'function') loadCloudflare();
+    });
 
-    if (essentialButton) {
-      essentialButton.addEventListener('click', function () {
-        console.log('Essential only cookies button clicked');
-        createCookie('cookie-notice-dismissed', 'essential', 31);
-        logConsent('essential');
-        document.getElementById('cookie-notice').style.display = 'none';
-        document.getElementById('cookie-revoke').style.display = 'block';
-        loadCloudflare();
-      });
-    }
+    document.getElementById('cookie-notice-reject')?.addEventListener('click', function () {
+      createCookie('cookie-notice-dismissed', 'reject', 31);
+      document.getElementById('cookie-notice').style.display = 'none';
+      if (typeof clearAnalyticsCookies === 'function') clearAnalyticsCookies();
+    });
 
-    if (rejectButton) {
-      rejectButton.addEventListener('click', function () {
-        console.log('Reject all cookies button clicked');
-        createCookie('cookie-notice-dismissed', 'reject', 31);
-        logConsent('reject');
-        document.getElementById('cookie-notice').style.display = 'none';
-        clearAnalyticsCookies();
-        blockWebsite();
-      });
-    }
+    document.getElementById('revoke-consent')?.addEventListener('click', function (e) {
+      e.preventDefault();
+      eraseCookie('cookie-notice-dismissed');
+      document.getElementById('cookie-notice').style.display = 'block';
+      document.getElementById('cookie-revoke').style.display = 'none';
+    });
 
-    const revokeButton = document.getElementById('revoke-consent');
-    if (revokeButton) {
-      revokeButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        console.log('Cookie consent revoked by user');
-        eraseCookie('cookie-notice-dismissed');
-        localStorage.removeItem('dsgvo-consent-record');
-        clearAnalyticsCookies();
-        document.getElementById('cookie-notice').style.display = 'block';
-        document.getElementById('cookie-revoke').style.display = 'none';
-      });
-    }
-
-    if (settingsButton) {
-      settingsButton.addEventListener('click', function (e) {
-        e.preventDefault();
-        openSettingsModal();
-      });
-    }
+    document.getElementById('cookie-settings-btn')?.addEventListener('click', function () {
+      openSettingsModal();
+    });
 
     document.getElementById('close-settings')?.addEventListener('click', closeSettingsModal);
+
     document.getElementById('save-settings')?.addEventListener('click', saveSettingsFromModal);
     document.getElementById('accept-all-settings')?.addEventListener('click', acceptAllFromModal);
 
     document.getElementById('cookie-settings-modal')?.addEventListener('click', function (e) {
-      if (e.target.id === 'cookie-settings-modal') {
-        closeSettingsModal();
-      }
+      if (e.target.id === 'cookie-settings-modal') closeSettingsModal();
     });
   });
 
@@ -468,9 +391,7 @@
     const modal = document.getElementById('cookie-settings-modal');
     const currentChoice = readCookie('cookie-notice-dismissed');
     const analyticsCheckbox = document.getElementById('analytics-consent');
-    if (analyticsCheckbox) {
-      analyticsCheckbox.checked = currentChoice === 'accept';
-    }
+    if (analyticsCheckbox) analyticsCheckbox.checked = currentChoice === 'accept';
     modal.style.display = 'block';
   }
 
@@ -482,21 +403,14 @@
     const analyticsConsent = document.getElementById('analytics-consent').checked;
     const choice = analyticsConsent ? 'accept' : 'essential';
     createCookie('cookie-notice-dismissed', choice, 31);
-    logConsent(choice);
-    if (!analyticsConsent) {
-      clearAnalyticsCookies();
-    }
     closeSettingsModal();
     document.getElementById('cookie-notice').style.display = 'none';
     document.getElementById('cookie-revoke').style.display = 'block';
-    if (analyticsConsent) {
-      location.reload();
-    }
+    if (analyticsConsent) location.reload();
   }
 
   function acceptAllFromModal() {
     createCookie('cookie-notice-dismissed', 'accept', 31);
-    logConsent('accept');
     closeSettingsModal();
     document.getElementById('cookie-notice').style.display = 'none';
     document.getElementById('cookie-revoke').style.display = 'block';
@@ -513,100 +427,5 @@
         document.cookie = `${name}=;expires=Thu, 01 Jan 1970 00:00:00 GMT;path=/;domain=.${window.location.hostname}`;
       }
     });
-  }
-
-  let turnstileLoaded = false;
-
-  function loadCloudflare() {
-    if (turnstileLoaded) return;
-    const script = document.createElement('script');
-    script.src = 'https://challenges.cloudflare.com/turnstile/v0/api.js';
-    script.defer = true;
-    script.onload = function () {
-      console.log('🛡️ Cloudflare Turnstile loaded');
-      initializeTurnstileWidgets();
-    };
-    document.head.appendChild(script);
-    turnstileLoaded = true;
-  }
-
-  function initializeTurnstileWidgets() {
-    const protectionDivs = document.querySelectorAll('[id$="-turnstile-protection"]');
-    protectionDivs.forEach(div => {
-      if (div) {
-        div.style.display = 'flex';
-        console.log('Showing Turnstile protection:', div.id);
-      }
-    });
-    const contentDivs = document.querySelectorAll('[id$="-content"]');
-    contentDivs.forEach(div => {
-      if (div) {
-        div.style.display = 'none';
-        console.log('Hiding content until verification:', div.id);
-      }
-    });
-  }
-
-  function blockWebsite() {
-    const contentDivs = document.querySelectorAll('[id$="-content"]');
-    contentDivs.forEach(div => {
-      if (div) div.style.display = 'none';
-    });
-
-    const blockingDiv = document.createElement('div');
-    blockingDiv.id = 'website-blocked';
-    blockingDiv.style.cssText = `
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: rgba(250, 250, 250, 0.98);
-      backdrop-filter: blur(10px);
-      z-index: 20000;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      text-align: center;
-      color: #111111;
-      padding: 2rem;
-      font-family: 'Anonymous Pro', monospace;
-    `;
-    blockingDiv.innerHTML = `
-      <div style="max-width: 500px; border: 3px solid var(--accent-color, #00BCD4); padding: 2rem;">
-        <h2 style="color: var(--accent-color, #00BCD4); margin-bottom: 1.5rem; font-weight: 700;">$ Technische Cookies erforderlich</h2>
-        <p style="margin-bottom: 2rem; line-height: 1.6;">
-          Diese Website benötigt technisch notwendige Cookies für den Bot-Schutz durch Cloudflare Turnstile. 
-          Ohne diese Cookies kann die Website nicht sicher bereitgestellt werden.
-        </p>
-        <p style="margin-bottom: 2rem;">
-          Bitte akzeptieren Sie die notwendigen Cookies, um fortzufahren.
-        </p>
-        <button onclick="showCookieSettings()" style="
-          background: var(--accent-color, #00BCD4);
-          color: white;
-          border: 2px solid var(--accent-color, #00BCD4);
-          padding: 1rem 2rem;
-          font-weight: 700;
-          cursor: pointer;
-          font-size: 1rem;
-          font-family: 'Anonymous Pro', monospace;
-        ">[ Cookie-Einstellungen anzeigen ]</button>
-      </div>
-    `;
-
-    if (!document.getElementById('website-blocked')) {
-      document.body.appendChild(blockingDiv);
-    }
-  }
-
-  function showCookieSettings() {
-    const blockingDiv = document.getElementById('website-blocked');
-    if (blockingDiv) blockingDiv.remove();
-    const banner = document.getElementById('cookie-notice');
-    if (banner) banner.style.display = 'block';
-    const revokeButton = document.getElementById('cookie-revoke');
-    if (revokeButton) revokeButton.style.display = 'none';
   }
 </script>
