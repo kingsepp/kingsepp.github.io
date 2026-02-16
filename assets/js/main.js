@@ -1,177 +1,89 @@
 document.addEventListener('DOMContentLoaded', () => {
-  // Check if running locally and auto-bypass Turnstile
+  // Check if running locally
   const isLocalhost =
     window.location.hostname === 'localhost' ||
     window.location.hostname === '127.0.0.1' ||
     window.location.hostname === '';
 
-  // Turnstile callback functions for page-level protection
+  // Turnstile callback functions
   window.onMainPageTurnstileSuccess = function (token) {
-    console.log('Main Page Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('main-turnstile-protection');
-    const contentDiv = document.getElementById('main-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('main-page-verified', 'true');
-    }
-  };
-
-  window.onMainPageTurnstileError = function (error) {
-    console.error('Main Page Turnstile verification failed:', error);
+    console.log('Main Page Turnstile verification successful');
+    unlockContent('main-turnstile-protection', 'main-content');
   };
 
   window.onImpressumTurnstileSuccess = function (token) {
-    console.log('Impressum Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('impressum-turnstile-protection');
-    const contentDiv = document.getElementById('impressum-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('impressum-verified', 'true');
-    }
-  };
-
-  window.onImpressumTurnstileError = function (error) {
-    console.error('Impressum Turnstile verification failed:', error);
+    console.log('Impressum Turnstile verification successful');
+    unlockContent('impressum-turnstile-protection', 'impressum-content');
   };
 
   window.onAI4MBSETurnstileSuccess = function (token) {
-    console.log('AI4MBSE Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('ai4mbse-turnstile-protection');
-    const contentDiv = document.getElementById('ai4mbse-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('ai4mbse-verified', 'true');
-    }
-  };
-
-  window.onAI4MBSETurnstileError = function (error) {
-    console.error('AI4MBSE Turnstile verification failed:', error);
+    console.log('AI4MBSE Turnstile verification successful');
+    unlockContent('ai4mbse-turnstile-protection', 'ai4mbse-content');
   };
 
   window.onDatenschutzTurnstileSuccess = function (token) {
-    console.log('Datenschutz Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('datenschutz-turnstile-protection');
-    const contentDiv = document.getElementById('datenschutz-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('datenschutz-verified', 'true');
-    }
-  };
-
-  window.onDatenschutzTurnstileError = function (error) {
-    console.error('Datenschutz Turnstile verification failed:', error);
+    console.log('Datenschutz Turnstile verification successful');
+    unlockContent('datenschutz-turnstile-protection', 'datenschutz-content');
   };
 
   window.onProjectsTurnstileSuccess = function (token) {
-    console.log('Projects Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('projects-turnstile-protection');
-    const contentDiv = document.getElementById('projects-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('projects-verified', 'true');
-    }
-  };
-
-  window.onProjectsTurnstileError = function (error) {
-    console.error('Projects Turnstile verification failed:', error);
+    console.log('Projects Turnstile verification successful');
+    unlockContent('projects-turnstile-protection', 'projects-content');
   };
 
   window.onAboutTurnstileSuccess = function (token) {
-    console.log('About Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('about-turnstile-protection');
-    const contentDiv = document.getElementById('about-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('about-verified', 'true');
-    }
-  };
-
-  window.onAboutTurnstileError = function (error) {
-    console.error('About Turnstile verification failed:', error);
+    console.log('About Turnstile verification successful');
+    unlockContent('about-turnstile-protection', 'about-content');
   };
 
   window.onCloudMigrationTurnstileSuccess = function (token) {
-    console.log('Cloud Migration Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('cloud-migration-turnstile-protection');
-    const contentDiv = document.getElementById('cloud-migration-content');
-
-    if (protectionDiv && contentDiv) {
-      protectionDiv.style.display = 'none';
-      contentDiv.style.display = 'block';
-      sessionStorage.setItem('cloud-migration-verified', 'true');
-    }
-  };
-
-  window.onCloudMigrationTurnstileError = function (error) {
-    console.error('Cloud Migration Turnstile verification failed:', error);
+    console.log('Cloud Migration Turnstile verification successful');
+    unlockContent('cloud-migration-turnstile-protection', 'cloud-migration-content');
   };
 
   window.onDevOpsAutomationTurnstileSuccess = function (token) {
-    console.log('DevOps Automation Turnstile verification successful:', token);
-    const protectionDiv = document.getElementById('devops-automation-turnstile-protection');
-    const contentDiv = document.getElementById('devops-automation-content');
+    console.log('DevOps Automation Turnstile verification successful');
+    unlockContent('devops-automation-turnstile-protection', 'devops-automation-content');
+  };
 
+  // Helper to unlock content
+  function unlockContent(protectionId, contentId) {
+    const protectionDiv = document.getElementById(protectionId);
+    const contentDiv = document.getElementById(contentId);
     if (protectionDiv && contentDiv) {
       protectionDiv.style.display = 'none';
       contentDiv.style.display = 'block';
-      sessionStorage.setItem('devops-automation-verified', 'true');
+      // Strict Mode: We do NOT save to sessionStorage anymore!
+      // Every reload requires re-verification.
     }
-  };
+  }
 
-  window.onDevOpsAutomationTurnstileError = function (error) {
-    console.error('DevOps Automation Turnstile verification failed:', error);
-  };
+  // Error handlers
+  window.onMainPageTurnstileError = e => console.error('Turnstile Error:', e);
+  window.onImpressumTurnstileError = e => console.error('Turnstile Error:', e);
+  window.onAI4MBSETurnstileError = e => console.error('Turnstile Error:', e);
+  window.onDatenschutzTurnstileError = e => console.error('Turnstile Error:', e);
+  window.onProjectsTurnstileError = e => console.error('Turnstile Error:', e);
+  window.onAboutTurnstileError = e => console.error('Turnstile Error:', e);
+  window.onCloudMigrationTurnstileError = e => console.error('Turnstile Error:', e);
+  window.onDevOpsAutomationTurnstileError = e => console.error('Turnstile Error:', e);
 
-  // Check if user has already been verified in this session
-  function checkExistingVerification() {
+  // Initial Check
+  function initProtection() {
     const pages = [
-      {
-        content: 'main-content',
-        protection: 'main-turnstile-protection',
-        key: 'main-page-verified',
-      },
-      {
-        content: 'impressum-content',
-        protection: 'impressum-turnstile-protection',
-        key: 'impressum-verified',
-      },
-      {
-        content: 'ai4mbse-content',
-        protection: 'ai4mbse-turnstile-protection',
-        key: 'ai4mbse-verified',
-      },
-      {
-        content: 'datenschutz-content',
-        protection: 'datenschutz-turnstile-protection',
-        key: 'datenschutz-verified',
-      },
-      {
-        content: 'projects-content',
-        protection: 'projects-turnstile-protection',
-        key: 'projects-verified',
-      },
-      { content: 'about-content', protection: 'about-turnstile-protection', key: 'about-verified' },
+      { content: 'main-content', protection: 'main-turnstile-protection' },
+      { content: 'impressum-content', protection: 'impressum-turnstile-protection' },
+      { content: 'ai4mbse-content', protection: 'ai4mbse-turnstile-protection' },
+      { content: 'datenschutz-content', protection: 'datenschutz-turnstile-protection' },
+      { content: 'projects-content', protection: 'projects-turnstile-protection' },
+      { content: 'about-content', protection: 'about-turnstile-protection' },
       {
         content: 'cloud-migration-content',
         protection: 'cloud-migration-turnstile-protection',
-        key: 'cloud-migration-verified',
       },
       {
         content: 'devops-automation-content',
         protection: 'devops-automation-turnstile-protection',
-        key: 'devops-automation-verified',
       },
     ];
 
@@ -180,27 +92,27 @@ document.addEventListener('DOMContentLoaded', () => {
       const protectionDiv = document.getElementById(page.protection);
 
       if (contentDiv && protectionDiv) {
-        // Auto-bypass on localhost
+        // ONLY bypass if on Localhost
         if (isLocalhost) {
-          console.log(`🔓 Localhost detected - auto-bypassing Turnstile for ${page.key}`);
+          console.log(`🔓 Localhost detected - bypassing Turnstile for ${page.content}`);
           protectionDiv.style.display = 'none';
           contentDiv.style.display = 'block';
-          sessionStorage.setItem(page.key, 'true');
-        }
-        // Check session storage
-        else if (sessionStorage.getItem(page.key) === 'true') {
-          protectionDiv.style.display = 'none';
-          contentDiv.style.display = 'block';
+        } else {
+          // On Live Site: ALWAYS show protection first
+          // Turnstile widget will auto-execute and call success callback if human
+          console.log(`🛡️ Live Site detected - enforcing Turnstile for ${page.content}`);
+          protectionDiv.style.display = 'block';
+          contentDiv.style.display = 'none';
         }
       }
     });
   }
 
-  // Call the verification check
-  checkExistingVerification();
+  initProtection();
 
-  // Show localhost indicator
   if (isLocalhost) {
-    console.log('🏠 Running on localhost - Cloudflare Turnstile bypassed');
+    console.log('🏠 Running on localhost - Strict Mode disabled');
+  } else {
+    console.log('🔒 Running on Live Site - Strict Mode enabled (Every page check)');
   }
 });
