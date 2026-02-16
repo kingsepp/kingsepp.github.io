@@ -101,6 +101,38 @@ document.addEventListener('DOMContentLoaded', () => {
     console.error('About Turnstile verification failed:', error);
   };
 
+  window.onCloudMigrationTurnstileSuccess = function (token) {
+    console.log('Cloud Migration Turnstile verification successful:', token);
+    const protectionDiv = document.getElementById('cloud-migration-turnstile-protection');
+    const contentDiv = document.getElementById('cloud-migration-content');
+
+    if (protectionDiv && contentDiv) {
+      protectionDiv.style.display = 'none';
+      contentDiv.style.display = 'block';
+      sessionStorage.setItem('cloud-migration-verified', 'true');
+    }
+  };
+
+  window.onCloudMigrationTurnstileError = function (error) {
+    console.error('Cloud Migration Turnstile verification failed:', error);
+  };
+
+  window.onDevOpsAutomationTurnstileSuccess = function (token) {
+    console.log('DevOps Automation Turnstile verification successful:', token);
+    const protectionDiv = document.getElementById('devops-automation-turnstile-protection');
+    const contentDiv = document.getElementById('devops-automation-content');
+
+    if (protectionDiv && contentDiv) {
+      protectionDiv.style.display = 'none';
+      contentDiv.style.display = 'block';
+      sessionStorage.setItem('devops-automation-verified', 'true');
+    }
+  };
+
+  window.onDevOpsAutomationTurnstileError = function (error) {
+    console.error('DevOps Automation Turnstile verification failed:', error);
+  };
+
   // Check if user has already been verified in this session
   function checkExistingVerification() {
     const pages = [
@@ -109,7 +141,9 @@ document.addEventListener('DOMContentLoaded', () => {
       { content: 'ai4mbse-content', protection: 'ai4mbse-turnstile-protection', key: 'ai4mbse-verified' },
       { content: 'datenschutz-content', protection: 'datenschutz-turnstile-protection', key: 'datenschutz-verified' },
       { content: 'projects-content', protection: 'projects-turnstile-protection', key: 'projects-verified' },
-      { content: 'about-content', protection: 'about-turnstile-protection', key: 'about-verified' }
+      { content: 'about-content', protection: 'about-turnstile-protection', key: 'about-verified' },
+      { content: 'cloud-migration-content', protection: 'cloud-migration-turnstile-protection', key: 'cloud-migration-verified' },
+      { content: 'devops-automation-content', protection: 'devops-automation-turnstile-protection', key: 'devops-automation-verified' }
     ];
 
     pages.forEach(page => {
