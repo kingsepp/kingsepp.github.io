@@ -3,22 +3,33 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>{{ page.title | default: site.title }}</title>
+    <title>{% if page.title %}{{ page.title }} - {% endif %}kingsepp.dev</title>
+    <meta
+      name="description"
+      content="{% if page.description %}{{ page.description }}{% else %}Cloud Developer & Project Manager - Building cloud-native systems, automating workflows, leading projects{% endif %}"
+    />
     {% if page.robots %}
     <meta name="robots" content="{{ page.robots }}" />
     {% endif %}
 
     <!-- Favicon -->
     <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
-    <link rel="icon" type="image/x-icon" href="{{ '/assets/favicon.png' | relative_url }}" />
 
-    <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}" />
+    <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}" />
+    {% seo %}
   </head>
   <body>
     {% include header.html %}
+
     <main>{{ content }}</main>
-    <!-- Footer -->
-    {% include footer.html %}
+
+    <footer>
+      <p>
+        $ echo "kingsepp.dev" //
+        <a href="{{ '/impressum' | relative_url }}">impressum</a> //
+        <a href="{{ '/datenschutz' | relative_url }}">datenschutz</a>
+      </p>
+    </footer>
 
     <!-- Cookie Consent System -->
     {% include cookie-consent.html %}
@@ -62,7 +73,11 @@
       document.addEventListener('DOMContentLoaded', loadAnalytics);
     </script>
 
-    <!-- Main Scripts -->
+    <!-- Main JavaScript with Turnstile callbacks -->
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
+
+    {% if page.typing_effect %}
+    <script src="{{ '/assets/js/terminal.js' | relative_url }}"></script>
+    {% endif %}
   </body>
 </html>

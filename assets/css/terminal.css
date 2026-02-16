@@ -1,0 +1,425 @@
+/* Minimalistisches Terminal Design - Skandinavisch Clean */
+
+@import url('https://fonts.googleapis.com/css2?family=Anonymous+Pro:wght@400;700&display=swap');
+
+:root {
+  --bg-white: #fafafa;
+  --text-black: #111111;
+  --divider-gray: #e5e5e5;
+  --hover-bg: #f5f5f5;
+  --accent-color: #00bcd4;
+  --accent-light: rgba(0, 188, 212, 0.1);
+  --accent-hover: rgba(0, 188, 212, 0.2);
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg-white);
+  color: var(--text-black);
+  font-family: 'Anonymous Pro', 'IBM Plex Mono', 'JetBrains Mono', monospace;
+  font-size: 15px;
+  line-height: 1.8;
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 60px 30px;
+    font-size: 14px;
+  }
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 100px;
+  font-size: 16px;
+}
+
+nav a {
+  color: var(--text-black);
+  text-decoration: none;
+  margin-right: 24px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  border-bottom: 2px solid transparent;
+  padding-bottom: 2px;
+}
+
+nav a:before {
+  content: '/';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 2px;
+}
+
+nav a:hover {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+nav a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+nav a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Hero Terminal-Prompt */
+.hero {
+  margin-bottom: 120px;
+}
+
+.hero .prompt {
+  font-size: 42px;
+  margin-bottom: 30px;
+  font-weight: 700;
+  letter-spacing: -0.5px;
+}
+
+.hero .prompt:before {
+  content: '> ';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+.hero .role {
+  font-size: 18px;
+  margin-bottom: 16px;
+  font-weight: 700;
+  opacity: 1;
+}
+
+.hero .role:before {
+  content: '$ ';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+.hero .description {
+  font-size: 16px;
+  margin-bottom: 10px;
+  opacity: 0.8;
+  font-weight: 400;
+}
+
+.hero .description:before {
+  content: '$ ';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+/* Keyword Highlights im Description */
+.hero .description .highlight {
+  color: var(--accent-color);
+  font-weight: 700;
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 80px;
+  }
+
+  .hero .prompt {
+    font-size: 32px;
+    margin-bottom: 24px;
+  }
+
+  .hero .role {
+    font-size: 16px;
+  }
+
+  .hero .description {
+    font-size: 15px;
+  }
+}
+
+/* Projekte Section */
+.projects {
+  margin-top: 80px;
+  padding: 40px 0;
+  border-top: 1px solid var(--accent-light);
+}
+
+.projects-header {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 40px;
+  display: flex;
+  align-items: center;
+}
+
+.projects-header:before {
+  content: '$ ';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+/* Project Cards */
+.project-card {
+  border: 1px solid var(--divider-gray);
+  border-left: 3px solid var(--accent-color);
+  padding: 24px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  background: var(--bg-white);
+}
+
+.project-card:hover {
+  background: var(--hover-bg);
+  border-color: var(--divider-gray);
+  border-left-color: var(--accent-color);
+  transform: translateX(4px);
+  box-shadow: -4px 0 12px var(--accent-hover);
+}
+
+.project-card:focus-within {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+.project-card a {
+  text-decoration: none;
+  color: var(--text-black);
+  display: block;
+}
+
+.project-card a:focus {
+  outline: none;
+}
+
+.project-title {
+  font-size: 18px;
+  font-weight: 700;
+  margin-bottom: 12px;
+  display: flex;
+  align-items: center;
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--accent-color);
+}
+
+.project-title:after {
+  content: '/';
+  margin-left: 4px;
+  opacity: 0.3;
+}
+
+.project-description {
+  font-size: 14px;
+  opacity: 0.8;
+  line-height: 1.6;
+}
+
+/* Content Sections */
+.content-section {
+  margin-top: 60px;
+}
+
+.content-section h2 {
+  font-size: 20px;
+  font-weight: 700;
+  margin-bottom: 24px;
+}
+
+.content-section h2:before {
+  content: '$ ';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+/* Standard Links in Content */
+a {
+  color: var(--text-black);
+  text-decoration: underline;
+  text-decoration-style: solid;
+  text-decoration-color: var(--accent-color);
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+a:hover {
+  color: var(--accent-color);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
+}
+
+/* Links / Buttons */
+.terminal-link {
+  display: inline-block;
+  color: var(--text-black);
+  text-decoration: none;
+  border: 2px solid var(--text-black);
+  padding: 12px 24px;
+  margin-top: 20px;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+  font-weight: 700;
+}
+
+.terminal-link:before {
+  content: '[ ';
+  opacity: 0.5;
+}
+
+.terminal-link:after {
+  content: ' ]';
+  opacity: 0.5;
+}
+
+.terminal-link:hover {
+  background: var(--accent-color);
+  border-color: var(--accent-color);
+  color: var(--bg-white);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-hover);
+}
+
+.terminal-link:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
+}
+
+/* Überschriften */
+h1,
+h2,
+h3 {
+  font-weight: 700;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 24px;
+}
+
+h2 {
+  font-size: 20px;
+}
+
+h3 {
+  font-size: 17px;
+}
+
+/* Absätze */
+p {
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+/* Listen */
+ul,
+ol {
+  margin-bottom: 20px;
+  padding-left: 40px;
+  max-width: 700px;
+}
+
+li {
+  margin-bottom: 10px;
+  line-height: 1.7;
+}
+
+li::marker {
+  color: var(--accent-color);
+}
+
+/* Code-Blöcke */
+pre {
+  background: transparent;
+  border: 1px solid var(--divider-gray);
+  border-left: 3px solid var(--accent-color);
+  padding: 20px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+code {
+  font-family: inherit;
+  background: var(--accent-light);
+  padding: 2px 6px;
+  border: 1px solid var(--accent-color);
+  color: var(--text-black);
+}
+
+pre code {
+  border: none;
+  padding: 0;
+  background: transparent;
+}
+
+/* Trennlinien */
+hr {
+  border: none;
+  border-top: 1px solid var(--accent-light);
+  margin: 80px 0;
+}
+
+/* Feature-Liste (für Projektseiten) */
+.features {
+  margin-top: 40px;
+}
+
+.features h3 {
+  font-size: 17px;
+  margin-top: 40px;
+  margin-bottom: 16px;
+  font-weight: 700;
+}
+
+.features h3:before {
+  content: '$ ';
+  color: var(--accent-color);
+  opacity: 0.7;
+  margin-right: 8px;
+}
+
+/* Footer */
+footer {
+  margin-top: 120px;
+  padding-top: 40px;
+  border-top: 1px solid var(--divider-gray);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+footer a {
+  color: var(--text-black);
+  text-decoration: underline;
+  text-decoration-color: var(--accent-color);
+  text-underline-offset: 3px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+footer a:hover {
+  color: var(--accent-color);
+  opacity: 1;
+}

@@ -1,18 +1,5 @@
-<nav class="nav">
-  <div class="nav-container">
-    <a href="/" class="logo">Kingsepp</a>
-    <div class="hamburger">
-      <span></span>
-      <span></span>
-      <span></span>
-    </div>
-    <ul class="nav-links">
-      <li><a href="/">Referenzen</a></li>
-      <li><a href="/ai4mbse">AI4MBSE</a></li>
-    </ul>
-    <div class="nav-links-mobile">
-      <a href="/">Referenzen</a>
-      <a href="/ai4mbse">AI4MBSE</a>
-    </div>
-  </div>
+<nav>
+  <a href="{{ '/' | relative_url }}">home</a>
+  <a href="{{ '/projects' | relative_url }}">projects</a>
+  <a href="{{ '/about' | relative_url }}">about</a>
 </nav>
