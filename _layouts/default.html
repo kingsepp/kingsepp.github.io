@@ -5,6 +5,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{% if page.title %}{{ page.title }} - {% endif %}kingsepp.dev</title>
   <meta name="description" content="{% if page.description %}{{ page.description }}{% else %}Cloud Developer & Project Manager - Building cloud-native systems, automating workflows, leading projects{% endif %}">
+  {% if page.robots %}
+  <meta name="robots" content="{{ page.robots }}" />
+  {% endif %}
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
+  
   <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}">
   {% seo %}
 </head>
@@ -15,7 +22,9 @@
     <a href="{{ '/about' | relative_url }}">about</a>
   </nav>
 
-  {{ content }}
+  <main>
+    {{ content }}
+  </main>
 
   <footer>
     <p>
@@ -24,6 +33,48 @@
       <a href="{{ '/datenschutz' | relative_url }}">datenschutz</a>
     </p>
   </footer>
+
+  <!-- Cookie Consent System -->
+  {% include cookie-consent.html %}
+
+  <!-- Conditional Google Analytics -->
+  <script>
+    // Load Google Analytics only if user accepted all cookies
+    function loadAnalytics() {
+      if (
+        typeof readCookie === 'function' &&
+        readCookie('cookie-notice-dismissed') === 'accept'
+      ) {
+        console.log('Loading Google Analytics after consent');
+
+        // Load gtag script
+        const script = document.createElement('script');
+        script.async = true;
+        script.src = 'https://www.googletagmanager.com/gtag/js?id=G-6P6F8KLCQS';
+        document.head.appendChild(script);
+
+        // Initialize gtag
+        window.dataLayer = window.dataLayer || [];
+        function gtag() {
+          dataLayer.push(arguments);
+        }
+        gtag('js', new Date());
+        gtag('config', 'G-6P6F8KLCQS', {
+          anonymize_ip: true,
+          allow_google_signals: false,
+          allow_ad_personalization_signals: false,
+        });
+      } else {
+        console.log(
+          'Analytics not loaded - user consent:',
+          readCookie('cookie-notice-dismissed')
+        );
+      }
+    }
+
+    // Load analytics after page load
+    document.addEventListener('DOMContentLoaded', loadAnalytics);
+  </script>
 
   {% if page.typing_effect %}
   <script src="{{ '/assets/js/terminal.js' | relative_url }}"></script>
