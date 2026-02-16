@@ -1,8 +1,11 @@
 ---
 layout: default
 title: Vereins-App – Full-Stack Warenwirtschaftssystem
-description: Digitale Lagerverwaltung und Benutzerverwaltung für Jugendvereine mit Next.js, React und PostgreSQL
-keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeScript
+description:
+  Digitale Lagerverwaltung und Benutzerverwaltung für Vereine mit Next.js, React
+  und PostgreSQL
+keywords:
+  Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeScript
 ---
 
 <style>
@@ -93,13 +96,13 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
         <h2 id="overview-title" class="section-title">📦 Projekt-Überblick</h2>
         <div class="content-wrapper">
           <p>
-            Die Vereins-App ist eine Full-Stack-Webanwendung zur digitalen Verwaltung von Lagerbeständen, 
-            Buchungen und Benutzern für einen Jugendverein. Die App ersetzt manuelle Bestandslisten durch 
+            Die Vereins-App ist eine Full-Stack-Webanwendung zur digitalen Verwaltung von Lagerbeständen,
+            Buchungen und Benutzern für einen Verein. Die App ersetzt manuelle Bestandslisten durch
             ein rollenbasiertes System mit Echtzeit-Bestandsübersicht, Ein-/Ausbuchungen und Admin-Funktionen.
           </p>
           <p>
-            Entwickelt mit modernsten Technologien wie <strong>Next.js 16</strong>, <strong>React 19</strong> 
-            und <strong>PostgreSQL</strong>, bietet die Anwendung eine skalierbare und wartbare Lösung für 
+            Entwickelt mit modernsten Technologien wie <strong>Next.js 16</strong>, <strong>React 19</strong>
+            und <strong>PostgreSQL</strong>, bietet die Anwendung eine skalierbare und wartbare Lösung für
             digitales Bestandsmanagement.
           </p>
         </div>
@@ -115,7 +118,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
             <div class="feature-card">
               <h3>📊 Warenwirtschaft</h3>
               <p>
-                Artikel und Kategorien anlegen, bearbeiten und löschen. Lagerbestände mit Ein- und 
+                Artikel und Kategorien anlegen, bearbeiten und löschen. Lagerbestände mit Ein- und
                 Ausbuchungen verwalten inkl. automatischer Bestandsberechnung.
               </p>
             </div>
@@ -130,7 +133,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
             <div class="feature-card">
               <h3>👥 Benutzerverwaltung</h3>
               <p>
-                Admins können Benutzer anlegen und löschen. Drei Rollen (Admin, Vorstand, Mitglied) 
+                Admins können Benutzer anlegen und löschen. Drei Rollen (Admin, Vorstand, Mitglied)
                 mit abgestuften Berechtigungen.
               </p>
             </div>
@@ -138,7 +141,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
             <div class="feature-card">
               <h3>🔐 Rollenbasiertes System</h3>
               <p>
-                Mitglieder sehen Bestände, Vorstand kann zusätzlich buchen, Admins haben Vollzugriff 
+                Mitglieder sehen Bestände, Vorstand kann zusätzlich buchen, Admins haben Vollzugriff
                 inkl. Stammdaten und Benutzerverwaltung.
               </p>
             </div>
@@ -146,7 +149,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
             <div class="feature-card">
               <h3>📈 Dashboard</h3>
               <p>
-                Zentrale Übersicht mit Statistiken (Artikelanzahl, Kategorien, niedrige Bestände, 
+                Zentrale Übersicht mit Statistiken (Artikelanzahl, Kategorien, niedrige Bestände,
                 aktuelle Buchungen) und Schnellzugriff auf alle Module.
               </p>
             </div>
@@ -154,7 +157,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
             <div class="feature-card">
               <h3>🔒 Sicherheit</h3>
               <p>
-                JWT-Authentifizierung mit HttpOnly Cookies, bcrypt-Passwort-Hashing und 
+                JWT-Authentifizierung mit HttpOnly Cookies, bcrypt-Passwort-Hashing und
                 Edge-Middleware für performante Verifizierung.
               </p>
             </div>
@@ -248,7 +251,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
           <div class="architecture-highlight">
             <h3>🔹 Server-seitige Rollenprüfung</h3>
             <p>
-              Bei jeder API-Anfrage direkt gegen die Datenbank — JWT wird nur für Authentifizierung, 
+              Bei jeder API-Anfrage direkt gegen die Datenbank — JWT wird nur für Authentifizierung,
               nie für Autorisierung vertraut. Zero-Trust-Prinzip für maximale Sicherheit.
             </p>
           </div>
@@ -256,7 +259,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
           <div class="architecture-highlight">
             <h3>🔹 Transaktionssichere Buchungen</h3>
             <p>
-              Prisma-Transaktionen mit serverseitiger Validierung — kein negativer Bestand möglich. 
+              Prisma-Transaktionen mit serverseitiger Validierung — kein negativer Bestand möglich.
               Cascade-Deletes innerhalb von DB-Transaktionen für referentielle Integrität.
             </p>
           </div>
@@ -264,7 +267,7 @@ keywords: Next.js, React, PostgreSQL, Prisma, Warenwirtschaft, Full-Stack, TypeS
           <div class="architecture-highlight">
             <h3>🔹 Umfangreiche Test-Abdeckung</h3>
             <p>
-              Vollständige Backend-Logik mit isolierten Unit Tests für hohe Code-Qualität und 
+              Vollständige Backend-Logik mit isolierten Unit Tests für hohe Code-Qualität und
               Wartbarkeit.
             </p>
           </div>
