@@ -7,6 +7,9 @@
   --text-black: #111111;
   --divider-gray: #E5E5E5;
   --hover-bg: #F5F5F5;
+  --accent-color: #00BCD4;
+  --accent-light: rgba(0, 188, 212, 0.1);
+  --accent-hover: rgba(0, 188, 212, 0.2);
 }
 
 * {
@@ -56,12 +59,24 @@ nav a {
 
 nav a:before {
   content: "/";
-  opacity: 0.4;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 2px;
 }
 
 nav a:hover {
-  border-bottom: 2px solid var(--text-black);
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+nav a.active {
+  color: var(--accent-color);
+  border-bottom: 2px solid var(--accent-color);
+}
+
+nav a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
 }
 
 /* Hero Terminal-Prompt */
@@ -78,7 +93,8 @@ nav a:hover {
 
 .hero .prompt:before {
   content: "> ";
-  opacity: 0.3;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 8px;
 }
 
@@ -91,7 +107,8 @@ nav a:hover {
 
 .hero .role:before {
   content: "$ ";
-  opacity: 0.3;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 8px;
 }
 
@@ -104,8 +121,15 @@ nav a:hover {
 
 .hero .description:before {
   content: "$ ";
-  opacity: 0.3;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 8px;
+}
+
+/* Keyword Highlights im Description */
+.hero .description .highlight {
+  color: var(--accent-color);
+  font-weight: 700;
 }
 
 @media (max-width: 768px) {
@@ -131,6 +155,7 @@ nav a:hover {
 .projects {
   margin-top: 80px;
   padding: 40px 0;
+  border-top: 1px solid var(--accent-light);
 }
 
 .projects-header {
@@ -143,13 +168,15 @@ nav a:hover {
 
 .projects-header:before {
   content: "$ ";
-  opacity: 0.3;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 8px;
 }
 
 /* Project Cards */
 .project-card {
   border: 1px solid var(--divider-gray);
+  border-left: 3px solid var(--accent-color);
   padding: 24px;
   margin-bottom: 20px;
   transition: all 0.3s ease;
@@ -159,8 +186,15 @@ nav a:hover {
 
 .project-card:hover {
   background: var(--hover-bg);
-  border-color: var(--text-black);
+  border-color: var(--divider-gray);
+  border-left-color: var(--accent-color);
   transform: translateX(4px);
+  box-shadow: -4px 0 12px var(--accent-hover);
+}
+
+.project-card:focus-within {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 .project-card a {
@@ -169,12 +203,21 @@ nav a:hover {
   display: block;
 }
 
+.project-card a:focus {
+  outline: none;
+}
+
 .project-title {
   font-size: 18px;
   font-weight: 700;
   margin-bottom: 12px;
   display: flex;
   align-items: center;
+  transition: color 0.2s ease;
+}
+
+.project-card:hover .project-title {
+  color: var(--accent-color);
 }
 
 .project-title:after {
@@ -202,7 +245,8 @@ nav a:hover {
 
 .content-section h2:before {
   content: "$ ";
-  opacity: 0.3;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 8px;
 }
 
@@ -211,13 +255,19 @@ a {
   color: var(--text-black);
   text-decoration: underline;
   text-decoration-style: solid;
+  text-decoration-color: var(--accent-color);
   text-underline-offset: 3px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 a:hover {
-  opacity: 0.6;
+  color: var(--accent-color);
+}
+
+a:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 2px;
 }
 
 /* Links / Buttons */
@@ -245,9 +295,16 @@ a:hover {
 }
 
 .terminal-link:hover {
-  background: var(--text-black);
+  background: var(--accent-color);
+  border-color: var(--accent-color);
   color: var(--bg-white);
   transform: translateY(-2px);
+  box-shadow: 0 4px 12px var(--accent-hover);
+}
+
+.terminal-link:focus-visible {
+  outline: 2px solid var(--accent-color);
+  outline-offset: 4px;
 }
 
 /* Überschriften */
@@ -287,10 +344,15 @@ li {
   line-height: 1.7;
 }
 
+li::marker {
+  color: var(--accent-color);
+}
+
 /* Code-Blöcke */
 pre {
   background: transparent;
   border: 1px solid var(--divider-gray);
+  border-left: 3px solid var(--accent-color);
   padding: 20px;
   overflow-x: auto;
   margin-bottom: 20px;
@@ -298,20 +360,22 @@ pre {
 
 code {
   font-family: inherit;
-  background: transparent;
+  background: var(--accent-light);
   padding: 2px 6px;
-  border: 1px solid var(--divider-gray);
+  border: 1px solid var(--accent-color);
+  color: var(--text-black);
 }
 
 pre code {
   border: none;
   padding: 0;
+  background: transparent;
 }
 
 /* Trennlinien */
 hr {
   border: none;
-  border-top: 1px solid var(--divider-gray);
+  border-top: 1px solid var(--accent-light);
   margin: 80px 0;
 }
 
@@ -329,7 +393,8 @@ hr {
 
 .features h3:before {
   content: "$ ";
-  opacity: 0.3;
+  color: var(--accent-color);
+  opacity: 0.7;
   margin-right: 8px;
 }
 
@@ -345,11 +410,13 @@ footer {
 footer a {
   color: var(--text-black);
   text-decoration: underline;
+  text-decoration-color: var(--accent-color);
   text-underline-offset: 3px;
   transition: all 0.2s ease;
   cursor: pointer;
 }
 
 footer a:hover {
+  color: var(--accent-color);
   opacity: 1;
 }
