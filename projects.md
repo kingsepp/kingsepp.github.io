@@ -5,7 +5,7 @@ description: Personal projects and experimental developments
 ---
 
 <div class="content-section">
-  <h2>README</h2>
+  <h2>Projektübersicht</h2>
   
   <p>
     Persönliche Projekte und experimentelle Entwicklungen im Bereich moderner Softwaretechnologien.
@@ -14,20 +14,38 @@ description: Personal projects and experimental developments
 </div>
 
 <div class="projects">
-  <h2></h2>
+  <h2 class="projects-header">Alle Projekte</h2>
   
-  <div class="project-item">
-    - <a href="{{ '/ai4mbse' | relative_url }}">ai4mbse</a>
-    <p style="padding-left: 20px; margin-top: 5px; opacity: 0.8;">KI-gestütztes Plugin für Model-Based Systems Engineering</p>
+  <div class="project-card">
+    <a href="{{ '/ai4mbse' | relative_url }}">
+      <div class="project-title">ai4mbse</div>
+      <div class="project-description">
+        KI-gestütztes Plugin für Model-Based Systems Engineering. 
+        Automatische Zuordnung von Systemanforderungen zu Subsystemen via Google Gemini AI.
+        Entwickelt im Rahmen des Masterstudiengangs Systems Engineering.
+      </div>
+    </a>
   </div>
   
-  <div class="project-item">
-    - <a href="{{ '/cloud-migration' | relative_url }}">cloud-migration</a>
-    <p style="padding-left: 20px; margin-top: 5px; opacity: 0.8;">Migration Legacy-Systeme zu Cloud-Native Architekturen</p>
+  <div class="project-card">
+    <a href="{{ '/cloud-migration' | relative_url }}">
+      <div class="project-title">cloud-migration</div>
+      <div class="project-description">
+        Strategien und Best Practices für die Migration von Legacy-Systemen 
+        zu modernen Cloud-Native Architekturen. Assessment, Design, schrittweise Migration 
+        mit Kubernetes, Service Mesh und Infrastructure as Code.
+      </div>
+    </a>
   </div>
   
-  <div class="project-item">
-    - <a href="{{ '/devops-automation' | relative_url }}">devops-automation</a>
-    <p style="padding-left: 20px; margin-top: 5px; opacity: 0.8;">CI/CD Pipelines und Infrastructure as Code</p>
+  <div class="project-card">
+    <a href="{{ '/devops-automation' | relative_url }}">
+      <div class="project-title">devops-automation</div>
+      <div class="project-description">
+        CI/CD Pipeline Design, Infrastructure as Code und GitOps Workflows. 
+        Automatisierung von Entwicklungs- und Deployment-Prozessen für schnellere Releases 
+        und höhere Code-Qualität mit GitHub Actions, Terraform und ArgoCD.
+      </div>
+    </a>
   </div>
 </div>
