@@ -1,0 +1,276 @@
+/* Minimalistisches Terminal Design - Skandinavisch Clean */
+
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&display=swap');
+
+:root {
+  --bg-white: #FAFAFA;
+  --text-black: #111111;
+  --divider-gray: #E5E5E5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  background: var(--bg-white);
+  color: var(--text-black);
+  font-family: 'IBM Plex Mono', 'JetBrains Mono', 'Fira Code', monospace;
+  font-size: 14px;
+  line-height: 1.8;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 80px 40px;
+  min-height: 100vh;
+}
+
+@media (max-width: 768px) {
+  body {
+    padding: 60px 30px;
+    font-size: 13px;
+  }
+}
+
+/* Navigation */
+nav {
+  margin-bottom: 80px;
+  font-size: 15px;
+}
+
+nav a {
+  color: var(--text-black);
+  text-decoration: none;
+  margin-right: 20px;
+  transition: opacity 0.2s ease;
+}
+
+nav a:before {
+  content: "/";
+}
+
+nav a:hover {
+  opacity: 0.6;
+}
+
+/* Hero Terminal-Prompt */
+.hero {
+  margin-bottom: 100px;
+}
+
+.hero .prompt {
+  font-size: 24px;
+  margin-bottom: 40px;
+  font-weight: 400;
+}
+
+.hero .prompt:before {
+  content: "> ";
+}
+
+.hero .role,
+.hero .description {
+  font-size: 15px;
+  margin-bottom: 10px;
+  opacity: 0.9;
+}
+
+.hero .role:before,
+.hero .description:before {
+  content: "$ ";
+}
+
+@media (max-width: 768px) {
+  .hero {
+    margin-bottom: 60px;
+  }
+  
+  .hero .prompt {
+    font-size: 20px;
+    margin-bottom: 30px;
+  }
+  
+  .hero .role,
+  .hero .description {
+    font-size: 14px;
+  }
+}
+
+/* Projekte */
+.projects {
+  margin-top: 80px;
+}
+
+.projects h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 30px;
+}
+
+.projects h2:before {
+  content: "$ ls projects/";
+  display: block;
+  margin-bottom: 20px;
+}
+
+.project-item {
+  margin-bottom: 15px;
+  padding-left: 20px;
+}
+
+.project-item a {
+  color: var(--text-black);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+.project-item a:after {
+  content: "/";
+}
+
+.project-item a:hover {
+  opacity: 0.6;
+}
+
+/* Content Sections */
+.content-section {
+  margin-top: 60px;
+}
+
+.content-section h2 {
+  font-size: 16px;
+  font-weight: 400;
+  margin-bottom: 20px;
+}
+
+.content-section h2:before {
+  content: "$ cat ";
+}
+
+/* Links / Buttons */
+.terminal-link {
+  display: inline-block;
+  color: var(--text-black);
+  text-decoration: none;
+  border: 1px solid var(--text-black);
+  padding: 8px 20px;
+  margin-top: 20px;
+  margin-right: 10px;
+  transition: all 0.2s ease;
+}
+
+.terminal-link:before {
+  content: "[ ";
+}
+
+.terminal-link:after {
+  content: " ]";
+}
+
+.terminal-link:hover {
+  background: var(--text-black);
+  color: var(--bg-white);
+}
+
+/* Überschriften */
+h1, h2, h3 {
+  font-weight: 400;
+  margin-top: 60px;
+  margin-bottom: 20px;
+}
+
+h1 {
+  font-size: 18px;
+}
+
+h2 {
+  font-size: 16px;
+}
+
+h3 {
+  font-size: 15px;
+}
+
+/* Absätze */
+p {
+  margin-bottom: 20px;
+  max-width: 700px;
+}
+
+/* Listen */
+ul, ol {
+  margin-bottom: 20px;
+  padding-left: 40px;
+  max-width: 700px;
+}
+
+li {
+  margin-bottom: 8px;
+}
+
+/* Code-Blöcke */
+pre {
+  background: transparent;
+  border: 1px solid var(--divider-gray);
+  padding: 20px;
+  overflow-x: auto;
+  margin-bottom: 20px;
+}
+
+code {
+  font-family: inherit;
+  background: transparent;
+  padding: 2px 6px;
+  border: 1px solid var(--divider-gray);
+}
+
+pre code {
+  border: none;
+  padding: 0;
+}
+
+/* Trennlinien */
+hr {
+  border: none;
+  border-top: 1px solid var(--divider-gray);
+  margin: 80px 0;
+}
+
+/* Feature-Liste (für Projektseiten) */
+.features {
+  margin-top: 40px;
+}
+
+.features h3 {
+  font-size: 15px;
+  margin-top: 30px;
+  margin-bottom: 15px;
+}
+
+.features h3:before {
+  content: "$ ";
+}
+
+/* Footer */
+footer {
+  margin-top: 120px;
+  padding-top: 40px;
+  border-top: 1px solid var(--divider-gray);
+  font-size: 13px;
+  opacity: 0.7;
+}
+
+footer a {
+  color: var(--text-black);
+  text-decoration: none;
+  transition: opacity 0.2s ease;
+}
+
+footer a:hover {
+  opacity: 0.6;
+}
