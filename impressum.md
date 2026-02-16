@@ -88,7 +88,7 @@ robots: noindex, nofollow
         </div>
         <div class="license-content">
           <p class="copyright-notice">
-            <strong>Copyright © 2025 Th. Kingsepp</strong>
+            <strong>Copyright © 2026 Kingsepp Consulting</strong>
           </p>
           <p class="legal-text">
             Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der
@@ -176,11 +176,11 @@ robots: noindex, nofollow
         <div class="contact-details">
           <div class="contact-item">
             <span class="contact-label">Name:</span>
-            <span class="contact-value">Th. Kingsepp</span>
+            <span class="contact-value">Kingsepp Consulting</span>
           </div>
           <div class="contact-item">
             <span class="contact-label">E-Mail:</span>
-            <span class="contact-value">th.kingsepp@gmail.com</span>
+            <span class="contact-value">info@kingsepp.dev</span>
           </div>
           <div class="contact-item">
             <span class="contact-label">Projekt:</span>
@@ -208,7 +208,7 @@ robots: noindex, nofollow
     <footer class="legal-footer">
       <div class="footer-content">
         <p class="footer-text">
-          <strong>Stand:</strong> Juni 2025
+          <strong>Stand:</strong> Juni 2026
         </p>
         <p class="footer-note">
           Dieses Impressum entspricht den deutschen rechtlichen Anforderungen für private,

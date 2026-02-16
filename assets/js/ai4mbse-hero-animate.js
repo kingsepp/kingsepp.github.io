@@ -1,4 +1,4 @@
-// Fancy animated hero for AI4MBSE Plugin (2025 style)
+// Fancy animated hero for AI4MBSE Plugin (2026 style)
 document.addEventListener('DOMContentLoaded', () => {
   const hero = document.querySelector('.hero-content');
   if (!hero) {
