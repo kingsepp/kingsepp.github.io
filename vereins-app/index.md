@@ -65,6 +65,34 @@ keywords:
     margin: 2rem 0;
     border-radius: 8px;
   }
+  
+  .screenshot-container {
+    margin: 3rem 0;
+    text-align: center;
+  }
+  
+  .screenshot-container img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 12px;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.3);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    margin: 1rem 0;
+  }
+  
+  .screenshot-title {
+    font-size: 1.1em;
+    font-weight: 600;
+    margin-bottom: 1rem;
+    color: #667eea;
+  }
+  
+  .screenshots-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    gap: 3rem;
+    margin: 2rem 0;
+  }
 </style>
 
 <main role="main" id="vereins-app-content">
@@ -82,6 +110,7 @@ keywords:
         <nav class="hero-navigation" style="margin-top: 2rem;">
           <div class="nav-links">
             <a href="#overview-title" class="nav-link">Überblick</a>
+            <a href="#screenshots-title" class="nav-link">Screenshots</a>
             <a href="#features-title" class="nav-link">Funktionen</a>
             <a href="#tech-stack-title" class="nav-link">Technologie-Stack</a>
             <a href="#architecture-title" class="nav-link">Architektur</a>
@@ -105,6 +134,32 @@ keywords:
             und <strong>PostgreSQL</strong>, bietet die Anwendung eine skalierbare und wartbare Lösung für
             digitales Bestandsmanagement.
           </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- Screenshots Section -->
+    <section class="section glass-morphism" aria-labelledby="screenshots-title">
+      <div class="container">
+        <h2 id="screenshots-title" class="section-title">🖼️ Screenshots</h2>
+        <div class="content-wrapper">
+          <div class="screenshots-grid">
+            <div class="screenshot-container">
+              <div class="screenshot-title">Login-Bereich</div>
+              <img src="vereins-app-login.jpg" alt="Vereins-App Login-Bereich" loading="lazy">
+              <p style="margin-top: 1rem; color: #94a3b8;">
+                Sicherer Login mit JWT-Authentifizierung und bcrypt-Passwort-Hashing
+              </p>
+            </div>
+            
+            <div class="screenshot-container">
+              <div class="screenshot-title">Dashboard-Übersicht</div>
+              <img src="vereins-app-dashbaord.jpg" alt="Vereins-App Dashboard" loading="lazy">
+              <p style="margin-top: 1rem; color: #94a3b8;">
+                Zentrale Übersicht mit Echtzeit-Statistiken und Schnellzugriff auf alle Module
+              </p>
+            </div>
+          </div>
         </div>
       </div>
     </section>
