@@ -431,9 +431,7 @@
     document.getElementById('cookie-settings-btn')?.addEventListener('click', openSettingsModal);
     document.getElementById('close-settings')?.addEventListener('click', closeSettingsModal);
     document.getElementById('save-settings')?.addEventListener('click', saveSettingsFromModal);
-    document
-      .getElementById('accept-all-settings')
-      ?.addEventListener('click', acceptAllFromModal);
+    document.getElementById('accept-all-settings')?.addEventListener('click', acceptAllFromModal);
 
     document.getElementById('cookie-settings-modal')?.addEventListener('click', function (e) {
       if (e.target.id === 'cookie-settings-modal') closeSettingsModal();
