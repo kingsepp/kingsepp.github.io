@@ -1,0 +1,104 @@
+{
+  "name": "kingsepp-github-io",
+  "version": "1.0.0",
+  "description": "Kingsepp Consulting's personal website with AI4MBSE plugin documentation",
+  "scripts": {
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "test:e2e": "jest tests/e2e-cookie-test.js",
+    "test:all": "npm run test && npm run test:e2e",
+    "test:local-ci": "./scripts/local-cross-browser-tests.sh",
+    "test:pre-push": "./scripts/pre-push-tests.sh",
+    "test:docker": "docker-compose -f docker/docker-compose.test.yml up --build --abort-on-container-exit",
+    "test:docker-direct": "docker run --rm -v $(pwd):/app -w /app mcr.microsoft.com/playwright:v1.40.0-focal bash -c 'npm ci && bundle install && bundle exec jekyll build && npx playwright test --project=chromium'",
+    "pretest:cross-browser": "bundle exec jekyll build",
+    "lint": "eslint assets/js/**/*.js",
+    "lint:fix": "eslint assets/js/**/*.js --fix",
+    "validate:privacy": "node scripts/validate-privacy-compliance.js",
+    "validate:cookies": "node scripts/validate-cookie-implementation.js",
+    "test:analytics": "node tests/analytics-consent-test.js",
+    "test:cookie-new": "jest tests/cookie-consent-new.test.js",
+    "test:integration": "jest tests/integration.test.js",
+    "test:theme": "jest tests/theme-toggle.test.js",
+    "test:cross-browser": "playwright test",
+    "test:cross-browser:chromium": "playwright test --project=chromium",
+    "test:cross-browser:firefox": "playwright test --project=firefox",
+    "test:cross-browser:webkit": "playwright test --project=webkit",
+    "test:cross-browser:mobile": "playwright test --project=\"Mobile Chrome\" --project=\"Mobile Safari\"",
+    "test:cross-browser:headed": "playwright test --headed",
+    "test:cross-browser:debug": "playwright test --debug",
+    "validate:links": "node scripts/validate-links.js",
+    "cicd:local": "./scripts/local-cicd-pipeline.sh",
+    "serve": "bundle exec jekyll serve",
+    "build": "bundle exec jekyll build",
+    "format:check": "prettier --check .",
+    "format": "prettier --write .",
+    "precommit": "npm run lint && npm run test && npm run format:check",
+    "prebuild": "npm run precommit",
+    "check:all": "npm run lint && npm run test && npm run format:check && npm run build",
+    "pre-push": "./scripts/pre-push-checks.sh",
+    "prepare": "husky install || true"
+  },
+  "type": "module",
+  "keywords": [
+    "jekyll",
+    "github-pages",
+    "ai4mbse",
+    "cookie-consent",
+    "dsgvo"
+  ],
+  "author": "Kingsepp Consulting <th.kingsepp@gmail.com>",
+  "license": "MIT",
+  "devDependencies": {
+    "@eslint/js": "^9.0.0",
+    "@lhci/cli": "^0.15.0",
+    "@playwright/test": "^1.53.1",
+    "@testing-library/dom": "^9.3.1",
+    "eslint": "^9.0.0",
+    "husky": "^9.0.0",
+    "jest": "^29.7.0",
+    "jest-environment-jsdom": "^29.7.0",
+    "jsdom": "^24.0.0",
+    "lighthouse": "^12.0.0",
+    "lint-staged": "^15.5.2",
+    "playwright": "^1.53.1",
+    "prettier": "^3.5.3",
+    "puppeteer": "^22.8.2"
+  },
+  "jest": {
+    "testEnvironment": "jsdom",
+    "setupFilesAfterEnv": [
+      "<rootDir>/tests/setup.js"
+    ],
+    "testPathIgnorePatterns": [
+      "<rootDir>/_site/",
+      "<rootDir>/node_modules/",
+      "<rootDir>/tests/playwright/"
+    ],
+    "collectCoverageFrom": [
+      "assets/js/**/*.js",
+      "!assets/js/**/*.test.js",
+      "!_site/**"
+    ],
+    "coverageReporters": [
+      "text",
+      "lcov",
+      "html"
+    ],
+    "testTimeout": 30000
+  },
+  "lint-staged": {
+    "*.{js,json,md,yml,yaml}": [
+      "prettier --write"
+    ],
+    "*.js": [
+      "eslint --fix"
+    ]
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged && npm test"
+    }
+  }
+}

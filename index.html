@@ -1,0 +1,143 @@
+---
+layout: default
+title: Home
+typing_effect: true
+---
+
+<div id="main-turnstile-protection" style="display: none">
+  <div style="text-align: center; padding: 4rem 2rem; max-width: 600px; margin: 0 auto">
+    <h2 style="color: var(--accent-color); margin-bottom: 2rem">
+      <span class="prompt-symbol" style="opacity: 0.7">$</span> Verifizierung erforderlich
+    </h2>
+    <p style="margin-bottom: 2rem; line-height: 1.6">
+      Bestätigen Sie, dass Sie ein Mensch sind, um die Website zu betreten.
+    </p>
+    <div
+      id="main-turnstile-widget"
+      class="cf-turnstile"
+      data-sitekey="0x4AAAAAABhCvPtIE3gog0lZ"
+      data-callback="onMainPageTurnstileSuccess"
+      data-error-callback="onMainPageTurnstileError"
+      data-theme="light"
+      style="display: inline-block"
+    ></div>
+  </div>
+</div>
+
+<div id="main-content" style="display: none">
+  <section class="hero">
+    <div class="prompt">
+      <span class="prompt-symbol">$</span>
+      <span class="prompt-path">~/kingsepp</span>
+      <span class="prompt-symbol">></span>
+      <span class="typing-cursor">_</span>
+    </div>
+    <h1>thomas.kingsepp()</h1>
+    <p class="hero-subtitle">
+      <span class="role">Cloud Developer</span> & <span class="role">Project Manager</span>
+    </p>
+    <p class="hero-description">
+      Spezialisiert auf <span class="highlight">Cloud-native Development</span>,
+      <span class="highlight">Workflow-Automatisierung</span> und
+      <span class="highlight">AI4MBSE</span>. Building scalable systems, automating processes,
+      leading projects.
+    </p>
+    <p class="hero-claim">
+      Ich helfe Engineering-Teams, zuverlässige Cloud-Systeme zu bauen — von der Architektur bis zur
+      Automatisierung.
+    </p>
+  </section>
+
+  <section class="content">
+    <h2 class="section-title">
+      <span class="prompt-symbol">></span> <span class="section-title-text">Meine Projekte</span>
+    </h2>
+
+    <article class="project-card" data-status="active">
+      <div class="project-header">
+        <h3>
+          <a href="{{ '/ai4mbse' | relative_url }}" class="project-title">ai4mbse</a>
+        </h3>
+        <span class="project-status">[ active ]</span>
+      </div>
+      <p class="project-description">
+        KI-gestützte Automatisierung im Model-Based Systems Engineering. Forschungsprojekt zur
+        Integration von Large Language Models in MBSE-Workflows mit SysML v2.
+      </p>
+      <div class="project-meta">
+        <span class="tag">AI/ML</span>
+        <span class="tag">MBSE</span>
+        <span class="tag">SysML v2</span>
+      </div>
+      <div class="project-links">
+        <a href="{{ '/ai4mbse' | relative_url }}" class="project-link"
+          >Details <span class="arrow">→</span></a
+        >
+        <a
+          href="https://github.com/kingsepp/ai4mbse"
+          class="project-link"
+          target="_blank"
+          rel="noopener"
+          >GitHub <span class="arrow">↗</span></a
+        >
+      </div>
+    </article>
+
+    <article class="project-card" data-status="active">
+      <div class="project-header">
+        <h3>
+          <a href="{{ '/projects' | relative_url }}" class="project-title">kingsepp.dev</a>
+        </h3>
+        <span class="project-status">[ active ]</span>
+      </div>
+      <p class="project-description">
+        Minimalistisches Portfolio mit Terminal-Ästhetik. Jekyll-basiert, DSGVO-konform,
+        Cloudflare-geschützt.
+      </p>
+      <div class="project-meta">
+        <span class="tag">Jekyll</span>
+        <span class="tag">Web Design</span>
+        <span class="tag">DSGVO</span>
+      </div>
+      <div class="project-links">
+        <a
+          href="https://github.com/kingsepp/kingsepp.github.io"
+          class="project-link"
+          target="_blank"
+          rel="noopener"
+          >GitHub <span class="arrow">↗</span></a
+        >
+      </div>
+    </article>
+  </section>
+
+  <section class="content">
+    <h2 class="section-title">
+      <span class="prompt-symbol">></span> <span class="section-title-text">Prozess</span>
+    </h2>
+    <ol class="process-list">
+      <li>
+        <span class="process-num">01 /</span>
+        <strong>Analyse</strong>
+        <span class="process-desc">— System verstehen, Constraints klären</span>
+      </li>
+      <li>
+        <span class="process-num">02 /</span>
+        <strong>Umsetzung</strong>
+        <span class="process-desc">— Iterativ, dokumentiert, getestet</span>
+      </li>
+      <li>
+        <span class="process-num">03 /</span>
+        <strong>Übergabe</strong>
+        <span class="process-desc">— Wartbar gebaut, nicht magisch</span>
+      </li>
+    </ol>
+  </section>
+
+  <!-- Social Proof — add content before enabling
+  <section class="content">
+    <h2 class="section-title"><span class="prompt-symbol">></span> Referenzen</h2>
+    <p class="hero-description">Previously worked with …</p>
+  </section>
+  -->
+</div>

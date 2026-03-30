@@ -1,0 +1,115 @@
+name: Cross-Browser Tests
+
+on:
+  pull_request:
+    branches: [main]
+  schedule:
+    # Run cross-browser tests daily at 2 AM UTC
+    - cron: '0 2 * * *'
+  workflow_dispatch:
+    # Allow manual trigger
+
+jobs:
+  cross-browser-tests:
+    name: Cross-Browser Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+
+    strategy:
+      fail-fast: false
+      matrix:
+        browser: [chromium]
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          bundle install
+
+      - name: Install Playwright with browsers
+        run: npx playwright install --with-deps ${{ matrix.browser }}
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Run Cross-Browser Tests - ${{ matrix.browser }}
+        run: npx playwright test --project=${{ matrix.browser }}
+        env:
+          CI: true
+
+      - name: Upload Playwright Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-${{ matrix.browser }}
+          path: playwright-report/
+          retention-days: 3
+
+      - name: Upload Test Results
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: test-results-${{ matrix.browser }}
+          path: test-results/
+          retention-days: 3
+
+  mobile-tests:
+    name: Mobile Browser Tests
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    # Run mobile tests on all events for comprehensive testing
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+          cache: 'npm'
+
+      - name: Setup Ruby
+        uses: ruby/setup-ruby@v1
+        with:
+          ruby-version: '3.1'
+          bundler-cache: true
+
+      - name: Install dependencies
+        run: |
+          npm ci
+          bundle install
+
+      - name: Install Playwright Browsers
+        run: npx playwright install chromium
+
+      - name: Build Jekyll site
+        run: bundle exec jekyll build
+
+      - name: Run Mobile Tests
+        run: npx playwright test --project="Mobile Chrome"
+        env:
+          CI: true
+
+      - name: Upload Mobile Test Report
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: playwright-report-mobile
+          path: playwright-report/
+          retention-days: 3

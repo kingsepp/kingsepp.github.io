@@ -1,0 +1,20 @@
+
+echo "🔍 Running pre-commit checks..."
+
+# Check formatting
+echo "🎨 Checking code formatting..."
+npm run format:check
+
+# Run lint-staged for staged files
+npx lint-staged
+
+# Run tests
+echo "🧪 Running tests..."
+npm test
+
+# Check Jekyll build
+echo "🏗️ Testing Jekyll build..."
+bundle exec jekyll build --destination _site_test
+rm -rf _site_test
+
+echo "✅ Pre-commit checks completed!"
