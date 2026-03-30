@@ -212,6 +212,22 @@ nav a:focus-visible {
   margin-right: 8px;
 }
 
+.section-title-text {
+  position: relative;
+  display: inline-block;
+  padding: 0.15em 0.4em;
+}
+
+.section-title-text::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.04);
+  transform: translate(-2px, 2px) rotate(-0.25deg);
+  z-index: -1;
+  border-radius: 3px 2px 4px 2px;
+}
+
 /* Project Cards */
 .project-card {
   border: 1px solid var(--divider-gray);
