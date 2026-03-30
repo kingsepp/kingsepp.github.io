@@ -28,7 +28,7 @@ description:
 </div>
 
 <div class="projects">
-  <h2 class="projects-header"><span class="section-title-text">Meine Projekte</span></h2>
+  <h2 class="projects-header">Meine Projekte</h2>
   
   <div class="project-card">
     <a href="{{ '/ai4mbse' | relative_url }}">
