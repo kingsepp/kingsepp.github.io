@@ -826,3 +826,27 @@ footer a:hover {
     right: 20px;
   }
 }
+
+/* ==========================================================================
+   Dark Mode — Paper-on-Dark
+   --------------------------------------------------------------------------
+   Philosophy: Terminal auf dunklem Papier, nicht Fenster auf Milchglas.
+   Nur Token-Overrides. Kein Blur, keine Transparenz, keine Schatten,
+   keine OS-Imitation. ASCII-Struktur und Status-Farben bleiben unverändert.
+   ========================================================================== */
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg-white: #111111;
+    --text-black: #d4d4d4;
+    --divider-gray: #252525;
+    --hover-bg: #1a1a1a;
+    --accent-light: rgba(0, 140, 255, 0.12);
+    --accent-hover: rgba(0, 140, 255, 0.18);
+  }
+
+  /* Sketch-Effekt invertieren: heller Hauch auf dunklem Grund */
+  .section-title-text::before {
+    background: rgba(255, 255, 255, 0.06);
+  }
+}
