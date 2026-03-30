@@ -1,7 +1,7 @@
 ---
 layout: default
-title: Projects
-description: Personal projects and experimental developments
+title: Projekte
+description: Persönliche Projekte und experimentelle Entwicklungen
 ---
 
 <div id="projects-turnstile-protection" style="display: none; flex-direction: column; align-items: center; justify-content: center; min-height: 60vh; text-align: center; padding: 2rem;">
