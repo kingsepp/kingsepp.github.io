@@ -79,31 +79,6 @@
       document.addEventListener('DOMContentLoaded', loadAnalytics);
     </script>
 
-    <!-- Conditional Google AdSense -->
-    <script>
-      // Load Google AdSense ad script only if user accepted all cookies
-      function loadAdSense() {
-        if (
-          typeof readCookie === 'function' &&
-          readCookie('cookie-notice-dismissed') === 'accept'
-        ) {
-          console.log('Loading Google AdSense after consent');
-
-          const script = document.createElement('script');
-          script.async = true;
-          script.src =
-            'https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-6035652446006884';
-          script.crossOrigin = 'anonymous';
-          document.head.appendChild(script);
-        } else {
-          console.log('AdSense not loaded - user consent:', readCookie('cookie-notice-dismissed'));
-        }
-      }
-
-      // Load AdSense after page load
-      document.addEventListener('DOMContentLoaded', loadAdSense);
-    </script>
-
     <!-- Main JavaScript with Turnstile callbacks -->
     <script src="{{ '/assets/js/main.js' | relative_url }}" defer></script>
 
