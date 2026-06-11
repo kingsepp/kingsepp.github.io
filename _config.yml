@@ -31,6 +31,15 @@ social:
     - https://www.linkedin.com/in/thschuster/
     - https://www.xing.com/profile/Thomas_Schuster229
 
+# Social Sharing — og:image / twitter:image (jekyll-seo-tag)
+twitter:
+  card: summary_large_image
+defaults:
+  - scope:
+      path: ''
+    values:
+      image: /assets/og-image.png
+
 exclude: [tests, scripts, node_modules, playwright-report, test-results, vendor]
 
 # Markdown

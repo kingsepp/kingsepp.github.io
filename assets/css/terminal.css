@@ -812,6 +812,25 @@ footer a:hover {
 }
 
 /* ==========================================================================
+   Accessibility / SEO
+   --------------------------------------------------------------------------
+   .sr-only — Screenreader-Text für Keyword-Kontext in Terminal-H1s
+   (h1 "thomas.schuster()" bleibt visuell, Rolle + Ort nur maschinenlesbar).
+   ========================================================================== */
+
+.sr-only {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
+
+/* ==========================================================================
    Dark Mode — Paper-on-Dark
    --------------------------------------------------------------------------
    Philosophy: Terminal auf dunklem Papier, nicht Fenster auf Milchglas.
