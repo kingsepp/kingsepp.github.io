@@ -14,7 +14,10 @@
     <link rel="icon" type="image/png" href="{{ '/assets/favicon.png' | relative_url }}" />
 
     <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}" />
-    {% seo %}
+    {% seo %} {% if page.url contains 'impressum' %}
+    <!-- Cloudflare Turnstile (nur Impressum-Gate) -->
+    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    {% endif %}
 
     <script type="application/ld+json">
       {
