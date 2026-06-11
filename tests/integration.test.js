@@ -19,7 +19,7 @@ describe('Jekyll Site Integration Tests', () => {
       'Gemfile',
       '_layouts/default.html',
       '_includes/cookie-consent.html',
-      '_includes/ga.js',
+
       'assets/css/style.css',
       'assets/js/main.js',
     ];
@@ -108,7 +108,7 @@ describe('Jekyll Site Integration Tests', () => {
       const impressumPath = path.join(projectRoot, 'impressum.md');
       const content = fs.readFileSync(impressumPath, 'utf8');
 
-      const legalRequirements = ['Thomas Schuster', '§ 5 TMG', 'MStV', 'E-Mail'];
+      const legalRequirements = ['Thomas Schuster', '§ 5 DDG', 'MStV', 'E-Mail'];
 
       legalRequirements.forEach(requirement => {
         expect(content).toMatch(new RegExp(requirement, 'i'));

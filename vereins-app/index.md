@@ -175,7 +175,7 @@ keywords:
         <div class="content-wrapper">
           <div class="image-stack" id="vereins-stack">
             <img class="stack-img" src="vereins-app-login.jpg" alt="Vereins-App Login-Bereich" loading="lazy">
-            <img class="stack-img" src="vereins-app-dashbaord.jpg" alt="Vereins-App Dashboard" loading="lazy">
+            <img class="stack-img" src="vereins-app-dashboard.jpg" alt="Vereins-App Dashboard" loading="lazy">
           </div>
           <p class="stack-hint">$ klicken zum wechseln</p>
         </div>

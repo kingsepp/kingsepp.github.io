@@ -73,32 +73,7 @@ robots: noindex, nofollow
       </div>
 
       <div class="legal-subsection">
-        <h3 class="subsection-heading">2. Cloudflare Turnstile (Bot-Schutz)</h3>
-        <p class="legal-text">
-          Diese Website nutzt Cloudflare Turnstile zum Schutz vor automatisierten Zugriffen:
-        </p>
-        <ul class="legal-list">
-          <li><strong>IP-Adresse</strong> des Besuchers</li>
-          <li><strong>Browser-Informationen</strong> (User-Agent, Sprache)</li>
-          <li><strong>Interaktionsdaten</strong> (Mausbewegungen, Tastatureingaben)</li>
-          <li><strong>Challenge-Antworten</strong> und Verifikationstoken</li>
-        </ul>
-        <div class="info-card">
-          <p class="legal-text">
-            <strong>Rechtsgrundlage:</strong> Berechtigtes Interesse (Art. 6 Abs. 1 lit. f DSGVO)<br>
-            <strong>Zweck:</strong> Schutz vor Bots, Spam und missbräuchlicher Nutzung<br>
-            <strong>Speicherdauer:</strong> Entsprechend Cloudflare Privacy Policy<br>
-            <strong>Datenübertragung:</strong> USA (Angemessenheitsbeschluss)<br>
-            <strong>Weitere Informationen:</strong>
-            <a href="https://www.cloudflare.com/privacypolicy/" target="_blank" class="legal-link">
-              Cloudflare Privacy Policy
-            </a>
-          </p>
-        </div>
-      </div>
-
-      <div class="legal-subsection">
-        <h3 class="subsection-heading">3. Google Analytics (Website-Analyse)</h3>
+        <h3 class="subsection-heading">2. Google Analytics (Website-Analyse)</h3>
         <p class="legal-text">
           Diese Website nutzt Google Analytics zur Analyse des Nutzerverhaltens:
         </p>
@@ -113,7 +88,7 @@ robots: noindex, nofollow
           <p class="legal-text">
             <strong>Rechtsgrundlage:</strong> Einwilligung (Art. 6 Abs. 1 lit. a DSGVO)<br>
             <strong>Zweck:</strong> Website-Optimierung und Verbesserung der Nutzererfahrung<br>
-            <strong>Speicherdauer:</strong> 26 Monate (Google Analytics Standard)<br>
+            <strong>Speicherdauer:</strong> 14 Monate (GA4-Maximum)<br>
             <strong>Datenübertragung:</strong> USA (Angemessenheitsbeschluss)<br>
             <strong>Weitere Informationen:</strong>
             <a href="https://policies.google.com/privacy" target="_blank" class="legal-link">Google Privacy Policy</a> und
@@ -139,7 +114,7 @@ robots: noindex, nofollow
       </div>
 
       <div class="legal-subsection">
-        <h3 class="subsection-heading">4. AI4MBSE-Plugin und Google Gemini API</h3>
+        <h3 class="subsection-heading">3. AI4MBSE-Plugin und Google Gemini API</h3>
         <p class="legal-text">
           Das zum Download angebotene Plugin nutzt die Google Gemini API:
         </p>
@@ -227,7 +202,6 @@ robots: noindex, nofollow
         <h3 class="subsection-heading">Technisch notwendige Cookies</h3>
         <ul class="legal-list">
           <li><strong>GitHub Pages Cookies:</strong> Können nicht beeinflusst werden</li>
-          <li><strong>Turnstile Cookies:</strong> Für Bot-Schutz erforderlich</li>
           <li><strong>Cookie-Einstellungen:</strong> Speichern Ihre Cookie-Präferenzen</li>
         </ul>
       </div>
