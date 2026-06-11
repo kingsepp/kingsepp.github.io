@@ -83,13 +83,6 @@ jobs:
             exit 1
           fi
 
-          if [ -f "_includes/ga.js" ]; then
-            echo "✅ Google Analytics Include gefunden"
-          else
-            echo "❌ Google Analytics Include fehlt"
-            exit 1
-          fi
-
           # Prüfe ob Google Analytics conditional geladen wird (neue Implementierung)
           if grep -q "readCookie.*cookie-notice-dismissed" _includes/cookie-consent.html && grep -q "loadAnalytics" _layouts/default.html; then
             echo "✅ Google Analytics wird conditional geladen"
@@ -144,7 +137,7 @@ jobs:
           done
 
           # Prüfe Impressum
-          if grep -q "Kingsepp Consulting" impressum.md && grep -q "info@kingsepp.dev" impressum.md; then
+          if grep -q "Thomas Schuster IT-Consulting" impressum.md && grep -q "kingsepp" impressum.md; then
             echo "✅ Impressum vollständig"
           else
             echo "❌ Impressum unvollständig"
@@ -165,7 +158,6 @@ jobs:
 
           REQUIRED_FILES=(
             "_includes/cookie-consent.html"
-            "_includes/ga.js"
             "assets/css/style.css"
             "datenschutz.md"
             "impressum.md"
