@@ -6,11 +6,6 @@
     <!-- Google AdSense site verification (Ads laufen auf blog.kingsepp.dev; -->
     <!-- Verifizierung erfolgt auf Domain-Ebene und deckt alle Subdomains ab) -->
     <meta name="google-adsense-account" content="ca-pub-6035652446006884" />
-    <title>{% if page.title %}{{ page.title }} - {% endif %}kingsepp.dev</title>
-    <meta
-      name="description"
-      content="{% if page.description %}{{ page.description }}{% else %}Cloud Developer & Project Manager – Cloud-native Systeme entwickeln, Workflows automatisieren, Projekte leiten{% endif %}"
-    />
     {% if page.robots %}
     <meta name="robots" content="{{ page.robots }}" />
     {% endif %}
@@ -21,8 +16,31 @@
     <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}" />
     {% seo %}
 
-    <!-- Cloudflare Turnstile Global Script -->
-    <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@type": "Person",
+        "name": "Thomas Kingsepp",
+        "jobTitle": "Freelance Cloud Developer & Project Manager",
+        "url": "https://kingsepp.dev",
+        "email": "ts@kingsepp.de",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "München",
+          "addressCountry": "DE"
+        },
+        "knowsAbout": [
+          "Cloud Migration",
+          "Kubernetes",
+          "Terraform",
+          "DevOps",
+          "CI/CD",
+          "AI4MBSE",
+          "Projektmanagement"
+        ],
+        "sameAs": ["https://github.com/kingsepp", "https://www.linkedin.com/in/thomas-kingsepp"]
+      }
+    </script>
   </head>
   <body>
     {% include header.html %}
@@ -33,7 +51,13 @@
       <p>
         $ echo "kingsepp.dev" //
         <a href="{{ '/impressum' | relative_url }}">impressum</a> //
-        <a href="{{ '/datenschutz' | relative_url }}">datenschutz</a>
+        <a href="{{ '/datenschutz' | relative_url }}">datenschutz</a> //
+        <a href="https://github.com/kingsepp" target="_blank" rel="noopener">github</a> //
+        <a href="https://www.linkedin.com/in/thomas-kingsepp" target="_blank" rel="noopener"
+          >linkedin</a
+        >
+        //
+        <a href="mailto:ts@kingsepp.de">ts@kingsepp.de</a>
       </p>
     </footer>
 

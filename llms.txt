@@ -1,0 +1,40 @@
+# Thomas Kingsepp
+
+> Freelance Cloud Developer & Project Manager, München (Remote verfügbar)
+
+## Leistungen
+
+- Cloud-Migration: Legacy → Cloud-native, Kubernetes, Terraform, AWS/Azure/GCP
+- DevOps-Automatisierung: CI/CD, GitOps, Infrastructure as Code, GitHub Actions, ArgoCD
+- Projektleitung: Agile Teams, Stakeholder-Management, technische Architektur
+
+## Technologien
+
+Cloud: AWS, Azure, GCP
+Orchestrierung: Kubernetes, Docker, Helm, Istio
+IaC: Terraform, Ansible, Pulumi
+CI/CD: GitHub Actions, GitLab CI, ArgoCD, Flux
+Sprachen: Python, TypeScript, Go, Java
+AI/ML: LLMs, Prompt Engineering, MBSE-Integration
+
+## Kontakt
+
+- E-Mail: ts@kingsepp.de
+- Website: https://kingsepp.dev
+- GitHub: https://github.com/kingsepp
+- LinkedIn: https://www.linkedin.com/in/thomas-kingsepp
+
+## Projekte
+
+- AI4MBSE Plugin: https://kingsepp.dev/ai4mbse
+  KI-Plugin für Cameo Systems Modeler / Magic Systems of Systems Architect.
+  Automatische Zuordnung von Systemanforderungen zu Subsystemen via LLMs und SysML v2.
+  Entwickelt im Rahmen des Masterstudiengangs Systems Engineering, Hochschule München.
+
+- Portfolio (kingsepp.dev): https://github.com/kingsepp/kingsepp.github.io
+  Jekyll-Portfolio mit Terminal-Ästhetik, DSGVO-konform, Open Source.
+
+## Verfügbarkeit
+
+Remote-first. Präsenz in München und Umgebung möglich.
+Projektanfragen: ts@kingsepp.de

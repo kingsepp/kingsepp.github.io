@@ -1,7 +1,8 @@
-﻿title: Kingsepp
-description: Cloud Consulting & IT-Expertise für moderne Unternehmen
+﻿title: Thomas Kingsepp
+description: Freelance Cloud Developer & Project Manager in München — Cloud-Migration, DevOps-Automatisierung, Projektleitung
 url: 'https://kingsepp.dev'
 baseurl: ''
+locale: de_DE
 
 # Theme (wenn verwendet)
 # theme: jekyll-theme-slate
@@ -21,13 +22,15 @@ paginate_path: /posts/:num/
 paginate: 5
 
 # SEO & Social
-author: Kingsepp
-twitter:
-  username: # Ihr Twitter Handle
+author:
+  name: Thomas Kingsepp
 social:
-  name: Kingsepp
+  name: Thomas Kingsepp
   links:
-    - https://github.com/Kingsepp
+    - https://github.com/kingsepp
+    - https://www.linkedin.com/in/thomas-kingsepp
+
+exclude: [tests, scripts, node_modules, playwright-report, test-results]
 
 # Markdown
 markdown: kramdown
