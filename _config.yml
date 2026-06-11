@@ -1,5 +1,5 @@
-﻿title: Thomas Kingsepp
-description: Freelance Cloud Developer & Project Manager in München — Cloud-Migration, DevOps-Automatisierung, Projektleitung
+﻿title: Thomas Schuster IT-Consulting
+description: Freelance AWS Cloud Architect & Senior IT-Consultant in München — Cloud-Migration, DevOps-Automatisierung, AWS CDK/Lambda/ECS. AWS Certified Solutions Architect.
 url: 'https://kingsepp.dev'
 baseurl: ''
 locale: de_DE
@@ -23,12 +23,13 @@ paginate: 5
 
 # SEO & Social
 author:
-  name: Thomas Kingsepp
+  name: Thomas Schuster
 social:
-  name: Thomas Kingsepp
+  name: Thomas Schuster
   links:
     - https://github.com/kingsepp
-    - https://www.linkedin.com/in/thomas-kingsepp
+    - https://www.linkedin.com/in/thschuster/
+    - https://www.xing.com/profile/Thomas_Schuster229
 
 exclude: [tests, scripts, node_modules, playwright-report, test-results]
 

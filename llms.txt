@@ -1,38 +1,71 @@
-# Thomas Kingsepp
+# Thomas Schuster
 
-> Freelance Cloud Developer & Project Manager, München (Remote verfügbar)
+> Freelance AWS Cloud Architect & Senior IT-Consultant | Thomas Schuster IT-Consulting
+> München, Deutschland (Remote verfügbar)
+
+## Kurzprofil
+
+Thomas Schuster ist ein erfahrener AWS Cloud Architect und Senior IT-Consultant mit über 5 Jahren
+Projekterfahrung im Public Sector (SmartCity, Cybersecurity) und der Automobilindustrie (digitale
+Produktion, Datenintegration). Zertifizierter AWS Solutions Architect.
+
+## Zertifizierungen
+
+- AWS Certified Solutions Architect – Associate
+- AWS Certified Cloud Practitioner
 
 ## Leistungen
 
-- Cloud-Migration: Legacy → Cloud-native, Kubernetes, Terraform, AWS/Azure/GCP
-- DevOps-Automatisierung: CI/CD, GitOps, Infrastructure as Code, GitHub Actions, ArgoCD
-- Projektleitung: Agile Teams, Stakeholder-Management, technische Architektur
+- AWS Cloud-Architektur: CDK, Lambda, ECS, API Gateway, DynamoDB, Glue, MSK, EC2, QuickSight, Athena, IAM
+- Cloud-Migration: Legacy → Cloud-native, Containerisierung, Microservices, Strangler Pattern
+- DevOps-Automatisierung: CI/CD (GitHub Actions), Docker, Prometheus, Grafana, Infrastructure as Code
+- Systemintegration: IBM WebSphere MQ, Apache Kafka, Change Data Capture, hochverfügbare Enterprise-Systeme
+- IT-Consulting: Technische Architekturentscheidungen, Stakeholder-Management, Agile/Scrum, V-Modell
+- AI & MBSE: LLM-Integration in Systems-Engineering-Workflows, SysML v2, Requirements Engineering
 
 ## Technologien
 
-Cloud: AWS, Azure, GCP
-Orchestrierung: Kubernetes, Docker, Helm, Istio
-IaC: Terraform, Ansible, Pulumi
-CI/CD: GitHub Actions, GitLab CI, ArgoCD, Flux
-Sprachen: Python, TypeScript, Go, Java
-AI/ML: LLMs, Prompt Engineering, MBSE-Integration
+Cloud: AWS (CDK, Lambda, ECS, API Gateway, DynamoDB, Glue, MSK, EC2, QuickSight, Athena, IAM)
+Monitoring: Prometheus, Grafana, Docker
+Integration: IBM WebSphere MQ, IBM InfoSphere, Apache Kafka, Change Data Capture
+CI/CD: GitHub Actions, Git, npm, pnpm
+Sprachen: Python, TypeScript, Go (Golang), Java, JSON, HTML
+Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
+
+## Branchen-Erfahrung
+
+- Public Sector: SmartCity-Lösungen, Cybersecurity (Landeshauptstadt München, 2021–2022)
+- Automotive: Digitale Produktionsplattformen, horizontale Datenintegration (Deloitte, 2022–2024)
+- Consulting: Senior Consultant Engineering AI & Cloud (Deloitte, 2024–heute)
+
+## Werdegang
+
+- Deloitte, Senior Consultant Engineering — Juni 2024 bis heute, München
+- Deloitte, Consultant Cloud Transformation & System Engineering — Juni 2022 bis Mai 2024, München
+- Landeshauptstadt München, Technical Requirements Engineer — September 2021 bis Mai 2022
+- Landratsamt Augsburg, Fachinformatiker Systemintegration — Januar 2016 bis August 2018
+
+## Ausbildung
+
+- M.Sc. Systems Engineering, Hochschule München (Oktober 2023 – Juli 2026)
+- B.Sc. Wirtschaftsinformatik, FOM Hochschule (2018–2021)
+- Fachinformatiker Systemintegration, IHK Akademie Schwaben (2016–2018)
 
 ## Kontakt
 
+- Firma: Thomas Schuster IT-Consulting
 - E-Mail: ts@kingsepp.de
 - Website: https://kingsepp.dev
 - GitHub: https://github.com/kingsepp
-- LinkedIn: https://www.linkedin.com/in/thomas-kingsepp
+- LinkedIn: https://www.linkedin.com/in/thschuster/
+- XING: https://www.xing.com/profile/Thomas_Schuster229
 
 ## Projekte
 
 - AI4MBSE Plugin: https://kingsepp.dev/ai4mbse
   KI-Plugin für Cameo Systems Modeler / Magic Systems of Systems Architect.
   Automatische Zuordnung von Systemanforderungen zu Subsystemen via LLMs und SysML v2.
-  Entwickelt im Rahmen des Masterstudiengangs Systems Engineering, Hochschule München.
-
-- Portfolio (kingsepp.dev): https://github.com/kingsepp/kingsepp.github.io
-  Jekyll-Portfolio mit Terminal-Ästhetik, DSGVO-konform, Open Source.
+  Masterprojekt Systems Engineering, Hochschule München.
 
 ## Verfügbarkeit
 
