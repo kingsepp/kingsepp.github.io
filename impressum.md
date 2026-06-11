@@ -56,14 +56,6 @@ robots: noindex, nofollow
     </section>
 
     <section class="legal-section">
-      <h2 class="section-heading">AI4MBSE — Lizenz &amp; Gewährleistung</h2>
-      <p class="legal-text">
-        MIT-Lizenz (Open Source). Gewährleistungsausschluss und Hinweise zur Google Gemini API:
-        <a href="/ai4mbse/#lizenz" class="legal-link">ai4mbse Projektseite</a>.
-      </p>
-    </section>
-
-    <section class="legal-section">
       <h2 class="section-heading">Externe Dienste</h2>
       <p class="legal-text">
         Website-Hosting: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" class="legal-link">GitHub Pages</a>.
@@ -86,8 +78,7 @@ robots: noindex, nofollow
           <div class="contact-item">
             <span class="contact-label">Anschrift:</span>
             <span class="contact-value">
-              <!-- TODO: Privatadresse einsetzen (Straße + Hausnummer, PLZ Ort, Deutschland) -->
-              Deutschland
+              Schachenmeierstr. 16, 80636 München, Deutschland
             </span>
           </div>
           <div class="contact-item">
@@ -109,6 +100,18 @@ robots: noindex, nofollow
           <div class="contact-item">
             <span class="contact-label">Anschrift:</span>
             <!-- TODO: Privatadresse einsetzen (wie oben) -->
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="legal-section">
+      <h2 class="section-heading">Steuerliche Angaben</h2>
+      <div class="contact-card">
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">USt-IdNr.:</span>
+            <span class="contact-value">DE461946961</span>
           </div>
         </div>
       </div>
