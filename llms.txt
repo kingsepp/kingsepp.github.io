@@ -1,13 +1,16 @@
 # Thomas Schuster
 
-> Freelance AWS Cloud Architect & Senior IT-Consultant | Thomas Schuster IT-Consulting
+> Freelance GenAI Engineer, spezialisiert auf AWS & AWS Solutions Architect | Thomas Schuster IT-Consulting
 > München, Deutschland (Remote verfügbar)
 
 ## Kurzprofil
 
-Thomas Schuster ist ein erfahrener AWS Cloud Architect und Senior IT-Consultant mit über 5 Jahren
-Projekterfahrung im Public Sector (SmartCity, Cybersecurity) und der Automobilindustrie (digitale
-Produktion, Datenintegration). Zertifizierter AWS Solutions Architect.
+Thomas Schuster ist Freelance GenAI Engineer mit Schwerpunkt auf produktionsreifen AI-Anwendungen,
+spezialisiert auf AWS — RAG-Systeme, AI Agents und Chatbots mit Amazon Bedrock, CrewAI und
+LangChain. Das
+Fundament bilden über 5 Jahre Engineering-Erfahrung im Public Sector (SmartCity, Cybersecurity) und
+der Automobilindustrie (digitale Produktion, Datenintegration). Zertifizierter AWS Solutions
+Architect.
 
 ## Zertifizierungen
 
@@ -16,18 +19,19 @@ Produktion, Datenintegration). Zertifizierter AWS Solutions Architect.
 
 ## Leistungen
 
-- AWS Cloud-Architektur: CDK, Lambda, ECS, API Gateway, DynamoDB, Glue, MSK, EC2, QuickSight, Athena, IAM
+- GenAI Engineering mit AWS: RAG-Systeme, AI Agents, Chatbots mit Amazon Bedrock, CrewAI, LangChain; Retrieval, Vector Stores, Eval-Loops, Guardrails, produktionsreifes Deployment
+- AWS Cloud-Architektur: CDK, CloudFormation, Lambda, ECS, EC2, API Gateway, DynamoDB, RDS, S3, SQS, SNS, VPC, CloudWatch, Glue, MSK, QuickSight, Athena, IAM
 - Cloud-Migration: Legacy → Cloud-native, Containerisierung, Microservices, Strangler Pattern
 - DevOps-Automatisierung: CI/CD (GitHub Actions), Docker, Prometheus, Grafana, Infrastructure as Code
 - Systemintegration: IBM WebSphere MQ, Apache Kafka, Change Data Capture, hochverfügbare Enterprise-Systeme
 - IT-Consulting: Technische Architekturentscheidungen, Stakeholder-Management, Agile/Scrum, V-Modell
-- AI & MBSE: LLM-Integration in Systems-Engineering-Workflows, SysML v2, Requirements Engineering
 
 ## Technologien
 
-Cloud: AWS (CDK, Lambda, ECS, API Gateway, DynamoDB, Glue, MSK, EC2, QuickSight, Athena, IAM)
-Monitoring: Prometheus, Grafana, Docker
-Integration: IBM WebSphere MQ, IBM InfoSphere, Apache Kafka, Change Data Capture
+GenAI: Amazon Bedrock, CrewAI, LangChain, RAG, Vector Stores, Embeddings, AI Agents, Chatbots, LLMs, Prompt Engineering
+Cloud: AWS (CDK, CloudFormation, Lambda, ECS, EC2, API Gateway, DynamoDB, RDS, S3, EBS, SQS, SNS, VPC, CloudWatch, Glue, MSK, Athena, QuickSight, IAM)
+Monitoring: Prometheus, Grafana, CloudWatch, Docker
+Integration: IBM WebSphere MQ, IBM InfoSphere, Apache Kafka, Change Data Capture, REST-APIs
 CI/CD: GitHub Actions, Git, npm, pnpm
 Sprachen: Python, TypeScript, Go (Golang), Java, JSON, HTML
 Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
@@ -36,11 +40,11 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
 
 - Public Sector: SmartCity-Lösungen, Cybersecurity (Landeshauptstadt München, 2021–2022)
 - Automotive: Digitale Produktionsplattformen, horizontale Datenintegration (Deloitte, 2022–2024)
-- Consulting: Senior Consultant Engineering AI & Cloud (Deloitte, 2024–heute)
+- Consulting: Senior Consultant Engineering, GenAI & Cloud (Deloitte, 2024–heute)
 
 ## Werdegang
 
-- Deloitte, Senior Consultant Engineering — Juni 2024 bis heute, München
+- Deloitte, Senior Consultant Engineering — Juni 2024 bis heute, München (GenAI & Cloud)
 - Deloitte, Consultant Cloud Transformation & System Engineering — Juni 2022 bis Mai 2024, München
 - Landeshauptstadt München, Technical Requirements Engineer — September 2021 bis Mai 2022
 - Landratsamt Augsburg, Fachinformatiker Systemintegration — Januar 2016 bis August 2018
@@ -61,6 +65,14 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
 - XING: https://www.xing.com/profile/Thomas_Schuster229
 
 ## Projekte
+
+- AI-Support-Agent (Proof of Concept): RAG-basierter Support-Agent auf AWS.
+  Nimmt Nutzeranfragen und Anträge entgegen und beantwortet Fragen aus einer Wissensbasis.
+  Retrieval mit Amazon Bedrock, Agent-Orchestrierung mit CrewAI. Aktuell im Aufbau.
+
+- ai-blogger (Production): https://github.com/kingsepp/ai-blogger
+  Automatisierter Reise-Blog auf AWS. KI-gestützte Content-Pipeline (CrewAI) erzeugt aus Bildern
+  und EXIF/GPS-Daten Reise-Artikel als Draft-PR. Astro-Site, Cloudflare → CloudFront → S3, AWS CDK.
 
 - AI4MBSE Plugin: https://kingsepp.dev/ai4mbse
   KI-Plugin für Cameo Systems Modeler / Magic Systems of Systems Architect.
