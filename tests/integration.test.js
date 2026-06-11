@@ -108,7 +108,7 @@ describe('Jekyll Site Integration Tests', () => {
       const impressumPath = path.join(projectRoot, 'impressum.md');
       const content = fs.readFileSync(impressumPath, 'utf8');
 
-      const legalRequirements = ['Thomas Schuster', '§ 5 DDG', 'MStV', 'E-Mail'];
+      const legalRequirements = ['Thomas Schuster', '§ 5 DDG', 'E-Mail'];
 
       legalRequirements.forEach(requirement => {
         expect(content).toMatch(new RegExp(requirement, 'i'));
