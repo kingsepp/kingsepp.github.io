@@ -541,3 +541,20 @@ document.querySelectorAll('.nav-link').forEach(link => {
     });
 });
 </script>
+
+<!-- Lizenz & Gewährleistungsausschluss -->
+<section class="legal-section license-section" style="max-width:800px;margin:3rem auto;padding:0 1rem;">
+  <h2>Software-Lizenz</h2>
+  <div class="license-card">
+    <p><strong>Copyright © 2026 Thomas Schuster</strong> — MIT-Lizenz</p>
+    <p>Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der zugehörigen Dokumentationsdateien erhält, die Erlaubnis erteilt, sie uneingeschränkt zu nutzen, einschließlich der Rechte zur Nutzung, zum Kopieren, Verändern, Zusammenfügen, Veröffentlichen, Verteilen, Unterlizenzieren und/oder Verkaufen.</p>
+    <p><strong>Bedingung:</strong> Obiger Copyright-Vermerk und dieser Erlaubnishinweis sind in allen Kopien beizulegen.</p>
+  </div>
+
+  <h2 style="margin-top:2rem;">Gewährleistungsausschluss</h2>
+  <div class="disclaimer-card">
+    <p>Das AI4MBSE-Plugin wird "wie besehen" ohne jegliche Gewährleistung bereitgestellt. Die Nutzung erfolgt ausschließlich auf eigene Gefahr. Ausgeschlossen sind insbesondere Ansprüche wegen fehlerhafter Funktionalität, Datenverlust, Systemschäden, Folgeschäden sowie Datenübertragung an die Google Gemini API.</p>
+    <p>Das Plugin nutzt die Google Gemini API. Es gelten die <a href="https://policies.google.com/privacy" target="_blank">Google Privacy Policy</a> und <a href="https://ai.google.dev/gemini-api/terms" target="_blank">Gemini API Terms</a>.</p>
+  </div>
+</section>
+</script>
