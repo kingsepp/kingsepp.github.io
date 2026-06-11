@@ -54,7 +54,7 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
 ## Kontakt
 
 - Firma: Thomas Schuster IT-Consulting
-- E-Mail: ts@kingsepp.de
+- E-Mail: info@kingsepp.dev
 - Website: https://kingsepp.dev
 - GitHub: https://github.com/kingsepp
 - LinkedIn: https://www.linkedin.com/in/thschuster/
@@ -70,4 +70,4 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
 ## Verfügbarkeit
 
 Remote-first. Präsenz in München und Umgebung möglich.
-Projektanfragen: ts@kingsepp.de
+Projektanfragen: info@kingsepp.dev

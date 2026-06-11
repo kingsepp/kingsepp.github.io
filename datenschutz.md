@@ -16,7 +16,7 @@ robots: noindex, nofollow
     <section class="legal-section">
       <h2 class="section-heading">Geltungsbereich</h2>
       <p class="legal-text">
-        Diese Datenschutzerklärung gilt für die private Website kingsepp.dev und
+        Diese Datenschutzerklärung gilt für die Website kingsepp.dev und
         das bereitgestellte AI4MBSE-Plugin.
       </p>
     </section>
@@ -24,9 +24,9 @@ robots: noindex, nofollow
     <section class="legal-section">
       <h2 class="section-heading">Datenschutzbeauftragter</h2>
       <p class="legal-text">
-        Als Betreiber einer privaten, nicht-kommerziellen Website bin ich nicht zur Bestellung
-        eines Datenschutzbeauftragten verpflichtet. Bei Fragen zum Datenschutz wenden Sie
-        sich direkt an mich (Kontaktdaten siehe unten).
+        Aufgrund der Größe des Betriebs und der Art der Datenverarbeitung besteht keine
+        Pflicht zur Bestellung eines Datenschutzbeauftragten. Bei Fragen zum Datenschutz
+        wenden Sie sich direkt an mich (Kontaktdaten siehe unten).
       </p>
     </section>
 
@@ -263,7 +263,7 @@ robots: noindex, nofollow
       <div class="legal-subsection">
         <h3 class="subsection-heading">Kontakt bei Datenschutzfragen</h3>
         <p class="legal-text">
-          Bei Fragen zum Datenschutz wenden Sie sich an: <strong>datenschutz@kingsepp.dev</strong>
+          Bei Fragen zum Datenschutz wenden Sie sich an: <strong><a data-email data-user="info" data-domain="kingsepp" data-tld="dev" data-fill-text>info [at] kingsepp [punkt] dev</a></strong>
         </p>
       </div>
 
@@ -309,32 +309,17 @@ robots: noindex, nofollow
         <div class="contact-details">
           <div class="contact-item">
             <span class="contact-label">Name:</span>
-            <span class="contact-value">Kingsepp Consulting</span>
+            <span class="contact-value">Thomas Schuster</span>
           </div>
           <div class="contact-item">
             <span class="contact-label">E-Mail:</span>
-            <span class="contact-value">datenschutz@kingsepp.dev</span>
+            <a class="contact-value" data-email data-user="info" data-domain="kingsepp" data-tld="dev" data-fill-text>info [at] kingsepp [punkt] dev</a>
           </div>
           <div class="contact-item">
-            <span class="contact-label">Projekt:</span>
-            <span class="contact-value">
-              Private, nicht-kommerzielle Website<br>
-              Hochschule München - Studienprojekt
-            </span>
+            <span class="contact-label">Anschrift:</span>
+            <span class="contact-value">[c/o-Anschrift vom Impressumsservice — siehe Impressum]</span>
           </div>
         </div>
-      </div>
-    </section>
-
-    <section class="legal-section disclaimer-section">
-      <h2 class="section-heading">🎓 Bildungsprojekt</h2>
-      <div class="info-card">
-        <p class="legal-text">
-          <strong>Wichtiger Hinweis:</strong> Diese Website ist ein privates, nicht-kommerzielles
-          Bildungsprojekt im Rahmen eines Studiums an der Hochschule München. Es werden keine
-          Dienstleistungen oder Produkte verkauft. Das bereitgestellte AI4MBSE-Plugin wird
-          kostenlos zur Verfügung gestellt.
-        </p>
       </div>
     </section>
 
@@ -344,8 +329,8 @@ robots: noindex, nofollow
           <strong>Stand:</strong> Juni 2026
         </p>
         <p class="footer-note">
-          Diese Datenschutzerklärung wurde für eine private, nicht-kommerzielle Website
-          erstellt und entspricht den deutschen Datenschutzbestimmungen.
+          Diese Datenschutzerklärung entspricht den Anforderungen der DSGVO und des
+          deutschen Datenschutzrechts.
         </p>
       </div>
     </footer>

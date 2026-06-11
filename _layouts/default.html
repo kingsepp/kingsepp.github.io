@@ -16,6 +16,8 @@
     <link rel="stylesheet" href="{{ '/assets/css/terminal.css' | relative_url }}" />
     {% seo %}
 
+    <!-- JSON-LD email bewusst im Klartext: fuettert Google Structured Data /
+         Knowledge Graph. Verschleierung wuerde die strukturierten Daten brechen. -->
     <script type="application/ld+json">
       {
         "@context": "https://schema.org",
@@ -23,7 +25,7 @@
         "name": "Thomas Schuster",
         "jobTitle": "Freelance AWS Cloud Architect & Senior IT-Consultant",
         "url": "https://kingsepp.dev",
-        "email": "ts@kingsepp.de",
+        "email": "info@kingsepp.dev",
         "address": {
           "@type": "PostalAddress",
           "addressLocality": "München",
@@ -70,7 +72,9 @@
           >linkedin</a
         >
         //
-        <a href="mailto:ts@kingsepp.de">ts@kingsepp.de</a>
+        <a data-email data-user="info" data-domain="kingsepp" data-tld="dev" data-fill-text
+          >info [at] kingsepp [punkt] dev</a
+        >
       </p>
     </footer>
 

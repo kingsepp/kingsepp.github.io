@@ -55,18 +55,6 @@ robots: noindex, nofollow
       </p>
     </section>
 
-    <section class="legal-section project-info">
-      <h2 class="section-heading">Bildungszweck</h2>
-      <div class="info-card">
-        <p class="legal-text">
-          Diese Website wurde im Rahmen eines Studienprojekts an der
-          <strong>Hochschule München</strong> erstellt und dient ausschließlich Bildungs-
-          und Informationszwecken. Das bereitgestellte AI4MBSE-Plugin wird kostenfrei
-          zur Verfügung gestellt.
-        </p>
-      </div>
-    </section>
-
     <section class="legal-section license-section">
       <h2 class="section-heading">Software-Lizenz</h2>
       <div class="license-card">
@@ -76,7 +64,7 @@ robots: noindex, nofollow
         </div>
         <div class="license-content">
           <p class="copyright-notice">
-            <strong>Copyright © 2026 Kingsepp Consulting</strong>
+            <strong>Copyright © 2026 Thomas Schuster</strong>
           </p>
           <p class="legal-text">
             Hiermit wird unentgeltlich jeder Person, die eine Kopie der Software und der
@@ -159,37 +147,47 @@ robots: noindex, nofollow
     </section>
 
     <section class="legal-section contact-info">
-      <h2 class="section-heading">Verantwortlich für den Inhalt</h2>
+      <h2 class="section-heading">Angaben gemäß § 5 TMG</h2>
       <div class="contact-card">
         <div class="contact-details">
           <div class="contact-item">
-            <span class="contact-label">Name:</span>
-            <span class="contact-value">Kingsepp Consulting</span>
+            <span class="contact-label">Anbieter:</span>
+            <span class="contact-value">Thomas Schuster</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Tätigkeit:</span>
+            <span class="contact-value">Thomas Schuster IT-Consulting — AWS Cloud Architect</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Anschrift:</span>
+            <span class="contact-value">
+              [c/o-Anschrift vom Impressumsservice — vom Nutzer einzusetzen]<br>
+              [Straße &amp; Hausnummer / c/o]<br>
+              [PLZ Ort]<br>
+              Deutschland
+            </span>
           </div>
           <div class="contact-item">
             <span class="contact-label">E-Mail:</span>
-            <span class="contact-value">info@kingsepp.dev</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Projekt:</span>
-            <span class="contact-value">
-              Private, nicht-kommerzielle Website<br>
-              Hochschule München - Studienprojekt
-            </span>
+            <a class="contact-value" data-email data-user="info" data-domain="kingsepp" data-tld="dev" data-fill-text>info [at] kingsepp [punkt] dev</a>
           </div>
         </div>
       </div>
     </section>
 
-    <section class="legal-section disclaimer-section">
-      <h2 class="section-heading">🎓 Bildungsprojekt</h2>
-      <div class="info-card">
-        <p class="legal-text">
-          <strong>Wichtiger Hinweis:</strong> Diese Website ist ein privates, nicht-kommerzielles
-          Bildungsprojekt im Rahmen eines Studiums an der Hochschule München. Es werden keine
-          Dienstleistungen oder Produkte verkauft. Das bereitgestellte AI4MBSE-Plugin wird
-          kostenlos zur Verfügung gestellt.
-        </p>
+    <section class="legal-section contact-info">
+      <h2 class="section-heading">Verantwortlich i.S.d. § 18 Abs. 2 MStV</h2>
+      <div class="contact-card">
+        <div class="contact-details">
+          <div class="contact-item">
+            <span class="contact-label">Name:</span>
+            <span class="contact-value">Thomas Schuster</span>
+          </div>
+          <div class="contact-item">
+            <span class="contact-label">Anschrift:</span>
+            <span class="contact-value">[wie oben — c/o-Anschrift vom Impressumsservice]</span>
+          </div>
+        </div>
       </div>
     </section>
 
@@ -199,8 +197,7 @@ robots: noindex, nofollow
           <strong>Stand:</strong> Juni 2026
         </p>
         <p class="footer-note">
-          Dieses Impressum entspricht den deutschen rechtlichen Anforderungen für private,
-          nicht-kommerzielle Websites.
+          Dieses Impressum entspricht den Anforderungen des § 5 TMG.
         </p>
       </div>
     </footer>
