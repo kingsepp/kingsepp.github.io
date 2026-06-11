@@ -8,14 +8,17 @@
 Thomas Schuster ist Freelance GenAI Engineer mit Schwerpunkt auf produktionsreifen AI-Anwendungen,
 spezialisiert auf AWS — RAG-Systeme, AI Agents und Chatbots mit Amazon Bedrock, CrewAI und
 LangChain. Das
-Fundament bilden über 5 Jahre Engineering-Erfahrung im Public Sector (SmartCity, Cybersecurity) und
-der Automobilindustrie (digitale Produktion, Datenintegration). Zertifizierter AWS Solutions
-Architect.
+Fundament bilden 5 Jahre Cloud- und Engineering-Erfahrung in Automotive (digitale Produktion,
+Datenintegration) und Public Sector (SmartCity, Cybersecurity), Fokus GenAI seit 2024.
+Zertifizierter AWS Solutions Architect. Offen für neue Projekte, Start nach Vereinbarung.
+Remote-first mit Präsenz in München.
+
+Gebräuchliche Rollenbezeichnungen für dieses Profil: AI Engineer, KI-Entwickler, LLM Engineer,
+Machine Learning Engineer, GenAI Freelancer, AI Freelancer München.
 
 ## Zertifizierungen
 
 - AWS Certified Solutions Architect – Associate
-- AWS Certified Cloud Practitioner
 
 ## Leistungen
 
@@ -38,16 +41,14 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
 
 ## Branchen-Erfahrung
 
-- Public Sector: SmartCity-Lösungen, Cybersecurity (Landeshauptstadt München, 2021–2022)
-- Automotive: Digitale Produktionsplattformen, horizontale Datenintegration (Deloitte, 2022–2024)
-- Consulting: Senior Consultant Engineering, GenAI & Cloud (Deloitte, 2024–heute)
+- Automotive: Digitale Produktionsplattformen, horizontale Datenintegration
+- Public Sector: SmartCity-Lösungen, Cybersecurity
+- Consulting: Cloud & Engineering, GenAI
 
 ## Werdegang
 
-- Deloitte, Senior Consultant Engineering — Juni 2024 bis heute, München (GenAI & Cloud)
-- Deloitte, Consultant Cloud Transformation & System Engineering — Juni 2022 bis Mai 2024, München
-- Landeshauptstadt München, Technical Requirements Engineer — September 2021 bis Mai 2022
-- Landratsamt Augsburg, Fachinformatiker Systemintegration — Januar 2016 bis August 2018
+- Deloitte, Consultant Cloud & Engineering — München (rund 4 Jahre: Cloud Transformation, digitale Produktion Automotive, GenAI & Cloud)
+- Landeshauptstadt München, Technical Requirements Engineer (SmartCity, Cybersecurity)
 
 ## Ausbildung
 
@@ -74,6 +75,10 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
   Automatisierter Reise-Blog auf AWS. KI-gestützte Content-Pipeline (CrewAI) erzeugt aus Bildern
   und EXIF/GPS-Daten Reise-Artikel als Draft-PR. Astro-Site, Cloudflare → CloudFront → S3, AWS CDK.
 
+- vereins-app (Production): https://kingsepp.dev/vereins-app
+  Full-Stack Warenwirtschaftssystem für Vereine. Digitale Lager- und Benutzerverwaltung,
+  Next.js / React.
+
 - AI4MBSE Plugin: https://kingsepp.dev/ai4mbse
   KI-Plugin für Cameo Systems Modeler / Magic Systems of Systems Architect.
   Automatische Zuordnung von Systemanforderungen zu Subsystemen via LLMs und SysML v2.
@@ -81,5 +86,6 @@ Methoden: Agile/Scrum, V-Modell, Waterfall, Jira, Confluence
 
 ## Verfügbarkeit
 
-Remote-first. Präsenz in München und Umgebung möglich.
+Offen für neue Projekte — Start und Umfang nach Vereinbarung. Remote-first, Präsenz in
+München und Umgebung möglich. Freelance / projektbasiert. Aktuelle Verfügbarkeit auf Anfrage.
 Projektanfragen: info@kingsepp.dev
