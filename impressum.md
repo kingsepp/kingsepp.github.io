@@ -89,22 +89,6 @@ robots: noindex, nofollow
       </div>
     </section>
 
-    <section class="legal-section contact-info">
-      <h2 class="section-heading">Verantwortlich i.S.d. § 18 Abs. 2 MStV</h2>
-      <div class="contact-card">
-        <div class="contact-details">
-          <div class="contact-item">
-            <span class="contact-label">Name:</span>
-            <span class="contact-value">Thomas Schuster</span>
-          </div>
-          <div class="contact-item">
-            <span class="contact-label">Anschrift:</span>
-            <!-- TODO: Privatadresse einsetzen (wie oben) -->
-          </div>
-        </div>
-      </div>
-    </section>
-
     <section class="legal-section">
       <h2 class="section-heading">Steuerliche Angaben</h2>
       <div class="contact-card">
